@@ -1,0 +1,72 @@
+@import '../../themes/vars.less';
+.container-box {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: @page-background-color;
+  :global {
+    .left-content {
+      .suid-list-card-tool-box {
+        padding: 0 24px;
+      }
+      .ant-card-head {
+        padding: 0 8px 0 24px;
+      }
+      .ant-card-body .suid-list-card-body .ant-list-item {
+        padding: 22px 24px 32px 24px;
+        .tool-action {
+          position: absolute;
+          right: 20px;
+          bottom: 2px;
+          .action-item {
+            visibility: hidden;
+            &.ant-popover-open {
+              visibility: visible;
+              i {
+                color: @primary-color;
+                background-color: fade(@black, 5%);
+              }
+            }
+          }
+          i {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 34px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all ease-in 0.2s;
+            &.ant-dropdown-open,
+            &:hover {
+              color: @primary-color;
+              background-color: fade(@black, 5%);
+            }
+            &.del:hover {
+              color: @error-color;
+              background-color: fade(@error-color, 15%);
+            }
+            &.ant-popover-open:hover,
+            &.ant-popover-open {
+              color: @error-color;
+              background-color: fade(@error-color, 15%);
+            }
+          }
+        }
+        &:hover {
+          .tool-action {
+            .action-item {
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+    .main-content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+  }
+}
