@@ -3,6 +3,7 @@ node_modules
 /components/test/*
 dist
 public
+config
 package.json
 .umi
 .umi-production
