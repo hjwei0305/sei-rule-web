@@ -4,6 +4,7 @@ node_modules
 dist
 public
 config
+tsconfig.json
 package.json
 .umi
 .umi-production
