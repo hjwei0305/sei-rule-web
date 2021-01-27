@@ -32,7 +32,7 @@ export async function logout(params) {
 
 /** 获取当前用户有权限的功能项集合 */
 export async function getAuthorizedFeatures(userId) {
-  const url = `${SERVER_PATH}/sei-auth/auth/getAuthorizedFeatures`;
+  const url = `${SERVER_PATH}/sei-basic/user/getUserAuthorizedFeatureMaps`;
   return request({
     url,
     params: { userId },
