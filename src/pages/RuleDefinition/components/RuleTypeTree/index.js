@@ -57,12 +57,10 @@ class RuleTypeTree extends Component {
   del = id => {
     const { del } = this.props;
     if (del && del instanceof Function) {
-      del(id, res => {
-        if (res.success) {
-          this.setState({
-            delId: null,
-          });
-        }
+      del(id, () => {
+        this.setState({
+          delId: null,
+        });
       });
     }
   };
@@ -100,9 +98,8 @@ class RuleTypeTree extends Component {
   renderRemoveBtn = item => {
     const { deleting } = this.props;
     const { delId } = this.state;
-    let icon = <ExtIcon className="del" type="delete" antd />;
     if (deleting && delId === item.id) {
-      icon = <ExtIcon type="loading" antd />;
+      return <ExtIcon type="loading" className="del-loading" antd />;
     }
     return (
       <Popconfirm
@@ -113,7 +110,7 @@ class RuleTypeTree extends Component {
         onConfirm={() => this.del(item.id)}
         placement="topLeft"
       >
-        {icon}
+        <ExtIcon className="del" type="delete" antd />
       </Popconfirm>
     );
   };
@@ -291,7 +288,7 @@ class RuleTypeTree extends Component {
     const { loading } = this.props;
     return (
       <div className={cls(styles['node-box'])}>
-        <Card title="规则类型定义" bordered={false}>
+        <Card title="规则类型" bordered={false}>
           <div className={cls('tool-box')}>
             <Search
               placeholder="输入名称关键字查询"
