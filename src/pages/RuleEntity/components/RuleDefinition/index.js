@@ -4,6 +4,8 @@ import { Tabs, Card } from 'antd';
 import { BannerTitle } from 'suid';
 import RuleAttribute from '../../RuleAttribute';
 import RuleReturnType from '../../RuleReturnType';
+import RuleServiceMethod from '../../RuleServiceMethod';
+import RuleComparator from '../../RuleComparator';
 import styles from './index.less';
 
 const { TabPane } = Tabs;
@@ -23,10 +25,10 @@ const RuleDefinition = ({ selectedRuleEntityType, currentTabKey, onTabChange }) 
           <RuleReturnType ruleEntityType={selectedRuleEntityType} />
         </TabPane>
         <TabPane tab="服务方法" key="ruleServiceMethod" forceRender>
-          服务方法
+          <RuleServiceMethod ruleEntityType={selectedRuleEntityType} />
         </TabPane>
         <TabPane tab="比较器" key="ruleComparator" forceRender>
-          比较器
+          <RuleComparator ruleEntityType={selectedRuleEntityType} />
         </TabPane>
       </Tabs>
     </Card>

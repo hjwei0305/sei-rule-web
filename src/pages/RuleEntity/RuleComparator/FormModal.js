@@ -7,10 +7,10 @@ import styles from './index.less';
 const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
-    span: 6,
+    span: 5,
   },
   wrapperCol: {
-    span: 18,
+    span: 19,
   },
 };
 
@@ -42,20 +42,20 @@ class FormModal extends PureComponent {
         wrapClassName={styles['form-modal-box']}
         bodyStyle={{ padding: 0 }}
         confirmLoading={saving}
-        title={<BannerTitle title={title} subTitle="返回结果" />}
+        title={<BannerTitle title={title} subTitle="比较器" />}
         onOk={this.handlerFormSubmit}
       >
         <Form {...formItemLayout} layout="horizontal" style={{ margin: 24 }}>
-          <FormItem label="代码">
-            {getFieldDecorator('code', {
-              initialValue: get(rowData, 'code'),
+          <FormItem label="方法名">
+            {getFieldDecorator('method', {
+              initialValue: get(rowData, 'method'),
               rules: [
                 {
                   required: true,
-                  message: '代码不能为空',
+                  message: '方法名不能为空',
                 },
               ],
-            })(<Input autoComplete="off" placeholder="全类名" />)}
+            })(<Input autoComplete="off" placeholder="API调用服务的方法名" />)}
           </FormItem>
           <FormItem label="名称">
             {getFieldDecorator('name', {
@@ -68,27 +68,16 @@ class FormModal extends PureComponent {
               ],
             })(<Input autoComplete="off" />)}
           </FormItem>
-          <FormItem label="UI组件">
-            {getFieldDecorator('uiComponent', {
-              initialValue: get(rowData, 'uiComponent'),
+          <FormItem label="API相对路径">
+            {getFieldDecorator('path', {
+              initialValue: get(rowData, 'path'),
               rules: [
                 {
                   required: true,
-                  message: 'UI组件不能为空',
+                  message: 'API相对路径不能为空',
                 },
               ],
-            })(<Input autoComplete="off" placeholder="选择返回结果对象的Id和Name" />)}
-          </FormItem>
-          <FormItem label="数据源接口地址">
-            {getFieldDecorator('findDataUrl', {
-              initialValue: get(rowData, 'findDataUrl'),
-              rules: [
-                {
-                  required: true,
-                  message: '数据源接口地址不能为空',
-                },
-              ],
-            })(<Input autoComplete="off" placeholder="网关路径之后的相对路径" />)}
+            })(<Input autoComplete="off" placeholder="API调用服务的路径" />)}
           </FormItem>
         </Form>
       </ExtModal>

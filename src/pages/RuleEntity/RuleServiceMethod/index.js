@@ -11,8 +11,8 @@ import styles from './index.less';
 
 const { SERVER_PATH } = constants;
 
-@connect(({ ruleReturnType, loading }) => ({ ruleReturnType, loading }))
-class RuleReturnType extends Component {
+@connect(({ ruleServiceMethod, loading }) => ({ ruleServiceMethod, loading }))
+class RuleServiceMethod extends Component {
   static tablRef;
 
   constructor(props) {
@@ -31,7 +31,7 @@ class RuleReturnType extends Component {
   add = () => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'ruleReturnType/updateState',
+      type: 'ruleServiceMethod/updateState',
       payload: {
         showModal: true,
         rowData: null,
@@ -42,7 +42,7 @@ class RuleReturnType extends Component {
   edit = rowData => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'ruleReturnType/updateState',
+      type: 'ruleServiceMethod/updateState',
       payload: {
         showModal: true,
         rowData,
@@ -53,7 +53,7 @@ class RuleReturnType extends Component {
   save = data => {
     const { dispatch, ruleEntityType } = this.props;
     dispatch({
-      type: 'ruleReturnType/save',
+      type: 'ruleServiceMethod/save',
       payload: {
         ruleEntityTypeId: get(ruleEntityType, 'id'),
         ...data,
@@ -61,7 +61,7 @@ class RuleReturnType extends Component {
       callback: res => {
         if (res.success) {
           dispatch({
-            type: 'ruleReturnType/updateState',
+            type: 'ruleServiceMethod/updateState',
             payload: {
               showModal: false,
             },
@@ -80,7 +80,7 @@ class RuleReturnType extends Component {
       },
       () => {
         dispatch({
-          type: 'ruleReturnType/del',
+          type: 'ruleServiceMethod/del',
           payload: {
             id: record.id,
           },
@@ -100,7 +100,7 @@ class RuleReturnType extends Component {
   closeFormModal = () => {
     const { dispatch } = this.props;
     dispatch({
-      type: 'ruleReturnType/updateState',
+      type: 'ruleServiceMethod/updateState',
       payload: {
         showModal: false,
         rowData: null,
@@ -111,15 +111,15 @@ class RuleReturnType extends Component {
   renderDelBtn = row => {
     const { loading } = this.props;
     const { delRowId } = this.state;
-    if (loading.effects['ruleReturnType/del'] && delRowId === row.id) {
+    if (loading.effects['ruleServiceMethod/del'] && delRowId === row.id) {
       return <ExtIcon className="del-loading" type="loading" antd />;
     }
     return <ExtIcon className="del" type="delete" antd />;
   };
 
   render() {
-    const { ruleReturnType, loading, ruleEntityType } = this.props;
-    const { showModal, rowData } = ruleReturnType;
+    const { ruleServiceMethod, loading, ruleEntityType } = this.props;
+    const { showModal, rowData } = ruleServiceMethod;
     const columns = [
       {
         title: formatMessage({ id: 'global.operation', defaultMessage: '操作' }),
@@ -152,28 +152,22 @@ class RuleReturnType extends Component {
         ),
       },
       {
-        title: '代码',
-        dataIndex: 'code',
-        width: 180,
+        title: '方法名',
+        dataIndex: 'method',
+        width: 220,
         required: true,
       },
       {
         title: '名称',
         dataIndex: 'name',
-        width: 140,
+        width: 180,
         required: true,
       },
       {
-        title: 'UI组件',
-        dataIndex: 'uiComponent',
-        width: 160,
-        required: true,
-        render: t => t || '-',
-      },
-      {
-        title: '数据源接口地址',
-        dataIndex: 'findDataUrl',
+        title: 'API相对路径',
+        dataIndex: 'path',
         width: 380,
+        required: true,
         render: t => t || '-',
       },
     ];
@@ -182,7 +176,7 @@ class RuleReturnType extends Component {
       rowData,
       showModal,
       closeFormModal: this.closeFormModal,
-      saving: loading.effects['ruleReturnType/save'],
+      saving: loading.effects['ruleServiceMethod/save'],
     };
     const toolBarProps = {
       left: (
@@ -200,11 +194,11 @@ class RuleReturnType extends Component {
       toolBar: toolBarProps,
       columns,
       searchWidth: 260,
-      searchPlaceHolder: '输入代码、名称关键字',
-      searchProperties: ['code', 'name'],
+      searchPlaceHolder: '输入方法名、名称关键字',
+      searchProperties: ['method', 'name'],
       onTableRef: ref => (this.tablRef = ref),
       store: {
-        url: `${SERVER_PATH}/sei-rule/ruleReturnType/findByRuleEntityTypeId`,
+        url: `${SERVER_PATH}/sei-rule/ruleServiceMethod/findByRuleEntityTypeId`,
       },
       cascadeParams: {
         ruleEntityTypeId: get(ruleEntityType, 'id'),
@@ -219,4 +213,4 @@ class RuleReturnType extends Component {
   }
 }
 
-export default RuleReturnType;
+export default RuleServiceMethod;
