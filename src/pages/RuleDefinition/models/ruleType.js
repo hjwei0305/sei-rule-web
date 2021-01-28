@@ -11,7 +11,6 @@ export default modelExtend(model, {
   state: {
     currentRuleType: null,
     selectedRuleType: null,
-    showRuleTypeFormModal: false,
     ruleTypeData: [],
   },
   subscriptions: {
