@@ -194,7 +194,7 @@ class RuleEntity extends Component {
     const selectedKeys = selectedRuleEntityType ? [selectedRuleEntityType.id] : [];
     const ruleEntityTypeProps = {
       className: 'left-content',
-      title: '规则业务实体列表',
+      title: '规则业务主体',
       showSearch: false,
       onSelectChange: this.handlerRuleEntityTypeSelect,
       customTool: this.renderCustomTool,
