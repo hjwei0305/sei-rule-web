@@ -15,7 +15,7 @@ const RuleDefinition = ({ selectedRuleEntityType, currentTabKey, onTabChange }) 
     <Card
       className={styles['view-box']}
       bordered={false}
-      title={<BannerTitle title={get(selectedRuleEntityType, 'name')} subTitle="规则定义" />}
+      title={<BannerTitle title={get(selectedRuleEntityType, 'name')} subTitle="配置" />}
     >
       <Tabs type="card" activeKey={currentTabKey} onChange={onTabChange} animated={false}>
         <TabPane tab="规则属性" key="ruleAttribute" forceRender>
