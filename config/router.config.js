@@ -14,9 +14,12 @@ export default [
       { path: '/', redirect: '/dashboard' },
       { path: '/dashboard', component: './Dashboard' },
       {
-        path: '/ruleEntity',
-        name: '规则实体配置',
-        routes: [{ path: '/ruleEntity/config', component: './RuleEntity' }],
+        path: '/rule',
+        name: '规则',
+        routes: [
+          { path: '/rule/entityConfig', name: '规则主体', component: './RuleEntity' },
+          { path: '/rule/definition', name: '规则定义', component: './RuleDefinition' },
+        ],
       },
     ],
   },
