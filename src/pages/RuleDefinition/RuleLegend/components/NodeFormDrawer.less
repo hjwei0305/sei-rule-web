@@ -1,0 +1,51 @@
+@import '../../../../themes/vars.less';
+.node-form-drawer-box {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  :global {
+    .ant-drawer-header {
+      border-color: transparent;
+    }
+    .ant-drawer-body {
+      height: calc(100% - 55px);
+      padding: 0;
+    }
+    .box {
+      width: 100%;
+      height: 100%;
+      .box-body {
+        width: 100%;
+        height: calc(100% - 42px);
+        overflow: hidden;
+        .scrollbar-container {
+          width: 100%;
+        }
+      }
+      .box-foot {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 42px;
+        padding: 0 24px;
+        line-height: 42px;
+        border-top: 1px solid @border-color;
+        button {
+          margin-right: 8px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      &.only-view {
+        .box-body {
+          height: calc(100% - 0px);
+        }
+        .box-foot {
+          display: none;
+          height: 0;
+        }
+      }
+    }
+  }
+}

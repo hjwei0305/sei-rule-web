@@ -4,6 +4,7 @@ import cls from 'classnames';
 import { Empty, Layout } from 'antd';
 import empty from '@/assets/item_empty.svg';
 import RuleTypeTree from './components/RuleTypeTree';
+import RuleRootList from './RuleRootList';
 import styles from './index.less';
 
 const { Sider, Content } = Layout;
@@ -82,7 +83,9 @@ class RuleDefinition extends Component {
             <RuleTypeTree {...ruleTypeTreeProps} />
           </Sider>
           <Content className={cls('main-content', 'auto-height')} style={{ paddingLeft: 4 }}>
-            {selectedRuleType ? null : (
+            {selectedRuleType ? (
+              <RuleRootList ruleType={selectedRuleType} />
+            ) : (
               <div className="blank-empty">
                 <Empty image={empty} description="选择规则类型进行规则定义" />
               </div>
