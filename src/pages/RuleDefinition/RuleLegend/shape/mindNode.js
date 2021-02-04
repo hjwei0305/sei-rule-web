@@ -111,16 +111,21 @@ export default G6 => {
       setState(name, value, item) {
         const group = item.getContainer();
         const states = item.getStates();
+        const nodeData = item.getModel();
         if (name === 'collapse') {
           const collapseText = group.find(e => e.get('name') === 'collapse-text');
           if (collapseText) {
             if (!value) {
               collapseText.attr({
                 text: '-',
+                y: -1,
+                fontSize: 16,
               });
             } else {
               collapseText.attr({
-                text: '+',
+                fontSize: 10,
+                y: 0.5,
+                text: nodeData.children.length,
               });
             }
           }
