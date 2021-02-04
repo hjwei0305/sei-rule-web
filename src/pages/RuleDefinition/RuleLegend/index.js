@@ -27,6 +27,33 @@ insertCss(`
     border: 2px solid rgb(25, 128, 255);
   }
 `);
+const getContextMenuData = () => [
+  {
+    name: '新建子规则',
+    code: 'addSubRule',
+    disabled: false,
+  },
+  {
+    name: '显示规则详情',
+    code: 'view',
+    disabled: false,
+  },
+  {
+    name: '修改规则',
+    code: 'edit',
+    disabled: false,
+  },
+  {
+    name: '删除规则',
+    code: 'delete',
+    disabled: false,
+  },
+  {
+    name: '规则快照',
+    code: 'expression',
+    disabled: false,
+  },
+];
 const { getUUID } = utils;
 const DELTA = 0.05;
 
@@ -201,6 +228,24 @@ class RuleLegend extends Component {
     });
   };
 
+  renderContextMenu = nodeData => {
+    const contextMenuData = getContextMenuData();
+    const finished = get(nodeData, 'finished') || false;
+    if (finished) {
+      contextMenuData.forEach(m => {
+        if (m.code === 'addSubRule') {
+          Object.assign(m, { disabled: true });
+        }
+      });
+    }
+    const menuData = contextMenuData.filter(m => m.disabled === false);
+    return menuData
+      .map(m => {
+        return `<li class="ant-menu-item" code="${m.code}">${m.name}</li>`;
+      })
+      .join('');
+  };
+
   initTreeGraph = data => {
     if (!data) {
       return;
@@ -242,17 +287,29 @@ class RuleLegend extends Component {
       className: 'node-context-menu',
       itemTypes: ['node'],
       getContent: e => {
-        console.log(e);
-        return `<ul class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical">
-                  <li title='1' class="ant-menu-item">测试02</li>
-                  <li title='2' class="ant-menu-item">测试02</li>
-                  <li class="ant-menu-item">测试02</li>
-                  <li class="ant-menu-item">测试02</li>
-                  <li class="ant-menu-item">测试02</li>
-                </ul>`;
+        const nodeData = e.item.getModel();
+        return `<ul class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical">${this.renderContextMenu(
+          nodeData,
+        )}</ul>`;
       },
-      handleMenuClick(target, item) {
-        console.log(target, item);
+      handleMenuClick: (target, item) => {
+        this.hideNodePath('selected');
+        this.graph.setItemState(item, 'selected', true);
+        this.showNodePath(item, 'selected');
+        const nodeData = item.getModel();
+        const menuType = target.getAttribute('code');
+        switch (menuType) {
+          case 'addSubRule':
+            this.handlerAddNode(nodeData);
+            break;
+          case 'edit':
+            break;
+          case 'delete':
+            break;
+          case 'expression':
+            break;
+          default:
+        }
       },
     });
     const graph = new G6.TreeGraph({
@@ -304,6 +361,8 @@ class RuleLegend extends Component {
     graph.moveTo(24, 24);
     const handleCollapse = e => {
       const { target, originalEvent } = e;
+      e.bubbles = false;
+      e.defaultPrevented = true;
       originalEvent.stopPropagation();
       const id = target.get('modelId');
       const item = graph.findById(id);
@@ -370,6 +429,13 @@ class RuleLegend extends Component {
   fitView = () => {
     if (this.graph) {
       this.graph.fitView(24);
+      this.graph.moveTo(24, 24);
+    }
+  };
+
+  realSize = () => {
+    if (this.graph) {
+      this.graph.zoomTo(1);
       this.graph.moveTo(24, 24);
     }
   };
@@ -507,6 +573,13 @@ class RuleLegend extends Component {
             type="zoom-out"
             onClick={this.zoomOut}
             tooltip={{ title: '缩小', placement: 'bottom' }}
+            antd
+            className={cls('command', { 'command-disabled': !ruleRoot })}
+          />
+          <ExtIcon
+            type="border"
+            onClick={this.realSize}
+            tooltip={{ title: '实际尺寸', placement: 'bottom' }}
             antd
             className={cls('command', { 'command-disabled': !ruleRoot })}
           />
