@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { debounce, isEqual, get, cloneDeep } from 'lodash';
 import { connect } from 'dva';
 import G6 from '@antv/g6';
+import cls from 'classnames';
 import insertCss from 'insert-css';
-import { Modal, Divider, Empty, Button, Menu } from 'antd';
+import { Modal, Divider, Empty, Button } from 'antd';
 import { utils, ExtIcon, BannerTitle, PageLoader } from 'suid';
 import empty_data from '@/assets/empty_data_02.svg';
 import registerNode from './shape/mindNode';
@@ -26,13 +27,6 @@ insertCss(`
     border: 2px solid rgb(25, 128, 255);
   }
 `);
-const ContextMenu = (
-  <Menu>
-    <Menu.Item key="1">1st menu item</Menu.Item>
-    <Menu.Item key="2">2nd menu item</Menu.Item>
-    <Menu.Item key="3">3rd menu item</Menu.Item>
-  </Menu>
-);
 const { getUUID } = utils;
 const DELTA = 0.05;
 
@@ -213,15 +207,9 @@ class RuleLegend extends Component {
     }
     const grid = new G6.Grid();
     const tooltip = new G6.Tooltip({
-      // offsetX and offsetY include the padding of the parent container
-      // offsetX 与 offsetY 需要加上父容器的 padding
       offsetX: 20,
       offsetY: 30,
-      // the types of items that allow the tooltip show up
-      // 允许出现 tooltip 的 item 类型
       itemTypes: ['node'],
-      // custom the tooltip's content
-      // 自定义 tooltip 内容
       getContent: e => {
         const outDiv = document.createElement('div');
         const nodeName = e.item.getModel().name;
@@ -251,9 +239,17 @@ class RuleLegend extends Component {
     const menu = new G6.Menu({
       offsetX: 6,
       offsetY: 10,
+      className: 'node-context-menu',
       itemTypes: ['node'],
-      getContent() {
-        return <ContextMenu />;
+      getContent: e => {
+        console.log(e);
+        return `<ul class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical">
+                  <li title='1' class="ant-menu-item">测试02</li>
+                  <li title='2' class="ant-menu-item">测试02</li>
+                  <li class="ant-menu-item">测试02</li>
+                  <li class="ant-menu-item">测试02</li>
+                  <li class="ant-menu-item">测试02</li>
+                </ul>`;
       },
       handleMenuClick(target, item) {
         console.log(target, item);
@@ -307,7 +303,8 @@ class RuleLegend extends Component {
     graph.zoom(1);
     graph.moveTo(24, 24);
     const handleCollapse = e => {
-      const { target } = e;
+      const { target, originalEvent } = e;
+      originalEvent.stopPropagation();
       const id = target.get('modelId');
       const item = graph.findById(id);
       const nodeModel = item.getModel();
@@ -317,11 +314,9 @@ class RuleLegend extends Component {
     };
     graph.on('collapse-text:click', e => {
       handleCollapse(e);
-      return false;
     });
     graph.on('collapse-back:click', e => {
       handleCollapse(e);
-      return false;
     });
     graph.on('node:mouseenter', e => {
       const { item } = e;
@@ -338,50 +333,56 @@ class RuleLegend extends Component {
         selectedItems: { nodes },
         select,
       } = e;
-      this.clearAllStates();
+      this.hideNodePath('selected');
       if (select) {
         const item = nodes[0];
         graph.setItemState(item, 'selected', true);
         this.showNodePath(item, 'selected');
-      } else {
-        this.hideNodePath('selected');
       }
     });
     this.graph = graph;
   };
 
   zoomIn = () => {
-    const ratio = 1 + DELTA;
-    const zoom = this.graph.getZoom() * ratio;
-    const maxZoom = this.graph.get('maxZoom');
-    if (zoom > maxZoom) {
-      return;
+    if (this.graph) {
+      const ratio = 1 + DELTA;
+      const zoom = this.graph.getZoom() * ratio;
+      const maxZoom = this.graph.get('maxZoom');
+      if (zoom > maxZoom) {
+        return;
+      }
+      this.graph.zoom(ratio);
     }
-    this.graph.zoom(ratio);
   };
 
   zoomOut = () => {
-    const ratio = 1 - DELTA;
-    const zoom = this.graph.getZoom() * ratio;
-    const minZoom = this.graph.get('minZoom');
-    if (zoom < minZoom) {
-      return;
+    if (this.graph) {
+      const ratio = 1 - DELTA;
+      const zoom = this.graph.getZoom() * ratio;
+      const minZoom = this.graph.get('minZoom');
+      if (zoom < minZoom) {
+        return;
+      }
+      this.graph.zoom(ratio);
     }
-    this.graph.zoom(ratio);
   };
 
   fitView = () => {
-    this.graph.fitView(24);
-    this.graph.moveTo(24, 24);
+    if (this.graph) {
+      this.graph.fitView(24);
+      this.graph.moveTo(24, 24);
+    }
   };
 
   downloadNode = () => {
-    const { ruleType, ruleRoot } = this.props;
-    const title = `${get(ruleType, 'name')} - ${get(ruleRoot, 'name')}`;
-    this.graph.downloadFullImage(title, 'image/jpeg', {
-      backgroundColor: '#f0f2f5',
-      padding: 24,
-    });
+    if (this.graph) {
+      const { ruleType, ruleRoot } = this.props;
+      const title = `${get(ruleType, 'name')} - ${get(ruleRoot, 'name')}`;
+      this.graph.downloadFullImage(title, 'image/jpeg', {
+        backgroundColor: '#f0f2f5',
+        padding: 24,
+      });
+    }
   };
 
   handlerAddNode = nodeData => {
@@ -492,7 +493,7 @@ class RuleLegend extends Component {
             onClick={this.getRuleTypeNodes}
             tooltip={{ title: '刷新', placement: 'bottom' }}
             antd
-            className="command"
+            className={cls('command', { 'command-disabled': !ruleRoot })}
           />
           <Divider type="vertical" />
           <ExtIcon
@@ -500,31 +501,29 @@ class RuleLegend extends Component {
             onClick={this.zoomIn}
             tooltip={{ title: '放大', placement: 'bottom' }}
             antd
-            className="command"
+            className={cls('command', { 'command-disabled': !ruleRoot })}
           />
           <ExtIcon
             type="zoom-out"
             onClick={this.zoomOut}
             tooltip={{ title: '缩小', placement: 'bottom' }}
             antd
-            className="command"
+            className={cls('command', { 'command-disabled': !ruleRoot })}
           />
           <ExtIcon
             type="border-outer"
             onClick={this.fitView}
             tooltip={{ title: '适应屏幕', placement: 'bottom' }}
             antd
-            className="command"
+            className={cls('command', { 'command-disabled': !ruleRoot })}
           />
-          {ruleRoot ? (
-            <ExtIcon
-              type="download"
-              onClick={this.downloadNode}
-              tooltip={{ title: '导出规则', placement: 'bottom' }}
-              antd
-              className="command"
-            />
-          ) : null}
+          <ExtIcon
+            type="download"
+            onClick={this.downloadNode}
+            tooltip={{ title: '导出规则', placement: 'bottom' }}
+            antd
+            className={cls('command', { 'command-disabled': !ruleRoot })}
+          />
         </div>
         <div className="editor-box">
           {nodeLoading ? (

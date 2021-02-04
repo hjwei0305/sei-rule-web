@@ -29,10 +29,11 @@ class RuleTypeTree extends Component {
   constructor(props) {
     super(props);
     const { currentNode, ruleTypeData } = props;
+    const expandedKeys = ruleTypeData.map(td => td.id);
     this.state = {
       delId: null,
       treeListData: ruleTypeData,
-      expandedKeys: [],
+      expandedKeys,
       selectedKeys: currentNode ? [currentNode.id] : [],
       autoExpandParent: true,
       allValue: '',

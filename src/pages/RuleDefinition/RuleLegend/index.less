@@ -33,6 +33,7 @@
       width: 100% !important;
       height: 100% !important;
       overflow: hidden;
+      background-color: transparent;
       border-radius: 0;
     }
     .ant-modal-body {
@@ -40,7 +41,7 @@
       height: calc(100% - 55px);
       padding: 0;
       overflow: hidden;
-      background-color: @page-background-color;
+      background-color: transparent;
     }
     .toolbar {
       display: flex;
@@ -50,7 +51,7 @@
       line-height: 38px;
       background: #fff;
       border-bottom: 1px solid #e8e8e8;
-      box-shadow: 0 3px 8px fade(@black, 2%);
+      box-shadow: 0 3px 8px fade(@black, 7%);
       user-select: none;
       .command {
         display: inline-block;
@@ -71,7 +72,7 @@
           color: @primary-color;
         }
       }
-      .commandDisabled {
+      .command-disabled {
         color: rgba(0, 0, 0, 0.25);
         cursor: not-allowed;
         &:hover {
@@ -112,6 +113,21 @@
         bottom: 8px;
         left: 8px;
         background-color: @white;
+      }
+    }
+    .node-context-menu {
+      min-width: 120px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      .ant-menu-inline,
+      .ant-menu-vertical,
+      .ant-menu-vertical-left {
+        border-right-width: 0;
+      }
+      .ant-menu-item {
+        &:hover {
+          background-color: @item-hover-bg;
+        }
       }
     }
   }

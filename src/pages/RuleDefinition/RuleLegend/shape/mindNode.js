@@ -124,7 +124,6 @@ export default G6 => {
               });
             }
           }
-          return false;
         }
         if (name === 'active' && states.indexOf('selected') === -1) {
           const wrapperShape = group.findByClassName(WRAPPER_CLASS_NAME);
