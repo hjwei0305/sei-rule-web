@@ -62,6 +62,8 @@ const DELTA = 0.05;
   loading,
 }))
 class RuleLegend extends Component {
+  static confirmModal;
+
   static containerId;
 
   static minimapId;
@@ -93,13 +95,9 @@ class RuleLegend extends Component {
     if (!isEqual(preProps.ruleLegend.ruleTypeNodes, ruleTypeNodes)) {
       const ruleNodeData = cloneDeep(ruleTypeNodes);
       if (this.graph) {
-        this.graph.read(ruleNodeData);
-        const zoom = this.graph.getZoom();
-        this.graph.zoom(zoom);
-        this.graph.moveTo(24, 24);
-      } else {
-        this.initTreeGraph(ruleNodeData);
+        this.graph.destroy();
       }
+      this.initTreeGraph(ruleNodeData);
     }
   }
 
@@ -302,11 +300,17 @@ class RuleLegend extends Component {
           case 'addSubRule':
             this.handlerAddNode(nodeData);
             break;
+          case 'view':
+            this.handlerViewNode(nodeData);
+            break;
           case 'edit':
+            this.handlerEditNode(nodeData);
             break;
           case 'delete':
+            this.handlerDeleteNode(nodeData);
             break;
           case 'expression':
+            this.handlerShowNodeExpression(nodeData);
             break;
           default:
         }
@@ -465,11 +469,93 @@ class RuleLegend extends Component {
     });
   };
 
+  handlerEditNode = nodeData => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        showNodeFormDrawer: true,
+        nodeData,
+      },
+    });
+  };
+
+  handlerViewNode = nodeData => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        onlyView: true,
+        showNodeFormDrawer: true,
+        nodeData,
+      },
+    });
+  };
+
+  handlerDeleteNode = nodeData => {
+    const { dispatch } = this.props;
+    let content = `即将删除规则节点【${nodeData.name}】，且删除后不可恢复!`;
+    if (nodeData.children.length > 0) {
+      content = `即将删除规则节点【${nodeData.name}】及其所有的子规则，且删除后不可恢复!`;
+    }
+    this.confirmModal = Modal.confirm({
+      title: `规则删除`,
+      content,
+      okButtonProps: { type: 'primary' },
+      style: { top: '20%' },
+      okText: '确定',
+      onOk: () => {
+        return new Promise(resolve => {
+          this.confirmModal.update({
+            okButtonProps: { type: 'primary', loading: true },
+            cancelButtonProps: { disabled: true },
+          });
+          dispatch({
+            type: 'ruleLegend/delRuleNode',
+            payload: {
+              nodeData,
+            },
+            callback: res => {
+              if (res.success) {
+                resolve();
+                this.getRuleTypeNodes();
+              } else {
+                this.confirmModal.update({
+                  okButtonProps: { loading: false },
+                  cancelButtonProps: { disabled: false },
+                });
+              }
+            },
+          });
+        });
+      },
+      cancelText: '取消',
+      onCancel: () => {
+        this.confirmModal.destroy();
+        this.confirmModal = null;
+      },
+    });
+  };
+
+  handlerShowNodeExpression = nodeData => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        onlyView: true,
+        showNodeExpression: true,
+        nodeData,
+      },
+    });
+  };
+
   closeNodeForm = () => {
     const { dispatch } = this.props;
     dispatch({
       type: 'ruleLegend/updateState',
       payload: {
+        onlyView: false,
+        showNodeExpression: false,
         showNodeFormDrawer: false,
         nodeData: null,
       },

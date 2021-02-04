@@ -29,7 +29,7 @@ export async function saveRuleNode(data) {
 
 /** 删除 */
 export async function delRuleNode(data) {
-  const url = `${SERVER_PATH}/sei-rule/ruleTreeNode/delete/${data.id}`;
+  const url = `${SERVER_PATH}/sei-rule/ruleTreeNode/deleteNode/${data.id}`;
   return request({
     url,
     method: 'DELETE',

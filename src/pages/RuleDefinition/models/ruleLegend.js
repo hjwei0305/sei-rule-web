@@ -14,6 +14,7 @@ export default modelExtend(model, {
     ruleTypeNodes: {},
     nodeData: null,
     showNodeFormDrawer: false,
+    showNodeExpression: false,
     onlyView: false,
     needReload: false,
   },
@@ -82,6 +83,12 @@ export default modelExtend(model, {
         let needReload = originNeedReload;
         if (nodeData && nodeData.parentId === null) {
           needReload = true;
+          yield put({
+            type: 'ruleRootNode/updateState',
+            payload: {
+              currentRuleRoot: null,
+            },
+          });
         }
         yield put({
           type: 'updateState',
