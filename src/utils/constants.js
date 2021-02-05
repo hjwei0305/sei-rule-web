@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2020-05-30 23:57:41
+ * @Last Modified time: 2021-02-05 14:12:45
  */
 import { base } from '../../public/app.config.json';
 
@@ -52,10 +52,19 @@ const APP_MODULE_BTN_KEY = {
   DELETE: `${APP_BASE}_DELETE`,
 };
 
+const ATTRIBUTE_UI_COMPONENT = {
+  DATEPICKER: 'DatePicker',
+  INPUT: 'Input',
+  MONEYINPUT: 'MoneyInput',
+  SWITCH: 'Switch',
+  COMBOLIST: 'ComboList',
+};
+
 export default {
   APP_BASE,
   LOCAL_PATH,
   SERVER_PATH,
   APP_MODULE_BTN_KEY,
   LOGIN_STATUS,
+  ATTRIBUTE_UI_COMPONENT,
 };

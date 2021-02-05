@@ -179,8 +179,14 @@ class RuleAttribute extends Component {
       },
       {
         title: '值源字段名',
-        dataIndex: 'matchField',
-        width: 120,
+        dataIndex: 'valueField',
+        width: 160,
+        render: t => t || '-',
+      },
+      {
+        title: '显示字段名',
+        dataIndex: 'displayField',
+        width: 160,
         render: t => t || '-',
       },
       {

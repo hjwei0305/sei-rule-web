@@ -5,7 +5,10 @@ import { ExtModal, BannerTitle, ComboList } from 'suid';
 import { constants } from '../../../utils';
 import styles from './index.less';
 
-const { SERVER_PATH } = constants;
+const { SERVER_PATH, ATTRIBUTE_UI_COMPONENT } = constants;
+const ATTRIBUTE_UI_COMPONENT_DATA = Object.keys(ATTRIBUTE_UI_COMPONENT).map(key => ({
+  code: ATTRIBUTE_UI_COMPONENT[key],
+}));
 const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
@@ -47,6 +50,14 @@ class FormModal extends PureComponent {
         name: 'remark',
         description: 'name',
         field: ['name'],
+      },
+    };
+    const uiComponentProps = {
+      form,
+      name: 'uiComponent',
+      dataSource: ATTRIBUTE_UI_COMPONENT_DATA,
+      reader: {
+        name: 'code',
       },
     };
     return (
@@ -98,17 +109,28 @@ class FormModal extends PureComponent {
           <FormItem label="UI组件">
             {getFieldDecorator('uiComponent', {
               initialValue: get(rowData, 'uiComponent'),
-            })(<Input placeholder="默认是文本框" />)}
-          </FormItem>
-          <FormItem label="值源字段名">
-            {getFieldDecorator('matchField', {
-              initialValue: get(rowData, 'matchField'),
-            })(<Input autoComplete="off" />)}
+              rules: [
+                {
+                  required: true,
+                  message: 'UI组件不能为空',
+                },
+              ],
+            })(<ComboList {...uiComponentProps} />)}
           </FormItem>
           <FormItem label="数据源接口地址">
             {getFieldDecorator('findDataUrl', {
               initialValue: get(rowData, 'findDataUrl'),
             })(<Input autoComplete="off" />)}
+          </FormItem>
+          <FormItem label="值源字段名">
+            {getFieldDecorator('valueField', {
+              initialValue: get(rowData, 'valueField'),
+            })(<Input autoComplete="off" placeholder="有数据原接口地址时才需要指定" />)}
+          </FormItem>
+          <FormItem label="显示字段名">
+            {getFieldDecorator('displayField', {
+              initialValue: get(rowData, 'displayField'),
+            })(<Input autoComplete="off" placeholder="有数据原接口地址时才需要指定" />)}
           </FormItem>
         </Form>
       </ExtModal>
