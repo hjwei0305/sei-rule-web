@@ -70,10 +70,10 @@ class ExpressionForm extends Component {
   };
 
   renderComparisonValue = () => {
-    const { form, itemData, ruleType } = this.props;
+    const { form, itemData, ruleType, onlyView } = this.props;
     const { getFieldDecorator } = form;
     const { comparisonOperator, ruleAttribute } = this.state;
-    let componentUI = <Input autoComplete="off" />;
+    let componentUI = <Input autoComplete="off" disabled={onlyView} />;
     const fieldDecoratorConfig = {
       initialValue: get(itemData, 'comparisonValue'),
       rules: [
@@ -89,17 +89,19 @@ class ExpressionForm extends Component {
       const v = get(itemData, 'comparisonValue');
       switch (uiComponent) {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER:
-          componentUI = <DatePicker style={{ width: '100%' }} allowClear={false} />;
+          componentUI = (
+            <DatePicker style={{ width: '100%' }} allowClear={false} disabled={onlyView} />
+          );
           Object.assign(fieldDecoratorConfig, {
             initialValue: v && moment(v).isValid() ? moment(v) : null,
           });
           break;
         case ATTRIBUTE_UI_COMPONENT.MONEYINPUT:
-          componentUI = <MoneyInput textAlign="left" />;
+          componentUI = <MoneyInput textAlign="left" disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, { initialValue: isNumber(v) ? v : 0 });
           break;
         case ATTRIBUTE_UI_COMPONENT.SWITCH:
-          componentUI = <Switch size="small" />;
+          componentUI = <Switch size="small" disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, {
             valuePropName: 'checked',
             initialValue: isBoolean(v) ? v : false,
@@ -122,7 +124,7 @@ class ExpressionForm extends Component {
               field: [valueField],
             },
           };
-          componentUI = <ComboList {...listProps} />;
+          componentUI = <ComboList {...listProps} disabled={onlyView} />;
           getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           Object.assign(fieldDecoratorConfig, {
             initialValue: get(itemData, 'displayValue') || '',
@@ -247,7 +249,7 @@ class ExpressionForm extends Component {
                       message: '规则属性不能为空',
                     },
                   ],
-                })(<ComboList {...ruleAttributeProps} />)}
+                })(<ComboList {...ruleAttributeProps} disabled={onlyView} />)}
               </FormItem>
               <FormItem label="运算符" {...formItemLayout} style={formItemStyle}>
                 {getFieldDecorator('comparisonOperatorRemark', {
@@ -258,7 +260,7 @@ class ExpressionForm extends Component {
                       message: '运算符不能为空',
                     },
                   ],
-                })(<ComboList {...comparisonOperatorProps} />)}
+                })(<ComboList {...comparisonOperatorProps} disabled={onlyView} />)}
               </FormItem>
               {this.renderComparisonValue()}
             </Form>

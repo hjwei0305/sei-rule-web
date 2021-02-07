@@ -58,11 +58,11 @@ class ReturnResultForm extends Component {
   };
 
   renderReturnValue = () => {
-    const { form, itemData } = this.props;
+    const { form, itemData, onlyView } = this.props;
     const { getFieldDecorator } = form;
     getFieldDecorator('returnValueId', { initialValue: get(itemData, 'returnValueId') });
     const { ruleReturnType } = this.state;
-    let componentUI = <Input autoComplete="off" />;
+    let componentUI = <Input autoComplete="off" disabled={onlyView} />;
     const fieldDecoratorConfig = {
       initialValue: get(itemData, 'returnValueName'),
       rules: [
@@ -89,7 +89,7 @@ class ReturnResultForm extends Component {
               field: ['id'],
             },
           };
-          componentUI = <ComboList {...listProps} />;
+          componentUI = <ComboList {...listProps} disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, {
             initialValue: get(itemData, 'returnValueName') || '',
           });
@@ -166,7 +166,7 @@ class ReturnResultForm extends Component {
                       message: '返回类型不能为空',
                     },
                   ],
-                })(<ComboList {...ruleReturnTypeProps} />)}
+                })(<ComboList {...ruleReturnTypeProps} disabled={onlyView} />)}
               </FormItem>
               {this.renderReturnValue()}
             </Form>
