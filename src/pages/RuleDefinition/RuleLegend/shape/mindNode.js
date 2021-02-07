@@ -5,12 +5,12 @@ export default G6 => {
     'mind-node',
     {
       draw(cfg, group) {
-        const { name = '', rank, collapsed } = cfg;
+        const { name = '', rank, collapsed, parentId, trueNode, finished } = cfg;
         const rectConfig = {
           width: 160,
           height: 60,
           lineWidth: 1,
-          fontSize: 12,
+          fontSize: 14,
           fill: '#fff',
           radius: 4,
           stroke: WRAPPER_STROKE,
@@ -47,22 +47,51 @@ export default G6 => {
             x: 12 + nodeOrigin.x,
             y: 20 + nodeOrigin.y,
             text: name.length > 20 ? `${name.substr(0, 20)}...` : name,
-            fontSize: 12,
+            fontSize: 14,
             opacity: 0.85,
             fill: '#000',
           },
           name: 'name-shape',
         });
 
-        // priority
-        group.addShape('text', {
+        // 是否结束节点
+        const finish = group.addShape('text', {
           attrs: {
             ...textConfig,
             x: 12 + nodeOrigin.x,
             y: rectBBox.maxY - 12,
-            text: rank || '',
-            fontSize: 16,
-            fill: '#000',
+            text: finished ? '结束' : '',
+            fontSize: 10,
+            fontWeight: 700,
+            fill: '#f5222d',
+            opacity: 0.85,
+          },
+        });
+
+        // 是否为真节点
+        const xtn = finished ? 8 : 0;
+        group.addShape('text', {
+          attrs: {
+            ...textConfig,
+            x: finish.getBBox().maxX + xtn,
+            y: rectBBox.maxY - 12,
+            text: trueNode ? '为真' : '',
+            fontSize: 10,
+            fontWeight: 700,
+            fill: '#0ba679',
+            opacity: 1,
+          },
+        });
+
+        // priority
+        group.addShape('text', {
+          attrs: {
+            ...textConfig,
+            x: -14 + nodeOrigin.x,
+            y: rectBBox.maxY - 36,
+            text: parentId ? rank : '',
+            fontSize: 14,
+            fill: 'rgba(0, 0, 0, 0.45)',
             opacity: 0.85,
           },
         });

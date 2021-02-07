@@ -622,6 +622,7 @@ class RuleLegend extends Component {
     const nodeFormDrawerProps = {
       showNodeFormDrawer,
       nodeData,
+      ruleRoot,
       ruleType,
       closeNodeForm: this.closeNodeForm,
       onlyView,

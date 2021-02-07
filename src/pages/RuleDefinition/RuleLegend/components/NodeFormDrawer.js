@@ -10,6 +10,8 @@ import styles from './NodeFormDrawer.less';
 class NodeFormDrawer extends Component {
   static formRef;
 
+  static scrollBarRef;
+
   static propTypes = {
     showNodeForm: PropTypes.bool,
     ruleType: PropTypes.object,
@@ -28,6 +30,12 @@ class NodeFormDrawer extends Component {
     const { closeNodeForm } = this.props;
     if (closeNodeForm) {
       closeNodeForm();
+    }
+  };
+
+  updateScroll = () => {
+    if (this.scrollBarRef) {
+      this.scrollBarRef.updateScroll();
     }
   };
 
@@ -56,6 +64,7 @@ class NodeFormDrawer extends Component {
       nodeData,
       save,
       onlyView,
+      updateScroll: this.updateScroll,
       onFormRef: this.handlerFormRef,
     };
     return (
@@ -72,7 +81,7 @@ class NodeFormDrawer extends Component {
       >
         <div className={cls('box', { 'only-view': onlyView })}>
           <div className="box-body">
-            <ScrollBar>
+            <ScrollBar className="node-form-scroll-bar" ref={ref => (this.scrollBarRef = ref)}>
               <NodeForm {...nodeFormProps} />
             </ScrollBar>
           </div>

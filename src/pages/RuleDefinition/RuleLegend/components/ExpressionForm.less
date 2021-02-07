@@ -1,0 +1,49 @@
+@import '../../../../themes/vars.less';
+.item-form-box {
+  :global {
+    .item-form {
+      border-bottom: 4px solid #eee;
+      &:last-child {
+        border-bottom-width: 0;
+      }
+      .ant-row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .ant-card-body {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 8px 24px;
+        .btn-delete-form {
+          position: absolute;
+          left: 4px;
+          visibility: hidden;
+          cursor: pointer;
+          transition: all ease-in 0.3s;
+          &:hover {
+            color: @error-color;
+          }
+          &.ant-popover-open {
+            color: @error-color;
+            visibility: visible;
+          }
+        }
+        &:hover {
+          .btn-delete-form {
+            visibility: visible;
+          }
+        }
+        .form-id {
+          margin-right: 8px;
+        }
+        .form-content {
+          width: 100%;
+          padding: 8px;
+          background-color: #f8f8f8;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}

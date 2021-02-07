@@ -1,10 +1,15 @@
 import React, { PureComponent } from 'react';
 import { get } from 'lodash';
 import { Form, Input } from 'antd';
-import { ExtModal, BannerTitle } from 'suid';
+import { ExtModal, BannerTitle, ComboList } from 'suid';
+import { constants } from '../../../utils';
 import styles from './index.less';
 
 const FormItem = Form.Item;
+const { RETURN_RESULT_UI_COMPONENT } = constants;
+const RETURN_RESULT_UI_COMPONENT_DATA = Object.keys(RETURN_RESULT_UI_COMPONENT).map(key => ({
+  code: RETURN_RESULT_UI_COMPONENT[key],
+}));
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -33,6 +38,14 @@ class FormModal extends PureComponent {
     const { form, rowData, closeFormModal, saving, showModal } = this.props;
     const { getFieldDecorator } = form;
     const title = rowData ? '修改' : '新建';
+    const uiComponentProps = {
+      form,
+      name: 'uiComponent',
+      dataSource: RETURN_RESULT_UI_COMPONENT_DATA,
+      reader: {
+        name: 'code',
+      },
+    };
     return (
       <ExtModal
         destroyOnClose
@@ -77,7 +90,7 @@ class FormModal extends PureComponent {
                   message: 'UI组件不能为空',
                 },
               ],
-            })(<Input autoComplete="off" placeholder="选择返回结果对象的Id和Name" />)}
+            })(<ComboList {...uiComponentProps} placeholder="返回结果为接口对象的Id和Name" />)}
           </FormItem>
           <FormItem label="数据源接口地址">
             {getFieldDecorator('findDataUrl', {

@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-05 14:12:45
+ * @Last Modified time: 2021-02-05 16:19:26
  */
 import { base } from '../../public/app.config.json';
 
@@ -60,6 +60,10 @@ const ATTRIBUTE_UI_COMPONENT = {
   COMBOLIST: 'ComboList',
 };
 
+const RETURN_RESULT_UI_COMPONENT = {
+  COMBOLIST: 'ComboList',
+};
+
 export default {
   APP_BASE,
   LOCAL_PATH,
@@ -67,4 +71,5 @@ export default {
   APP_MODULE_BTN_KEY,
   LOGIN_STATUS,
   ATTRIBUTE_UI_COMPONENT,
+  RETURN_RESULT_UI_COMPONENT,
 };

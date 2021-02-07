@@ -1,7 +1,12 @@
 import { formatMessage } from 'umi-plugin-react/locale';
 import { get } from 'lodash';
 import { utils, message } from 'suid';
-import { getRuleTypeNodes, saveRuleNode, delRuleNode } from '../services/ruleLegend';
+import {
+  getRuleTypeNodes,
+  saveRuleNode,
+  delRuleNode,
+  getNodeSynthesisExpressions,
+} from '../services/ruleLegend';
 
 const { dvaModel } = utils;
 const { modelExtend, model } = dvaModel;
@@ -17,6 +22,7 @@ export default modelExtend(model, {
     showNodeExpression: false,
     onlyView: false,
     needReload: false,
+    nodeExpressions: [],
   },
   effects: {
     *getRuleTypeNodes({ payload }, { call, put }) {
@@ -44,6 +50,24 @@ export default modelExtend(model, {
             message.error(re.message);
           }
         }
+      }
+    },
+    *getNodeSynthesisExpressions({ payload }, { call, put }) {
+      const { nodeData } = payload;
+      const re = yield call(getNodeSynthesisExpressions, {
+        nodeId: get(nodeData, 'id'),
+        includeSelf: true,
+      });
+      message.destroy();
+      if (re.success) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            nodeExpressions: re.data,
+          },
+        });
+      } else {
+        message.error(re.message);
       }
     },
     *saveRuleNode({ payload, callback }, { call, put }) {

@@ -17,6 +17,18 @@ export async function getRuleTypeNodes(params) {
   });
 }
 
+/**
+ * 获取规则类型的规则树
+ * @nodeId string
+ */
+export async function getNodeSynthesisExpressions(params) {
+  const url = `${SERVER_PATH}/sei-rule/ruleTreeNode/getNodeSynthesisExpressions`;
+  return request({
+    url,
+    params,
+  });
+}
+
 /** 保存规则节点信息 */
 export async function saveRuleNode(data) {
   const url = `${SERVER_PATH}/sei-rule/ruleTreeNode/save`;
