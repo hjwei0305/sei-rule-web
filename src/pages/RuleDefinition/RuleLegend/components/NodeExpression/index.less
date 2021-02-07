@@ -1,0 +1,70 @@
+@import '../../../../../themes/vars.less';
+.node-form-drawer-box {
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  :global {
+    .ant-drawer-header {
+      border-color: transparent;
+    }
+    .ant-drawer-body {
+      height: calc(100% - 55px);
+      padding: 0;
+    }
+    .box {
+      width: 100%;
+      height: 100%;
+      .box-body {
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        overflow: hidden;
+        .scrollbar-container {
+          width: 100%;
+        }
+        .ant-timeline {
+          padding: 24px;
+        }
+        .ant-timeline-item {
+          &:last-child {
+            .ant-timeline-item-tail {
+              display: none;
+            }
+          }
+          .ant-timeline-item-head-custom {
+            left: 9px;
+          }
+        }
+        .node-item {
+          display: flex;
+          align-items: center;
+          margin-left: 4px;
+          .node-title {
+            margin-right: 4px;
+            color: fade(@black, 85%);
+            font-size: 16px;
+          }
+          .node-name {
+            color: fade(@black, 85%);
+            font-weight: 700;
+            font-size: 16px;
+            font-style: italic;
+          }
+        }
+        .exp-item {
+          margin-left: 32px;
+          .attr {
+            color: fade(@black, 85%);
+          }
+          .exp {
+            margin: 0 8px;
+            font-style: italic;
+          }
+          .value {
+            color: fade(@black, 85%);
+          }
+        }
+      }
+    }
+  }
+}

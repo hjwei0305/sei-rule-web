@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { debounce, isEqual, get, cloneDeep } from 'lodash';
 import { connect } from 'dva';
 import G6 from '@antv/g6';
@@ -27,6 +27,8 @@ insertCss(`
     border: 2px solid rgb(25, 128, 255);
   }
 `);
+
+const NodeExpression = React.lazy(() => import('./components/NodeExpression'));
 const getContextMenuData = () => [
   {
     name: '新建子规则',
@@ -34,7 +36,7 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '显示详情',
+    name: '规则详情',
     code: 'view',
     disabled: false,
   },
@@ -49,7 +51,7 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '规则快照',
+    name: '规则路由',
     code: 'expression',
     disabled: false,
   },
@@ -113,6 +115,8 @@ class RuleLegend extends Component {
         onlyView: false,
         needReload: false,
         showNodeFormDrawer: false,
+        showNodeExpression: false,
+        nodeExpressions: [],
       },
     });
   }
@@ -542,8 +546,13 @@ class RuleLegend extends Component {
     dispatch({
       type: 'ruleLegend/updateState',
       payload: {
-        onlyView: true,
         showNodeExpression: true,
+        nodeData,
+      },
+    });
+    dispatch({
+      type: 'ruleLegend/getNodeSynthesisExpressions',
+      payload: {
         nodeData,
       },
     });
@@ -558,6 +567,7 @@ class RuleLegend extends Component {
         showNodeExpression: false,
         showNodeFormDrawer: false,
         nodeData: null,
+        nodeExpressions: [],
       },
     });
   };
@@ -617,7 +627,14 @@ class RuleLegend extends Component {
 
   render() {
     const { ruleRoot, loading, ruleLegend } = this.props;
-    const { showNodeFormDrawer, nodeData, onlyView, ruleType } = ruleLegend;
+    const {
+      showNodeFormDrawer,
+      showNodeExpression,
+      nodeExpressions,
+      nodeData,
+      onlyView,
+      ruleType,
+    } = ruleLegend;
     const nodeLoading = loading.effects['ruleLegend/getRuleTypeNodes'];
     const nodeFormDrawerProps = {
       showNodeFormDrawer,
@@ -628,6 +645,13 @@ class RuleLegend extends Component {
       onlyView,
       save: this.handlerNodeSave,
       saving: loading.effects['ruleLegend/saveRuleNode'],
+    };
+    const nodeExpressionProps = {
+      showNodeExpression,
+      nodeExpressions,
+      nodeData,
+      closeNodeForm: this.closeNodeForm,
+      loading: loading.effects['ruleLegend/getNodeSynthesisExpressions'],
     };
     return (
       <Modal
@@ -710,6 +734,11 @@ class RuleLegend extends Component {
           )}
         </div>
         <NodeFormDrawer {...nodeFormDrawerProps} />
+        {showNodeExpression ? (
+          <Suspense fallback={<PageLoader />}>
+            <NodeExpression {...nodeExpressionProps} />
+          </Suspense>
+        ) : null}
       </Modal>
     );
   }

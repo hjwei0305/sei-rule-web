@@ -38,7 +38,6 @@ export default modelExtend(model, {
         const ruleRootId = get(ruleRoot, 'id');
         if (ruleRootId) {
           const re = yield call(getRuleTypeNodes, { rootNodeId: ruleRootId });
-          message.destroy();
           if (re.success) {
             yield put({
               type: 'updateState',
@@ -47,6 +46,7 @@ export default modelExtend(model, {
               },
             });
           } else {
+            message.destroy();
             message.error(re.message);
           }
         }
@@ -56,7 +56,6 @@ export default modelExtend(model, {
       const { nodeData } = payload;
       const re = yield call(getNodeSynthesisExpressions, {
         nodeId: get(nodeData, 'id'),
-        includeSelf: true,
       });
       message.destroy();
       if (re.success) {
