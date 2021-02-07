@@ -10,12 +10,12 @@ const Expression = ({ items }) => {
   return (items || []).map((exp, idx) => {
     return (
       <>
-        <p className="exp-item" key={get(exp, 'ruleAttributeName')}>
+        <p className={cls('exp-item', { first: idx === 0 })} key={get(exp, 'ruleAttributeName')}>
           <span className="attr">{get(exp, 'ruleAttributeName')}</span>
           <span className="exp">{get(exp, 'comparisonName')}</span>
           <span className="value">{get(exp, 'comparisonValue')}</span>
         </p>
-        {idx < items.length - 1 ? <p className="or">或</p> : null}
+        {idx < items.length - 1 ? <p className="exp-item or">或</p> : null}
       </>
     );
   });

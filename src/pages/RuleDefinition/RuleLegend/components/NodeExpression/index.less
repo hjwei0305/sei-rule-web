@@ -52,10 +52,14 @@
           }
         }
         .exp-item {
-          margin-top: 8px;
-          margin-left: 16px;
-          .or {
+          margin: 0 0 0 16px;
+          &.first {
+            margin-top: 8px;
+          }
+          &.or {
+            margin: 0;
             color: fade(@black, 45%);
+            font-size: 12px;
           }
           .attr {
             color: fade(@black, 85%);
