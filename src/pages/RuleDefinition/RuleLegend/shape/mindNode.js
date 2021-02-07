@@ -64,7 +64,7 @@ export default G6 => {
             fontSize: 10,
             fontWeight: 700,
             fill: '#f5222d',
-            opacity: 0.85,
+            opacity: 1,
           },
         });
 
