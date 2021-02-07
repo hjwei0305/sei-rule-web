@@ -635,6 +635,7 @@ class RuleLegend extends Component {
         onCancel={this.closeRuleModal}
         visible
         centered
+        closable={false}
         footer={null}
         wrapClassName={styles['container-box']}
         title={this.renderTitle()}

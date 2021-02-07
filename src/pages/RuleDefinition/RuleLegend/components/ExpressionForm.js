@@ -87,6 +87,7 @@ class ExpressionForm extends Component {
     if (ruleAttribute) {
       const { displayField, findDataUrl, valueField, uiComponent } = ruleAttribute;
       const v = get(itemData, 'comparisonValue');
+      console.log(v);
       switch (uiComponent) {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER:
           componentUI = (
@@ -98,7 +99,7 @@ class ExpressionForm extends Component {
           break;
         case ATTRIBUTE_UI_COMPONENT.MONEYINPUT:
           componentUI = <MoneyInput textAlign="left" disabled={onlyView} />;
-          Object.assign(fieldDecoratorConfig, { initialValue: isNumber(v) ? v : 0 });
+          Object.assign(fieldDecoratorConfig, { initialValue: isNumber(Number(v)) ? v : 0 });
           break;
         case ATTRIBUTE_UI_COMPONENT.SWITCH:
           componentUI = <Switch size="small" disabled={onlyView} />;
