@@ -11,9 +11,9 @@ const Expression = ({ items }) => {
     return (
       <>
         <p className={cls('exp-item', { first: idx === 0 })} key={get(exp, 'ruleAttributeName')}>
-          <span className="attr">{get(exp, 'ruleAttributeName')}</span>
-          <span className="exp">{get(exp, 'comparisonName')}</span>
-          <span className="value">{get(exp, 'comparisonValue')}</span>
+          <span className="attr">{get(exp, 'ruleAttributeName') || '-'}</span>
+          <span className="exp">{get(exp, 'comparisonName') || '-'}</span>
+          <span className="value">{get(exp, 'comparisonValue') || '-'}</span>
         </p>
         {idx < items.length - 1 ? <p className="exp-item or">或</p> : null}
       </>
@@ -57,12 +57,13 @@ class NodeExpression extends Component {
           if (nodeData.id === node.id) {
             nodeColor = 'red';
           }
+          const num = get(node, 'nodeLevel');
           return (
             <>
-              <Timeline.Item dot={<Tag color={nodeColor}>{get(node, 'nodeLevel')}</Tag>}>
+              <Timeline.Item dot={<Tag color={nodeColor}>{num + 1}</Tag>}>
                 <div className="node-item" key={node.id}>
                   <span className="node-title">规则</span>
-                  <span className="node-name">{get(node, 'name')}</span>
+                  <span className="node-name">{get(node, 'name') || '-'}</span>
                 </div>
                 <Expression items={node.expressions} />
               </Timeline.Item>
