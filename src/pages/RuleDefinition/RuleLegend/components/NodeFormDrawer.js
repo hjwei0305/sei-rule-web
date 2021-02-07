@@ -74,7 +74,7 @@ class NodeFormDrawer extends Component {
         getContainer={false}
         placement="right"
         visible={showNodeFormDrawer}
-        title={title}
+        title={onlyView ? '规则详情' : title}
         className={cls(styles['node-form-drawer-box'])}
         onClose={this.handlerClose}
         style={{ position: 'absolute' }}
