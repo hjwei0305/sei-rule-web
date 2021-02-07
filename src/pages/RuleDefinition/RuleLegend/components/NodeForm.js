@@ -329,6 +329,56 @@ class NodeForm extends Component {
             </FormItem>
           ) : null}
         </Form>
+        <FormItem label="是真节点" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
+          <Switch
+            size="small"
+            disabled={onlyView}
+            checked={isTrueNode}
+            onChange={this.handlerTrueNodeChange}
+          />
+        </FormItem>
+        <p className="item-desc">表示此规则的返回结果始终为真</p>
+        {isTrueNode ? null : (
+          <>
+            <div className="title-group">
+              {`逻辑表达式(${expressionsData.length})`}
+              <ExtIcon
+                className="btn-collapsed"
+                type={collapsedExpression ? 'down' : 'up'}
+                antd
+                onClick={this.handlerCollapsedExpression}
+              />
+            </div>
+            <div
+              className="node-form-item"
+              style={{ display: collapsedExpression ? 'none' : 'block' }}
+            >
+              {expressionsData.map((expItem, index) => {
+                const itemData = { ...expItem };
+                const itemKey = itemData.id || itemData.tmpId || index;
+                Object.assign(itemData, { itemNumber: index });
+                const expressionFormProps = {
+                  itemData,
+                  ruleType,
+                  onlyView,
+                  deleteItem: this.onDeleteExpressItem,
+                  onExpressItemFormRefs: this.onExpressItemFormRefs,
+                };
+                /** 使用表单独立作用域 */
+                const WrappedForm = Form.create({ name: itemKey })(props => (
+                  <ExpressionForm {...props} {...expressionFormProps} />
+                ));
+                return <WrappedForm key={itemKey} />;
+              })}
+              <BlankTrigger
+                title="新增表达式"
+                onlyView={onlyView}
+                items={expressionsData}
+                addItem={this.handlerAddExpress}
+              />
+            </div>
+          </>
+        )}
         <FormItem label="规则结束" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
           <Switch
             size="small"
@@ -385,56 +435,6 @@ class NodeForm extends Component {
             </div>
           </>
         ) : null}
-        <FormItem label="是真节点" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
-          <Switch
-            size="small"
-            disabled={onlyView}
-            checked={isTrueNode}
-            onChange={this.handlerTrueNodeChange}
-          />
-        </FormItem>
-        <p className="item-desc">表示此规则的返回结果始终为真</p>
-        {isTrueNode ? null : (
-          <>
-            <div className="title-group">
-              {`逻辑表达式(${expressionsData.length})`}
-              <ExtIcon
-                className="btn-collapsed"
-                type={collapsedExpression ? 'down' : 'up'}
-                antd
-                onClick={this.handlerCollapsedExpression}
-              />
-            </div>
-            <div
-              className="node-form-item"
-              style={{ display: collapsedExpression ? 'none' : 'block' }}
-            >
-              {expressionsData.map((expItem, index) => {
-                const itemData = { ...expItem };
-                const itemKey = itemData.id || itemData.tmpId || index;
-                Object.assign(itemData, { itemNumber: index });
-                const expressionFormProps = {
-                  itemData,
-                  ruleType,
-                  onlyView,
-                  deleteItem: this.onDeleteExpressItem,
-                  onExpressItemFormRefs: this.onExpressItemFormRefs,
-                };
-                /** 使用表单独立作用域 */
-                const WrappedForm = Form.create({ name: itemKey })(props => (
-                  <ExpressionForm {...props} {...expressionFormProps} />
-                ));
-                return <WrappedForm key={itemKey} />;
-              })}
-              <BlankTrigger
-                title="新增表达式"
-                onlyView={onlyView}
-                items={expressionsData}
-                addItem={this.handlerAddExpress}
-              />
-            </div>
-          </>
-        )}
       </div>
     );
   }
