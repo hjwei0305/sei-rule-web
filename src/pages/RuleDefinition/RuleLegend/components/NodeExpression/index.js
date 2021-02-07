@@ -7,13 +7,16 @@ import { ScrollBar, ListLoader, BannerTitle } from 'suid';
 import styles from './index.less';
 
 const Expression = ({ items }) => {
-  return (items || []).map(exp => {
+  return (items || []).map((exp, idx) => {
     return (
-      <p className="exp-item" key={get(exp, 'ruleAttributeName')}>
-        <span className="attr">{get(exp, 'ruleAttributeName')}</span>
-        <span className="exp">{get(exp, 'comparisonName')}</span>
-        <span className="value">{get(exp, 'comparisonValue')}</span>
-      </p>
+      <>
+        <p className="exp-item" key={get(exp, 'ruleAttributeName')}>
+          <span className="attr">{get(exp, 'ruleAttributeName')}</span>
+          <span className="exp">{get(exp, 'comparisonName')}</span>
+          <span className="value">{get(exp, 'comparisonValue')}</span>
+        </p>
+        {idx < items.length - 1 ? <p className="or">或</p> : null}
+      </>
     );
   });
 };
