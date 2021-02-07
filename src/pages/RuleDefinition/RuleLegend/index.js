@@ -34,7 +34,7 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '显示规则详情',
+    name: '显示详情',
     code: 'view',
     disabled: false,
   },

@@ -306,7 +306,7 @@ class NodeForm extends Component {
                   message: '规则名称不能为空',
                 },
               ],
-            })(<Input autoComplete="off" />)}
+            })(<Input autoComplete="off" disabled={onlyView} />)}
           </FormItem>
           <FormItem label="优先级">
             {getFieldDecorator('rank', {
@@ -317,7 +317,7 @@ class NodeForm extends Component {
                   message: '优先级不能为空',
                 },
               ],
-            })(<MoneyInput textAlign="left" precision={0} thousand={false} />)}
+            })(<MoneyInput textAlign="left" precision={0} thousand={false} disabled={onlyView} />)}
             <p className="desc">值越小越优先</p>
           </FormItem>
           {isRootNode ? (
@@ -325,12 +325,17 @@ class NodeForm extends Component {
               {getFieldDecorator('enabled', {
                 initialValue: get(nodeData, 'enabled') || true,
                 valuePropName: 'checked',
-              })(<Switch size="small" />)}
+              })(<Switch size="small" disabled={onlyView} />)}
             </FormItem>
           ) : null}
         </Form>
         <FormItem label="规则结束" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
-          <Switch size="small" checked={isFinished} onChange={this.handlerFinishedNodeChange} />
+          <Switch
+            size="small"
+            disabled={onlyView}
+            checked={isFinished}
+            onChange={this.handlerFinishedNodeChange}
+          />
         </FormItem>
         <p className="item-desc">表示此规则执行结束，没有后续规则</p>
         {isFinished ? (
@@ -374,13 +379,19 @@ class NodeForm extends Component {
               <BlankTrigger
                 title="新增返回结果"
                 items={returnResultData}
+                onlyView={onlyView}
                 addItem={this.handlerAddReturnResult}
               />
             </div>
           </>
         ) : null}
         <FormItem label="是真节点" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
-          <Switch size="small" checked={isTrueNode} onChange={this.handlerTrueNodeChange} />
+          <Switch
+            size="small"
+            disabled={onlyView}
+            checked={isTrueNode}
+            onChange={this.handlerTrueNodeChange}
+          />
         </FormItem>
         <p className="item-desc">表示此规则的返回结果始终为真</p>
         {isTrueNode ? null : (
@@ -417,6 +428,7 @@ class NodeForm extends Component {
               })}
               <BlankTrigger
                 title="新增表达式"
+                onlyView={onlyView}
                 items={expressionsData}
                 addItem={this.handlerAddExpress}
               />

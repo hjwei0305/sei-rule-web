@@ -2,7 +2,10 @@ import React from 'react';
 import { Empty, Icon } from 'antd';
 import styles from './BlankTrigger.less';
 
-const BlankTrigger = ({ items, addItem, title }) => {
+const BlankTrigger = ({ items, addItem, title, onlyView }) => {
+  if (onlyView) {
+    return null;
+  }
   return (
     <div className={styles['blank-trigger-box']}>
       {items.length === 0 ? (
