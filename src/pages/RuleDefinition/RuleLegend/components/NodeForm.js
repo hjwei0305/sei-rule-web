@@ -338,6 +338,7 @@ class NodeForm extends Component {
             <FinishedConfigForm
               ruleType={ruleType}
               nodeData={nodeData}
+              onlyView={onlyView}
               onFinishedConfigFormRef={this.handlerFinishedConfigFormRef}
             />
             <div className="title-group">

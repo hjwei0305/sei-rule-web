@@ -30,6 +30,7 @@ class FinishedConfigForm extends Component {
   static propTypes = {
     ruleType: PropTypes.object,
     nodeData: PropTypes.object,
+    onlyView: PropTypes.bool,
     onFinishedConfigFormRef: PropTypes.func,
   };
 
@@ -56,10 +57,11 @@ class FinishedConfigForm extends Component {
   };
 
   render() {
-    const { form, nodeData, ruleType } = this.props;
+    const { form, nodeData, ruleType, onlyView } = this.props;
     const { getFieldDecorator } = form;
     const ruleServiceProps = {
       form,
+      allowClear: true,
       name: 'ruleServiceMethodName',
       store: {
         url: `${SERVER_PATH}/sei-rule/ruleServiceMethod/findByRuleEntityTypeId`,
@@ -82,21 +84,21 @@ class FinishedConfigForm extends Component {
         <FormItem label="返回常量值">
           {getFieldDecorator('returnConstant', {
             initialValue: get(nodeData, 'returnConstant'),
-          })(<Input autoComplete="off" />)}
+          })(<Input autoComplete="off" disabled={onlyView} />)}
           <p className="desc">表示规则返回结果（通常返回一个常量）</p>
         </FormItem>
         <div className="title-group">服务调用</div>
         <FormItem label="服务方法">
           {getFieldDecorator('ruleAttributeTypeRemark', {
             initialValue: get(nodeData, 'ruleAttributeTypeRemark'),
-          })(<ComboList {...ruleServiceProps} />)}
+          })(<ComboList {...ruleServiceProps} disabled={onlyView} />)}
           <p className="desc">规则结束时的服务调用</p>
         </FormItem>
         <FormItem label="异步执行" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
           {getFieldDecorator('asyncExecute', {
             initialValue: get(nodeData, 'asyncExecute') || false,
             valuePropName: 'checked',
-          })(<Switch size="small" />)}
+          })(<Switch size="small" disabled={onlyView} />)}
         </FormItem>
         <p className="item-desc">表示此服务方法的执行方式,默认为同步方式执行</p>
       </Form>

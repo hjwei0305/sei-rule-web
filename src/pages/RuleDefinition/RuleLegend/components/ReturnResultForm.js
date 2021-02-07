@@ -60,6 +60,7 @@ class ReturnResultForm extends Component {
   renderReturnValue = () => {
     const { form, itemData } = this.props;
     const { getFieldDecorator } = form;
+    getFieldDecorator('returnValueId', { initialValue: get(itemData, 'returnValueId') });
     const { ruleReturnType } = this.state;
     let componentUI = <Input autoComplete="off" />;
     const fieldDecoratorConfig = {
@@ -78,7 +79,7 @@ class ReturnResultForm extends Component {
         case RETURN_RESULT_UI_COMPONENT.COMBOLIST:
           listProps = {
             form,
-            name: 'returnValufeName',
+            name: 'returnValueName',
             store: {
               url: `${SERVER_PATH}/${findDataUrl}`,
             },
@@ -119,7 +120,6 @@ class ReturnResultForm extends Component {
     const { form, itemData, onlyView, ruleType } = this.props;
     const { getFieldDecorator } = form;
     getFieldDecorator('ruleReturnTypeId', { initialValue: get(itemData, 'ruleReturnTypeId') });
-    getFieldDecorator('returnValueId', { initialValue: get(itemData, 'returnValueId') });
     const ruleReturnTypeProps = {
       form,
       name: 'ruleReturnTypeName',
