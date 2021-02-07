@@ -87,7 +87,6 @@ class ExpressionForm extends Component {
     if (ruleAttribute) {
       const { displayField, findDataUrl, valueField, uiComponent } = ruleAttribute;
       const v = get(itemData, 'comparisonValue');
-      console.log(v);
       switch (uiComponent) {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER:
           componentUI = (
