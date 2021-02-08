@@ -107,7 +107,8 @@ class ExpressionForm extends Component {
             initialValue: isBoolean(v) ? v : false,
           });
           break;
-        case ATTRIBUTE_UI_COMPONENT.COMBOLIST.code:
+        case ATTRIBUTE_UI_COMPONENT.COMBOLIST_LOCAL.code:
+        case ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code:
           Object.assign(fieldDecoratorConfig, {
             valuePropName: 'checked',
             initialValue: isBoolean(v) ? v : false,
@@ -124,6 +125,9 @@ class ExpressionForm extends Component {
               field: [valueField],
             },
           };
+          if (uiComponent === ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code) {
+            listProps.store.type = 'POST';
+          }
           componentUI = <ComboList {...listProps} disabled={onlyView} />;
           getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           Object.assign(fieldDecoratorConfig, {

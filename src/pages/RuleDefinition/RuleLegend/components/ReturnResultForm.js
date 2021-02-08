@@ -76,7 +76,8 @@ class ReturnResultForm extends Component {
     if (ruleReturnType) {
       const { findDataUrl, uiComponent } = ruleReturnType;
       switch (uiComponent) {
-        case RETURN_RESULT_UI_COMPONENT.COMBOLIST.code:
+        case RETURN_RESULT_UI_COMPONENT.COMBOLIST_LOCAL.code:
+        case RETURN_RESULT_UI_COMPONENT.COMBOLIST_REMOTE.code:
           listProps = {
             form,
             name: 'returnValueName',
@@ -89,6 +90,9 @@ class ReturnResultForm extends Component {
               field: ['id'],
             },
           };
+          if (uiComponent === RETURN_RESULT_UI_COMPONENT.COMBOLIST_REMOTE.code) {
+            listProps.store.type = 'POST';
+          }
           componentUI = <ComboList {...listProps} disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, {
             initialValue: get(itemData, 'returnValueName') || '',

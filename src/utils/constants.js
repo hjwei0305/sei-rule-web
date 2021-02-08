@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-08 09:53:23
+ * @Last Modified time: 2021-02-08 11:01:32
  */
 import { base } from '../../public/app.config.json';
 
@@ -57,11 +57,13 @@ const ATTRIBUTE_UI_COMPONENT = {
   INPUT: { code: 'Input', name: '文本输入框' },
   MONEYINPUT: { code: 'MoneyInput', name: '金额输入框(0.00)' },
   SWITCH: { code: 'Switch', name: '开关(true、false)' },
-  COMBOLIST: { code: 'ComboList', name: '下拉列表' },
+  COMBOLIST_LOCAL: { code: 'ComboListLocal', name: '下拉列表-本地分页' },
+  COMBOLIST_REMOTE: { code: 'ComboListRemote', name: '下拉列表-远程分页' },
 };
 
 const RETURN_RESULT_UI_COMPONENT = {
-  COMBOLIST: { code: 'ComboList', name: '下拉列表' },
+  COMBOLIST_LOCAL: { code: 'ComboListLocal', name: '下拉列表-本地分页' },
+  COMBOLIST_REMOTE: { code: 'ComboListRemote', name: '下拉列表-远程分页' },
 };
 
 export default {
