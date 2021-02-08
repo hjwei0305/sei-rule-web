@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-05 16:19:26
+ * @Last Modified time: 2021-02-08 09:44:58
  */
 import { base } from '../../public/app.config.json';
 
@@ -53,15 +53,15 @@ const APP_MODULE_BTN_KEY = {
 };
 
 const ATTRIBUTE_UI_COMPONENT = {
-  DATEPICKER: 'DatePicker',
-  INPUT: 'Input',
-  MONEYINPUT: 'MoneyInput',
-  SWITCH: 'Switch',
-  COMBOLIST: 'ComboList',
+  DATEPICKER: { code: 'DatePicker', name: '日期YYYY-MM-DD' },
+  INPUT: { code: 'Input', name: '文本输入框' },
+  MONEYINPUT: { code: 'MoneyInput', name: '金额输入框' },
+  SWITCH: { code: 'Switch', name: '开关(true、false)' },
+  COMBOLIST: { code: 'ComboList', name: '下拉列表' },
 };
 
 const RETURN_RESULT_UI_COMPONENT = {
-  COMBOLIST: 'ComboList',
+  COMBOLIST: { code: 'ComboList', name: '下拉列表' },
 };
 
 export default {

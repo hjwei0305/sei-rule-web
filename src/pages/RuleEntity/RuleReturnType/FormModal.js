@@ -7,9 +7,9 @@ import styles from './index.less';
 
 const FormItem = Form.Item;
 const { RETURN_RESULT_UI_COMPONENT } = constants;
-const RETURN_RESULT_UI_COMPONENT_DATA = Object.keys(RETURN_RESULT_UI_COMPONENT).map(key => ({
-  code: RETURN_RESULT_UI_COMPONENT[key],
-}));
+const RETURN_RESULT_UI_COMPONENT_DATA = Object.keys(RETURN_RESULT_UI_COMPONENT).map(
+  key => RETURN_RESULT_UI_COMPONENT[key],
+);
 const formItemLayout = {
   labelCol: {
     span: 6,
@@ -44,6 +44,7 @@ class FormModal extends PureComponent {
       dataSource: RETURN_RESULT_UI_COMPONENT_DATA,
       reader: {
         name: 'code',
+        description: 'name',
       },
     };
     return (

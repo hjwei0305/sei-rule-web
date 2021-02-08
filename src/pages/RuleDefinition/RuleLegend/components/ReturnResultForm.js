@@ -76,7 +76,7 @@ class ReturnResultForm extends Component {
     if (ruleReturnType) {
       const { findDataUrl, uiComponent } = ruleReturnType;
       switch (uiComponent) {
-        case RETURN_RESULT_UI_COMPONENT.COMBOLIST:
+        case RETURN_RESULT_UI_COMPONENT.COMBOLIST.code:
           listProps = {
             form,
             name: 'returnValueName',

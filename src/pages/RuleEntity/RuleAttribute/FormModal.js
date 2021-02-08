@@ -6,9 +6,9 @@ import { constants } from '../../../utils';
 import styles from './index.less';
 
 const { SERVER_PATH, ATTRIBUTE_UI_COMPONENT } = constants;
-const ATTRIBUTE_UI_COMPONENT_DATA = Object.keys(ATTRIBUTE_UI_COMPONENT).map(key => ({
-  code: ATTRIBUTE_UI_COMPONENT[key],
-}));
+const ATTRIBUTE_UI_COMPONENT_DATA = Object.keys(ATTRIBUTE_UI_COMPONENT).map(
+  key => ATTRIBUTE_UI_COMPONENT[key],
+);
 const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
@@ -58,6 +58,7 @@ class FormModal extends PureComponent {
       dataSource: ATTRIBUTE_UI_COMPONENT_DATA,
       reader: {
         name: 'code',
+        description: 'name',
       },
     };
     return (

@@ -61,7 +61,7 @@ class ExpressionForm extends Component {
     if (formData && ruleAttribute) {
       const data = itemData ? { ...itemData } : {};
       Object.assign(data, formData);
-      if (ruleAttribute.uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER) {
+      if (ruleAttribute.uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
         Object.assign(data, { comparisonValue: moment(data.comparisonValue).format(Ymd) });
       }
       return { formData: data };
@@ -88,7 +88,7 @@ class ExpressionForm extends Component {
       const { displayField, findDataUrl, valueField, uiComponent } = ruleAttribute;
       const v = get(itemData, 'comparisonValue');
       switch (uiComponent) {
-        case ATTRIBUTE_UI_COMPONENT.DATEPICKER:
+        case ATTRIBUTE_UI_COMPONENT.DATEPICKER.code:
           componentUI = (
             <DatePicker style={{ width: '100%' }} allowClear={false} disabled={onlyView} />
           );
@@ -96,18 +96,18 @@ class ExpressionForm extends Component {
             initialValue: v && moment(v).isValid() ? moment(v) : null,
           });
           break;
-        case ATTRIBUTE_UI_COMPONENT.MONEYINPUT:
+        case ATTRIBUTE_UI_COMPONENT.MONEYINPUT.code:
           componentUI = <MoneyInput textAlign="left" disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, { initialValue: isNumber(Number(v)) ? v : 0 });
           break;
-        case ATTRIBUTE_UI_COMPONENT.SWITCH:
+        case ATTRIBUTE_UI_COMPONENT.SWITCH.code:
           componentUI = <Switch size="small" disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, {
             valuePropName: 'checked',
             initialValue: isBoolean(v) ? v : false,
           });
           break;
-        case ATTRIBUTE_UI_COMPONENT.COMBOLIST:
+        case ATTRIBUTE_UI_COMPONENT.COMBOLIST.code:
           Object.assign(fieldDecoratorConfig, {
             valuePropName: 'checked',
             initialValue: isBoolean(v) ? v : false,
