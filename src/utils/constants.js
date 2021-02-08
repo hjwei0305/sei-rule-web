@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-08 09:44:58
+ * @Last Modified time: 2021-02-08 09:53:23
  */
 import { base } from '../../public/app.config.json';
 
@@ -53,9 +53,9 @@ const APP_MODULE_BTN_KEY = {
 };
 
 const ATTRIBUTE_UI_COMPONENT = {
-  DATEPICKER: { code: 'DatePicker', name: '日期YYYY-MM-DD' },
+  DATEPICKER: { code: 'DatePicker', name: '日期(YYYY-MM-DD)' },
   INPUT: { code: 'Input', name: '文本输入框' },
-  MONEYINPUT: { code: 'MoneyInput', name: '金额输入框' },
+  MONEYINPUT: { code: 'MoneyInput', name: '金额输入框(0.00)' },
   SWITCH: { code: 'Switch', name: '开关(true、false)' },
   COMBOLIST: { code: 'ComboList', name: '下拉列表' },
 };
