@@ -109,10 +109,6 @@ class ExpressionForm extends Component {
           break;
         case ATTRIBUTE_UI_COMPONENT.COMBOLIST_LOCAL.code:
         case ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code:
-          Object.assign(fieldDecoratorConfig, {
-            valuePropName: 'checked',
-            initialValue: isBoolean(v) ? v : false,
-          });
           listProps = {
             form,
             name: 'displayValue',
