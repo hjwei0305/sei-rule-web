@@ -51,7 +51,7 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '规则路由',
+    name: '规则链',
     code: 'expression',
     disabled: false,
   },

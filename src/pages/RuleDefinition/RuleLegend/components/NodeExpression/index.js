@@ -83,7 +83,7 @@ class NodeExpression extends Component {
         getContainer={false}
         placement="right"
         visible={showNodeExpression}
-        title={<BannerTitle title={get(nodeData, 'name')} subTitle="规则路由" />}
+        title={<BannerTitle title={get(nodeData, 'name')} subTitle="规则链详情" />}
         className={cls(styles['node-form-drawer-box'])}
         onClose={this.handlerClose}
         style={{ position: 'absolute' }}
