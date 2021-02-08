@@ -139,13 +139,14 @@ class NodeForm extends Component {
         ruleTypeId: get(ruleType, 'id'),
       };
       Object.assign(params, nodeData || {});
-      Object.assign(params, formData, finishedConfigData);
+      Object.assign(params, finishedConfigData);
       Object.assign(params, {
         logicalExpressions,
         nodeReturnResults,
         trueNode: isTrueNode,
         finished: isFinished,
       });
+      Object.assign(params, formData);
       save(params);
     });
   };
