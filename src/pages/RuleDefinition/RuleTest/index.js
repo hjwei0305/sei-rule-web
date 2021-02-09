@@ -98,7 +98,7 @@ class RuleTest extends PureComponent {
     });
   };
 
-  backAndStart = () => {
+  goback = () => {
     const { dispatch } = this.props;
     dispatch({
       type: 'ruleTestRun/updateState',
@@ -106,6 +106,10 @@ class RuleTest extends PureComponent {
         ruleTestResult: null,
       },
     });
+  };
+
+  backAndStart = () => {
+    this.goback();
     this.handlerStart();
   };
 
@@ -255,8 +259,9 @@ class RuleTest extends PureComponent {
       return (
         <>
           <Button type="primary" onClick={this.backAndStart}>
-            继续测试
+            再次执行
           </Button>
+          <Button onClick={this.goback}>返回测试</Button>
           <Button onClick={this.showRuleLegend}>查看规则树</Button>
         </>
       );
