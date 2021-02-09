@@ -10,6 +10,7 @@ import FormModal from './FormModal';
 import styles from './index.less';
 
 const RuleLegend = React.lazy(() => import('../RuleLegend'));
+const RuleTest = React.lazy(() => import('../RuleTest'));
 const { SERVER_PATH } = constants;
 
 @connect(({ ruleRootNode, loading }) => ({ ruleRootNode, loading }))
@@ -41,8 +42,10 @@ class RuleRootList extends Component {
       payload: {
         currentRuleType: null,
         currentRuleRoot: null,
+        matchedNodeId: null,
         showModal: false,
         showRuleLegend: false,
+        showRuleTest: false,
       },
     });
   }
@@ -137,6 +140,18 @@ class RuleRootList extends Component {
     );
   };
 
+  showRuleLegend = (currentRuleRoot, matchedNodeId) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleRootNode/updateState',
+      payload: {
+        showRuleLegend: true,
+        matchedNodeId,
+        currentRuleRoot,
+      },
+    });
+  };
+
   closeModal = needReload => {
     const { dispatch } = this.props;
     dispatch({
@@ -144,12 +159,35 @@ class RuleRootList extends Component {
       payload: {
         showModal: false,
         currentRuleRoot: null,
+        matchedNodeId: null,
         showRuleLegend: false,
       },
     });
     if (needReload) {
       this.reloadData();
     }
+  };
+
+  showRuleTest = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleRootNode/updateState',
+      payload: {
+        showRuleTest: true,
+      },
+    });
+  };
+
+  closeTestModal = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleRootNode/updateState',
+      payload: {
+        currentRuleRoot: null,
+        matchedNodeId: null,
+        showRuleTest: false,
+      },
+    });
   };
 
   renderDelBtn = row => {
@@ -163,7 +201,14 @@ class RuleRootList extends Component {
 
   render() {
     const { ruleRootNode, loading, ruleType } = this.props;
-    const { showModal, currentRuleRoot, showRuleLegend, currentRuleType } = ruleRootNode;
+    const {
+      showModal,
+      currentRuleRoot,
+      showRuleLegend,
+      showRuleTest,
+      currentRuleType,
+      matchedNodeId,
+    } = ruleRootNode;
     const columns = [
       {
         title: formatMessage({ id: 'global.operation', defaultMessage: '操作' }),
@@ -233,6 +278,7 @@ class RuleRootList extends Component {
           <Button type="primary" onClick={this.add} ignore="true">
             <FormattedMessage id="global.add" defaultMessage="新建" />
           </Button>
+          <Button onClick={this.showRuleTest}>规则测试</Button>
           <Button onClick={this.reloadData}>
             <FormattedMessage id="global.refresh" defaultMessage="刷新" />
           </Button>
@@ -257,7 +303,14 @@ class RuleRootList extends Component {
     const ruleLegendProps = {
       ruleRoot: currentRuleRoot,
       ruleType: currentRuleType,
+      matchedNodeId,
       closeRuleModal: this.closeModal,
+    };
+    const ruleTestProps = {
+      ruleType: currentRuleType,
+      showTest: showRuleTest,
+      closeTest: this.closeTestModal,
+      showRuleLegend: this.showRuleLegend,
     };
     return (
       <div className={cls(styles['container-box'])}>
@@ -266,6 +319,11 @@ class RuleRootList extends Component {
         {showRuleLegend ? (
           <Suspense fallback={<PageLoader />}>
             <RuleLegend {...ruleLegendProps} />
+          </Suspense>
+        ) : null}
+        {showRuleTest ? (
+          <Suspense fallback={<PageLoader />}>
+            <RuleTest {...ruleTestProps} />
           </Suspense>
         ) : null}
       </div>

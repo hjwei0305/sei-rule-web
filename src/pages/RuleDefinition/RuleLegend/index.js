@@ -93,6 +93,7 @@ class RuleLegend extends Component {
   componentDidUpdate(preProps) {
     const {
       ruleLegend: { ruleTypeNodes },
+      matchedNodeId,
     } = this.props;
     if (!isEqual(preProps.ruleLegend.ruleTypeNodes, ruleTypeNodes)) {
       const ruleNodeData = cloneDeep(ruleTypeNodes);
@@ -100,6 +101,13 @@ class RuleLegend extends Component {
         this.graph.destroy();
       }
       this.initTreeGraph(ruleNodeData);
+      if (this.graph && matchedNodeId) {
+        const item = this.getNodeItemById(matchedNodeId);
+        if (item) {
+          this.showNodePath(item, 'selected');
+          this.graph.setItemState(item, 'selected', true);
+        }
+      }
     }
   }
 
@@ -193,6 +201,20 @@ class RuleLegend extends Component {
     };
     forFn(treeData, id);
     return temp;
+  };
+
+  getNodeItemById = id => {
+    let itemNode = null;
+    const nodes = this.graph.getNodes();
+    for (let i = 0; i < nodes.length; i += 1) {
+      const item = nodes[i];
+      const m = item.getModel();
+      if (m.id === id) {
+        itemNode = item;
+        break;
+      }
+    }
+    return itemNode;
   };
 
   showNodePath = (item, type) => {

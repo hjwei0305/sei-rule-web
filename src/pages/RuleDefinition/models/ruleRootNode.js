@@ -13,6 +13,8 @@ export default modelExtend(model, {
     currentRuleRoot: null,
     showModal: false,
     showRuleLegend: false,
+    showRuleTest: false,
+    matchedNodeId: null,
   },
   effects: {
     *saveRuleRootNode({ payload, callback }, { call, put }) {
