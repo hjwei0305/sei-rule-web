@@ -311,7 +311,7 @@ class NodeForm extends Component {
           </FormItem>
           <FormItem label="优先级">
             {getFieldDecorator('rank', {
-              initialValue: get(nodeData, 'rank'),
+              initialValue: get(nodeData, 'rank') || 0,
               rules: [
                 {
                   required: true,
