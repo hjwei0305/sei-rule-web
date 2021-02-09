@@ -153,12 +153,27 @@ class NodeForm extends Component {
 
   handlerTrueNodeChange = isTrueNode => {
     const { updateScroll } = this.props;
-    this.setState({ isTrueNode, expressionsData: [] }, updateScroll);
+    const { returnResultData: originReturnResultData } = this.state;
+    const {
+      formItems: LocalReturnResultData,
+      isValid: returnResultIsValid,
+    } = this.getReturnResultItemsData();
+    let returnResultData = [...originReturnResultData];
+    if (returnResultIsValid) {
+      returnResultData = [...LocalReturnResultData];
+    }
+    this.setState({ isTrueNode, expressionsData: [], returnResultData }, updateScroll);
   };
 
   handlerFinishedNodeChange = isFinished => {
     const { updateScroll } = this.props;
-    this.setState({ isFinished }, updateScroll);
+    const { expressionsData: originExpressionsData } = this.state;
+    const { formItems: LocalExpressionsData, isValid: expressIsValid } = this.getExpressItemsData();
+    let expressionsData = [...originExpressionsData];
+    if (expressIsValid) {
+      expressionsData = [...LocalExpressionsData];
+    }
+    this.setState({ isFinished, expressionsData }, updateScroll);
   };
 
   handlerScroll = (scrollBoxClassName, targetId) => {
