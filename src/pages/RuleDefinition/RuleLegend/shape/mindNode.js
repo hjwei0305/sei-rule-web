@@ -117,11 +117,11 @@ export default G6 => {
           group.addShape('text', {
             attrs: {
               x: rectConfig.width / 2,
-              y: -1,
+              y: collapsed ? 0.5 : -1,
+              fontSize: collapsed ? 10 : 18,
               textAlign: 'center',
               textBaseline: 'middle',
-              text: collapsed ? '+' : '-',
-              fontSize: 16,
+              text: collapsed ? cfg.children.length : '-',
               cursor: 'pointer',
               fill: 'rgba(0, 0, 0, 0.25)',
             },
@@ -148,7 +148,7 @@ export default G6 => {
               collapseText.attr({
                 text: '-',
                 y: -1,
-                fontSize: 16,
+                fontSize: 18,
               });
             } else {
               collapseText.attr({
