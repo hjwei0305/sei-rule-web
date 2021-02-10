@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { get, isBoolean, isNumber } from 'lodash';
+import { get, isNumber } from 'lodash';
 import moment from 'moment';
 import { Card, Form, Popconfirm, Icon, Avatar, Input, DatePicker, Switch } from 'antd';
 import { ComboList, MoneyInput } from 'suid';
@@ -130,7 +130,7 @@ class ExpressionForm extends Component {
           componentUI = <Switch size="small" disabled={onlyView} />;
           Object.assign(fieldDecoratorConfig, {
             valuePropName: 'checked',
-            initialValue: isBoolean(v) ? v : false,
+            initialValue: v || false,
           });
           break;
         case ATTRIBUTE_UI_COMPONENT.COMBOLIST_LOCAL.code:
