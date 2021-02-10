@@ -84,6 +84,32 @@ class ExpressionForm extends Component {
       ],
     };
     let listProps = {};
+    if (comparisonOperator === 'COMPARER') {
+      listProps = {
+        form,
+        name: 'displayValue',
+        store: {
+          url: `${SERVER_PATH}/sei-rule/ruleComparator/findByRuleEntityTypeId`,
+          params: {
+            ruleEntityTypeId: get(ruleType, 'ruleEntityTypeId'),
+          },
+        },
+        field: ['comparisonValue'],
+        reader: {
+          name: 'name',
+          description: 'path',
+          field: ['id'],
+        },
+      };
+      componentUI = <ComboList {...listProps} />;
+      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
+      Object.assign(fieldDecoratorConfig, { initialValue: get(itemData, 'displayValue') || '' });
+      return (
+        <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+          {getFieldDecorator('displayValue', fieldDecoratorConfig)(componentUI)}
+        </FormItem>
+      );
+    }
     if (ruleAttribute) {
       const { displayField, findDataUrl, valueField, uiComponent } = ruleAttribute;
       const v = get(itemData, 'comparisonValue');
@@ -136,32 +162,6 @@ class ExpressionForm extends Component {
           );
         default:
       }
-    }
-    if (comparisonOperator === 'COMPARER') {
-      listProps = {
-        form,
-        name: 'displayValue',
-        store: {
-          url: `${SERVER_PATH}/sei-rule/ruleComparator/findByRuleEntityTypeId`,
-          params: {
-            ruleEntityTypeId: get(ruleType, 'ruleEntityTypeId'),
-          },
-        },
-        field: ['comparisonValue'],
-        reader: {
-          name: 'name',
-          description: 'path',
-          field: ['id'],
-        },
-      };
-      componentUI = <ComboList {...listProps} />;
-      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
-      Object.assign(fieldDecoratorConfig, { initialValue: get(itemData, 'displayValue') || '' });
-      return (
-        <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-          {getFieldDecorator('displayValue', fieldDecoratorConfig)(componentUI)}
-        </FormItem>
-      );
     }
     return (
       <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
@@ -218,6 +218,7 @@ class ExpressionForm extends Component {
       },
       afterSelect: item => {
         this.setState({ comparisonOperator: item.comparisonOperator });
+        form.resetFields(['displayValue', 'comparisonValue']);
       },
       reader: {
         name: 'comparisonOperatorRemark',
