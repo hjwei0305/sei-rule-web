@@ -196,9 +196,15 @@ class ExpressionForm extends Component {
       afterSelect: item => {
         const { ruleAttribute } = this.state;
         if (get(ruleAttribute, 'id') !== item.id) {
-          form.resetFields(['comparisonOperatorRemark', 'comparisonOperator', 'comparisonValue']);
+          form.resetFields([
+            'comparisonOperatorRemark',
+            'comparisonOperator',
+            'comparisonValue',
+            'displayValue',
+            'comparisonValue',
+          ]);
         }
-        this.setState({ ruleAttribute: item });
+        this.setState({ ruleAttribute: item, comparisonOperator: '' });
       },
       reader: {
         name: 'name',
@@ -217,8 +223,10 @@ class ExpressionForm extends Component {
         ruleAttributeId: form.getFieldValue('ruleAttributeId'),
       },
       afterSelect: item => {
+        if (item.comparisonOperator === 'COMPARER') {
+          form.resetFields(['displayValue', 'comparisonValue']);
+        }
         this.setState({ comparisonOperator: item.comparisonOperator });
-        form.resetFields(['displayValue', 'comparisonValue']);
       },
       reader: {
         name: 'comparisonOperatorRemark',
