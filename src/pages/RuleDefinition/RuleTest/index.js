@@ -207,7 +207,7 @@ class RuleTest extends PureComponent {
       const { matched, returnConstant, ruleTreeRoot, returnEntityMap } = ruleTestResult;
       return (
         <>
-          <Descriptions column={1} className="result-detail">
+          <Descriptions title="测试结果" column={1} className="result-detail">
             <Descriptions.Item label="规则匹配">
               {matched ? <Tag color="green">成功</Tag> : <Tag color="red">失败</Tag>}
             </Descriptions.Item>
