@@ -36,11 +36,6 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '规则详情',
-    code: 'view',
-    disabled: false,
-  },
-  {
     name: '修改规则',
     code: 'edit',
     disabled: false,
@@ -48,6 +43,11 @@ const getContextMenuData = () => [
   {
     name: '删除规则',
     code: 'delete',
+    disabled: false,
+  },
+  {
+    name: '规则详情',
+    code: 'view',
     disabled: false,
   },
   {
