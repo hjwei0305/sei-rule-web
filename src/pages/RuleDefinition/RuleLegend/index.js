@@ -106,6 +106,7 @@ class RuleLegend extends Component {
         if (item) {
           this.showNodePath(item, 'selected');
           this.graph.setItemState(item, 'selected', true);
+          this.fitView();
         }
       }
     }

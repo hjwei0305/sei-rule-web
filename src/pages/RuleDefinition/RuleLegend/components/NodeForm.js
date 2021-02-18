@@ -41,13 +41,8 @@ class NodeForm extends Component {
     const { nodeData } = props;
     this.expressItemFormRefs = null;
     this.returnResultItemFormRefs = null;
-    const expressionsData = get(nodeData, 'logicalExpressions', []) || [];
-    const returnResultData = get(nodeData, 'nodeReturnResults', []) || [];
     this.state = {
-      isTrueNode: get(nodeData, 'trueNode') || false,
-      isFinished: get(nodeData, 'finished') || false,
-      expressionsData,
-      returnResultData,
+      nodeData,
       collapsedExpression: false,
       collapsedReturnResult: false,
     };
@@ -63,14 +58,7 @@ class NodeForm extends Component {
   componentDidUpdate(preProps) {
     const { nodeData } = this.props;
     if (!isEqual(preProps.nodeData, nodeData)) {
-      const expressionsData = get(nodeData, 'logicalExpressions', []) || [];
-      const returnResultData = get(nodeData, 'nodeReturnResults', []) || [];
-      this.setState({
-        isTrueNode: get(nodeData, 'trueNode') || false,
-        isFinished: get(nodeData, 'finished') || false,
-        expressionsData,
-        returnResultData,
-      });
+      this.setState({ nodeData });
     }
   }
 
@@ -117,7 +105,8 @@ class NodeForm extends Component {
   };
 
   handlerFormSubmit = () => {
-    const { form, save, nodeData, ruleType } = this.props;
+    const { form, save, ruleType } = this.props;
+    const { nodeData } = this.state;
     let finishedConfigData = {};
     if (this.finishedConfigFormRef) {
       finishedConfigData = this.finishedConfigFormRef.getFormData() || {};
@@ -134,7 +123,6 @@ class NodeForm extends Component {
       if (err) {
         return;
       }
-      const { isTrueNode, isFinished } = this.state;
       const params = {
         ruleTypeId: get(ruleType, 'id'),
       };
@@ -143,37 +131,47 @@ class NodeForm extends Component {
       Object.assign(params, {
         logicalExpressions,
         nodeReturnResults,
-        trueNode: isTrueNode,
-        finished: isFinished,
       });
       Object.assign(params, formData);
+      this.setState({ nodeData: params });
       save(params);
     });
   };
 
-  handlerTrueNodeChange = isTrueNode => {
+  handlerTrueNodeChange = trueNode => {
     const { updateScroll } = this.props;
-    const { returnResultData: originReturnResultData } = this.state;
+    const { nodeData: originNodeData } = this.state;
+    const nodeData = { ...originNodeData };
+    Object.assign(nodeData, {
+      trueNode,
+      logicalExpressions: [],
+    });
     const {
-      formItems: LocalReturnResultData,
+      formItems: nodeReturnResults,
       isValid: returnResultIsValid,
     } = this.getReturnResultItemsData();
-    let returnResultData = [...originReturnResultData];
     if (returnResultIsValid) {
-      returnResultData = [...LocalReturnResultData];
+      Object.assign(nodeData, {
+        nodeReturnResults,
+      });
     }
-    this.setState({ isTrueNode, expressionsData: [], returnResultData }, updateScroll);
+    this.setState({ nodeData }, updateScroll);
   };
 
-  handlerFinishedNodeChange = isFinished => {
+  handlerFinishedNodeChange = finished => {
     const { updateScroll } = this.props;
-    const { expressionsData: originExpressionsData } = this.state;
-    const { formItems: LocalExpressionsData, isValid: expressIsValid } = this.getExpressItemsData();
-    let expressionsData = [...originExpressionsData];
+    const { nodeData: originNodeData } = this.state;
+    const nodeData = { ...originNodeData };
+    Object.assign(nodeData, {
+      finished,
+    });
+    const { formItems: logicalExpressions, isValid: expressIsValid } = this.getExpressItemsData();
     if (expressIsValid) {
-      expressionsData = [...LocalExpressionsData];
+      Object.assign(nodeData, {
+        logicalExpressions,
+      });
     }
-    this.setState({ isFinished, expressionsData }, updateScroll);
+    this.setState({ nodeData }, updateScroll);
   };
 
   handlerScroll = (scrollBoxClassName, targetId) => {
@@ -205,16 +203,20 @@ class NodeForm extends Component {
 
   /** 逻辑表达式行项目删除 */
   onDeleteExpressItem = id => {
-    const { expressionsData } = this.state;
+    const { nodeData: originNodeData } = this.state;
     const { updateScroll } = this.props;
-    const tmpItems = cloneDeep(expressionsData);
-    let its = tmpItems.filter(item => {
+    const nodeData = cloneDeep(originNodeData);
+    const logicalExpressions = get(nodeData, 'logicalExpressions', []) || [];
+    let its = logicalExpressions.filter(item => {
       return item.id !== id && item.tmpId !== id;
     });
     its = this.rebuildIndex(its);
+    Object.assign(nodeData, {
+      logicalExpressions: its,
+    });
     this.setState(
       {
-        expressionsData: its,
+        nodeData,
       },
       () => {
         delete this.expressItemFormRefs[id];
@@ -225,8 +227,10 @@ class NodeForm extends Component {
 
   handlerAddExpress = () => {
     const { ruleRoot } = this.props;
-    const { expressionsData: originExpressionsData } = this.state;
-    let its = [...originExpressionsData];
+    const { nodeData: originNodeData } = this.state;
+    const nodeData = cloneDeep(originNodeData);
+    const logicalExpressions = get(nodeData, 'logicalExpressions', []) || [];
+    let its = [...logicalExpressions];
     its = this.rebuildIndex(its);
     const itemId = getUUID();
     its.push({
@@ -235,7 +239,10 @@ class NodeForm extends Component {
       tmpId: itemId,
       ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
     });
-    this.setState({ expressionsData: its }, () => {
+    Object.assign(nodeData, {
+      logicalExpressions: its,
+    });
+    this.setState({ nodeData }, () => {
       this.handlerScroll('.node-form-scroll-bar', itemId);
     });
   };
@@ -250,16 +257,20 @@ class NodeForm extends Component {
 
   /** 逻辑表达式行项目删除 */
   onDeleteReturnResultItem = id => {
+    const { nodeData: originNodeData } = this.state;
     const { updateScroll } = this.props;
-    const { returnResultData } = this.state;
-    const tmpItems = cloneDeep(returnResultData);
-    let its = tmpItems.filter(item => {
+    const nodeData = cloneDeep(originNodeData);
+    const nodeReturnResults = get(nodeData, 'nodeReturnResults', []) || [];
+    let its = nodeReturnResults.filter(item => {
       return item.id !== id && item.tmpId !== id;
     });
     its = this.rebuildIndex(its);
+    Object.assign(nodeData, {
+      nodeReturnResults: its,
+    });
     this.setState(
       {
-        returnResultData: its,
+        nodeData,
       },
       () => {
         delete this.returnResultItemFormRefs[id];
@@ -270,8 +281,10 @@ class NodeForm extends Component {
 
   handlerAddReturnResult = () => {
     const { ruleRoot } = this.props;
-    const { returnResultData: originReturnResultData } = this.state;
-    let its = [...originReturnResultData];
+    const { nodeData: originNodeData } = this.state;
+    const nodeData = cloneDeep(originNodeData);
+    const nodeReturnResults = get(nodeData, 'nodeReturnResults', []) || [];
+    let its = [...nodeReturnResults];
     its = this.rebuildIndex(its);
     const itemId = getUUID();
     its.push({
@@ -280,7 +293,10 @@ class NodeForm extends Component {
       tmpId: itemId,
       ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
     });
-    this.setState({ returnResultData: its }, () => {
+    Object.assign(nodeData, {
+      nodeReturnResults: its,
+    });
+    this.setState({ nodeData }, () => {
       this.handlerScroll('.node-form-scroll-bar', itemId);
     });
   };
@@ -298,15 +314,12 @@ class NodeForm extends Component {
   };
 
   render() {
-    const {
-      isTrueNode,
-      isFinished,
-      expressionsData,
-      returnResultData,
-      collapsedExpression,
-      collapsedReturnResult,
-    } = this.state;
-    const { form, ruleType, nodeData, onlyView } = this.props;
+    const { collapsedExpression, collapsedReturnResult, nodeData } = this.state;
+    const expressionsData = get(nodeData, 'logicalExpressions', []) || [];
+    const returnResultData = get(nodeData, 'nodeReturnResults', []) || [];
+    const isTrueNode = get(nodeData, 'trueNode') || false;
+    const isFinished = get(nodeData, 'finished') || false;
+    const { form, ruleType, onlyView } = this.props;
     const { getFieldDecorator } = form;
     const isRootNode = get(nodeData, 'parentId', null) === null;
     return (

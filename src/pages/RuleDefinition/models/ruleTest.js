@@ -1,7 +1,7 @@
 import { utils, message } from 'suid';
 import { ruleTestRun } from '../services/ruleTest';
 
-const { dvaModel } = utils;
+const { dvaModel, getUUID } = utils;
 const { modelExtend, model } = dvaModel;
 
 export default modelExtend(model, {
@@ -12,10 +12,12 @@ export default modelExtend(model, {
   },
   effects: {
     *ruleTestStartRun({ payload, callback }, { call, put }) {
-      const re = yield call(ruleTestRun, payload);
       message.destroy();
+      const messageKey = getUUID();
+      message.loading({ content: '测试正在进行...', key: messageKey });
+      const re = yield call(ruleTestRun, payload);
       if (re.success) {
-        message.success('运行测试代码成功');
+        message.success({ content: '测试运行完成,请查看测试结果', key: messageKey });
         yield put({
           type: 'updateState',
           payload: {
@@ -23,7 +25,7 @@ export default modelExtend(model, {
           },
         });
       } else {
-        message.error(re.message);
+        message.error({ content: re.message, key: messageKey });
       }
       if (callback && callback instanceof Function) {
         callback(re);

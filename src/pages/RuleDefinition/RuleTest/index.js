@@ -109,7 +109,6 @@ class RuleTest extends PureComponent {
   };
 
   backAndStart = () => {
-    this.goback();
     this.handlerStart();
   };
 
@@ -256,13 +255,18 @@ class RuleTest extends PureComponent {
     } = this.props;
     const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
     if (ruleTestResult) {
+      const { matched } = ruleTestResult;
       return (
         <>
-          <Button type="primary" onClick={this.backAndStart}>
+          <Button type="primary" loading={startLoading} onClick={this.backAndStart}>
             再次执行
           </Button>
-          <Button onClick={this.goback}>返回测试</Button>
-          <Button onClick={this.showRuleLegend}>查看规则树</Button>
+          <Button disabled={startLoading} onClick={this.goback}>
+            返回测试
+          </Button>
+          <Button onClick={this.showRuleLegend} disabled={!matched || startLoading}>
+            查看规则树
+          </Button>
         </>
       );
     }

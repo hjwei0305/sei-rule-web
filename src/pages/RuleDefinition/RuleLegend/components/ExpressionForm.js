@@ -102,7 +102,6 @@ class ExpressionForm extends Component {
         },
       };
       componentUI = <ComboList {...listProps} />;
-      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
       Object.assign(fieldDecoratorConfig, { initialValue: get(itemData, 'displayValue') || '' });
       return (
         <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
@@ -151,7 +150,6 @@ class ExpressionForm extends Component {
             listProps.store.type = 'POST';
           }
           componentUI = <ComboList {...listProps} disabled={onlyView} />;
-          getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           Object.assign(fieldDecoratorConfig, {
             initialValue: get(itemData, 'displayValue') || '',
           });
@@ -183,6 +181,7 @@ class ExpressionForm extends Component {
     const { getFieldDecorator } = form;
     getFieldDecorator('ruleAttributeId', { initialValue: get(itemData, 'ruleAttributeId') });
     getFieldDecorator('comparisonOperator', { initialValue: get(itemData, 'comparisonOperator') });
+    getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
     const ruleAttributeProps = {
       form,
       name: 'ruleAttributeName',
@@ -199,7 +198,6 @@ class ExpressionForm extends Component {
           form.resetFields([
             'comparisonOperatorRemark',
             'comparisonOperator',
-            'comparisonValue',
             'displayValue',
             'comparisonValue',
           ]);
