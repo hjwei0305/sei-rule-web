@@ -87,7 +87,7 @@ export default G6 => {
         group.addShape('text', {
           attrs: {
             ...textConfig,
-            x: -14 + nodeOrigin.x,
+            x: -20 + nodeOrigin.x,
             y: rectBBox.maxY - 36,
             text: parentId ? rank : '',
             fontSize: 14,
