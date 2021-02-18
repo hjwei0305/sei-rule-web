@@ -106,7 +106,6 @@ class NodeForm extends Component {
 
   handlerFormSubmit = () => {
     const { form, save, ruleType } = this.props;
-    const { nodeData } = this.state;
     let finishedConfigData = {};
     if (this.finishedConfigFormRef) {
       finishedConfigData = this.finishedConfigFormRef.getFormData() || {};
@@ -123,6 +122,7 @@ class NodeForm extends Component {
       if (err) {
         return;
       }
+      const { nodeData } = this.state;
       const params = {
         ruleTypeId: get(ruleType, 'id'),
       };

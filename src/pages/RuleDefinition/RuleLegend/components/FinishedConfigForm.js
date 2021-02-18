@@ -49,7 +49,12 @@ class FinishedConfigForm extends Component {
       }
     });
     if (formData) {
-      const data = nodeData ? { ...nodeData } : {};
+      const data = {
+        ruleServiceMethodId: get(nodeData, 'ruleServiceMethodId'),
+        ruleServiceMethodName: get(nodeData, 'ruleAttributeTypeRemark'),
+        asyncExecute: get(nodeData, 'asyncExecute') || false,
+        returnConstant: get(nodeData, 'returnConstant'),
+      };
       Object.assign(data, formData);
       return data;
     }
