@@ -160,7 +160,7 @@ class RuleServiceMethod extends Component {
       {
         title: '名称',
         dataIndex: 'name',
-        width: 180,
+        width: 260,
         required: true,
       },
       {
