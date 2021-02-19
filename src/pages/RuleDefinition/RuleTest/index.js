@@ -4,7 +4,7 @@ import { connect } from 'dva';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import copy from 'copy-to-clipboard';
-import { Drawer, Layout, Button, Result, Descriptions, Switch, Tag, message } from 'antd';
+import { Drawer, Layout, Button, Result, Descriptions, Switch, Tag, message, Popover } from 'antd';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-tomorrow';
@@ -88,14 +88,23 @@ class RuleTest extends PureComponent {
   handlerStart = () => {
     const { dispatch, ruleType } = this.props;
     const { executeMethod, ruleEntityJson } = this.state;
-    dispatch({
-      type: 'ruleTestRun/ruleTestStartRun',
-      payload: {
-        executeMethod,
-        ruleEntityJson: JSON.stringify(JSON.parse(ruleEntityJson)),
-        ruleTypeCode: get(ruleType, 'code'),
-      },
-    });
+    let jsonData = '';
+    try {
+      jsonData = JSON.stringify(JSON.parse(ruleEntityJson));
+    } catch {
+      message.destroy();
+      message.error('Json数据格式不正确!');
+    }
+    if (jsonData) {
+      dispatch({
+        type: 'ruleTestRun/ruleTestStartRun',
+        payload: {
+          executeMethod,
+          ruleEntityJson: jsonData,
+          ruleTypeCode: get(ruleType, 'code'),
+        },
+      });
+    }
   };
 
   goback = () => {
@@ -134,6 +143,32 @@ class RuleTest extends PureComponent {
     }
   };
 
+  paramsDemo = () => {
+    const demoAce = getUUID();
+    return (
+      <AceEditor
+        mode="json"
+        theme="github"
+        name={demoAce}
+        fontSize={14}
+        showPrintMargin={false}
+        showGutter={false}
+        readOnly
+        highlightActiveLine={false}
+        width="260px"
+        height="120px"
+        value={'{\n  "key1":1,\n  "key2":true,\n  "key3":"text"\n}'}
+        setOptions={{
+          enableBasicAutocompletion: false,
+          enableLiveAutocompletion: false,
+          enableSnippets: true,
+          showLineNumbers: false,
+          tabSize: 2,
+        }}
+      />
+    );
+  };
+
   renderTitle = () => {
     const { ruleType } = this.props;
     const title = get(ruleType, 'name');
@@ -141,6 +176,13 @@ class RuleTest extends PureComponent {
       <>
         <ExtIcon onClick={this.handlerClose} type="left" className="trigger-back" antd />
         <BannerTitle title={title} subTitle="规则测试" />
+        <Popover title="Json样例参考" content={this.paramsDemo()}>
+          <ExtIcon
+            antd
+            type="question-circle"
+            style={{ marginLeft: 4, position: 'relative', color: '#666666', cursor: 'pointer' }}
+          />
+        </Popover>
       </>
     );
   };
