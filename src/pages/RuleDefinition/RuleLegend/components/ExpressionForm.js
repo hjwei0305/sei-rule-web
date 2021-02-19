@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { get, isNumber } from 'lodash';
+import { get, isNumber, isEqual } from 'lodash';
 import moment from 'moment';
 import { Card, Form, Popconfirm, Icon, Avatar, Input, DatePicker, Switch } from 'antd';
 import { ComboList, MoneyInput } from 'suid';
@@ -23,23 +23,8 @@ class ExpressionForm extends Component {
   constructor(props) {
     super(props);
     const { itemData } = props;
-    let ruleAttribute = null;
-    let comparisonOperator = '';
-    if (itemData) {
-      ruleAttribute = {
-        id: get(itemData, 'ruleAttributeId'),
-        attribute: get(itemData, 'ruleAttributeAttribute'),
-        findDataUrl: get(itemData, 'ruleAttributeFindDataUrl'),
-        ruleAttributeType: get(itemData, 'ruleAttributeRuleAttributeType'),
-        uiComponent: get(itemData, 'ruleAttributeUiComponent'),
-        displayField: get(itemData, 'ruleAttributeDisplayField'),
-        valueField: get(itemData, 'ruleAttributeValueField'),
-      };
-      comparisonOperator = get(itemData, 'comparisonOperator');
-    }
     this.state = {
-      comparisonOperator,
-      ruleAttribute,
+      itemData,
     };
   }
 
@@ -48,41 +33,44 @@ class ExpressionForm extends Component {
     onExpressItemFormRefs(itemData.id || itemData.tmpId, this);
   }
 
+  componentDidUpdate(preProps) {
+    const { itemData } = this.props;
+    if (!isEqual(preProps.itemData, itemData)) {
+      this.setState({ itemData });
+    }
+  }
+
   /** 获取表单数据 */
   getFormData = () => {
-    const { form, itemData } = this.props;
-    const { ruleAttribute } = this.state;
+    const { form } = this.props;
+    const { itemData } = this.state;
     let formData = null;
     form.validateFields((err, values) => {
       if (!err) {
         formData = values;
       }
     });
-    if (formData && ruleAttribute) {
-      const data = itemData ? { ...itemData } : {};
-      Object.assign(data, formData);
-      if (ruleAttribute.uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
-        Object.assign(data, { comparisonValue: moment(data.comparisonValue).format(Ymd) });
-      }
-      return { formData: data };
+    const data = itemData ? { ...itemData } : {};
+    Object.assign(data, formData);
+    const uiComponent = get(itemData, 'ruleAttributeUiComponent');
+    if (uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
+      Object.assign(data, { comparisonValue: moment(data.comparisonValue).format(Ymd) });
     }
-    return { formData };
+    return { formData: data };
   };
 
   renderComparisonValue = () => {
-    const { form, itemData, ruleType, onlyView } = this.props;
+    const { itemData } = this.state;
+    const { form, ruleType, onlyView } = this.props;
     const { getFieldDecorator } = form;
-    const { comparisonOperator, ruleAttribute } = this.state;
-    let componentUI = <Input autoComplete="off" disabled={onlyView} />;
-    const fieldDecoratorConfig = {
-      initialValue: get(itemData, 'comparisonValue'),
-      rules: [
-        {
-          required: true,
-          message: '属性值不能为空',
-        },
-      ],
-    };
+    const comparisonOperator = get(itemData, 'comparisonOperator');
+    const uiComponent = get(itemData, 'ruleAttributeUiComponent');
+    const rules = [
+      {
+        required: true,
+        message: '属性值不能为空',
+      },
+    ];
     let listProps = {};
     if (comparisonOperator === 'COMPARER') {
       listProps = {
@@ -101,37 +89,49 @@ class ExpressionForm extends Component {
           field: ['id'],
         },
       };
-      componentUI = <ComboList {...listProps} />;
-      Object.assign(fieldDecoratorConfig, { initialValue: get(itemData, 'displayValue') || '' });
+      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
       return (
         <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-          {getFieldDecorator('displayValue', fieldDecoratorConfig)(componentUI)}
+          {getFieldDecorator('displayValue', {
+            initialValue: get(itemData, 'displayValue') || '',
+            rules,
+          })(<ComboList {...listProps} />)}
         </FormItem>
       );
     }
-    if (ruleAttribute) {
-      const { displayField, findDataUrl, valueField, uiComponent } = ruleAttribute;
+    if (uiComponent) {
+      const findDataUrl = get(itemData, 'ruleAttributeFindDataUrl');
+      const displayField = get(itemData, 'ruleAttributeDisplayField');
+      const valueField = get(itemData, 'ruleAttributeValueField');
       const v = get(itemData, 'comparisonValue');
       switch (uiComponent) {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER.code:
-          componentUI = (
-            <DatePicker style={{ width: '100%' }} allowClear={false} disabled={onlyView} />
+          return (
+            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+              {getFieldDecorator('displayValue', {
+                initialValue: v && moment(v).isValid() ? moment(v) : null,
+                rules,
+              })(<DatePicker style={{ width: '100%' }} allowClear={false} disabled={onlyView} />)}
+            </FormItem>
           );
-          Object.assign(fieldDecoratorConfig, {
-            initialValue: v && moment(v).isValid() ? moment(v) : null,
-          });
-          break;
         case ATTRIBUTE_UI_COMPONENT.MONEYINPUT.code:
-          componentUI = <MoneyInput textAlign="left" disabled={onlyView} />;
-          Object.assign(fieldDecoratorConfig, { initialValue: isNumber(Number(v)) ? v : 0 });
-          break;
+          return (
+            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+              {getFieldDecorator('displayValue', {
+                initialValue: isNumber(Number(v)) ? v : 0,
+                rules,
+              })(<MoneyInput textAlign="left" disabled={onlyView} />)}
+            </FormItem>
+          );
         case ATTRIBUTE_UI_COMPONENT.SWITCH.code:
-          componentUI = <Switch size="small" disabled={onlyView} />;
-          Object.assign(fieldDecoratorConfig, {
-            valuePropName: 'checked',
-            initialValue: v || false,
-          });
-          break;
+          return (
+            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+              {getFieldDecorator('displayValue', {
+                valuePropName: 'checked',
+                initialValue: v || false,
+              })(<Switch size="small" disabled={onlyView} />)}
+            </FormItem>
+          );
         case ATTRIBUTE_UI_COMPONENT.COMBOLIST_LOCAL.code:
         case ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code:
           listProps = {
@@ -149,13 +149,13 @@ class ExpressionForm extends Component {
           if (uiComponent === ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code) {
             listProps.store.type = 'POST';
           }
-          componentUI = <ComboList {...listProps} disabled={onlyView} />;
-          Object.assign(fieldDecoratorConfig, {
-            initialValue: get(itemData, 'displayValue') || '',
-          });
+          getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           return (
             <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-              {getFieldDecorator('displayValue', fieldDecoratorConfig)(componentUI)}
+              {getFieldDecorator('displayValue', {
+                initialValue: get(itemData, 'displayValue') || '',
+                rules,
+              })(<ComboList {...listProps} disabled={onlyView} />)}
             </FormItem>
           );
         default:
@@ -163,7 +163,10 @@ class ExpressionForm extends Component {
     }
     return (
       <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-        {getFieldDecorator('comparisonValue', fieldDecoratorConfig)(componentUI)}
+        {getFieldDecorator('displayValue', {
+          initialValue: get(itemData, 'displayValue') || '',
+          rules,
+        })(<Input autoComplete="off" disabled={onlyView} />)}
       </FormItem>
     );
   };
@@ -177,11 +180,11 @@ class ExpressionForm extends Component {
   };
 
   render() {
-    const { form, itemData, onlyView, ruleType } = this.props;
+    const { itemData } = this.state;
+    const { form, onlyView, ruleType } = this.props;
     const { getFieldDecorator } = form;
     getFieldDecorator('ruleAttributeId', { initialValue: get(itemData, 'ruleAttributeId') });
     getFieldDecorator('comparisonOperator', { initialValue: get(itemData, 'comparisonOperator') });
-    getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
     const ruleAttributeProps = {
       form,
       name: 'ruleAttributeName',
@@ -193,16 +196,29 @@ class ExpressionForm extends Component {
       },
       field: ['ruleAttributeId'],
       afterSelect: item => {
-        const { ruleAttribute } = this.state;
-        if (get(ruleAttribute, 'id') !== item.id) {
+        const { itemData: originItemData } = this.state;
+        const formData = { ...originItemData };
+        const ruleAttributeId = get(formData, 'ruleAttributeId');
+        if (ruleAttributeId !== item.id) {
+          Object.assign(formData, {
+            ruleAttributeFindDataUrl: get(item, 'findDataUrl'),
+            ruleAttributeRuleAttributeType: get(item, 'ruleAttributeType'),
+            ruleAttributeUiComponent: get(item, 'uiComponent'),
+            ruleAttributeDisplayField: get(item, 'displayField'),
+            ruleAttributeValueField: get(item, 'valueField'),
+            comparisonOperatorRemark: '',
+            comparisonOperator: '',
+            displayValue: '',
+            comparisonValue: '',
+          });
           form.resetFields([
             'comparisonOperatorRemark',
             'comparisonOperator',
             'displayValue',
             'comparisonValue',
           ]);
+          this.setState({ itemData: formData });
         }
-        this.setState({ ruleAttribute: item, comparisonOperator: '' });
       },
       reader: {
         name: 'name',
@@ -221,10 +237,16 @@ class ExpressionForm extends Component {
         ruleAttributeId: form.getFieldValue('ruleAttributeId'),
       },
       afterSelect: item => {
-        if (item.comparisonOperator === 'COMPARER') {
-          form.resetFields(['displayValue', 'comparisonValue']);
-        }
-        this.setState({ comparisonOperator: item.comparisonOperator });
+        const { itemData: originItemData } = this.state;
+        const formData = { ...originItemData };
+        Object.assign(formData, {
+          comparisonOperatorRemark: get(item, 'comparisonOperatorRemark'),
+          comparisonOperator: get(item, 'comparisonOperator'),
+          displayValue: '',
+          comparisonValue: '',
+        });
+        form.resetFields(['displayValue', 'comparisonValue']);
+        this.setState({ itemData: formData });
       },
       reader: {
         name: 'comparisonOperatorRemark',
