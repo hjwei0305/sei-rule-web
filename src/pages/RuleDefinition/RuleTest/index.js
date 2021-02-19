@@ -100,7 +100,7 @@ class RuleTest extends PureComponent {
         type: 'ruleTestRun/ruleTestStartRun',
         payload: {
           executeMethod,
-          ruleEntityJson: jsonData,
+          ruleEntityJson: JSON.stringify(jsonData),
           ruleTypeCode: get(ruleType, 'code'),
         },
       });
