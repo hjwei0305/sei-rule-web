@@ -148,7 +148,7 @@ class RuleTest extends PureComponent {
     return (
       <AceEditor
         mode="json"
-        theme="github"
+        theme="tomorrow"
         name={demoAce}
         fontSize={14}
         showPrintMargin={false}
