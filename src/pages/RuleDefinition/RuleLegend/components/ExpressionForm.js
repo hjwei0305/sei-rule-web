@@ -108,7 +108,7 @@ class ExpressionForm extends Component {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER.code:
           return (
             <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-              {getFieldDecorator('displayValue', {
+              {getFieldDecorator('comparisonValue', {
                 initialValue: v && moment(v).isValid() ? moment(v) : null,
                 rules,
               })(<DatePicker style={{ width: '100%' }} allowClear={false} disabled={onlyView} />)}
@@ -117,7 +117,7 @@ class ExpressionForm extends Component {
         case ATTRIBUTE_UI_COMPONENT.MONEYINPUT.code:
           return (
             <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-              {getFieldDecorator('displayValue', {
+              {getFieldDecorator('comparisonValue', {
                 initialValue: isNumber(Number(v)) ? v : 0,
                 rules,
               })(<MoneyInput textAlign="left" disabled={onlyView} />)}
@@ -126,7 +126,7 @@ class ExpressionForm extends Component {
         case ATTRIBUTE_UI_COMPONENT.SWITCH.code:
           return (
             <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-              {getFieldDecorator('displayValue', {
+              {getFieldDecorator('comparisonValue', {
                 valuePropName: 'checked',
                 initialValue: v || false,
               })(<Switch size="small" disabled={onlyView} />)}
@@ -163,8 +163,8 @@ class ExpressionForm extends Component {
     }
     return (
       <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
-        {getFieldDecorator('displayValue', {
-          initialValue: get(itemData, 'displayValue') || '',
+        {getFieldDecorator('comparisonValue', {
+          initialValue: get(itemData, 'comparisonValue') || '',
           rules,
         })(<Input autoComplete="off" disabled={onlyView} />)}
       </FormItem>
