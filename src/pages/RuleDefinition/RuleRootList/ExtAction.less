@@ -1,0 +1,29 @@
+@import '../../../themes/vars.less';
+.action-menu-box {
+  :global {
+    .ant-dropdown-menu-item {
+      padding: 2px 16px;
+      .view-popover-box-trigger {
+        display: inline-block;
+        padding: 8px;
+      }
+      .menu-title {
+        display: inline-block;
+        padding: 8px;
+      }
+      i,
+      &.warning {
+        &.ant-dropdown-menu-item-selected {
+          background-color: fade(@error-color, 10%);
+        }
+        .ant-popover-open {
+          color: @error-color;
+        }
+      }
+    }
+  }
+}
+
+.pop-confirm-box {
+  z-index: 1050;
+}

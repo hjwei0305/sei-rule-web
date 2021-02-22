@@ -1,6 +1,6 @@
 import { formatMessage } from 'umi-plugin-react/locale';
 import { utils, message } from 'suid';
-import { saveRuleRootNode, delRule } from '../services/ruleRootNode';
+import { saveRuleRootNode, delRule, saveCopyRule } from '../services/ruleRootNode';
 
 const { dvaModel } = utils;
 const { modelExtend, model } = dvaModel;
@@ -12,6 +12,7 @@ export default modelExtend(model, {
     currentRuleType: null,
     currentRuleRoot: null,
     showModal: false,
+    showCopyModal: false,
     showRuleLegend: false,
     showRuleTest: false,
     matchedNodeId: null,
@@ -26,6 +27,26 @@ export default modelExtend(model, {
           type: 'updateState',
           payload: {
             showModal: false,
+            currentRuleRoot: null,
+          },
+        });
+      } else {
+        message.error(re.message);
+      }
+      if (callback && callback instanceof Function) {
+        callback(re);
+      }
+    },
+    *saveCopyRule({ payload, callback }, { call, put }) {
+      const re = yield call(saveCopyRule, payload);
+      message.destroy();
+      if (re.success) {
+        message.success(formatMessage({ id: 'global.save-success', defaultMessage: '保存成功' }));
+        yield put({
+          type: 'updateState',
+          payload: {
+            showCopyModal: false,
+            currentRuleRoot: null,
           },
         });
       } else {
@@ -43,8 +64,7 @@ export default modelExtend(model, {
         yield put({
           type: 'updateState',
           payload: {
-            selectedRuleType: null,
-            currentRuleType: null,
+            currentRuleRoot: null,
           },
         });
       } else {

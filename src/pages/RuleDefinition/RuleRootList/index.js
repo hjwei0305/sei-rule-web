@@ -2,27 +2,24 @@ import React, { Component, Suspense } from 'react';
 import { connect } from 'dva';
 import { get, isEqual } from 'lodash';
 import cls from 'classnames';
-import { Button, Popconfirm } from 'antd';
+import { Button, Modal } from 'antd';
 import { formatMessage, FormattedMessage } from 'umi-plugin-react/locale';
 import { ExtTable, ExtIcon, PageLoader } from 'suid';
 import { constants } from '@/utils';
 import FormModal from './FormModal';
+import CopyFormModal from './CopyFormModal';
+import ExtAction from './ExtAction';
 import styles from './index.less';
 
 const RuleLegend = React.lazy(() => import('../RuleLegend'));
 const RuleTest = React.lazy(() => import('../RuleTest'));
-const { SERVER_PATH } = constants;
+const { SERVER_PATH, RULE_LIST_ACTION } = constants;
 
 @connect(({ ruleRootNode, loading }) => ({ ruleRootNode, loading }))
 class RuleRootList extends Component {
   static tablRef;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      delRowId: null,
-    };
-  }
+  static confirmModal;
 
   componentDidMount() {
     this.setCurrentRuleType();
@@ -43,6 +40,7 @@ class RuleRootList extends Component {
         currentRuleType: null,
         currentRuleRoot: null,
         matchedNodeId: null,
+        showCopyModal: false,
         showModal: false,
         showRuleLegend: false,
         showRuleTest: false,
@@ -115,29 +113,71 @@ class RuleRootList extends Component {
     });
   };
 
-  del = record => {
+  copyRule = currentRuleRoot => {
     const { dispatch } = this.props;
-    this.setState(
-      {
-        delRowId: record.id,
+    dispatch({
+      type: 'ruleRootNode/updateState',
+      payload: {
+        showCopyModal: true,
+        currentRuleRoot,
       },
-      () => {
-        dispatch({
-          type: 'ruleRootNode/delRule',
-          payload: {
-            id: record.id,
-          },
-          callback: res => {
-            if (res.success) {
-              this.setState({
-                delRowId: null,
-              });
-              this.reloadData();
-            }
-          },
+    });
+  };
+
+  saveCopyRule = data => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleRootNode/saveCopyRule',
+      payload: {
+        ...data,
+      },
+      callback: res => {
+        if (res.success) {
+          this.reloadData();
+        }
+      },
+    });
+  };
+
+  delConfirm = rowData => {
+    const { dispatch } = this.props;
+    this.confirmModal = Modal.confirm({
+      title: `删除确认`,
+      content: `提示：规则删除后不可恢复!`,
+      okButtonProps: { type: 'primary' },
+      style: { top: '20%' },
+      okText: '确定',
+      onOk: () => {
+        return new Promise(resolve => {
+          this.confirmModal.update({
+            okButtonProps: { type: 'primary', loading: true },
+            cancelButtonProps: { disabled: true },
+          });
+          dispatch({
+            type: 'ruleRootNode/delRule',
+            payload: {
+              id: rowData.id,
+            },
+            callback: res => {
+              if (res.success) {
+                resolve();
+                this.reloadData();
+              } else {
+                this.confirmModal.update({
+                  okButtonProps: { loading: false },
+                  cancelButtonProps: { disabled: false },
+                });
+              }
+            },
+          });
         });
       },
-    );
+      cancelText: '取消',
+      onCancel: () => {
+        this.confirmModal.destroy();
+        this.confirmModal = null;
+      },
+    });
   };
 
   showRuleLegend = (currentRuleRoot, matchedNodeId) => {
@@ -158,6 +198,7 @@ class RuleRootList extends Component {
       type: 'ruleRootNode/updateState',
       payload: {
         showModal: false,
+        showCopyModal: false,
         currentRuleRoot: null,
         matchedNodeId: null,
         showRuleLegend: false,
@@ -190,19 +231,29 @@ class RuleRootList extends Component {
     });
   };
 
-  renderDelBtn = row => {
-    const { loading } = this.props;
-    const { delRowId } = this.state;
-    if (loading.effects['ruleRootNode/delRule'] && delRowId === row.id) {
-      return <ExtIcon className="del-loading" type="loading" antd />;
+  handlerAction = (key, rowData) => {
+    switch (key) {
+      case RULE_LIST_ACTION.EDIT:
+        this.edit(rowData);
+        break;
+      case RULE_LIST_ACTION.DELETE:
+        this.delConfirm(rowData);
+        break;
+      case RULE_LIST_ACTION.SETTING:
+        this.set(rowData);
+        break;
+      case RULE_LIST_ACTION.COPY_CREATE:
+        this.copyRule(rowData);
+        break;
+      default:
     }
-    return <ExtIcon className="del" type="delete" antd />;
   };
 
   render() {
     const { ruleRootNode, loading, ruleType } = this.props;
     const {
       showModal,
+      showCopyModal,
       currentRuleRoot,
       showRuleLegend,
       showRuleTest,
@@ -213,45 +264,21 @@ class RuleRootList extends Component {
       {
         title: formatMessage({ id: 'global.operation', defaultMessage: '操作' }),
         key: 'operation',
-        width: 160,
+        width: 80,
         align: 'center',
         dataIndex: 'id',
         className: 'action',
         required: true,
-        render: (text, record) => (
+        render: (id, record) => (
           <span className={cls('action-box')}>
-            <ExtIcon className="edit" onClick={() => this.edit(record)} type="edit" antd />
-            <ExtIcon className="edit" onClick={() => this.set(record)} type="setting" antd />
-            <Popconfirm
-              placement="topLeft"
-              title={formatMessage({
-                id: 'global.delete.confirm',
-                defaultMessage: '确定要删除吗？提示：删除后不可恢复',
-              })}
-              onConfirm={() => this.del(record)}
-            >
-              {this.renderDelBtn(record)}
-            </Popconfirm>
+            <ExtAction key={id} onAction={this.handlerAction} recordItem={record} />
           </span>
         ),
       },
       {
-        title: '优先级',
-        dataIndex: 'rank',
-        width: 80,
-        align: 'center',
-        required: true,
-      },
-      {
-        title: '规则名称',
-        dataIndex: 'name',
-        width: 380,
-        required: true,
-      },
-      {
         title: '启用',
         dataIndex: 'enabled',
-        width: 80,
+        width: 60,
         required: true,
         align: 'center',
         render: t => {
@@ -264,6 +291,19 @@ class RuleRootList extends Component {
           return <ExtIcon type={icon} style={{ color }} antd />;
         },
       },
+      {
+        title: '优先级',
+        dataIndex: 'rank',
+        width: 60,
+        align: 'center',
+        required: true,
+      },
+      {
+        title: '规则名称',
+        dataIndex: 'name',
+        width: 420,
+        required: true,
+      },
     ];
     const formModalProps = {
       save: this.saveSet,
@@ -271,6 +311,13 @@ class RuleRootList extends Component {
       showModal,
       closeFormModal: this.closeModal,
       saving: loading.effects['ruleRootNode/saveRuleRootNode'],
+    };
+    const copyFormModalProps = {
+      save: this.saveCopyRule,
+      currentRuleRoot,
+      showCopyModal,
+      closeFormModal: this.closeModal,
+      saving: loading.effects['ruleRootNode/saveCopyRule'],
     };
     const toolBarProps = {
       left: (
@@ -316,6 +363,7 @@ class RuleRootList extends Component {
       <div className={cls(styles['container-box'])}>
         <ExtTable {...tableProps} />
         <FormModal {...formModalProps} />
+        <CopyFormModal {...copyFormModalProps} />
         {showRuleLegend ? (
           <Suspense fallback={<PageLoader />}>
             <RuleLegend {...ruleLegendProps} />

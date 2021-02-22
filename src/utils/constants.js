@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-08 11:01:32
+ * @Last Modified time: 2021-02-22 09:09:08
  */
 import { base } from '../../public/app.config.json';
 
@@ -66,6 +66,13 @@ const RETURN_RESULT_UI_COMPONENT = {
   COMBOLIST_REMOTE: { code: 'ComboListRemote', name: '下拉列表-远程分页' },
 };
 
+const RULE_LIST_ACTION = {
+  EDIT: 'EDIT',
+  DELETE: 'DELETE',
+  SETTING: 'SETTING',
+  COPY_CREATE: 'COPY_CREATE',
+};
+
 export default {
   APP_BASE,
   LOCAL_PATH,
@@ -74,4 +81,5 @@ export default {
   LOGIN_STATUS,
   ATTRIBUTE_UI_COMPONENT,
   RETURN_RESULT_UI_COMPONENT,
+  RULE_LIST_ACTION,
 };
