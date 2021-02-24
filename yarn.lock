@@ -1448,7 +1448,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime-corejs2@^7.2.0", "@babel/runtime-corejs2@^7.6.3":
+"@babel/runtime-corejs2@^7.2.0":
   version "7.7.7"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@babel/runtime-corejs2/-/runtime-corejs2-7.7.7.tgz#44885957b275a5fd70413142eda9cff4662847ac"
   integrity sha1-RIhZV7J1pf1wQTFC7anP9GYoR6w=
@@ -1616,11 +1616,6 @@
   version "0.7.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha1-dyESkcGQCnALinjPr9oxYNdpSe0=
-
-"@icons/material@^0.2.4":
-  version "0.2.4"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
-  integrity sha1-6QyfcXaLNzbnbX3WeD/Gwq+oi8g=
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -2558,14 +2553,6 @@ address@^1.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
 
-adler-32@~1.2.0:
-  version "1.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/adler-32/-/adler-32-1.2.0.tgz#6a3e6bf0a63900ba15652808cb15c6813d1a5f25"
-  integrity sha1-aj5r8KY5ALoVZSgIyxXGgT0aXyU=
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.1.0"
-
 af-webpack@1.14.4:
   version "1.14.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/af-webpack/-/af-webpack-1.14.4.tgz#87fc4a17e3a8d0bd13f64f603a43f5b6bfbebdeb"
@@ -2822,66 +2809,6 @@ antd@3.x, antd@^3.19.5:
   version "3.26.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/antd/-/antd-3.26.4.tgz#7caef11896eb9b1ec2b1d8c41c92f7c60ef8e52b"
   integrity sha1-fK7xGJbrmx7CsdjEHJL3xg745Ss=
-  dependencies:
-    "@ant-design/create-react-context" "^0.2.4"
-    "@ant-design/icons" "~2.1.1"
-    "@ant-design/icons-react" "~2.0.1"
-    "@types/react-slick" "^0.23.4"
-    array-tree-filter "^2.1.0"
-    babel-runtime "6.x"
-    classnames "~2.2.6"
-    copy-to-clipboard "^3.2.0"
-    css-animation "^1.5.0"
-    dom-closest "^0.2.0"
-    enquire.js "^2.1.6"
-    is-mobile "^2.1.0"
-    lodash "^4.17.13"
-    moment "^2.24.0"
-    omit.js "^1.0.2"
-    prop-types "^15.7.2"
-    raf "^3.4.1"
-    rc-animate "^2.10.2"
-    rc-calendar "~9.15.7"
-    rc-cascader "~0.17.4"
-    rc-checkbox "~2.1.6"
-    rc-collapse "~1.11.3"
-    rc-dialog "~7.6.0"
-    rc-drawer "~3.1.1"
-    rc-dropdown "~2.4.1"
-    rc-editor-mention "^1.1.13"
-    rc-form "^2.4.10"
-    rc-input-number "~4.5.0"
-    rc-mentions "~0.4.0"
-    rc-menu "~7.5.1"
-    rc-notification "~3.3.1"
-    rc-pagination "~1.20.11"
-    rc-progress "~2.5.0"
-    rc-rate "~2.5.0"
-    rc-resize-observer "^0.1.0"
-    rc-select "~9.2.0"
-    rc-slider "~8.7.1"
-    rc-steps "~3.5.0"
-    rc-switch "~1.9.0"
-    rc-table "~6.10.5"
-    rc-tabs "~9.7.0"
-    rc-time-picker "~3.7.1"
-    rc-tooltip "~3.7.3"
-    rc-tree "~2.1.0"
-    rc-tree-select "~2.9.1"
-    rc-trigger "^2.6.2"
-    rc-upload "~2.9.1"
-    rc-util "^4.16.1"
-    react-lazy-load "^3.0.13"
-    react-lifecycles-compat "^3.0.4"
-    react-slick "~0.25.2"
-    resize-observer-polyfill "^1.5.1"
-    shallowequal "^1.1.0"
-    warning "~4.0.3"
-
-antd@^3.19.6:
-  version "3.26.5"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/antd/-/antd-3.26.5.tgz#83e96a5c3f5fdf27bcf6daeffce78c2e88e9d555"
-  integrity sha1-g+lqXD9f3ye89trv/OeMLojp1VU=
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     "@ant-design/icons" "~2.1.1"
@@ -3258,14 +3185,6 @@ aws4@^1.8.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha1-JDkOatYThrCnRyZXVNKhchnehiw=
 
-axios@^0.19.0:
-  version "0.19.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
-  integrity sha1-jgm/89kSLhM/e4EByPvdAO09Krg=
-  dependencies:
-    follow-redirects "1.5.10"
-    is-buffer "^2.0.2"
-
 axobject-query@^2.0.2:
   version "2.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/axobject-query/-/axobject-query-2.1.1.tgz#2a3b1271ec722d48a4cd4b3fcc20c853326a49a7"
@@ -3497,7 +3416,7 @@ babel-preset-umi@1.8.1:
     babel-plugin-react-require "3.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@6.x, babel-runtime@^6.20.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@6.x, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -3689,44 +3608,6 @@ braces@^3.0.1, braces@^3.0.2, braces@~3.0.2:
   integrity sha1-NFThpGLujVmeI23zNs2epPiv4Qc=
   dependencies:
     fill-range "^7.0.1"
-
-braft-convert@^2.3.0:
-  version "2.3.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-convert/-/braft-convert-2.3.0.tgz#27d5905136c334903d083b7a2352a72045627888"
-  integrity sha1-J9WQUTbDNJA9CDt6I1KnIEVieIg=
-  dependencies:
-    draft-convert "^2.0.0"
-    draft-js "^0.10.3"
-
-braft-editor@^2.3.8:
-  version "2.3.8"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-editor/-/braft-editor-2.3.8.tgz#3adee489c371f87ee2771e6c5aa681ac04dce4c9"
-  integrity sha1-Ot7kicNx+H7idx5sWqaBrATc5Mk=
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    braft-convert "^2.3.0"
-    braft-finder "^0.0.19"
-    braft-utils "^3.0.8"
-    draft-convert "^2.0.0"
-    draft-js "^0.10.3"
-    draft-js-multidecorators "^1.0.0"
-    draftjs-utils "^0.9.4"
-    immutable "~3.7.4"
-
-braft-finder@^0.0.19:
-  version "0.0.19"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-finder/-/braft-finder-0.0.19.tgz#c324d82526ed3476a93de86cc9b407f4e188bc8d"
-  integrity sha1-wyTYJSbtNHapPehsybQH9OGIvI0=
-
-braft-polyfill@^0.0.2:
-  version "0.0.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-polyfill/-/braft-polyfill-0.0.2.tgz#2e50ae51098538878331820d90ca4e586e93a5ed"
-  integrity sha1-LlCuUQmFOIeDMYINkMpOWG6Tpe0=
-
-braft-utils@^3.0.8:
-  version "3.0.12"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-utils/-/braft-utils-3.0.12.tgz#2b755ce1d8397d96b627b6767f74d07f25729d85"
-  integrity sha1-K3Vc4dg5fZa2J7Z2f3TQfyVynYU=
 
 brorand@^1.0.1:
   version "1.1.0"
@@ -4109,16 +3990,6 @@ ccount@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ccount/-/ccount-1.0.4.tgz#9cf2de494ca84060a2a8d2854edd6dfb0445f386"
   integrity sha1-nPLeSUyoQGCiqNKFTt1t+wRF84Y=
 
-cfb@^1.1.3:
-  version "1.1.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cfb/-/cfb-1.1.3.tgz#05de6816259c8e8bc32713aba905608ee385df66"
-  integrity sha1-Bd5oFiWcjovDJxOrqQVgjuOF32Y=
-  dependencies:
-    adler-32 "~1.2.0"
-    commander "^2.16.0"
-    crc-32 "~1.2.0"
-    printj "~1.1.2"
-
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.2, chalk@^2.4.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -4463,17 +4334,6 @@ cloneable-readable@^1.0.0:
     process-nextick-args "^2.0.0"
     readable-stream "^2.3.5"
 
-cmn-utils@^1.0.9:
-  version "1.0.9"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cmn-utils/-/cmn-utils-1.0.9.tgz#83cbee20988479f1126347f11202b400dc201b27"
-  integrity sha1-g8vuIJiEefESY0fxEgK0ANwgGyc=
-  dependencies:
-    downloadjs "^1.4.7"
-    fetch-jsonp "^1.1.3"
-    store2 "^2.5.9"
-    whatwg-fetch "^2.0.3"
-    wolfy87-eventemitter "^5.2.4"
-
 co@^4.6.0:
   version "4.6.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -4492,14 +4352,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
-
-codepage@~1.14.0:
-  version "1.14.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/codepage/-/codepage-1.14.0.tgz#8cbe25481323559d7d307571b0fff91e7a1d2f99"
-  integrity sha1-jL4lSBMjVZ19MHVxsP/5HnodL5k=
-  dependencies:
-    commander "~2.14.1"
-    exit-on-epipe "~1.0.1"
 
 collapse-white-space@^1.0.2:
   version "1.0.5"
@@ -4603,7 +4455,7 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.11.0, commander@^2.12.1, commander@^2.16.0, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0, commander@^2.9.0, commander@~2.20.3:
+commander@^2.11.0, commander@^2.12.1, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0, commander@^2.9.0, commander@~2.20.3:
   version "2.20.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
@@ -4617,16 +4469,6 @@ commander@~2.13.0:
   version "2.13.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha1-aWS8pnaF33wfFDDFhPB9dZeIW5w=
-
-commander@~2.14.1:
-  version "2.14.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
-  integrity sha1-IjUSPjevjKPGXfRbAm29NXsBuao=
-
-commander@~2.17.1:
-  version "2.17.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
-  integrity sha1-vXerfebelCBc6sxy8XFtKfIKd78=
 
 common-tags@^1.4.0:
   version "1.8.0"
@@ -4898,14 +4740,6 @@ cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
-crc-32@~1.2.0:
-  version "1.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/crc-32/-/crc-32-1.2.0.tgz#cb2db6e29b88508e32d9dd0ec1693e7b41a18208"
-  integrity sha1-yy224puIUI4y2d0OwWk+e0Ghggg=
-  dependencies:
-    exit-on-epipe "~1.0.1"
-    printj "~1.1.0"
-
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
@@ -5038,18 +4872,6 @@ css-animation@1.x, css-animation@^1.3.2, css-animation@^1.5.0:
     babel-runtime "6.x"
     component-classes "^1.2.5"
 
-css-animation@^2.0.4:
-  version "2.0.4"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-animation/-/css-animation-2.0.4.tgz#5d0b0b713dbb1c4299c45b2fcf408357dff988e4"
-  integrity sha1-XQsLcT27HEKZxFsvz0CDV9/5iOQ=
-
-css-box-model@^1.2.0:
-  version "1.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-box-model/-/css-box-model-1.2.0.tgz#3a26377b4162b3200d2ede4b064ec5b6a75186d0"
-  integrity sha1-OiY3e0FisyANLt5LBk7FtqdRhtA=
-  dependencies:
-    tiny-invariant "^1.0.6"
-
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
@@ -5067,11 +4889,6 @@ css-declaration-sorter@^4.0.1:
   dependencies:
     postcss "^7.0.1"
     timsort "^0.3.0"
-
-css-element-queries@^1.2.1:
-  version "1.2.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-element-queries/-/css-element-queries-1.2.2.tgz#e80ce4c523e41079152b1a3a8ec5b7afb0b45c96"
-  integrity sha1-6AzkxSPkEHkVKxo6jsW3r7C0XJY=
 
 css-loader-1@2.0.0:
   version "2.0.0"
@@ -5359,14 +5176,6 @@ d3-timer@^1.0.9:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/d3-timer/-/d3-timer-1.0.10.tgz#dfe76b8a91748831b13b6d9c793ffbd508dd9de5"
   integrity sha1-3+dripF0iDGxO22ceT/71QjdneU=
 
-d@1, d@^1.0.1:
-  version "1.0.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/d/-/d-1.0.1.tgz#8698095372d58dbee346ffd0c7093f99f8f9eb5a"
-  integrity sha1-hpgJU3LVjb7jRv/Qxwk/mfj561o=
-  dependencies:
-    es5-ext "^0.10.50"
-    type "^1.0.1"
-
 dagre@^0.8.5:
   version "0.8.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dagre/-/dagre-0.8.5.tgz#ba30b0055dac12b6c1fcc247817442777d06afee"
@@ -5424,13 +5233,6 @@ debug@4.1.1, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   integrity sha1-O3ImAlUQnGtYnO4FDx1RYTlmR5E=
   dependencies:
     ms "^2.1.1"
-
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
-  dependencies:
-    ms "2.0.0"
 
 debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
   version "3.2.6"
@@ -5843,28 +5645,7 @@ dotenv@^8.2.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
-downloadjs@^1.4.7:
-  version "1.4.7"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/downloadjs/-/downloadjs-1.4.7.tgz#f69f96f940e0d0553dac291139865a3cd0101e3c"
-  integrity sha1-9p+W+UDg0FU9rCkROYZaPNAQHjw=
-
-draft-convert@^2.0.0:
-  version "2.1.8"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-convert/-/draft-convert-2.1.8.tgz#0508efafeea79e11e5793ba771948128ba151291"
-  integrity sha1-BQjvr+6nnhHleTuncZSBKLoVEpE=
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    immutable "~3.7.4"
-    invariant "^2.2.1"
-
-draft-js-multidecorators@^1.0.0:
-  version "1.0.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-js-multidecorators/-/draft-js-multidecorators-1.0.0.tgz#6c4be8d7b78dd2b966ee51ee6cc179b9b535e612"
-  integrity sha1-bEvo17eN0rlm7lHubMF5ubU15hI=
-  dependencies:
-    immutable "*"
-
-draft-js@^0.10.0, draft-js@^0.10.3, draft-js@~0.10.0:
+draft-js@^0.10.0, draft-js@~0.10.0:
   version "0.10.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-js/-/draft-js-0.10.5.tgz#bfa9beb018fe0533dbb08d6675c371a6b08fa742"
   integrity sha1-v6m+sBj+BTPbsI1mdcNxprCPp0I=
@@ -5872,11 +5653,6 @@ draft-js@^0.10.0, draft-js@^0.10.3, draft-js@~0.10.0:
     fbjs "^0.8.15"
     immutable "~3.7.4"
     object-assign "^4.1.0"
-
-draftjs-utils@^0.9.4:
-  version "0.9.4"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draftjs-utils/-/draftjs-utils-0.9.4.tgz#976c61aa133dbbbfedd65ae1dd6627d7b98c6f08"
-  integrity sha1-l2xhqhM9u7/t1lrh3WYn17mMbwg=
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -5936,13 +5712,6 @@ dva-loading@3.0.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-dva-model-extend@^0.1.2:
-  version "0.1.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dva-model-extend/-/dva-model-extend-0.1.2.tgz#a3e615995feaaed5d141eb5b0a26cb98542a9820"
-  integrity sha1-o+YVmV/qrtXRQetbCibLmFQqmCA=
-  dependencies:
-    babel-runtime "^6.20.0"
-
 dva@^2.6.0-beta.16, dva@^2.6.0-beta.6:
   version "2.6.0-beta.20"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dva/-/dva-2.6.0-beta.20.tgz#5633a008456479040d5efd553d4fc85e12dff88a"
@@ -5969,21 +5738,6 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
-
-echarts-for-react@^2.0.15-beta.1:
-  version "2.0.15-beta.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/echarts-for-react/-/echarts-for-react-2.0.15-beta.1.tgz#1afa21ee0f08f9023eff0b5ab3351f2fe0f708b6"
-  integrity sha1-Gvoh7g8I+QI+/wtaszUfL+D3CLY=
-  dependencies:
-    fast-deep-equal "^2.0.1"
-    size-sensor "^0.2.0"
-
-echarts@^4.4.0:
-  version "4.6.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/echarts/-/echarts-4.6.0.tgz#b5a47a1046cec93ceeef954f9ee54751340558ec"
-  integrity sha1-taR6EEbOyTzu75VPnuVHUTQFWOw=
-  dependencies:
-    zrender "4.2.0"
 
 editions@^2.2.0:
   version "2.3.0"
@@ -6245,36 +5999,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-es5-ext@^0.10.35, es5-ext@^0.10.50:
-  version "0.10.53"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es5-ext/-/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
-  integrity sha1-k8WjrP2+8nUiCtcmRK0C7hg2jeE=
-  dependencies:
-    es6-iterator "~2.0.3"
-    es6-symbol "~3.1.3"
-    next-tick "~1.0.0"
-
 es5-imcompatible-versions@^0.1.37:
   version "0.1.57"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es5-imcompatible-versions/-/es5-imcompatible-versions-0.1.57.tgz#df95451eb1e546f3defd22c89d5baa6828a4f07c"
   integrity sha1-35VFHrHlRvPe/SLInVuqaCik8Hw=
-
-es6-iterator@~2.0.3:
-  version "2.0.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es6-iterator/-/es6-iterator-2.0.3.tgz#a7de889141a05a94b0854403b2d0a0fbfa98f3b7"
-  integrity sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
-  dependencies:
-    d "1"
-    es5-ext "^0.10.35"
-    es6-symbol "^3.1.1"
-
-es6-symbol@^3.1.1, es6-symbol@~3.1.3:
-  version "3.1.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es6-symbol/-/es6-symbol-3.1.3.tgz#bad5d3c1bcdac28269f4cb331e431c78ac705d18"
-  integrity sha1-utXTwbzawoJp9MszHkMceKxwXRg=
-  dependencies:
-    d "^1.0.1"
-    ext "^1.1.2"
 
 escalade@^3.0.1:
   version "3.0.1"
@@ -7188,11 +6916,6 @@ exenv@^1.2.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
   integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
-exit-on-epipe@~1.0.1:
-  version "1.0.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exit-on-epipe/-/exit-on-epipe-1.0.1.tgz#0bdd92e87d5285d267daa8171d0eb06159689692"
-  integrity sha1-C92S6H1ShdJn2qgXHQ6wYVlolpI=
-
 exit@^0.1.2:
   version "0.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -7258,13 +6981,6 @@ express@4.17.1, express@^4.16.2, express@^4.16.3:
     type-is "~1.6.18"
     utils-merge "1.0.1"
     vary "~1.1.2"
-
-ext@^1.1.2:
-  version "1.4.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ext/-/ext-1.4.0.tgz#89ae7a07158f79d35517882904324077e4379244"
-  integrity sha1-ia56BxWPedNVF4gpBDJAd+Q3kkQ=
-  dependencies:
-    type "^2.0.0"
 
 extend-shallow@^2.0.1:
   version "2.0.1"
@@ -7428,11 +7144,6 @@ fecha@~4.2.0:
   version "4.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fecha/-/fecha-4.2.0.tgz#3ffb6395453e3f3efff850404f0a59b6747f5f41"
   integrity sha1-P/tjlUU+Pz7/+FBATwpZtnR/X0E=
-
-fetch-jsonp@^1.1.3:
-  version "1.1.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
-  integrity sha1-nrnlhboIqvcAVjU40Xu+u81aPbI=
 
 figgy-pudding@^3.5.1:
   version "3.5.1"
@@ -7642,13 +7353,6 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
-  dependencies:
-    debug "=3.1.0"
-
 follow-redirects@^1.0.0:
   version "1.9.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
@@ -7733,11 +7437,6 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
-
-frac@~1.1.2:
-  version "1.1.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/frac/-/frac-1.1.2.tgz#3d74f7f6478c88a1b5020306d747dc6313c74d0b"
-  integrity sha1-PXT39keMiKG1AgMG10fcYxPHTQs=
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -8732,7 +8431,7 @@ immutability-helper@^2.7.1:
   dependencies:
     invariant "^2.2.0"
 
-immutable@*, immutable@^3.7.4, immutable@^3.8.1:
+immutable@^3.7.4, immutable@^3.8.1:
   version "3.8.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
   integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
@@ -9142,7 +8841,7 @@ is-buffer@^1.0.2, is-buffer@^1.1.4, is-buffer@^1.1.5, is-buffer@~1.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha1-76ouqdqg16suoTqXsritUf776L4=
 
-is-buffer@^2.0.0, is-buffer@^2.0.2:
+is-buffer@^2.0.0:
   version "2.0.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-buffer/-/is-buffer-2.0.4.tgz#3e572f23c8411a5cfd9557c849e3665e0b290623"
   integrity sha1-PlcvI8hBGlz9lVfISeNmXgspBiM=
@@ -10040,11 +9739,6 @@ js-yaml@3.13.1, js-yaml@^3.13.0, js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jsbarcode@^3.11.0:
-  version "3.11.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsbarcode/-/jsbarcode-3.11.0.tgz#20623e008b101ef45d0cce9c8022cdf49be28547"
-  integrity sha1-IGI+AIsQHvRdDM6cgCLN9JvihUc=
-
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -10584,7 +10278,7 @@ lodash.groupby@4.6.0, lodash.groupby@^4.6.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.groupby/-/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
   integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
 
-lodash.isequal@^4.0.0, lodash.isequal@^4.5.0:
+lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
@@ -10624,7 +10318,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash.throttle@^4.0.0, lodash.throttle@^4.1.1:
+lodash.throttle@^4.0.0:
   version "4.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
@@ -10664,7 +10358,7 @@ lodash@4.17.13:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash/-/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
   integrity sha1-C9w6atyHPS9ODEusKF35G2T8e5M=
 
-"lodash@>=3.5 <5", lodash@^4.0.1, lodash@^4.15.0, lodash@^4.16.5, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5:
+"lodash@>=3.5 <5", lodash@^4.15.0, lodash@^4.16.5, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.15"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
@@ -10868,11 +10562,6 @@ marked@0.6.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/marked/-/marked-0.6.2.tgz#c574be8b545a8b48641456ca1dbe0e37b6dccc1a"
   integrity sha1-xXS+i1Rai0hkFFbKHb4ON7bczBo=
 
-material-colors@^1.2.1:
-  version "1.2.6"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
-  integrity sha1-bRlYhxEmmSzuzHL0vMTY8BCGX0Y=
-
 mathml-tag-names@^2.0.1, mathml-tag-names@^2.1.0:
   version "2.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mathml-tag-names/-/mathml-tag-names-2.1.1.tgz#6dff66c99d55ecf739ca53c492e626f1d12a33cc"
@@ -10976,7 +10665,7 @@ mem@^5.0.0:
     mimic-fn "^2.1.0"
     p-is-promise "^2.1.0"
 
-"memoize-one@>=3.1.1 <6", memoize-one@^5.0.0, memoize-one@^5.1.1:
+memoize-one@^5.0.0:
   version "5.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
   integrity sha1-BHtuMZm1COrsA1BN5xIpuOsddcA=
@@ -11481,11 +11170,6 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   version "2.6.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
-
-next-tick@~1.0.0:
-  version "1.0.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
-  integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -12288,11 +11972,6 @@ path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
-path-to-regexp@^3.0.0:
-  version "3.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/path-to-regexp/-/path-to-regexp-3.2.0.tgz#fa7877ecbc495c601907562222453c43cc204a5f"
-  integrity sha1-+nh37LxJXGAZB1YiIkU8Q8wgSl8=
-
 path-type@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/path-type/-/path-type-2.0.0.tgz#f012ccb8415b7096fc2daa1054c3d72389594c73"
@@ -12322,11 +12001,6 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
-
-perfect-scrollbar@^1.4.0:
-  version "1.4.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/perfect-scrollbar/-/perfect-scrollbar-1.4.0.tgz#5d014ef9775e1f43058a1dbae9ed1daf0e7091f1"
-  integrity sha1-XQFO+XdeH0MFih266e0drw5wkfE=
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -13146,11 +12820,6 @@ pretty-time@^1.1.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
-printj@~1.1.0, printj@~1.1.2:
-  version "1.1.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
-  integrity sha1-2Q3rKXWoufYA+zoclOP0xTx4oiI=
-
 private@^0.1.6:
   version "0.1.8"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -13230,7 +12899,7 @@ prop-types@15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.x, prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -13335,26 +13004,12 @@ qiankun@^1.3.6:
     single-spa "^4.3.4"
     tslib "^1.10.0"
 
-qr.js@0.0.0:
-  version "0.0.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
-  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
-
-qrcode.react@^1.0.0:
-  version "1.0.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qrcode.react/-/qrcode.react-1.0.1.tgz#2834bb50e5e275ffe5af6906eff15391fe9e38a5"
-  integrity sha1-KDS7UOXidf/lr2kG7/FTkf6eOKU=
-  dependencies:
-    loose-envify "^1.4.0"
-    prop-types "^15.6.0"
-    qr.js "0.0.0"
-
 qs@6.7.0:
   version "6.7.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha1-QdwaAV49WB8WIXdr4xr7KHapsbw=
 
-qs@^6.5.1, qs@^6.9.1:
+qs@^6.5.1:
   version "6.9.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
   integrity sha1-IAgsZct4IjY1qxqerKiHWim/jsk=
@@ -13410,11 +13065,6 @@ quick-lru@^4.0.1:
   version "4.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha1-W4h48ROlgheEjGSCAmxz4bpXcn8=
-
-raf-schd@^4.0.2:
-  version "4.0.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/raf-schd/-/raf-schd-4.0.2.tgz#bd44c708188f2e84c810bf55fcea9231bcaed8a0"
-  integrity sha1-vUTHCBiPLoTIEL9V/OqSMbyu2KA=
 
 raf@3.4.1, raf@^3.1.0, raf@^3.3.2, raf@^3.4.0, raf@^3.4.1:
   version "3.4.1"
@@ -13472,11 +13122,6 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
-
-raw-loader@~0.5.1:
-  version "0.5.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
-  integrity sha1-DD0L6u2KAclm2Xh793goElKpeao=
 
 rc-align@^2.4.0, rc-align@^2.4.1:
   version "2.4.5"
@@ -13981,31 +13626,6 @@ react-ace@^9.3.0:
     lodash.isequal "^4.5.0"
     prop-types "^15.7.2"
 
-react-beautiful-dnd@^12.2.0:
-  version "12.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-beautiful-dnd/-/react-beautiful-dnd-12.2.0.tgz#e5f6222f9e7934c6ed4ee09024547f9e353ae423"
-  integrity sha1-5fYiL555NMbtTuCQJFR/njU65CM=
-  dependencies:
-    "@babel/runtime-corejs2" "^7.6.3"
-    css-box-model "^1.2.0"
-    memoize-one "^5.1.1"
-    raf-schd "^4.0.2"
-    react-redux "^7.1.1"
-    redux "^4.0.4"
-    use-memo-one "^1.1.1"
-
-react-color@^2.17.3:
-  version "2.17.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-color/-/react-color-2.17.3.tgz#b8556d744f95193468c7061d2aa19180118d4a48"
-  integrity sha1-uFVtdE+VGTRoxwYdKqGRgBGNSkg=
-  dependencies:
-    "@icons/material" "^0.2.4"
-    lodash "^4.17.11"
-    material-colors "^1.2.1"
-    prop-types "^15.5.10"
-    reactcss "^1.2.0"
-    tinycolor2 "^1.4.1"
-
 react-dev-utils@9.0.1:
   version "9.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-dev-utils/-/react-dev-utils-9.0.1.tgz#5c03d85a0b2537d0c46af7165c24a7dfb274bef2"
@@ -14047,36 +13667,10 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-draggable@^4.0.0, react-draggable@^4.0.3:
-  version "4.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-draggable/-/react-draggable-4.2.0.tgz#40cc5209082ca7d613104bf6daf31372cc0e1114"
-  integrity sha1-QMxSCQgsp9YTEEv22vMTcswOERQ=
-  dependencies:
-    classnames "^2.2.5"
-    prop-types "^15.6.0"
-
 react-error-overlay@5.1.6, react-error-overlay@^5.1.6:
   version "5.1.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha1-DNc0B8XRQfljiuHgxj57K/fpkp0=
-
-react-grid-layout@^0.17.1:
-  version "0.17.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-grid-layout/-/react-grid-layout-0.17.1.tgz#0b75c72e5b7d7085f0f0054e160b31298971c5e2"
-  integrity sha1-C3XHLlt9cIXw8AVOFgsxKYlxxeI=
-  dependencies:
-    classnames "2.x"
-    lodash.isequal "^4.0.0"
-    prop-types "^15.0.0"
-    react-draggable "^4.0.0"
-    react-resizable "^1.9.0"
-
-react-hotkeys@^2.0.0:
-  version "2.0.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-hotkeys/-/react-hotkeys-2.0.0.tgz#a7719c7340cbba888b0e9184f806a9ec0ac2c53f"
-  integrity sha1-p3Gcc0DLuoiLDpGE+Aap7ArCxT8=
-  dependencies:
-    prop-types "^15.6.1"
 
 react-intl@2.7.2:
   version "2.7.2"
@@ -14125,15 +13719,7 @@ react-native-swipeout@^2.2.2:
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
 
-react-perfect-scrollbar@^1.5.3:
-  version "1.5.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-perfect-scrollbar/-/react-perfect-scrollbar-1.5.3.tgz#a8a0051a5f737801d4f73d48af5369724c595787"
-  integrity sha1-qKAFGl9zeAHU9z1Ir1NpckxZV4c=
-  dependencies:
-    perfect-scrollbar "^1.4.0"
-    prop-types "^15.6.1"
-
-react-redux@^7.1.0, react-redux@^7.1.1:
+react-redux@^7.1.0:
   version "7.1.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-redux/-/react-redux-7.1.3.tgz#717a3d7bbe3a1b2d535c94885ce04cdc5a33fc79"
   integrity sha1-cXo9e746Gy1TXJSIXOBM3Foz/Hk=
@@ -14144,14 +13730,6 @@ react-redux@^7.1.0, react-redux@^7.1.1:
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
     react-is "^16.9.0"
-
-react-resizable@^1.9.0:
-  version "1.10.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-resizable/-/react-resizable-1.10.1.tgz#f0c2cf1d83b3470b87676ce6d6b02bbe3f4d8cd4"
-  integrity sha1-8MLPHYOzRwuHZ2zm1rArvj9NjNQ=
-  dependencies:
-    prop-types "15.x"
-    react-draggable "^4.0.3"
 
 react-router-config@5.1.1:
   version "5.1.1"
@@ -14189,14 +13767,6 @@ react-router@5.1.2:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-scroll@^1.7.14:
-  version "1.7.15"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-scroll/-/react-scroll-1.7.15.tgz#90da4a1e953e620ae37be42747e0835b473158db"
-  integrity sha1-kNpKHpU+Ygrje+QnR+CDW0cxWNs=
-  dependencies:
-    lodash.throttle "^4.1.1"
-    prop-types "^15.5.8"
-
 react-slick@~0.25.2:
   version "0.25.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-slick/-/react-slick-0.25.2.tgz#56331b67d47d8bcfe2dceb6acab1c8fd5bd1f6bc"
@@ -14226,19 +13796,6 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
-react-virtualized-auto-sizer@^1.0.2:
-  version "1.0.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.2.tgz#a61dd4f756458bbf63bd895a92379f9b70f803bd"
-  integrity sha1-ph3U91ZFi79jvYlakjefm3D4A70=
-
-react-window@^1.8.5:
-  version "1.8.5"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-window/-/react-window-1.8.5.tgz#a56b39307e79979721021f5d06a67742ecca52d1"
-  integrity sha1-pWs5MH55l5chAh9dBqZ3QuzKUtE=
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    memoize-one ">=3.1.1 <6"
-
 react@^16.8.6:
   version "16.12.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
@@ -14247,13 +13804,6 @@ react@^16.8.6:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-
-reactcss@^1.2.0:
-  version "1.2.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/reactcss/-/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
-  integrity sha1-wAATh15Vexzw39mjaKHD2rO1SN0=
-  dependencies:
-    lodash "^4.0.1"
 
 read-chunk@^3.2.0:
   version "3.2.0"
@@ -14429,7 +13979,7 @@ redux-saga@^0.16.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/redux-saga/-/redux-saga-0.16.2.tgz#993662e86bc945d8509ac2b8daba3a8c615cc971"
   integrity sha1-mTZi6GvJRdhQmsK42ro6jGFcyXE=
 
-redux@^4.0.0, redux@^4.0.1, redux@^4.0.4:
+redux@^4.0.0, redux@^4.0.1:
   version "4.0.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
   integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
@@ -15311,13 +14861,6 @@ scoped-regex@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
   integrity sha1-o0a7Gs1CB65wvXwMfKnlZra63bg=
 
-script-loader@^0.7.2:
-  version "0.7.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/script-loader/-/script-loader-0.7.2.tgz#2016db6f86f25f5cf56da38915d83378bb166ba7"
-  integrity sha1-IBbbb4byX1z1baOJFdgzeLsWa6c=
-  dependencies:
-    raw-loader "~0.5.1"
-
 seamless-immutable@^7.1.3:
   version "7.1.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/seamless-immutable/-/seamless-immutable-7.1.4.tgz#6e9536def083ddc4dea0207d722e0e80d0f372f8"
@@ -15589,11 +15132,6 @@ sisteransi@^1.0.3:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha1-OGcT8e9ojHwDBNxMBjKJiUHK0uM=
 
-size-sensor@^0.2.0:
-  version "0.2.6"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/size-sensor/-/size-sensor-0.2.6.tgz#6fe43afd570786f097171834002a97fe0b19a3da"
-  integrity sha1-b+Q6/VcHhvCXFxg0ACqX/gsZo9o=
-
 slash2@2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/slash2/-/slash2-2.0.0.tgz#f4e0a11708b8545b912695981cf7096f52c63487"
@@ -15662,18 +15200,6 @@ sockjs-client@1.3.0:
   version "1.3.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sockjs-client/-/sockjs-client-1.3.0.tgz#12fc9d6cb663da5739d3dc5fb6e8687da95cb177"
   integrity sha1-EvydbLZj2lc509xftuhofalcsXc=
-  dependencies:
-    debug "^3.2.5"
-    eventsource "^1.0.7"
-    faye-websocket "~0.11.1"
-    inherits "^2.0.3"
-    json3 "^3.3.2"
-    url-parse "^1.4.3"
-
-sockjs-client@^1.4.0:
-  version "1.4.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sockjs-client/-/sockjs-client-1.4.0.tgz#c9f2568e19c8fd8173b4997ea3420e0bb306c7d5"
-  integrity sha1-yfJWjhnI/YFztJl+o0IOC7MGx9U=
   dependencies:
     debug "^3.2.5"
     eventsource "^1.0.7"
@@ -15824,13 +15350,6 @@ sprintf-js@~1.0.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-ssf@~0.10.2:
-  version "0.10.2"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ssf/-/ssf-0.10.2.tgz#65b2b4fcdfd967bc8e8383a41349009893115976"
-  integrity sha1-ZbK0/N/ZZ7yOg4OkE0kAmJMRWXY=
-  dependencies:
-    frac "~1.1.2"
-
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -15909,18 +15428,6 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
-
-stompjs@^2.3.3:
-  version "2.3.3"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/stompjs/-/stompjs-2.3.3.tgz#34178ac7bb8ee294cc5d554ad8b50f7f5459fd8e"
-  integrity sha1-NBeKx7uO4pTMXVVK2LUPf1RZ/Y4=
-  optionalDependencies:
-    websocket latest
-
-store2@^2.5.9:
-  version "2.10.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/store2/-/store2-2.10.0.tgz#46b82bb91878daf1b0d56dec2f1d41e54d5103cf"
-  integrity sha1-RrgruRh42vGw1W3sLx1B5U1RA88=
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -16522,61 +16029,10 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suid@^1.3.98:
-  version "1.3.98"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/suid/-/suid-1.3.98.tgz#deea6fdcc4366bfabf0d8925f4536b1998c60477"
-  integrity sha512-86Dhu0f/MlmQhT7rANDgZNUAhRN6LXCMrgeDFlocsm+PCqZiqqYc+wOHr89Eisvk5xnfQKCpJzHhsB5jqgHzVw==
-  dependencies:
-    "@ant-design/create-react-context" "^0.2.4"
-    "@ant-design/icons" "~2.1.1"
-    "@ant-design/icons-react" "~2.0.1"
-    antd "^3.19.6"
-    array-tree-filter "^2.1.0"
-    axios "^0.19.0"
-    babel-runtime "6.x"
-    braft-editor "^2.3.8"
-    braft-polyfill "^0.0.2"
-    classnames "~2.2.6"
-    cmn-utils "^1.0.9"
-    copy-to-clipboard "^3.2.0"
-    css-animation "^2.0.4"
-    css-element-queries "^1.2.1"
-    dom-closest "^0.2.0"
-    dva-model-extend "^0.1.2"
-    echarts "^4.4.0"
-    echarts-for-react "^2.0.15-beta.1"
-    enquire.js "^2.1.6"
-    jsbarcode "^3.11.0"
-    lodash "^4.17.13"
-    moment "^2.24.0"
-    path-to-regexp "^3.0.0"
-    perfect-scrollbar "^1.4.0"
-    prop-types "^15.7.2"
-    qrcode.react "^1.0.0"
-    qs "^6.9.1"
-    raf "^3.4.1"
-    rc-notification "~3.3.1"
-    rc-util "^4.16.1"
-    react-beautiful-dnd "^12.2.0"
-    react-color "^2.17.3"
-    react-grid-layout "^0.17.1"
-    react-hotkeys "^2.0.0"
-    react-lazy-load "^3.0.13"
-    react-lifecycles-compat "^3.0.4"
-    react-perfect-scrollbar "^1.5.3"
-    react-resizable "^1.9.0"
-    react-scroll "^1.7.14"
-    react-slick "~0.25.2"
-    react-virtualized-auto-sizer "^1.0.2"
-    react-window "^1.8.5"
-    resize-observer-polyfill "^1.5.1"
-    script-loader "^0.7.2"
-    shallowequal "^1.1.0"
-    sockjs-client "^1.4.0"
-    stompjs "^2.3.3"
-    uuid "^3.3.3"
-    warning "~4.0.3"
-    xlsx "^0.15.1"
+suid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/suid/download/suid-1.0.0.tgz#1cedafa218f839fbb7f384ffd9b89655a9301650"
+  integrity sha1-HO2vohj4Ofu384T/2biWVakwFlA=
 
 superagent@^3.8.3:
   version "3.8.3"
@@ -16830,7 +16286,7 @@ timsort@^0.3.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tiny-invariant@^1.0.2, tiny-invariant@^1.0.6:
+tiny-invariant@^1.0.2:
   version "1.0.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tiny-invariant/-/tiny-invariant-1.0.6.tgz#b3f9b38835e36a41c843a3b0907a5a7b3755de73"
   integrity sha1-s/mziDXjakHIQ6OwkHpaezdV3nM=
@@ -17126,16 +16582,6 @@ type-is@^1.6.4, type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
-
-type@^1.0.1:
-  version "1.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/type/-/type-1.2.0.tgz#848dd7698dafa3e54a6c479e759c4bc3f18847a0"
-  integrity sha1-hI3XaY2vo+VKbEeedZxLw/GIR6A=
-
-type@^2.0.0:
-  version "2.0.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/type/-/type-2.0.0.tgz#5f16ff6ef2eb44f260494dae271033b29c09a9c3"
-  integrity sha1-Xxb/bvLrRPJgSU2uJxAzspwJqcM=
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
@@ -17948,11 +17394,6 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-use-memo-one@^1.1.1:
-  version "1.1.1"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/use-memo-one/-/use-memo-one-1.1.1.tgz#39e6f08fe27e422a7d7b234b5f9056af313bd22c"
-  integrity sha1-Oebwj+J+Qip9eyNLX5BWrzE70iw=
-
 use@^3.1.0:
   version "3.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -17997,7 +17438,7 @@ utils-merge@1.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@^3.0.1, uuid@^3.3.2, uuid@^3.3.3:
+uuid@^3.0.1, uuid@^3.3.2:
   version "3.3.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha1-RWjwIW54dg7h2/Ok0s9T4iQRKGY=
@@ -18365,17 +17806,6 @@ websocket-extensions@>=0.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha1-XS/yKXcAPsaHpLhwc9+7rBRszyk=
 
-websocket@latest:
-  version "1.0.31"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/websocket/-/websocket-1.0.31.tgz#e5d0f16c3340ed87670e489ecae6144c79358730"
-  integrity sha1-5dDxbDNA7YdnDkieyuYUTHk1hzA=
-  dependencies:
-    debug "^2.2.0"
-    es5-ext "^0.10.50"
-    nan "^2.14.0"
-    typedarray-to-buffer "^3.1.5"
-    yaeti "^0.0.6"
-
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"
@@ -18387,11 +17817,6 @@ whatwg-fetch@3.0.0, whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha1-/IBORYzEYACbGiuWa8iBfSV4rvs=
-
-whatwg-fetch@^2.0.3:
-  version "2.0.4"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
-  integrity sha1-3eal3zFfnTmZGqF2IYU9cguFVm8=
 
 whatwg-mimetype@^2.1.0, whatwg-mimetype@^2.2.0, whatwg-mimetype@^2.3.0:
   version "2.3.0"
@@ -18455,11 +17880,6 @@ with-open-file@^0.1.6:
     p-finally "^1.0.0"
     p-try "^2.1.0"
     pify "^4.0.1"
-
-wolfy87-eventemitter@^5.2.4:
-  version "5.2.8"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.8.tgz#fb7fff095cb972aa2a246b25e15b2764688c18a7"
-  integrity sha1-+3//CVy5cqoqJGsl4VsnZGiMGKc=
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
@@ -18719,19 +18139,6 @@ xdg-basedir@^3.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
 
-xlsx@^0.15.1:
-  version "0.15.4"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xlsx/-/xlsx-0.15.4.tgz#42ef1807829c4f9e98e8fce2641d53df5b5bde3e"
-  integrity sha1-Qu8YB4KcT56Y6PziZB1T31tb3j4=
-  dependencies:
-    adler-32 "~1.2.0"
-    cfb "^1.1.3"
-    codepage "~1.14.0"
-    commander "~2.17.1"
-    crc-32 "~1.2.0"
-    exit-on-epipe "~1.0.1"
-    ssf "~0.10.2"
-
 xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
@@ -18770,11 +18177,6 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
   integrity sha1-le+U+F7MgdAHwmThkKEg8KPIVms=
-
-yaeti@^0.0.6:
-  version "0.0.6"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/yaeti/-/yaeti-0.0.6.tgz#f26f484d72684cf42bedfb76970aa1608fbf9577"
-  integrity sha1-8m9ITXJoTPQr7ft2lwqhYI+/lXc=
 
 yallist@^2.1.2:
   version "2.1.2"
@@ -18901,11 +18303,6 @@ yeoman-generator@4.0.1:
     text-table "^0.2.0"
     through2 "^3.0.1"
     yeoman-environment "^2.3.4"
-
-zrender@4.2.0:
-  version "4.2.0"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/zrender/-/zrender-4.2.0.tgz#d001302e155f28de1f9fc7fcd5c254bad28471cf"
-  integrity sha1-0AEwLhVfKN4fn8f81cJUutKEcc8=
 
 zscroller@~0.4.0:
   version "0.4.8"
