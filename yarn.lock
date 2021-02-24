@@ -1456,6 +1456,14 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime-corejs2@^7.6.3":
+  version "7.13.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@babel/runtime-corejs2/-/runtime-corejs2-7.13.2.tgz#2483478e0edfe2456f3f763928f9e52e12a2e320"
+  integrity sha1-JINHjg7f4kVvP3Y5KPnlLhKi4yA=
+  dependencies:
+    core-js "^2.6.5"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime-corejs3@^7.7.4":
   version "7.7.7"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@babel/runtime-corejs3/-/runtime-corejs3-7.7.7.tgz#78fcbd472daec13abc42678bfc319e58a62235a3"
@@ -1485,6 +1493,13 @@
   integrity sha1-GUdpyo1td5DsI2Ba+e4+QqCqec8=
   dependencies:
     regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.12.1":
+  version "7.13.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@babel/runtime/-/runtime-7.13.6.tgz#86e0fad6cbb46a680e21c1aa4748717a058d345a"
+  integrity sha1-huD61su0amgOIcGqR0hxegWNNFo=
+  dependencies:
+    regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.9.2":
   version "7.9.2"
@@ -1616,6 +1631,11 @@
   version "0.7.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha1-dyESkcGQCnALinjPr9oxYNdpSe0=
+
+"@icons/material@^0.2.4":
+  version "0.2.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
+  integrity sha1-6QyfcXaLNzbnbX3WeD/Gwq+oi8g=
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
@@ -1799,6 +1819,141 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@npmcli/arborist@^2.0.0", "@npmcli/arborist@^2.2.4":
+  version "2.2.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/arborist/-/arborist-2.2.4.tgz#f2f5974b35164dedc944f3e3ee15361ebaf8d3d7"
+  integrity sha1-8vWXSzUWTe3JRPPj7hU2Hrr409c=
+  dependencies:
+    "@npmcli/installed-package-contents" "^1.0.6"
+    "@npmcli/map-workspaces" "^1.0.2"
+    "@npmcli/metavuln-calculator" "^1.1.0"
+    "@npmcli/move-file" "^1.1.0"
+    "@npmcli/name-from-folder" "^1.0.1"
+    "@npmcli/node-gyp" "^1.0.1"
+    "@npmcli/run-script" "^1.8.2"
+    bin-links "^2.2.1"
+    cacache "^15.0.3"
+    common-ancestor-path "^1.0.1"
+    json-parse-even-better-errors "^2.3.1"
+    json-stringify-nice "^1.1.1"
+    mkdirp-infer-owner "^2.0.0"
+    npm-install-checks "^4.0.0"
+    npm-package-arg "^8.1.0"
+    npm-pick-manifest "^6.1.0"
+    npm-registry-fetch "^9.0.0"
+    pacote "^11.2.6"
+    parse-conflict-json "^1.1.1"
+    promise-all-reject-late "^1.0.0"
+    promise-call-limit "^1.0.1"
+    read-package-json-fast "^2.0.2"
+    readdir-scoped-modules "^1.1.0"
+    semver "^7.3.4"
+    tar "^6.1.0"
+    treeverse "^1.0.4"
+    walk-up-path "^1.0.0"
+
+"@npmcli/ci-detect@^1.0.0", "@npmcli/ci-detect@^1.2.0":
+  version "1.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/ci-detect/-/ci-detect-1.3.0.tgz#6c1d2c625fb6ef1b9dea85ad0a5afcbef85ef22a"
+  integrity sha1-bB0sYl+27xud6oWtClr8vvhe8io=
+
+"@npmcli/config@^1.2.9":
+  version "1.2.9"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/config/-/config-1.2.9.tgz#75bde611c08762ab7a9814c076d7f287ba020088"
+  integrity sha1-db3mEcCHYqt6mBTAdtfyh7oCAIg=
+  dependencies:
+    ini "^2.0.0"
+    mkdirp-infer-owner "^2.0.0"
+    nopt "^5.0.0"
+    semver "^7.3.4"
+    walk-up-path "^1.0.0"
+
+"@npmcli/disparity-colors@^1.0.1":
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/disparity-colors/-/disparity-colors-1.0.1.tgz#b23c864c9658f9f0318d5aa6d17986619989535c"
+  integrity sha1-sjyGTJZY+fAxjVqm0XmGYZmJU1w=
+  dependencies:
+    ansi-styles "^4.3.0"
+
+"@npmcli/git@^2.0.1", "@npmcli/git@^2.0.6":
+  version "2.0.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/git/-/git-2.0.6.tgz#47b97e96b2eede3f38379262fa3bdfa6eae57bf2"
+  integrity sha1-R7l+lrLu3j84N5Ji+jvfpurle/I=
+  dependencies:
+    "@npmcli/promise-spawn" "^1.1.0"
+    lru-cache "^6.0.0"
+    mkdirp "^1.0.3"
+    npm-pick-manifest "^6.0.0"
+    promise-inflight "^1.0.1"
+    promise-retry "^2.0.1"
+    semver "^7.3.2"
+    unique-filename "^1.1.1"
+    which "^2.0.2"
+
+"@npmcli/installed-package-contents@^1.0.6":
+  version "1.0.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/installed-package-contents/-/installed-package-contents-1.0.7.tgz#ab7408c6147911b970a8abe261ce512232a3f4fa"
+  integrity sha1-q3QIxhR5EblwqKviYc5RIjKj9Po=
+  dependencies:
+    npm-bundled "^1.1.1"
+    npm-normalize-package-bin "^1.0.1"
+
+"@npmcli/map-workspaces@^1.0.2":
+  version "1.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/map-workspaces/-/map-workspaces-1.0.3.tgz#6072a0794762cf8f572e6080fa66d1bbefa991d5"
+  integrity sha1-YHKgeUdiz49XLmCA+mbRu++pkdU=
+  dependencies:
+    "@npmcli/name-from-folder" "^1.0.1"
+    glob "^7.1.6"
+    minimatch "^3.0.4"
+    read-package-json-fast "^2.0.1"
+
+"@npmcli/metavuln-calculator@^1.1.0":
+  version "1.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/metavuln-calculator/-/metavuln-calculator-1.1.0.tgz#61fbb8a70b618fee5a0ba818018b0476263e523e"
+  integrity sha1-Yfu4pwthj+5aC6gYAYsEdiY+Uj4=
+  dependencies:
+    cacache "^15.0.5"
+    pacote "^11.1.11"
+    semver "^7.3.2"
+
+"@npmcli/move-file@^1.0.1", "@npmcli/move-file@^1.1.0":
+  version "1.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/move-file/-/move-file-1.1.2.tgz#1a82c3e372f7cae9253eb66d72543d6b8685c674"
+  integrity sha1-GoLD43L3yuklPrZtclQ9a4aFxnQ=
+  dependencies:
+    mkdirp "^1.0.4"
+    rimraf "^3.0.2"
+
+"@npmcli/name-from-folder@^1.0.1":
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/name-from-folder/-/name-from-folder-1.0.1.tgz#77ecd0a4fcb772ba6fe927e2e2e155fbec2e6b1a"
+  integrity sha1-d+zQpPy3crpv6Sfi4uFV++wuaxo=
+
+"@npmcli/node-gyp@^1.0.1", "@npmcli/node-gyp@^1.0.2":
+  version "1.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/node-gyp/-/node-gyp-1.0.2.tgz#3cdc1f30e9736dbc417373ed803b42b1a0a29ede"
+  integrity sha1-PNwfMOlzbbxBc3PtgDtCsaCint4=
+
+"@npmcli/promise-spawn@^1.1.0", "@npmcli/promise-spawn@^1.2.0", "@npmcli/promise-spawn@^1.3.2":
+  version "1.3.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/promise-spawn/-/promise-spawn-1.3.2.tgz#42d4e56a8e9274fba180dabc0aea6e38f29274f5"
+  integrity sha1-QtTlao6SdPuhgNq8CupuOPKSdPU=
+  dependencies:
+    infer-owner "^1.0.4"
+
+"@npmcli/run-script@^1.8.2", "@npmcli/run-script@^1.8.3":
+  version "1.8.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@npmcli/run-script/-/run-script-1.8.3.tgz#07f440ed492400bb1114369bc37315eeaaae2bb3"
+  integrity sha1-B/RA7UkkALsRFDabw3MV7qquK7M=
+  dependencies:
+    "@npmcli/node-gyp" "^1.0.2"
+    "@npmcli/promise-spawn" "^1.3.2"
+    infer-owner "^1.0.4"
+    node-gyp "^7.1.0"
+    puka "^1.0.1"
+    read-package-json-fast "^2.0.1"
+
 "@probe.gl/stats@3.3.1":
   version "3.3.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@probe.gl/stats/-/stats-3.3.1.tgz#6119c4ce978420ea08464aaf1773d983d4ad9c66"
@@ -1852,6 +2007,11 @@
   integrity sha1-sWZeLEYaLNkvTBu/UNVFTeDUtCE=
   dependencies:
     defer-to-connect "^1.0.1"
+
+"@tootallnate/once@1":
+  version "1.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
+  integrity sha1-zLkURTYBeaBOf+av94wA/8Hur4I=
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
@@ -2470,6 +2630,11 @@ abab@^2.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/abab/-/abab-2.0.3.tgz#623e2075e02eb2d3f2475e49f99c91846467907a"
   integrity sha1-Yj4gdeAustPyR15J+ZyRhGRnkHo=
 
+abbrev@1, abbrev@~1.1.1:
+  version "1.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
+  integrity sha1-+PLIh60Qv2f2NPAFtph/7TF5qsg=
+
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
   version "1.3.7"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
@@ -2552,6 +2717,14 @@ address@^1.0.1:
   version "1.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
+
+adler-32@~1.2.0:
+  version "1.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/adler-32/-/adler-32-1.2.0.tgz#6a3e6bf0a63900ba15652808cb15c6813d1a5f25"
+  integrity sha1-aj5r8KY5ALoVZSgIyxXGgT0aXyU=
+  dependencies:
+    exit-on-epipe "~1.0.1"
+    printj "~1.1.0"
 
 af-webpack@1.14.4:
   version "1.14.4"
@@ -2639,6 +2812,30 @@ af-webpack@1.14.4:
     webpack-merge "4.2.1"
     webpackbar "3.2.0"
 
+agent-base@6:
+  version "6.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/agent-base/-/agent-base-6.0.2.tgz#49fff58577cfee3f37176feab4c22e00f86d7f77"
+  integrity sha1-Sf/1hXfP7j83F2/qtMIuAPhtf3c=
+  dependencies:
+    debug "4"
+
+agentkeepalive@^4.1.3:
+  version "4.1.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/agentkeepalive/-/agentkeepalive-4.1.4.tgz#d928028a4862cb11718e55227872e842a44c945b"
+  integrity sha1-2SgCikhiyxFxjlUieHLoQqRMlFs=
+  dependencies:
+    debug "^4.1.0"
+    depd "^1.1.2"
+    humanize-ms "^1.2.1"
+
+aggregate-error@^3.0.0:
+  version "3.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/aggregate-error/-/aggregate-error-3.1.0.tgz#92670ff50f5359bdb7a3e0d40d0ec30c5737687a"
+  integrity sha1-kmcP9Q9TWb23o+DUDQ7DDFc3aHo=
+  dependencies:
+    clean-stack "^2.0.0"
+    indent-string "^4.0.0"
+
 airbnb-prop-types@^2.15.0:
   version "2.15.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/airbnb-prop-types/-/airbnb-prop-types-2.15.0.tgz#5287820043af1eb469f5b0af0d6f70da6c52aaef"
@@ -2679,6 +2876,16 @@ ajv@^6.10.0:
   version "6.12.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ajv/-/ajv-6.12.2.tgz#c629c5eced17baf314437918d2da88c99d5958cd"
   integrity sha1-xinF7O0XuvMUQ3kY0tqIyZ1ZWM0=
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@^6.12.3:
+  version "6.12.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
+  integrity sha1-uvWmLoArB9l3A0WG+MO69a3ybfQ=
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -2771,10 +2978,22 @@ ansi-styles@^4.1.0:
     "@types/color-name" "^1.1.1"
     color-convert "^2.0.1"
 
+ansi-styles@^4.3.0:
+  version "4.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
+  integrity sha1-7dgDYornHATIWuegkG7a00tkiTc=
+  dependencies:
+    color-convert "^2.0.1"
+
 ansicolors@~0.3.2:
   version "0.3.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ansicolors/-/ansicolors-0.3.2.tgz#665597de86a9ffe3aa9bfbe6cae5c6ea426b4979"
   integrity sha1-ZlWX3oap/+Oqm/vmyuXG6kJrSXk=
+
+ansistyles@~0.1.3:
+  version "0.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ansistyles/-/ansistyles-0.1.3.tgz#5de60415bda071bb37127854c864f41b23254539"
+  integrity sha1-XeYEFb2gcbs3EnhUyGT0GyMlRTk=
 
 antd-mobile@2.x:
   version "2.3.1"
@@ -2865,6 +3084,66 @@ antd@3.x, antd@^3.19.5:
     shallowequal "^1.1.0"
     warning "~4.0.3"
 
+antd@^3.19.6:
+  version "3.26.20"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/antd/-/antd-3.26.20.tgz#f3f570efaaa5950a144942f21eb2aaaa088e9407"
+  integrity sha1-8/Vw76qllQoUSULyHrKqqgiOlAc=
+  dependencies:
+    "@ant-design/create-react-context" "^0.2.4"
+    "@ant-design/icons" "~2.1.1"
+    "@ant-design/icons-react" "~2.0.1"
+    "@types/react-slick" "^0.23.4"
+    array-tree-filter "^2.1.0"
+    babel-runtime "6.x"
+    classnames "~2.2.6"
+    copy-to-clipboard "^3.2.0"
+    css-animation "^1.5.0"
+    dom-closest "^0.2.0"
+    enquire.js "^2.1.6"
+    is-mobile "^2.1.0"
+    lodash "^4.17.13"
+    moment "^2.24.0"
+    omit.js "^1.0.2"
+    prop-types "^15.7.2"
+    raf "^3.4.1"
+    rc-animate "^2.10.2"
+    rc-calendar "~9.15.7"
+    rc-cascader "~0.17.4"
+    rc-checkbox "~2.1.6"
+    rc-collapse "~1.11.3"
+    rc-dialog "~7.6.0"
+    rc-drawer "~3.1.1"
+    rc-dropdown "~2.4.1"
+    rc-editor-mention "^1.1.13"
+    rc-form "^2.4.10"
+    rc-input-number "~4.5.0"
+    rc-mentions "~0.4.0"
+    rc-menu "~7.5.1"
+    rc-notification "~3.3.1"
+    rc-pagination "~1.20.11"
+    rc-progress "~2.5.0"
+    rc-rate "~2.5.0"
+    rc-resize-observer "^0.1.0"
+    rc-select "~9.2.0"
+    rc-slider "~8.7.1"
+    rc-steps "~3.5.0"
+    rc-switch "~1.9.0"
+    rc-table "~6.10.5"
+    rc-tabs "~9.7.0"
+    rc-time-picker "~3.7.1"
+    rc-tooltip "~3.7.3"
+    rc-tree "~2.1.0"
+    rc-tree-select "~2.9.1"
+    rc-trigger "^2.6.2"
+    rc-upload "~2.9.1"
+    rc-util "^4.16.1"
+    react-lazy-load "^3.0.13"
+    react-lifecycles-compat "^3.0.4"
+    react-slick "~0.25.2"
+    resize-observer-polyfill "^1.5.1"
+    shallowequal "^1.1.0"
+    warning "~4.0.3"
+
 any-observable@^0.3.0:
   version "0.3.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/any-observable/-/any-observable-0.3.0.tgz#af933475e5806a67d0d7df090dd5e8bef65d119b"
@@ -2891,15 +3170,33 @@ append-field@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/append-field/-/append-field-1.0.0.tgz#1e3440e915f0b1203d23748e78edd7b9b5b43e56"
   integrity sha1-HjRA6RXwsSA9I3SOeO3XubW0PlY=
 
-aproba@^1.1.1:
+aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
   integrity sha1-aALmJk79GMeQobDVF/DyYnvyyUo=
+
+aproba@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/aproba/-/aproba-2.0.0.tgz#52520b8ae5b569215b354efc0caa3fe1e45a8adc"
+  integrity sha1-UlILiuW1aSFbNU78DKo/4eRaitw=
 
 arch@^2.1.1:
   version "2.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/arch/-/arch-2.1.1.tgz#8f5c2731aa35a30929221bb0640eed65175ec84e"
   integrity sha1-j1wnMao1owkpIhuwZA7tZRdeyE4=
+
+archy@~1.0.0:
+  version "1.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/archy/-/archy-1.0.0.tgz#f9c8c13757cc1dd7bc379ac77b2c62a5c2868c40"
+  integrity sha1-+cjBN1fMHde8N5rHeyxipcKGjEA=
+
+are-we-there-yet@~1.1.2:
+  version "1.1.5"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/are-we-there-yet/-/are-we-there-yet-1.1.5.tgz#4b35c2944f062a8bfcda66410760350fe9ddfc21"
+  integrity sha1-SzXClE8GKov82mZBB2A1D+nd/CE=
+  dependencies:
+    delegates "^1.0.0"
+    readable-stream "^2.0.6"
 
 argparse@^1.0.7:
   version "1.0.10"
@@ -3038,7 +3335,7 @@ arrify@^2.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/arrify/-/arrify-2.0.1.tgz#c9655e9331e0abcd588d2a7cad7e9956f66701fa"
   integrity sha1-yWVekzHgq81YjSp8rX6ZVvZnAfo=
 
-asap@~2.0.3:
+asap@^2.0.0, asap@~2.0.3:
   version "2.0.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
   integrity sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
@@ -3184,6 +3481,13 @@ aws4@^1.8.0:
   version "1.9.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/aws4/-/aws4-1.9.0.tgz#24390e6ad61386b0a747265754d2a17219de862c"
   integrity sha1-JDkOatYThrCnRyZXVNKhchnehiw=
+
+axios@^0.19.0:
+  version "0.19.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha1-PqNsXYgY0NX4qKl6bTa4bNwAyyc=
+  dependencies:
+    follow-redirects "1.5.10"
 
 axobject-query@^2.0.2:
   version "2.1.1"
@@ -3416,7 +3720,7 @@ babel-preset-umi@1.8.1:
     babel-plugin-react-require "3.0.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@6.x, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@6.x, babel-runtime@^6.20.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -3494,6 +3798,18 @@ big.js@^5.2.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   integrity sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg=
 
+bin-links@^2.2.1:
+  version "2.2.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/bin-links/-/bin-links-2.2.1.tgz#347d9dbb48f7d60e6c11fe68b77a424bee14d61b"
+  integrity sha1-NH2du0j31g5sEf5ot3pCS+4U1hs=
+  dependencies:
+    cmd-shim "^4.0.1"
+    mkdirp "^1.0.3"
+    npm-normalize-package-bin "^1.0.0"
+    read-cmd-shim "^2.0.0"
+    rimraf "^3.0.0"
+    write-file-atomic "^3.0.3"
+
 binary-extensions@^1.0.0:
   version "1.13.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/binary-extensions/-/binary-extensions-1.13.1.tgz#598afe54755b2868a5330d2aff9d4ebb53209b65"
@@ -3503,6 +3819,11 @@ binary-extensions@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/binary-extensions/-/binary-extensions-2.0.0.tgz#23c0df14f6a88077f5f986c0d167ec03c3d5537c"
   integrity sha1-I8DfFPaogHf1+YbA0WfsA8PVU3w=
+
+binary-extensions@^2.2.0:
+  version "2.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
+  integrity sha1-dfUC7q+f/eQvyYgpZFvk6na9ni0=
 
 binary-mirror-config@1.20.3:
   version "1.20.3"
@@ -3608,6 +3929,44 @@ braces@^3.0.1, braces@^3.0.2, braces@~3.0.2:
   integrity sha1-NFThpGLujVmeI23zNs2epPiv4Qc=
   dependencies:
     fill-range "^7.0.1"
+
+braft-convert@^2.3.0:
+  version "2.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-convert/-/braft-convert-2.3.0.tgz#27d5905136c334903d083b7a2352a72045627888"
+  integrity sha1-J9WQUTbDNJA9CDt6I1KnIEVieIg=
+  dependencies:
+    draft-convert "^2.0.0"
+    draft-js "^0.10.3"
+
+braft-editor@^2.3.8:
+  version "2.3.9"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-editor/-/braft-editor-2.3.9.tgz#fd2b8e23ea71191016579a1ed8231d16ad8f5b4a"
+  integrity sha1-/SuOI+pxGRAWV5oe2CMdFq2PW0o=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    braft-convert "^2.3.0"
+    braft-finder "^0.0.19"
+    braft-utils "^3.0.8"
+    draft-convert "^2.0.0"
+    draft-js "^0.10.3"
+    draft-js-multidecorators "^1.0.0"
+    draftjs-utils "^0.9.4"
+    immutable "~3.7.4"
+
+braft-finder@^0.0.19:
+  version "0.0.19"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-finder/-/braft-finder-0.0.19.tgz#c324d82526ed3476a93de86cc9b407f4e188bc8d"
+  integrity sha1-wyTYJSbtNHapPehsybQH9OGIvI0=
+
+braft-polyfill@^0.0.2:
+  version "0.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-polyfill/-/braft-polyfill-0.0.2.tgz#2e50ae51098538878331820d90ca4e586e93a5ed"
+  integrity sha1-LlCuUQmFOIeDMYINkMpOWG6Tpe0=
+
+braft-utils@^3.0.8:
+  version "3.0.12"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/braft-utils/-/braft-utils-3.0.12.tgz#2b755ce1d8397d96b627b6767f74d07f25729d85"
+  integrity sha1-K3Vc4dg5fZa2J7Z2f3TQfyVynYU=
 
 brorand@^1.0.1:
   version "1.1.0"
@@ -3744,6 +4103,13 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
+bufferutil@^4.0.1:
+  version "4.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/bufferutil/-/bufferutil-4.0.3.tgz#66724b756bed23cd7c28c4d306d7994f9943cc6b"
+  integrity sha1-ZnJLdWvtI818KMTTBteZT5lDzGs=
+  dependencies:
+    node-gyp-build "^4.2.0"
+
 builtin-modules@^1.1.1:
   version "1.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
@@ -3754,6 +4120,11 @@ builtin-status-codes@^3.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
+builtins@^1.0.3:
+  version "1.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
+  integrity sha1-y5T662HIaWRR2zZTThQi+U8K7og=
+
 busboy@^0.2.11:
   version "0.2.14"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/busboy/-/busboy-0.2.14.tgz#6c2a622efcf47c57bbbe1e2a9c37ad36c7925453"
@@ -3761,6 +4132,11 @@ busboy@^0.2.11:
   dependencies:
     dicer "0.2.5"
     readable-stream "1.1.x"
+
+byte-size@^7.0.0:
+  version "7.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/byte-size/-/byte-size-7.0.0.tgz#36528cd1ca87d39bd9abd51f5715dc93b6ceb032"
+  integrity sha1-NlKM0cqH05vZq9UfVxXck7bOsDI=
 
 bytes@3.0.0:
   version "3.0.0"
@@ -3831,6 +4207,29 @@ cacache@^12.0.2:
     ssri "^6.0.1"
     unique-filename "^1.1.1"
     y18n "^4.0.0"
+
+cacache@^15.0.3, cacache@^15.0.5:
+  version "15.0.5"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cacache/-/cacache-15.0.5.tgz#69162833da29170d6732334643c60e005f5f17d0"
+  integrity sha1-aRYoM9opFw1nMjNGQ8YOAF9fF9A=
+  dependencies:
+    "@npmcli/move-file" "^1.0.1"
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    glob "^7.1.4"
+    infer-owner "^1.0.4"
+    lru-cache "^6.0.0"
+    minipass "^3.1.1"
+    minipass-collect "^1.0.2"
+    minipass-flush "^1.0.5"
+    minipass-pipeline "^1.2.2"
+    mkdirp "^1.0.3"
+    p-map "^4.0.0"
+    promise-inflight "^1.0.1"
+    rimraf "^3.0.2"
+    ssri "^8.0.0"
+    tar "^6.0.2"
+    unique-filename "^1.1.1"
 
 cache-base@^1.0.1:
   version "1.0.1"
@@ -3990,6 +4389,15 @@ ccount@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ccount/-/ccount-1.0.4.tgz#9cf2de494ca84060a2a8d2854edd6dfb0445f386"
   integrity sha1-nPLeSUyoQGCiqNKFTt1t+wRF84Y=
 
+cfb@^1.1.4:
+  version "1.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cfb/-/cfb-1.2.0.tgz#6a4d0872b525ed60349e1ef51fb4b0bf73eca9a8"
+  integrity sha1-ak0IcrUl7WA0nh71H7Swv3Psqag=
+  dependencies:
+    adler-32 "~1.2.0"
+    crc-32 "~1.2.0"
+    printj "~1.1.2"
+
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.2, chalk@^2.4.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
@@ -4135,6 +4543,11 @@ chownr@^1.0.1, chownr@^1.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/chownr/-/chownr-1.1.3.tgz#42d837d5239688d55f303003a508230fa6727142"
   integrity sha1-Qtg31SOWiNVfMDADpQgjD6ZycUI=
 
+chownr@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
+  integrity sha1-Fb++U9LqtM9w8YqM1o6+Wzyx3s4=
+
 chrome-trace-event@^1.0.2:
   version "1.0.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"
@@ -4151,6 +4564,13 @@ ci-info@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha1-Z6npZL4xpR4V5QENWObxKDQAL0Y=
+
+cidr-regex@^3.1.1:
+  version "3.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cidr-regex/-/cidr-regex-3.1.1.tgz#ba1972c57c66f61875f18fd7dd487469770b571d"
+  integrity sha1-uhlyxXxm9hh18Y/X3Uh0aXcLVx0=
+  dependencies:
+    ip-regex "^4.1.0"
 
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
@@ -4189,6 +4609,11 @@ clean-regexp@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.5"
 
+clean-stack@^2.0.0:
+  version "2.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
+  integrity sha1-7oRy27Ep5yezHooQpCfe6d/kAIs=
+
 clear-module@4.0.0:
   version "4.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/clear-module/-/clear-module-4.0.0.tgz#9bfc5f5370c7aea2dc9eacd559bd25a106bd10fe"
@@ -4201,6 +4626,14 @@ cli-boxes@^2.2.0:
   version "2.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cli-boxes/-/cli-boxes-2.2.0.tgz#538ecae8f9c6ca508e3c3c95b453fe93cb4c168d"
   integrity sha1-U47K6PnGylCOPDyVtFP+k8tMFo0=
+
+cli-columns@^3.1.2:
+  version "3.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cli-columns/-/cli-columns-3.1.2.tgz#6732d972979efc2ae444a1f08e08fa139c96a18e"
+  integrity sha1-ZzLZcpee/CrkRKHwjgj6E5yWoY4=
+  dependencies:
+    string-width "^2.0.0"
+    strip-ansi "^3.0.1"
 
 cli-cursor@^2.0.0, cli-cursor@^2.1.0:
   version "2.1.0"
@@ -4220,6 +4653,16 @@ cli-spinners@^2.0.0:
   version "2.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cli-spinners/-/cli-spinners-2.2.0.tgz#e8b988d9206c692302d8ee834e7a85c0144d8f77"
   integrity sha1-6LmI2SBsaSMC2O6DTnqFwBRNj3c=
+
+cli-table3@^0.6.0:
+  version "0.6.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cli-table3/-/cli-table3-0.6.0.tgz#b7b1bc65ca8e7b5cef9124e13dc2b21e2ce4faee"
+  integrity sha1-t7G8ZcqOe1zvkSThPcKyHizk+u4=
+  dependencies:
+    object-assign "^4.1.0"
+    string-width "^4.2.0"
+  optionalDependencies:
+    colors "^1.1.2"
 
 cli-table@^0.3.1:
   version "0.3.1"
@@ -4334,6 +4777,24 @@ cloneable-readable@^1.0.0:
     process-nextick-args "^2.0.0"
     readable-stream "^2.3.5"
 
+cmd-shim@^4.0.1:
+  version "4.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cmd-shim/-/cmd-shim-4.1.0.tgz#b3a904a6743e9fede4148c6f3800bf2a08135bdd"
+  integrity sha1-s6kEpnQ+n+3kFIxvOAC/KggTW90=
+  dependencies:
+    mkdirp-infer-owner "^2.0.0"
+
+cmn-utils@^1.0.9:
+  version "1.0.10"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/cmn-utils/-/cmn-utils-1.0.10.tgz#514d8c3a12c66fed363f357789713ec125500f0f"
+  integrity sha1-UU2MOhLGb+02PzV3iXE+wSVQDw8=
+  dependencies:
+    downloadjs "^1.4.7"
+    fetch-jsonp "^1.1.3"
+    store2 "^2.5.9"
+    whatwg-fetch "^2.0.3"
+    wolfy87-eventemitter "^5.2.4"
+
 co@^4.6.0:
   version "4.6.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -4352,6 +4813,14 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+codepage@~1.14.0:
+  version "1.14.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/codepage/-/codepage-1.14.0.tgz#8cbe25481323559d7d307571b0fff91e7a1d2f99"
+  integrity sha1-jL4lSBMjVZ19MHVxsP/5HnodL5k=
+  dependencies:
+    commander "~2.14.1"
+    exit-on-epipe "~1.0.1"
 
 collapse-white-space@^1.0.2:
   version "1.0.5"
@@ -4448,6 +4917,19 @@ colors@1.0.3:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/colors/-/colors-1.0.3.tgz#0433f44d809680fdeb60ed260f1b0c262e82a40b"
   integrity sha1-BDP0TYCWgP3rYO0mDxsMJi6CpAs=
 
+colors@^1.1.2:
+  version "1.4.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
+  integrity sha1-xQSRR51MG9rtLJztMs98fcI2D3g=
+
+columnify@~1.5.4:
+  version "1.5.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/columnify/-/columnify-1.5.4.tgz#4737ddf1c7b69a8a7c340570782e947eec8e78bb"
+  integrity sha1-Rzfd8ce2mop8NAVweC6UfuyOeLs=
+  dependencies:
+    strip-ansi "^3.0.0"
+    wcwidth "^1.0.0"
+
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
@@ -4469,6 +4951,21 @@ commander@~2.13.0:
   version "2.13.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha1-aWS8pnaF33wfFDDFhPB9dZeIW5w=
+
+commander@~2.14.1:
+  version "2.14.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
+  integrity sha1-IjUSPjevjKPGXfRbAm29NXsBuao=
+
+commander@~2.17.1:
+  version "2.17.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
+  integrity sha1-vXerfebelCBc6sxy8XFtKfIKd78=
+
+common-ancestor-path@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz#4f7d2d1394d91b7abdf51871c62f71eadb0182a7"
+  integrity sha1-T30tE5TZG3q99Rhxxi9x6tsBgqc=
 
 common-tags@^1.4.0:
   version "1.8.0"
@@ -4577,6 +5074,11 @@ console-browserify@^1.1.0:
   version "1.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
   integrity sha1-ZwY871fOts9Jk6KrOlWECujEkzY=
+
+console-control-strings@^1.0.0, console-control-strings@~1.1.0:
+  version "1.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
+  integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
 constants-browserify@^1.0.0:
   version "1.0.0"
@@ -4740,6 +5242,14 @@ cosmiconfig@^6.0.0:
     path-type "^4.0.0"
     yaml "^1.7.2"
 
+crc-32@~1.2.0:
+  version "1.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/crc-32/-/crc-32-1.2.0.tgz#cb2db6e29b88508e32d9dd0ec1693e7b41a18208"
+  integrity sha1-yy224puIUI4y2d0OwWk+e0Ghggg=
+  dependencies:
+    exit-on-epipe "~1.0.1"
+    printj "~1.1.0"
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
@@ -4872,6 +5382,18 @@ css-animation@1.x, css-animation@^1.3.2, css-animation@^1.5.0:
     babel-runtime "6.x"
     component-classes "^1.2.5"
 
+css-animation@^2.0.4:
+  version "2.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-animation/-/css-animation-2.0.4.tgz#5d0b0b713dbb1c4299c45b2fcf408357dff988e4"
+  integrity sha1-XQsLcT27HEKZxFsvz0CDV9/5iOQ=
+
+css-box-model@^1.2.0:
+  version "1.2.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-box-model/-/css-box-model-1.2.1.tgz#59951d3b81fd6b2074a62d49444415b0d2b4d7c1"
+  integrity sha1-WZUdO4H9ayB0pi1JREQVsNK018E=
+  dependencies:
+    tiny-invariant "^1.0.6"
+
 css-color-keywords@^1.0.0:
   version "1.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
@@ -4889,6 +5411,11 @@ css-declaration-sorter@^4.0.1:
   dependencies:
     postcss "^7.0.1"
     timsort "^0.3.0"
+
+css-element-queries@^1.2.1:
+  version "1.2.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/css-element-queries/-/css-element-queries-1.2.3.tgz#e14940b1fcd4bf0da60ea4145d05742d7172e516"
+  integrity sha1-4UlAsfzUvw2mDqQUXQV0LXFy5RY=
 
 css-loader-1@2.0.0:
   version "2.0.0"
@@ -5176,6 +5703,14 @@ d3-timer@^1.0.9:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/d3-timer/-/d3-timer-1.0.10.tgz#dfe76b8a91748831b13b6d9c793ffbd508dd9de5"
   integrity sha1-3+dripF0iDGxO22ceT/71QjdneU=
 
+d@1, d@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/d/-/d-1.0.1.tgz#8698095372d58dbee346ffd0c7093f99f8f9eb5a"
+  integrity sha1-hpgJU3LVjb7jRv/Qxwk/mfj561o=
+  dependencies:
+    es5-ext "^0.10.50"
+    type "^1.0.1"
+
 dagre@^0.8.5:
   version "0.8.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dagre/-/dagre-0.8.5.tgz#ba30b0055dac12b6c1fcc247817442777d06afee"
@@ -5227,6 +5762,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
+debug@4:
+  version "4.3.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
+  integrity sha1-8NIpxQXgxtjEmsVT0bE9wYP2su4=
+  dependencies:
+    ms "2.1.2"
+
 debug@4.1.1, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   version "4.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
@@ -5234,12 +5776,31 @@ debug@4.1.1, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   dependencies:
     ms "^2.1.1"
 
+debug@=3.1.0:
+  version "3.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
+  dependencies:
+    ms "2.0.0"
+
 debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
   version "3.2.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha1-6D0X3hbYp++3cX7b5fsQE17uYps=
   dependencies:
     ms "^2.1.1"
+
+debug@^3.2.6:
+  version "3.2.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
+  integrity sha1-clgLfpFF+zm2Z2+cXl+xALk0F5o=
+  dependencies:
+    ms "^2.1.1"
+
+debuglog@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
+  integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
 
 decamelize-keys@^1.0.0, decamelize-keys@^1.1.0:
   version "1.1.0"
@@ -5378,7 +5939,12 @@ delayed-stream@~1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
-depd@~1.1.2:
+delegates@^1.0.0:
+  version "1.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
+  integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
+
+depd@^1.1.2, depd@~1.1.2:
   version "1.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
@@ -5434,6 +6000,14 @@ detect-port-alt@1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
+dezalgo@^1.0.0:
+  version "1.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dezalgo/-/dezalgo-1.0.3.tgz#7f742de066fc748bc8db820569dddce49bf0d456"
+  integrity sha1-f3Qt4Gb8dIvI24IFad3c5Jvw1FY=
+  dependencies:
+    asap "^2.0.0"
+    wrappy "1"
+
 dicer@0.2.5:
   version "0.2.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dicer/-/dicer-0.2.5.tgz#5996c086bb33218c812c090bddc09cd12facb70f"
@@ -5461,6 +6035,11 @@ diff@^3.2.0, diff@^3.5.0:
   version "3.5.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
   integrity sha1-gAwN0eCov7yVg1wgKtIg/jF+WhI=
+
+diff@^5.0.0:
+  version "5.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/diff/-/diff-5.0.0.tgz#7ed6ad76d859d030787ec35855f5b1daf31d852b"
+  integrity sha1-ftatdthZ0DB4fsNYVfWx2vMdhSs=
 
 diffie-hellman@^5.0.0:
   version "5.0.3"
@@ -5645,7 +6224,28 @@ dotenv@^8.2.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
-draft-js@^0.10.0, draft-js@~0.10.0:
+downloadjs@^1.4.7:
+  version "1.4.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/downloadjs/-/downloadjs-1.4.7.tgz#f69f96f940e0d0553dac291139865a3cd0101e3c"
+  integrity sha1-9p+W+UDg0FU9rCkROYZaPNAQHjw=
+
+draft-convert@^2.0.0:
+  version "2.1.10"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-convert/-/draft-convert-2.1.10.tgz#07552f0aadff7ac01c8619d769210d4ea8fcab77"
+  integrity sha1-B1UvCq3/esAchhnXaSENTqj8q3c=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    immutable "~3.7.4"
+    invariant "^2.2.1"
+
+draft-js-multidecorators@^1.0.0:
+  version "1.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-js-multidecorators/-/draft-js-multidecorators-1.0.0.tgz#6c4be8d7b78dd2b966ee51ee6cc179b9b535e612"
+  integrity sha1-bEvo17eN0rlm7lHubMF5ubU15hI=
+  dependencies:
+    immutable "*"
+
+draft-js@^0.10.0, draft-js@^0.10.3, draft-js@~0.10.0:
   version "0.10.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draft-js/-/draft-js-0.10.5.tgz#bfa9beb018fe0533dbb08d6675c371a6b08fa742"
   integrity sha1-v6m+sBj+BTPbsI1mdcNxprCPp0I=
@@ -5653,6 +6253,11 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     fbjs "^0.8.15"
     immutable "~3.7.4"
     object-assign "^4.1.0"
+
+draftjs-utils@^0.9.4:
+  version "0.9.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/draftjs-utils/-/draftjs-utils-0.9.4.tgz#976c61aa133dbbbfedd65ae1dd6627d7b98c6f08"
+  integrity sha1-l2xhqhM9u7/t1lrh3WYn17mMbwg=
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -5712,6 +6317,13 @@ dva-loading@3.0.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+dva-model-extend@^0.1.2:
+  version "0.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dva-model-extend/-/dva-model-extend-0.1.2.tgz#a3e615995feaaed5d141eb5b0a26cb98542a9820"
+  integrity sha1-o+YVmV/qrtXRQetbCibLmFQqmCA=
+  dependencies:
+    babel-runtime "^6.20.0"
+
 dva@^2.6.0-beta.16, dva@^2.6.0-beta.6:
   version "2.6.0-beta.20"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/dva/-/dva-2.6.0-beta.20.tgz#5633a008456479040d5efd553d4fc85e12dff88a"
@@ -5738,6 +6350,21 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
+
+echarts-for-react@^2.0.15-beta.1:
+  version "2.0.16"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/echarts-for-react/-/echarts-for-react-2.0.16.tgz#8134a53dff90882c1e6a95c45ceab21e00f6c9f5"
+  integrity sha1-gTSlPf+QiCweapXEXOqyHgD2yfU=
+  dependencies:
+    fast-deep-equal "^2.0.1"
+    size-sensor "^1.0.0"
+
+echarts@^4.4.0:
+  version "4.9.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/echarts/-/echarts-4.9.0.tgz#a9b9baa03f03a2a731e6340c55befb57a9e1347d"
+  integrity sha1-qbm6oD8Doqcx5jQMVb77V6nhNH0=
+  dependencies:
+    zrender "4.3.2"
 
 editions@^2.2.0:
   version "2.3.0"
@@ -5822,6 +6449,13 @@ encoding@^0.1.11:
   dependencies:
     iconv-lite "~0.4.13"
 
+encoding@^0.1.12:
+  version "0.1.13"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
+  integrity sha1-VldK/deR9UqOmyeFwFgqLSYhD6k=
+  dependencies:
+    iconv-lite "^0.6.2"
+
 end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
@@ -5859,6 +6493,11 @@ entities@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
   integrity sha1-aNYITKsbB5dnVA2A5Wo5tCPkq/Q=
+
+env-paths@^2.2.0:
+  version "2.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/env-paths/-/env-paths-2.2.0.tgz#cdca557dc009152917d6166e2febe1f039685e43"
+  integrity sha1-zcpVfcAJFSkX1hZuL+vh8DloXkM=
 
 enzyme-adapter-react-16@^1.14.0:
   version "1.15.2"
@@ -5922,6 +6561,11 @@ enzyme@^3.10.0:
     raf "^3.4.1"
     rst-selector-parser "^2.2.3"
     string.prototype.trim "^1.2.1"
+
+err-code@^2.0.2:
+  version "2.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/err-code/-/err-code-2.0.3.tgz#23c2f3b756ffdfc608d30e27c9a941024807e7f9"
+  integrity sha1-I8Lzt1b/38YI0w4nyalBAkgH5/k=
 
 errlop@^2.0.0:
   version "2.0.0"
@@ -5999,10 +6643,36 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+es5-ext@^0.10.35, es5-ext@^0.10.50:
+  version "0.10.53"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es5-ext/-/es5-ext-0.10.53.tgz#93c5a3acfdbef275220ad72644ad02ee18368de1"
+  integrity sha1-k8WjrP2+8nUiCtcmRK0C7hg2jeE=
+  dependencies:
+    es6-iterator "~2.0.3"
+    es6-symbol "~3.1.3"
+    next-tick "~1.0.0"
+
 es5-imcompatible-versions@^0.1.37:
   version "0.1.57"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es5-imcompatible-versions/-/es5-imcompatible-versions-0.1.57.tgz#df95451eb1e546f3defd22c89d5baa6828a4f07c"
   integrity sha1-35VFHrHlRvPe/SLInVuqaCik8Hw=
+
+es6-iterator@~2.0.3:
+  version "2.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es6-iterator/-/es6-iterator-2.0.3.tgz#a7de889141a05a94b0854403b2d0a0fbfa98f3b7"
+  integrity sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
+  dependencies:
+    d "1"
+    es5-ext "^0.10.35"
+    es6-symbol "^3.1.1"
+
+es6-symbol@^3.1.1, es6-symbol@~3.1.3:
+  version "3.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/es6-symbol/-/es6-symbol-3.1.3.tgz#bad5d3c1bcdac28269f4cb331e431c78ac705d18"
+  integrity sha1-utXTwbzawoJp9MszHkMceKxwXRg=
+  dependencies:
+    d "^1.0.1"
+    ext "^1.1.2"
 
 escalade@^3.0.1:
   version "3.0.1"
@@ -6916,6 +7586,11 @@ exenv@^1.2.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
   integrity sha1-KueOhdmJQVhnCwPUe+wfA72Ru50=
 
+exit-on-epipe@~1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exit-on-epipe/-/exit-on-epipe-1.0.1.tgz#0bdd92e87d5285d267daa8171d0eb06159689692"
+  integrity sha1-C92S6H1ShdJn2qgXHQ6wYVlolpI=
+
 exit@^0.1.2:
   version "0.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -6981,6 +7656,13 @@ express@4.17.1, express@^4.16.2, express@^4.16.3:
     type-is "~1.6.18"
     utils-merge "1.0.1"
     vary "~1.1.2"
+
+ext@^1.1.2:
+  version "1.4.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ext/-/ext-1.4.0.tgz#89ae7a07158f79d35517882904324077e4379244"
+  integrity sha1-ia56BxWPedNVF4gpBDJAd+Q3kkQ=
+  dependencies:
+    type "^2.0.0"
 
 extend-shallow@^2.0.1:
   version "2.0.1"
@@ -7113,7 +7795,7 @@ faye-websocket@^0.10.0:
   dependencies:
     websocket-driver ">=0.5.1"
 
-faye-websocket@~0.11.1:
+faye-websocket@^0.11.3, faye-websocket@~0.11.1:
   version "0.11.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/faye-websocket/-/faye-websocket-0.11.3.tgz#5c0e9a8968e8912c286639fde977a8b209f2508e"
   integrity sha1-XA6aiWjokSwoZjn96XeosgnyUI4=
@@ -7144,6 +7826,11 @@ fecha@~4.2.0:
   version "4.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fecha/-/fecha-4.2.0.tgz#3ffb6395453e3f3efff850404f0a59b6747f5f41"
   integrity sha1-P/tjlUU+Pz7/+FBATwpZtnR/X0E=
+
+fetch-jsonp@^1.1.3:
+  version "1.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fetch-jsonp/-/fetch-jsonp-1.1.3.tgz#9eb9e585ba08aaf700563538d17bbebbcd5a3db2"
+  integrity sha1-nrnlhboIqvcAVjU40Xu+u81aPbI=
 
 figgy-pudding@^3.5.1:
   version "3.5.1"
@@ -7353,6 +8040,13 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
+  dependencies:
+    debug "=3.1.0"
+
 follow-redirects@^1.0.0:
   version "1.9.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
@@ -7438,6 +8132,11 @@ forwarded@~0.1.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
+frac@~1.1.2:
+  version "1.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/frac/-/frac-1.1.2.tgz#3d74f7f6478c88a1b5020306d747dc6313c74d0b"
+  integrity sha1-PXT39keMiKG1AgMG10fcYxPHTQs=
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -7494,6 +8193,13 @@ fs-extra@^8.0.1:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-minipass@^2.0.0, fs-minipass@^2.1.0:
+  version "2.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fs-minipass/-/fs-minipass-2.1.0.tgz#7f5036fdbf12c63c169190cbe4199c852271f9fb"
+  integrity sha1-f1A2/b8SxjwWkZDL5BmchSJx+fs=
+  dependencies:
+    minipass "^3.0.0"
+
 fs-write-stream-atomic@^1.0.8:
   version "1.0.10"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/fs-write-stream-atomic/-/fs-write-stream-atomic-1.0.10.tgz#b47df53493ef911df75731e70a9ded0189db40c9"
@@ -7545,6 +8251,20 @@ functions-have-names@^1.2.0:
   version "1.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/functions-have-names/-/functions-have-names-1.2.0.tgz#83da7583e4ea0c9ac5ff530f73394b033e0bf77d"
   integrity sha1-g9p1g+TqDJrF/1MPczlLAz4L930=
+
+gauge@~2.7.3:
+  version "2.7.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
+  integrity sha1-LANAXHU4w51+s3sxcCLjJfsBi/c=
+  dependencies:
+    aproba "^1.0.3"
+    console-control-strings "^1.0.0"
+    has-unicode "^2.0.0"
+    object-assign "^4.1.0"
+    signal-exit "^3.0.0"
+    string-width "^1.0.1"
+    strip-ansi "^3.0.1"
+    wide-align "^1.1.0"
 
 gensync@^1.0.0-beta.1:
   version "1.0.0-beta.1"
@@ -7873,6 +8593,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
   integrity sha1-ShL/G2A3bvCYYsIJPt2Qgyi+hCM=
 
+graceful-fs@^4.2.3, graceful-fs@^4.2.6:
+  version "4.2.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/graceful-fs/-/graceful-fs-4.2.6.tgz#ff040b2b0853b23c3d31027523706f1885d76bee"
+  integrity sha1-/wQLKwhTsjw9MQJ1I3BvGIXXa+4=
+
 graphlib@^2.1.8:
   version "2.1.8"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/graphlib/-/graphlib-2.1.8.tgz#5761d414737870084c92ec7b5dbcb0592c9d35da"
@@ -8002,6 +8727,14 @@ har-validator@~5.1.0:
     ajv "^6.5.5"
     har-schema "^2.0.0"
 
+har-validator@~5.1.3:
+  version "5.1.5"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/har-validator/-/har-validator-5.1.5.tgz#1f0803b9f8cb20c0fa13822df1ecddb36bde1efd"
+  integrity sha1-HwgDufjLIMD6E4It8ezds2veHv0=
+  dependencies:
+    ajv "^6.12.3"
+    har-schema "^2.0.0"
+
 hard-rejection@^2.1.0:
   version "2.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/hard-rejection/-/hard-rejection-2.1.0.tgz#1c6eda5c1685c63942766d79bb40ae773cecd883"
@@ -8043,6 +8776,11 @@ has-symbols@^1.0.0, has-symbols@^1.0.1:
   version "1.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/has-symbols/-/has-symbols-1.0.1.tgz#9f5214758a44196c406d9bd76cebf81ec2dd31e8"
   integrity sha1-n1IUdYpEGWxAbZvXbOv4HsLdMeg=
+
+has-unicode@^2.0.0:
+  version "2.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
+  integrity sha1-4Ob+aijPUROIVeCG0Wkedx3iqLk=
 
 has-value@^0.3.1:
   version "0.3.1"
@@ -8151,6 +8889,13 @@ hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0:
   dependencies:
     react-is "^16.7.0"
 
+hoist-non-react-statics@^3.3.2:
+  version "3.3.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
+  integrity sha1-7OCsr3HWLClpwuxZ/v9CpLGoW0U=
+  dependencies:
+    react-is "^16.7.0"
+
 hoopy@^0.1.4:
   version "0.1.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/hoopy/-/hoopy-0.1.4.tgz#609207d661100033a9a9402ad3dea677381c1b1d"
@@ -8160,6 +8905,13 @@ hosted-git-info@^2.1.4:
   version "2.8.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/hosted-git-info/-/hosted-git-info-2.8.5.tgz#759cfcf2c4d156ade59b0b2dfabddc42a6b9c70c"
   integrity sha1-dZz88sTRVq3lmwst+r3cQqa5xww=
+
+hosted-git-info@^3.0.6, hosted-git-info@^3.0.8:
+  version "3.0.8"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/hosted-git-info/-/hosted-git-info-3.0.8.tgz#6e35d4cc87af2c5f816e4cb9ce350ba87a3f370d"
+  integrity sha1-bjXUzIevLF+Bbky5zjULqHo/Nw0=
+  dependencies:
+    lru-cache "^6.0.0"
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -8245,6 +8997,11 @@ http-cache-semantics@^4.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-cache-semantics/-/http-cache-semantics-4.0.3.tgz#495704773277eeef6e43f9ab2c2c7d259dda25c5"
   integrity sha1-SVcEdzJ37u9uQ/mrLCx9JZ3aJcU=
 
+http-cache-semantics@^4.1.0:
+  version "4.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"
+  integrity sha1-SekcXL82yblLz81xwj1SSex045A=
+
 http-deceiver@^1.2.7:
   version "1.2.7"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-deceiver/-/http-deceiver-1.2.7.tgz#fa7168944ab9a519d337cb0bec7284dc3e723d87"
@@ -8287,6 +9044,15 @@ http-errors@~1.7.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-parser-js/-/http-parser-js-0.4.10.tgz#92c9c1374c35085f75db359ec56cc257cbb93fa4"
   integrity sha1-ksnBN0w1CF912zWexWzCV8u5P6Q=
 
+http-proxy-agent@^4.0.1:
+  version "4.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-proxy-agent/-/http-proxy-agent-4.0.1.tgz#8a8c8ef7f5932ccf953c296ca8291b95aa74aa3a"
+  integrity sha1-ioyO9/WTLM+VPClsqCkblap0qjo=
+  dependencies:
+    "@tootallnate/once" "1"
+    agent-base "6"
+    debug "4"
+
 http-proxy-middleware@0.19.1, http-proxy-middleware@^0.19.1:
   version "0.19.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/http-proxy-middleware/-/http-proxy-middleware-0.19.1.tgz#183c7dc4aa1479150306498c210cdaf96080a43a"
@@ -8320,10 +9086,25 @@ https-browserify@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
+https-proxy-agent@^5.0.0:
+  version "5.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
+  integrity sha1-4qkFQqu2inYuCghQ9sntrf2FBrI=
+  dependencies:
+    agent-base "6"
+    debug "4"
+
 human-signals@^1.1.1:
   version "1.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha1-xbHNFPUK6uCatsWf5jujOV/k36M=
+
+humanize-ms@^1.2.1:
+  version "1.2.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/humanize-ms/-/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
+  integrity sha1-xG4xWaKT9riW2ikxbYtv6Lt5u+0=
+  dependencies:
+    ms "^2.0.0"
 
 husky@^4.2.5:
   version "4.2.5"
@@ -8347,6 +9128,13 @@ iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@~0.4.13:
   integrity sha1-ICK0sl+93CHS9SSXSkdKr+czkIs=
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
+
+iconv-lite@^0.6.2:
+  version "0.6.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/iconv-lite/-/iconv-lite-0.6.2.tgz#ce13d1875b0c3a674bd6a04b7f76b01b1b6ded01"
+  integrity sha1-zhPRh1sMOmdL1qBLf3awGxtt7QE=
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3.0.0"
 
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
@@ -8383,6 +9171,13 @@ iferr@^0.1.5:
   version "0.1.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/iferr/-/iferr-0.1.5.tgz#c60eed69e6d8fdb6b3104a1fcbca1c192dc5b501"
   integrity sha1-xg7taebY/bazEEofy8ocGS3FtQE=
+
+ignore-walk@^3.0.3:
+  version "3.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ignore-walk/-/ignore-walk-3.0.3.tgz#017e2447184bfeade7c238e4aefdd1e8f95b1e37"
+  integrity sha1-AX4kRxhL/q3nwjjkrv3R6PlbHjc=
+  dependencies:
+    minimatch "^3.0.4"
 
 ignore@^3.3.5:
   version "3.3.10"
@@ -8431,7 +9226,7 @@ immutability-helper@^2.7.1:
   dependencies:
     invariant "^2.2.0"
 
-immutable@^3.7.4, immutable@^3.8.1:
+immutable@*, immutable@^3.7.4, immutable@^3.8.1:
   version "3.8.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
   integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
@@ -8531,7 +9326,7 @@ indexes-of@^1.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/indexes-of/-/indexes-of-1.0.1.tgz#f30f716c8e2bd346c7b67d3df3915566a7c05607"
   integrity sha1-8w9xbI4r00bHtn0985FVZqfAVgc=
 
-infer-owner@^1.0.3:
+infer-owner@^1.0.3, infer-owner@^1.0.4:
   version "1.0.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
   integrity sha1-xM78qo5RBRwqQLos6KPScpWvlGc=
@@ -8544,7 +9339,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
+inherits@2, inherits@2.0.4, inherits@^2.0.1, inherits@^2.0.3, inherits@^2.0.4, inherits@~2.0.1, inherits@~2.0.3:
   version "2.0.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
@@ -8563,6 +9358,25 @@ ini@^1.3.4, ini@^1.3.5, ini@~1.3.0:
   version "1.3.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ini/-/ini-1.3.5.tgz#eee25f56db1c9ec6085e0c22778083f596abf927"
   integrity sha1-7uJfVtscnsYIXgwid4CD9Zar+Sc=
+
+ini@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ini/-/ini-2.0.0.tgz#e5fd556ecdd5726be978fa1001862eacb0a94bc5"
+  integrity sha1-5f1Vbs3VcmvpePoQAYYurLCpS8U=
+
+init-package-json@^2.0.2:
+  version "2.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/init-package-json/-/init-package-json-2.0.2.tgz#d81a7e6775af9b618f20bba288e440b8d1ce05f3"
+  integrity sha1-2Bp+Z3Wvm2GPILuiiORAuNHOBfM=
+  dependencies:
+    glob "^7.1.1"
+    npm-package-arg "^8.1.0"
+    promzard "^0.3.0"
+    read "~1.0.1"
+    read-package-json "^3.0.0"
+    semver "^7.3.2"
+    validate-npm-package-license "^3.0.4"
+    validate-npm-package-name "^3.0.0"
 
 inquirer@6.2.2:
   version "6.2.2"
@@ -8644,6 +9458,11 @@ insert-css@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/insert-css/-/insert-css-2.0.0.tgz#eb5d1097b7542f4c79ea3060d3aee07d053880f4"
   integrity sha1-610Ql7dUL0x56jBg067gfQU4gPQ=
+
+install@^0.13.0:
+  version "0.13.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/install/-/install-0.13.0.tgz#6af6e9da9dd0987de2ab420f78e60d9c17260776"
+  integrity sha1-avbp2p3QmH3iq0IPeOYNnBcmB3Y=
 
 internal-ip@^4.2.0:
   version "4.3.0"
@@ -8727,6 +9546,11 @@ ip-regex@^2.1.0:
   version "2.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ip-regex/-/ip-regex-2.1.0.tgz#fa78bf5d2e6913c911ce9f819ee5146bb6d844e9"
   integrity sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
+
+ip-regex@^4.1.0:
+  version "4.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ip-regex/-/ip-regex-4.3.0.tgz#687275ab0f57fa76978ff8f4dddc8a23d5990db5"
+  integrity sha1-aHJ1qw9X+naXj/j03dyKI9WZDbU=
 
 ip@^1.1.0, ip@^1.1.5:
   version "1.1.5"
@@ -8863,6 +9687,13 @@ is-ci@^2.0.0:
   dependencies:
     ci-info "^2.0.0"
 
+is-cidr@^4.0.2:
+  version "4.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-cidr/-/is-cidr-4.0.2.tgz#94c7585e4c6c77ceabf920f8cde51b8c0fda8814"
+  integrity sha1-lMdYXkxsd86r+SD4zeUbjA/aiBQ=
+  dependencies:
+    cidr-regex "^3.1.1"
+
 is-color-stop@^1.0.0:
   version "1.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-color-stop/-/is-color-stop-1.1.0.tgz#cfff471aee4dd5c9e158598fbe12967b5cdad345"
@@ -8874,6 +9705,13 @@ is-color-stop@^1.0.0:
     hsla-regex "^1.0.0"
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
+
+is-core-module@^2.2.0:
+  version "2.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-core-module/-/is-core-module-2.2.0.tgz#97037ef3d52224d85163f5597b2b63d9afed981a"
+  integrity sha1-lwN+89UiJNhRY/VZeytj2a/tmBo=
+  dependencies:
+    has "^1.0.3"
 
 is-data-descriptor@^0.1.4:
   version "0.1.4"
@@ -8992,6 +9830,11 @@ is-installed-globally@^0.1.0:
   dependencies:
     global-dirs "^0.1.0"
     is-path-inside "^1.0.0"
+
+is-lambda@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/is-lambda/-/is-lambda-1.0.1.tgz#3d9877899e6a53efc0160504cde15f82e6f061d5"
+  integrity sha1-PZh3iZ5qU+/AFgUEzeFfgubwYdU=
 
 is-mobile@2.1.0, is-mobile@^2.1.0:
   version "2.1.0"
@@ -9739,6 +10582,11 @@ js-yaml@3.13.1, js-yaml@^3.13.0, js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
+jsbarcode@^3.11.0:
+  version "3.11.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsbarcode/-/jsbarcode-3.11.3.tgz#1c8fb9b5c7d4452e571930801b00e12094a7051e"
+  integrity sha1-HI+5tcfURS5XGTCAGwDhIJSnBR4=
+
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -9828,6 +10676,11 @@ json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
   integrity sha1-u4Z8+zRQ5pEHwTHRxRS6s9yLyqk=
 
+json-parse-even-better-errors@^2.3.0, json-parse-even-better-errors@^2.3.1:
+  version "2.3.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
+  integrity sha1-fEeAWpQxmSjgV3dAXcEuH3pO4C0=
+
 json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
@@ -9850,6 +10703,11 @@ json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
+json-stringify-nice@^1.1.1:
+  version "1.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json-stringify-nice/-/json-stringify-nice-1.1.1.tgz#1377579345c9ac3b0d940c1928af348ff7b42f8b"
+  integrity sha1-E3dXk0XJrDsNlAwZKK80j/e0L4s=
+
 json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
@@ -9862,7 +10720,7 @@ json2mq@^0.2.0:
   dependencies:
     string-convert "^0.2.0"
 
-json3@^3.3.2:
+json3@^3.3.2, json3@^3.3.3:
   version "3.3.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/json3/-/json3-3.3.3.tgz#7fc10e375fc5ae42c4705a5cc0aa6f62be305b81"
   integrity sha1-f8EON1/FrkLEcFpcwKpvYr4wW4E=
@@ -9905,6 +10763,11 @@ jsonify@~0.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
+jsonparse@^1.3.1:
+  version "1.3.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsonparse/-/jsonparse-1.3.1.tgz#3f4dae4a91fac315f71062f8521cc239f1366280"
+  integrity sha1-P02uSpH6wxX3EGL4UhzCOfE2YoA=
+
 jsprim@^1.2.2:
   version "1.4.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -9922,6 +10785,16 @@ jsx-ast-utils@^2.0.1, jsx-ast-utils@^2.1.0, jsx-ast-utils@^2.2.1, jsx-ast-utils@
   dependencies:
     array-includes "^3.0.3"
     object.assign "^4.1.0"
+
+just-diff-apply@^3.0.0:
+  version "3.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/just-diff-apply/-/just-diff-apply-3.0.0.tgz#a77348d24f0694e378b57293dceb65bdf5a91c4f"
+  integrity sha1-p3NI0k8GlON4tXKT3OtlvfWpHE8=
+
+just-diff@^3.0.1:
+  version "3.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/just-diff/-/just-diff-3.0.2.tgz#65f4914e4d7500b364d12b7b3f03bcbacdac743b"
+  integrity sha1-ZfSRTk11ALNk0St7PwO8us2sdDs=
 
 keyv@^3.0.0:
   version "3.1.0"
@@ -10090,6 +10963,97 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+libnpmaccess@^4.0.1:
+  version "4.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmaccess/-/libnpmaccess-4.0.1.tgz#17e842e03bef759854adf6eb6c2ede32e782639f"
+  integrity sha1-F+hC4DvvdZhUrfbrbC7eMueCY58=
+  dependencies:
+    aproba "^2.0.0"
+    minipass "^3.1.1"
+    npm-package-arg "^8.0.0"
+    npm-registry-fetch "^9.0.0"
+
+libnpmdiff@^2.0.3:
+  version "2.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmdiff/-/libnpmdiff-2.0.3.tgz#4bfdf3313831d85ead1fb7a0bd2f43cc3408f1f6"
+  integrity sha1-S/3zMTgx2F6tH7egvS9DzDQI8fY=
+  dependencies:
+    "@npmcli/disparity-colors" "^1.0.1"
+    binary-extensions "^2.2.0"
+    diff "^5.0.0"
+    minimatch "^3.0.4"
+    pacote "^11.2.3"
+    tar "^6.1.0"
+
+libnpmfund@^1.0.2:
+  version "1.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmfund/-/libnpmfund-1.0.2.tgz#d9552d4b76dd7f0a1a61b7af6b8f27184e51b0f5"
+  integrity sha1-2VUtS3bdfwoaYbeva48nGE5RsPU=
+  dependencies:
+    "@npmcli/arborist" "^2.0.0"
+
+libnpmhook@^6.0.1:
+  version "6.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmhook/-/libnpmhook-6.0.1.tgz#ef467078b71f6f86199f90e6c86e391588867f09"
+  integrity sha1-70ZweLcfb4YZn5DmyG45FYiGfwk=
+  dependencies:
+    aproba "^2.0.0"
+    npm-registry-fetch "^9.0.0"
+
+libnpmorg@^2.0.1:
+  version "2.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmorg/-/libnpmorg-2.0.1.tgz#b279b6e0641013ba5dde465476e72624ea8dd2f3"
+  integrity sha1-snm24GQQE7pd3kZUducmJOqN0vM=
+  dependencies:
+    aproba "^2.0.0"
+    npm-registry-fetch "^9.0.0"
+
+libnpmpack@^2.0.1:
+  version "2.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmpack/-/libnpmpack-2.0.1.tgz#d3eac25cc8612f4e7cdeed4730eee339ba51c643"
+  integrity sha1-0+rCXMhhL0583u1HMO7jObpRxkM=
+  dependencies:
+    "@npmcli/run-script" "^1.8.3"
+    npm-package-arg "^8.1.0"
+    pacote "^11.2.6"
+
+libnpmpublish@^4.0.0:
+  version "4.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmpublish/-/libnpmpublish-4.0.0.tgz#ad6413914e0dfd78df868ce14ba3d3a4cc8b385b"
+  integrity sha1-rWQTkU4N/XjfhozhS6PTpMyLOFs=
+  dependencies:
+    normalize-package-data "^3.0.0"
+    npm-package-arg "^8.1.0"
+    npm-registry-fetch "^9.0.0"
+    semver "^7.1.3"
+    ssri "^8.0.0"
+
+libnpmsearch@^3.1.0:
+  version "3.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmsearch/-/libnpmsearch-3.1.0.tgz#425cc7cd1feeaad7bf109f91f17b697a3a058f9e"
+  integrity sha1-QlzHzR/uqte/EJ+R8XtpejoFj54=
+  dependencies:
+    npm-registry-fetch "^9.0.0"
+
+libnpmteam@^2.0.2:
+  version "2.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmteam/-/libnpmteam-2.0.2.tgz#8450a77092faa801aaaea2a209a66e2137460c06"
+  integrity sha1-hFCncJL6qAGqrqKiCaZuITdGDAY=
+  dependencies:
+    aproba "^2.0.0"
+    npm-registry-fetch "^9.0.0"
+
+libnpmversion@^1.0.11:
+  version "1.0.11"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/libnpmversion/-/libnpmversion-1.0.11.tgz#589c9bc78c342b99929db890c41a1557d905e2ec"
+  integrity sha1-WJybx4w0K5mSnbiQxBoVV9kF4uw=
+  dependencies:
+    "@npmcli/git" "^2.0.6"
+    "@npmcli/run-script" "^1.8.3"
+    read-package-json-fast "^2.0.1"
+    semver "^7.3.4"
+    stringify-package "^1.0.1"
+
 line-diff@^2.0.1:
   version "2.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/line-diff/-/line-diff-2.1.0.tgz#4c407100471b4ebe1617bf37e877554a67abaa08"
@@ -10238,6 +11202,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash-es@^4.17.15:
+  version "4.17.21"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=
+
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
@@ -10278,7 +11247,7 @@ lodash.groupby@4.6.0, lodash.groupby@^4.6.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.groupby/-/lodash.groupby-4.6.0.tgz#0b08a1dcf68397c397855c3239783832df7403d1"
   integrity sha1-Cwih3PaDl8OXhVwyOXg4Mt90A9E=
 
-lodash.isequal@^4.5.0:
+lodash.isequal@^4.0.0, lodash.isequal@^4.5.0:
   version "4.5.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
   integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
@@ -10318,7 +11287,7 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "^3.0.0"
 
-lodash.throttle@^4.0.0:
+lodash.throttle@^4.0.0, lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
@@ -10362,6 +11331,11 @@ lodash@4.17.13:
   version "4.17.15"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
+
+lodash@^4.0.1:
+  version "4.17.21"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -10455,6 +11429,13 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lru-cache@^6.0.0:
+  version "6.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
+  integrity sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=
+  dependencies:
+    yallist "^4.0.0"
+
 macaddress@0.2.9:
   version "0.2.9"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/macaddress/-/macaddress-0.2.9.tgz#3579b8b9acd5b96b4553abf0f394185a86813cb3"
@@ -10481,6 +11462,27 @@ make-dir@^3.0.0:
   integrity sha1-G1859rknDtM/nwVMXA+EMEmJ+AE=
   dependencies:
     semver "^6.0.0"
+
+make-fetch-happen@^8.0.14, make-fetch-happen@^8.0.9:
+  version "8.0.14"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/make-fetch-happen/-/make-fetch-happen-8.0.14.tgz#aaba73ae0ab5586ad8eaa68bd83332669393e222"
+  integrity sha1-qrpzrgq1WGrY6qaL2DMyZpOT4iI=
+  dependencies:
+    agentkeepalive "^4.1.3"
+    cacache "^15.0.5"
+    http-cache-semantics "^4.1.0"
+    http-proxy-agent "^4.0.1"
+    https-proxy-agent "^5.0.0"
+    is-lambda "^1.0.1"
+    lru-cache "^6.0.0"
+    minipass "^3.1.3"
+    minipass-collect "^1.0.2"
+    minipass-fetch "^1.3.2"
+    minipass-flush "^1.0.5"
+    minipass-pipeline "^1.2.4"
+    promise-retry "^2.0.1"
+    socks-proxy-agent "^5.0.0"
+    ssri "^8.0.0"
 
 makeerror@1.0.x:
   version "1.0.11"
@@ -10561,6 +11563,11 @@ marked@0.6.2:
   version "0.6.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/marked/-/marked-0.6.2.tgz#c574be8b545a8b48641456ca1dbe0e37b6dccc1a"
   integrity sha1-xXS+i1Rai0hkFFbKHb4ON7bczBo=
+
+material-colors@^1.2.1:
+  version "1.2.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
+  integrity sha1-bRlYhxEmmSzuzHL0vMTY8BCGX0Y=
 
 mathml-tag-names@^2.0.1, mathml-tag-names@^2.1.0:
   version "2.1.1"
@@ -10665,7 +11672,7 @@ mem@^5.0.0:
     mimic-fn "^2.1.0"
     p-is-promise "^2.1.0"
 
-memoize-one@^5.0.0:
+"memoize-one@>=3.1.1 <6", memoize-one@^5.0.0, memoize-one@^5.1.1:
   version "5.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
   integrity sha1-BHtuMZm1COrsA1BN5xIpuOsddcA=
@@ -10938,6 +11945,68 @@ minimist@~0.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
+minipass-collect@^1.0.2:
+  version "1.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-collect/-/minipass-collect-1.0.2.tgz#22b813bf745dc6edba2576b940022ad6edc8c617"
+  integrity sha1-IrgTv3Rdxu26JXa5QAIq1u3Ixhc=
+  dependencies:
+    minipass "^3.0.0"
+
+minipass-fetch@^1.3.0, minipass-fetch@^1.3.2:
+  version "1.3.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-fetch/-/minipass-fetch-1.3.3.tgz#34c7cea038c817a8658461bf35174551dce17a0a"
+  integrity sha1-NMfOoDjIF6hlhGG/NRdFUdzhego=
+  dependencies:
+    minipass "^3.1.0"
+    minipass-sized "^1.0.3"
+    minizlib "^2.0.0"
+  optionalDependencies:
+    encoding "^0.1.12"
+
+minipass-flush@^1.0.5:
+  version "1.0.5"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-flush/-/minipass-flush-1.0.5.tgz#82e7135d7e89a50ffe64610a787953c4c4cbb373"
+  integrity sha1-gucTXX6JpQ/+ZGEKeHlTxMTLs3M=
+  dependencies:
+    minipass "^3.0.0"
+
+minipass-json-stream@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-json-stream/-/minipass-json-stream-1.0.1.tgz#7edbb92588fbfc2ff1db2fc10397acb7b6b44aa7"
+  integrity sha1-ftu5JYj7/C/x2y/BA5est7a0Sqc=
+  dependencies:
+    jsonparse "^1.3.1"
+    minipass "^3.0.0"
+
+minipass-pipeline@^1.2.2, minipass-pipeline@^1.2.4:
+  version "1.2.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-pipeline/-/minipass-pipeline-1.2.4.tgz#68472f79711c084657c067c5c6ad93cddea8214c"
+  integrity sha1-aEcveXEcCEZXwGfFxq2Tzd6oIUw=
+  dependencies:
+    minipass "^3.0.0"
+
+minipass-sized@^1.0.3:
+  version "1.0.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass-sized/-/minipass-sized-1.0.3.tgz#70ee5a7c5052070afacfbc22977ea79def353b70"
+  integrity sha1-cO5afFBSBwr6z7wil36nne81O3A=
+  dependencies:
+    minipass "^3.0.0"
+
+minipass@^3.0.0, minipass@^3.1.0, minipass@^3.1.1, minipass@^3.1.3:
+  version "3.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minipass/-/minipass-3.1.3.tgz#7d42ff1f39635482e15f9cdb53184deebd5815fd"
+  integrity sha1-fUL/HzljVILhX5zbUxhN7r1YFf0=
+  dependencies:
+    yallist "^4.0.0"
+
+minizlib@^2.0.0, minizlib@^2.1.1:
+  version "2.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/minizlib/-/minizlib-2.1.2.tgz#e90d3466ba209b932451508a11ce3d3632145931"
+  integrity sha1-6Q00Zrogm5MkUVCKEc49NjIUWTE=
+  dependencies:
+    minipass "^3.0.0"
+    yallist "^4.0.0"
+
 mississippi@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mississippi/-/mississippi-2.0.0.tgz#3442a508fafc28500486feea99409676e4ee5a6f"
@@ -10986,12 +12055,26 @@ mixin-object@^2.0.1:
     for-in "^0.1.3"
     is-extendable "^0.1.1"
 
+mkdirp-infer-owner@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mkdirp-infer-owner/-/mkdirp-infer-owner-2.0.0.tgz#55d3b368e7d89065c38f32fd38e638f0ab61d316"
+  integrity sha1-VdOzaOfYkGXDjzL9OOY48Kth0xY=
+  dependencies:
+    chownr "^2.0.0"
+    infer-owner "^1.0.4"
+    mkdirp "^1.0.3"
+
 mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+mkdirp@^1.0.3, mkdirp@^1.0.4:
+  version "1.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
+  integrity sha1-PrXtYmInVteaXw4qIh3+utdcL34=
 
 ml-array-max@^1.2.0:
   version "1.2.0"
@@ -11055,10 +12138,15 @@ ms@2.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha1-MKWGTrPrsKZvLr5tcnrwagnYbgo=
 
-ms@^2.1.1:
+ms@2.1.2, ms@^2.1.1:
   version "2.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
+
+ms@^2.0.0, ms@^2.1.2:
+  version "2.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
+  integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
 
 multer@^1.4.1:
   version "1.4.2"
@@ -11118,7 +12206,7 @@ mute-stream@0.0.7:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-mute-stream@0.0.8:
+mute-stream@0.0.8, mute-stream@~0.0.4:
   version "0.0.8"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha1-FjDEKyJR/4HiooPelqVJfqkuXg0=
@@ -11171,6 +12259,11 @@ neo-async@^2.5.0, neo-async@^2.6.0, neo-async@^2.6.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha1-rCetpmFn+ohJpq3dg39rGJrSCBw=
 
+next-tick@~1.0.0:
+  version "1.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+  integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
@@ -11214,6 +12307,27 @@ node-forge@0.9.0:
   version "0.9.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/node-forge/-/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579"
   integrity sha1-1iQFDtu0SHStyhK7mlLsY8t4JXk=
+
+node-gyp-build@^4.2.0:
+  version "4.2.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/node-gyp-build/-/node-gyp-build-4.2.3.tgz#ce6277f853835f718829efb47db20f3e4d9c4739"
+  integrity sha1-zmJ3+FODX3GIKe+0fbIPPk2cRzk=
+
+node-gyp@^7.1.0, node-gyp@^7.1.2:
+  version "7.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/node-gyp/-/node-gyp-7.1.2.tgz#21a810aebb187120251c3bcec979af1587b188ae"
+  integrity sha1-IagQrrsYcSAlHDvOyXmvFYexiK4=
+  dependencies:
+    env-paths "^2.2.0"
+    glob "^7.1.4"
+    graceful-fs "^4.2.3"
+    nopt "^5.0.0"
+    npmlog "^4.1.2"
+    request "^2.88.2"
+    rimraf "^3.0.2"
+    semver "^7.3.2"
+    tar "^6.0.2"
+    which "^2.0.2"
 
 node-import-ts@^1.0.1:
   version "1.0.5"
@@ -11293,6 +12407,13 @@ node-releases@^1.1.58:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/node-releases/-/node-releases-1.1.58.tgz#8ee20eef30fa60e52755fcc0942def5a734fe935"
   integrity sha1-juIO7zD6YOUnVfzAlC3vWnNP6TU=
 
+nopt@^5.0.0:
+  version "5.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/nopt/-/nopt-5.0.0.tgz#530942bb58a512fccafe53fe210f13a25355dc88"
+  integrity sha1-UwlCu1ilEvzK/lP+IQ8TolNV3Ig=
+  dependencies:
+    abbrev "1"
+
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -11301,6 +12422,16 @@ normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-
     hosted-git-info "^2.1.4"
     resolve "^1.10.0"
     semver "2 || 3 || 4 || 5"
+    validate-npm-package-license "^3.0.1"
+
+normalize-package-data@^3.0.0:
+  version "3.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/normalize-package-data/-/normalize-package-data-3.0.0.tgz#1f8a7c423b3d2e85eb36985eaf81de381d01301a"
+  integrity sha1-H4p8Qjs9LoXrNpher4HeOB0BMBo=
+  dependencies:
+    hosted-git-info "^3.0.6"
+    resolve "^1.17.0"
+    semver "^7.3.2"
     validate-npm-package-license "^3.0.1"
 
 normalize-path@^2.1.1:
@@ -11350,6 +12481,60 @@ normalize.css@^7.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/normalize.css/-/normalize.css-7.0.0.tgz#abfb1dd82470674e0322b53ceb1aaf412938e4bf"
   integrity sha1-q/sd2CRwZ04DIrU86xqvQSk45L8=
 
+npm-audit-report@^2.1.4:
+  version "2.1.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-audit-report/-/npm-audit-report-2.1.4.tgz#b14c4625131fb7bcacc4b1c83842af1f58c92c98"
+  integrity sha1-sUxGJRMft7ysxLHIOEKvH1jJLJg=
+  dependencies:
+    chalk "^4.0.0"
+
+npm-bundled@^1.1.1:
+  version "1.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-bundled/-/npm-bundled-1.1.1.tgz#1edd570865a94cdb1bc8220775e29466c9fb234b"
+  integrity sha1-Ht1XCGWpTNsbyCIHdeKUZsn7I0s=
+  dependencies:
+    npm-normalize-package-bin "^1.0.1"
+
+npm-install-checks@^4.0.0:
+  version "4.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-install-checks/-/npm-install-checks-4.0.0.tgz#a37facc763a2fde0497ef2c6d0ac7c3fbe00d7b4"
+  integrity sha1-o3+sx2Oi/eBJfvLG0Kx8P74A17Q=
+  dependencies:
+    semver "^7.1.1"
+
+npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-normalize-package-bin/-/npm-normalize-package-bin-1.0.1.tgz#6e79a41f23fd235c0623218228da7d9c23b8f6e2"
+  integrity sha1-bnmkHyP9I1wGIyGCKNp9nCO49uI=
+
+npm-package-arg@^8.0.0, npm-package-arg@^8.0.1, npm-package-arg@^8.1.0, npm-package-arg@^8.1.1:
+  version "8.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-package-arg/-/npm-package-arg-8.1.1.tgz#00ebf16ac395c63318e67ce66780a06db6df1b04"
+  integrity sha1-AOvxasOVxjMY5nzmZ4CgbbbfGwQ=
+  dependencies:
+    hosted-git-info "^3.0.6"
+    semver "^7.0.0"
+    validate-npm-package-name "^3.0.0"
+
+npm-packlist@^2.1.4:
+  version "2.1.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-packlist/-/npm-packlist-2.1.4.tgz#40e96b2b43787d0546a574542d01e066640d09da"
+  integrity sha1-QOlrK0N4fQVGpXRULQHgZmQNCdo=
+  dependencies:
+    glob "^7.1.6"
+    ignore-walk "^3.0.3"
+    npm-bundled "^1.1.1"
+    npm-normalize-package-bin "^1.0.1"
+
+npm-pick-manifest@^6.0.0, npm-pick-manifest@^6.1.0:
+  version "6.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-pick-manifest/-/npm-pick-manifest-6.1.0.tgz#2befed87b0fce956790f62d32afb56d7539c022a"
+  integrity sha1-K+/th7D86VZ5D2LTKvtW11OcAio=
+  dependencies:
+    npm-install-checks "^4.0.0"
+    npm-package-arg "^8.0.0"
+    semver "^7.0.0"
+
 npm-prefix@^1.2.0:
   version "1.2.0"
   resolved "http://rddgit.changhong.com/nexus/repository/npm-sei-group/npm-prefix/-/npm-prefix-1.2.0.tgz#e619455f7074ba54cc66d6d0d37dd9f1be6bcbc0"
@@ -11358,6 +12543,27 @@ npm-prefix@^1.2.0:
     rc "^1.1.0"
     shellsubstitute "^1.1.0"
     untildify "^2.1.0"
+
+npm-profile@^5.0.2:
+  version "5.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-profile/-/npm-profile-5.0.2.tgz#4cff0710ac8d71280202b6c261b160cc0cace16a"
+  integrity sha1-TP8HEKyNcSgCArbCYbFgzAys4Wo=
+  dependencies:
+    npm-registry-fetch "^9.0.0"
+
+npm-registry-fetch@^9.0.0:
+  version "9.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-registry-fetch/-/npm-registry-fetch-9.0.0.tgz#86f3feb4ce00313bc0b8f1f8f69daae6face1661"
+  integrity sha1-hvP+tM4AMTvAuPH49p2q5vrOFmE=
+  dependencies:
+    "@npmcli/ci-detect" "^1.0.0"
+    lru-cache "^6.0.0"
+    make-fetch-happen "^8.0.9"
+    minipass "^3.1.3"
+    minipass-fetch "^1.3.0"
+    minipass-json-stream "^1.0.1"
+    minizlib "^2.0.0"
+    npm-package-arg "^8.0.0"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -11372,6 +12578,93 @@ npm-run-path@^4.0.0:
   integrity sha1-t+zR5e1T2o43pV4cImnguX7XSOo=
   dependencies:
     path-key "^3.0.0"
+
+npm-user-validate@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm-user-validate/-/npm-user-validate-1.0.1.tgz#31428fc5475fe8416023f178c0ab47935ad8c561"
+  integrity sha1-MUKPxUdf6EFgI/F4wKtHk1rYxWE=
+
+npm@^7.5.6:
+  version "7.5.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npm/-/npm-7.5.6.tgz#b9891691d96130b61e964fe7044b18d6c238f1f3"
+  integrity sha1-uYkWkdlhMLYelk/nBEsY1sI48fM=
+  dependencies:
+    "@npmcli/arborist" "^2.2.4"
+    "@npmcli/ci-detect" "^1.2.0"
+    "@npmcli/config" "^1.2.9"
+    "@npmcli/run-script" "^1.8.3"
+    abbrev "~1.1.1"
+    ansicolors "~0.3.2"
+    ansistyles "~0.1.3"
+    archy "~1.0.0"
+    byte-size "^7.0.0"
+    cacache "^15.0.5"
+    chalk "^4.1.0"
+    chownr "^2.0.0"
+    cli-columns "^3.1.2"
+    cli-table3 "^0.6.0"
+    columnify "~1.5.4"
+    glob "^7.1.4"
+    graceful-fs "^4.2.6"
+    hosted-git-info "^3.0.8"
+    ini "^2.0.0"
+    init-package-json "^2.0.2"
+    is-cidr "^4.0.2"
+    json-parse-even-better-errors "^2.3.1"
+    leven "^3.1.0"
+    libnpmaccess "^4.0.1"
+    libnpmdiff "^2.0.3"
+    libnpmfund "^1.0.2"
+    libnpmhook "^6.0.1"
+    libnpmorg "^2.0.1"
+    libnpmpack "^2.0.1"
+    libnpmpublish "^4.0.0"
+    libnpmsearch "^3.1.0"
+    libnpmteam "^2.0.2"
+    libnpmversion "^1.0.11"
+    make-fetch-happen "^8.0.14"
+    minipass "^3.1.3"
+    minipass-pipeline "^1.2.4"
+    mkdirp "^1.0.4"
+    mkdirp-infer-owner "^2.0.0"
+    ms "^2.1.2"
+    node-gyp "^7.1.2"
+    nopt "^5.0.0"
+    npm-audit-report "^2.1.4"
+    npm-package-arg "^8.1.1"
+    npm-pick-manifest "^6.1.0"
+    npm-profile "^5.0.2"
+    npm-registry-fetch "^9.0.0"
+    npm-user-validate "^1.0.1"
+    npmlog "~4.1.2"
+    opener "^1.5.2"
+    pacote "^11.2.7"
+    parse-conflict-json "^1.1.1"
+    qrcode-terminal "^0.12.0"
+    read "~1.0.7"
+    read-package-json "^3.0.1"
+    read-package-json-fast "^2.0.2"
+    readdir-scoped-modules "^1.1.0"
+    rimraf "^3.0.2"
+    semver "^7.3.4"
+    ssri "^8.0.1"
+    tar "^6.1.0"
+    text-table "~0.2.0"
+    tiny-relative-date "^1.3.0"
+    treeverse "^1.0.4"
+    validate-npm-package-name "~3.0.0"
+    which "^2.0.2"
+    write-file-atomic "^3.0.3"
+
+npmlog@^4.1.2, npmlog@~4.1.2:
+  version "4.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"
+  integrity sha1-CKfyqL9zRgR3mp76StXMcXq7lUs=
+  dependencies:
+    are-we-there-yet "~1.1.2"
+    console-control-strings "~1.1.0"
+    gauge "~2.7.3"
+    set-blocking "~2.0.0"
 
 nth-check@^1.0.2, nth-check@~1.0.1:
   version "1.0.2"
@@ -11560,6 +12853,11 @@ opener@^1.5.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/opener/-/opener-1.5.1.tgz#6d2f0e77f1a0af0032aca716c2c1fbb8e7e8abed"
   integrity sha1-bS8Od/GgrwAyrKcWwsH7uOfoq+0=
 
+opener@^1.5.2:
+  version "1.5.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/opener/-/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
+  integrity sha1-XTfh81B3udysQwE3InGv3rKhNZg=
+
 opn@5.4.0:
   version "5.4.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/opn/-/opn-5.4.0.tgz#cb545e7aab78562beb11aa3bfabc7042e1761035"
@@ -11730,6 +13028,13 @@ p-map@^2.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175"
   integrity sha1-MQko/u+cnsxltosXaTAYpmXOoXU=
 
+p-map@^4.0.0:
+  version "4.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/p-map/-/p-map-4.0.0.tgz#bb2f95a5eda2ec168ec9274e06a747c3e2904d2b"
+  integrity sha1-uy+Vpe2i7BaOySdOBqdHw+KQTSs=
+  dependencies:
+    aggregate-error "^3.0.0"
+
 p-reduce@^1.0.0:
   version "1.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/p-reduce/-/p-reduce-1.0.0.tgz#18c2b0dd936a4690a529f8231f58a0fdb6a47dfa"
@@ -11754,6 +13059,31 @@ package-json@^6.3.0:
     registry-auth-token "^4.0.0"
     registry-url "^5.0.0"
     semver "^6.2.0"
+
+pacote@^11.1.11, pacote@^11.2.3, pacote@^11.2.6, pacote@^11.2.7:
+  version "11.2.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/pacote/-/pacote-11.2.7.tgz#a44a9d40d4feac524e9ce78d77e2b390181d8afc"
+  integrity sha1-pEqdQNT+rFJOnOeNd+KzkBgdivw=
+  dependencies:
+    "@npmcli/git" "^2.0.1"
+    "@npmcli/installed-package-contents" "^1.0.6"
+    "@npmcli/promise-spawn" "^1.2.0"
+    "@npmcli/run-script" "^1.8.2"
+    cacache "^15.0.5"
+    chownr "^2.0.0"
+    fs-minipass "^2.1.0"
+    infer-owner "^1.0.4"
+    minipass "^3.1.3"
+    mkdirp "^1.0.3"
+    npm-package-arg "^8.0.1"
+    npm-packlist "^2.1.4"
+    npm-pick-manifest "^6.0.0"
+    npm-registry-fetch "^9.0.0"
+    promise-retry "^2.0.1"
+    read-package-json-fast "^2.0.1"
+    rimraf "^3.0.2"
+    ssri "^8.0.1"
+    tar "^6.1.0"
 
 pako@~1.0.5:
   version "1.0.10"
@@ -11801,6 +13131,15 @@ parse-asn1@^5.0.0:
     evp_bytestokey "^1.0.0"
     pbkdf2 "^3.0.3"
     safe-buffer "^5.1.1"
+
+parse-conflict-json@^1.1.1:
+  version "1.1.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/parse-conflict-json/-/parse-conflict-json-1.1.1.tgz#54ec175bde0f2d70abf6be79e0e042290b86701b"
+  integrity sha1-VOwXW94PLXCr9r554OBCKQuGcBs=
+  dependencies:
+    json-parse-even-better-errors "^2.3.0"
+    just-diff "^3.0.1"
+    just-diff-apply "^3.0.0"
 
 parse-entities@^1.0.2, parse-entities@^1.1.0:
   version "1.2.2"
@@ -11972,6 +13311,11 @@ path-to-regexp@^1.7.0:
   dependencies:
     isarray "0.0.1"
 
+path-to-regexp@^3.0.0:
+  version "3.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/path-to-regexp/-/path-to-regexp-3.2.0.tgz#fa7877ecbc495c601907562222453c43cc204a5f"
+  integrity sha1-+nh37LxJXGAZB1YiIkU8Q8wgSl8=
+
 path-type@^2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/path-type/-/path-type-2.0.0.tgz#f012ccb8415b7096fc2daa1054c3d72389594c73"
@@ -12001,6 +13345,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+perfect-scrollbar@^1.4.0, perfect-scrollbar@^1.5.0:
+  version "1.5.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/perfect-scrollbar/-/perfect-scrollbar-1.5.0.tgz#821d224ed8ff61990c23f26db63048cdc75b6b83"
+  integrity sha1-gh0iTtj/YZkMI/JttjBIzcdba4M=
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -12820,6 +14169,11 @@ pretty-time@^1.1.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
+printj@~1.1.0, printj@~1.1.2:
+  version "1.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/printj/-/printj-1.1.2.tgz#d90deb2975a8b9f600fb3a1c94e3f4c53c78a222"
+  integrity sha1-2Q3rKXWoufYA+zoclOP0xTx4oiI=
+
 private@^0.1.6:
   version "0.1.8"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -12862,10 +14216,28 @@ progress@^2.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
 
+promise-all-reject-late@^1.0.0:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/promise-all-reject-late/-/promise-all-reject-late-1.0.1.tgz#f8ebf13483e5ca91ad809ccc2fcf25f26f8643c2"
+  integrity sha1-+OvxNIPlypGtgJzML88l8m+GQ8I=
+
+promise-call-limit@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/promise-call-limit/-/promise-call-limit-1.0.1.tgz#4bdee03aeb85674385ca934da7114e9bcd3c6e24"
+  integrity sha1-S97gOuuFZ0OFypNNpxFOm808biQ=
+
 promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
+
+promise-retry@^2.0.1:
+  version "2.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/promise-retry/-/promise-retry-2.0.1.tgz#ff747a13620ab57ba688f5fc67855410c370da22"
+  integrity sha1-/3R6E2IKtXumiPX8Z4VUEMNw2iI=
+  dependencies:
+    err-code "^2.0.2"
+    retry "^0.12.0"
 
 promise@^7.1.1:
   version "7.3.1"
@@ -12881,6 +14253,13 @@ prompts@^2.0.1:
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
+
+promzard@^0.3.0:
+  version "0.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/promzard/-/promzard-0.3.0.tgz#26a5d6ee8c7dee4cb12208305acfb93ba382a9ee"
+  integrity sha1-JqXW7ox97kyxIggwWs+5O6OCqe4=
+  dependencies:
+    read "1"
 
 prop-types-exact@^1.2.0:
   version "1.2.0"
@@ -12899,7 +14278,7 @@ prop-types@15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@15.x, prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -12947,6 +14326,11 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
+
+puka@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/puka/-/puka-1.0.1.tgz#a2df782b7eb4cf9564e4c93a5da422de0dfacc02"
+  integrity sha1-ot94K360z5Vk5Mk6XaQi3g36zAI=
 
 pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
@@ -13004,6 +14388,25 @@ qiankun@^1.3.6:
     single-spa "^4.3.4"
     tslib "^1.10.0"
 
+qr.js@0.0.0:
+  version "0.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
+  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
+
+qrcode-terminal@^0.12.0:
+  version "0.12.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qrcode-terminal/-/qrcode-terminal-0.12.0.tgz#bb5b699ef7f9f0505092a3748be4464fe71b5819"
+  integrity sha1-u1tpnvf58FBQkqN0i+RGT+cbWBk=
+
+qrcode.react@^1.0.0:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qrcode.react/-/qrcode.react-1.0.1.tgz#2834bb50e5e275ffe5af6906eff15391fe9e38a5"
+  integrity sha1-KDS7UOXidf/lr2kG7/FTkf6eOKU=
+  dependencies:
+    loose-envify "^1.4.0"
+    prop-types "^15.6.0"
+    qr.js "0.0.0"
+
 qs@6.7.0:
   version "6.7.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -13013,6 +14416,11 @@ qs@^6.5.1:
   version "6.9.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
   integrity sha1-IAgsZct4IjY1qxqerKiHWim/jsk=
+
+qs@^6.9.1:
+  version "6.9.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/qs/-/qs-6.9.6.tgz#26ed3c8243a431b2924aca84cc90471f35d5a0ee"
+  integrity sha1-Ju08gkOkMbKSSsqEzJBHHzXVoO4=
 
 qs@^6.9.3:
   version "6.9.3"
@@ -13065,6 +14473,11 @@ quick-lru@^4.0.1:
   version "4.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha1-W4h48ROlgheEjGSCAmxz4bpXcn8=
+
+raf-schd@^4.0.2:
+  version "4.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/raf-schd/-/raf-schd-4.0.2.tgz#bd44c708188f2e84c810bf55fcea9231bcaed8a0"
+  integrity sha1-vUTHCBiPLoTIEL9V/OqSMbyu2KA=
 
 raf@3.4.1, raf@^3.1.0, raf@^3.3.2, raf@^3.4.0, raf@^3.4.1:
   version "3.4.1"
@@ -13122,6 +14535,11 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+raw-loader@~0.5.1:
+  version "0.5.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
+  integrity sha1-DD0L6u2KAclm2Xh793goElKpeao=
 
 rc-align@^2.4.0, rc-align@^2.4.1:
   version "2.4.5"
@@ -13626,6 +15044,32 @@ react-ace@^9.3.0:
     lodash.isequal "^4.5.0"
     prop-types "^15.7.2"
 
+react-beautiful-dnd@^12.2.0:
+  version "12.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-beautiful-dnd/-/react-beautiful-dnd-12.2.0.tgz#e5f6222f9e7934c6ed4ee09024547f9e353ae423"
+  integrity sha1-5fYiL555NMbtTuCQJFR/njU65CM=
+  dependencies:
+    "@babel/runtime-corejs2" "^7.6.3"
+    css-box-model "^1.2.0"
+    memoize-one "^5.1.1"
+    raf-schd "^4.0.2"
+    react-redux "^7.1.1"
+    redux "^4.0.4"
+    use-memo-one "^1.1.1"
+
+react-color@^2.17.3:
+  version "2.19.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
+  integrity sha1-7GxrRWgxKjxqGEIKsEcuFGqlaD0=
+  dependencies:
+    "@icons/material" "^0.2.4"
+    lodash "^4.17.15"
+    lodash-es "^4.17.15"
+    material-colors "^1.2.1"
+    prop-types "^15.5.10"
+    reactcss "^1.2.0"
+    tinycolor2 "^1.4.1"
+
 react-dev-utils@9.0.1:
   version "9.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-dev-utils/-/react-dev-utils-9.0.1.tgz#5c03d85a0b2537d0c46af7165c24a7dfb274bef2"
@@ -13667,10 +15111,36 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
+react-draggable@^4.0.0, react-draggable@^4.0.3:
+  version "4.4.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-draggable/-/react-draggable-4.4.3.tgz#0727f2cae5813e36b0e4962bf11b2f9ef2b406f3"
+  integrity sha1-ByfyyuWBPjaw5JYr8RsvnvK0BvM=
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
+
 react-error-overlay@5.1.6, react-error-overlay@^5.1.6:
   version "5.1.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha1-DNc0B8XRQfljiuHgxj57K/fpkp0=
+
+react-grid-layout@^0.17.1:
+  version "0.17.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-grid-layout/-/react-grid-layout-0.17.1.tgz#0b75c72e5b7d7085f0f0054e160b31298971c5e2"
+  integrity sha1-C3XHLlt9cIXw8AVOFgsxKYlxxeI=
+  dependencies:
+    classnames "2.x"
+    lodash.isequal "^4.0.0"
+    prop-types "^15.0.0"
+    react-draggable "^4.0.0"
+    react-resizable "^1.9.0"
+
+react-hotkeys@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-hotkeys/-/react-hotkeys-2.0.0.tgz#a7719c7340cbba888b0e9184f806a9ec0ac2c53f"
+  integrity sha1-p3Gcc0DLuoiLDpGE+Aap7ArCxT8=
+  dependencies:
+    prop-types "^15.6.1"
 
 react-intl@2.7.2:
   version "2.7.2"
@@ -13687,6 +15157,11 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   version "16.12.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha1-LMD+D7p0LZf9UnxCoTvsTusGJBw=
+
+react-is@^16.13.1:
+  version "16.13.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
+  integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
 react-lazy-load@^3.0.13:
   version "3.0.13"
@@ -13719,6 +15194,14 @@ react-native-swipeout@^2.2.2:
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
 
+react-perfect-scrollbar@^1.5.3:
+  version "1.5.8"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-perfect-scrollbar/-/react-perfect-scrollbar-1.5.8.tgz#380959387a325c5c9d0268afc08b3f73ed5b3078"
+  integrity sha1-OAlZOHoyXFydAmivwIs/c+1bMHg=
+  dependencies:
+    perfect-scrollbar "^1.5.0"
+    prop-types "^15.6.1"
+
 react-redux@^7.1.0:
   version "7.1.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-redux/-/react-redux-7.1.3.tgz#717a3d7bbe3a1b2d535c94885ce04cdc5a33fc79"
@@ -13730,6 +15213,25 @@ react-redux@^7.1.0:
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
     react-is "^16.9.0"
+
+react-redux@^7.1.1:
+  version "7.2.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
+  integrity sha1-A4YugDowtrnvhYLa3MgQlH90tzY=
+  dependencies:
+    "@babel/runtime" "^7.12.1"
+    hoist-non-react-statics "^3.3.2"
+    loose-envify "^1.4.0"
+    prop-types "^15.7.2"
+    react-is "^16.13.1"
+
+react-resizable@^1.9.0:
+  version "1.11.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-resizable/-/react-resizable-1.11.0.tgz#0b237c4aff16937b7663de1045861749683227ad"
+  integrity sha1-CyN8Sv8Wk3t2Y94QRYYXSWgyJ60=
+  dependencies:
+    prop-types "15.x"
+    react-draggable "^4.0.3"
 
 react-router-config@5.1.1:
   version "5.1.1"
@@ -13767,6 +15269,14 @@ react-router@5.1.2:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
+react-scroll@^1.7.14:
+  version "1.8.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-scroll/-/react-scroll-1.8.1.tgz#eb4052265f1606cf60855c981ebcfed1bc3beff3"
+  integrity sha1-60BSJl8WBs9ghVyYHrz+0bw77/M=
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.7.2"
+
 react-slick@~0.25.2:
   version "0.25.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-slick/-/react-slick-0.25.2.tgz#56331b67d47d8bcfe2dceb6acab1c8fd5bd1f6bc"
@@ -13796,6 +15306,19 @@ react-tween-state@^0.1.5:
     raf "^3.1.0"
     tween-functions "^1.0.1"
 
+react-virtualized-auto-sizer@^1.0.2:
+  version "1.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.4.tgz#2b83adb5ecdee8dcb33784e96ee0074eb5369665"
+  integrity sha1-K4Otteze6NyzN4TpbuAHTrU2lmU=
+
+react-window@^1.8.5:
+  version "1.8.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react-window/-/react-window-1.8.6.tgz#d011950ac643a994118632665aad0c6382e2a112"
+  integrity sha1-0BGVCsZDqZQRhjJmWq0MY4LioRI=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one ">=3.1.1 <6"
+
 react@^16.8.6:
   version "16.12.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/react/-/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
@@ -13805,6 +15328,13 @@ react@^16.8.6:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
 
+reactcss@^1.2.0:
+  version "1.2.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/reactcss/-/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
+  integrity sha1-wAATh15Vexzw39mjaKHD2rO1SN0=
+  dependencies:
+    lodash "^4.0.1"
+
 read-chunk@^3.2.0:
   version "3.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/read-chunk/-/read-chunk-3.2.0.tgz#2984afe78ca9bfbbdb74b19387bf9e86289c16ca"
@@ -13812,6 +15342,29 @@ read-chunk@^3.2.0:
   dependencies:
     pify "^4.0.1"
     with-open-file "^0.1.6"
+
+read-cmd-shim@^2.0.0:
+  version "2.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/read-cmd-shim/-/read-cmd-shim-2.0.0.tgz#4a50a71d6f0965364938e9038476f7eede3928d9"
+  integrity sha1-SlCnHW8JZTZJOOkDhHb37t45KNk=
+
+read-package-json-fast@^2.0.1, read-package-json-fast@^2.0.2:
+  version "2.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/read-package-json-fast/-/read-package-json-fast-2.0.2.tgz#2dcb24d9e8dd50fb322042c8c35a954e6cc7ac9e"
+  integrity sha1-Lcsk2ejdUPsyIELIw1qVTmzHrJ4=
+  dependencies:
+    json-parse-even-better-errors "^2.3.0"
+    npm-normalize-package-bin "^1.0.1"
+
+read-package-json@^3.0.0, read-package-json@^3.0.1:
+  version "3.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/read-package-json/-/read-package-json-3.0.1.tgz#c7108f0b9390257b08c21e3004d2404c806744b9"
+  integrity sha1-xxCPC5OQJXsIwh4wBNJATIBnRLk=
+  dependencies:
+    glob "^7.1.1"
+    json-parse-even-better-errors "^2.3.0"
+    normalize-package-data "^3.0.0"
+    npm-normalize-package-bin "^1.0.0"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -13882,6 +15435,13 @@ read-pkg@^5.0.0, read-pkg@^5.2.0:
     parse-json "^5.0.0"
     type-fest "^0.6.0"
 
+read@1, read@~1.0.1, read@~1.0.7:
+  version "1.0.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/read/-/read-1.0.7.tgz#b3da19bd052431a97671d44a42634adf710b40c4"
+  integrity sha1-s9oZvQUkMal2cdRKQmNK33ELQMQ=
+  dependencies:
+    mute-stream "~0.0.4"
+
 "readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
@@ -13913,6 +15473,29 @@ readable-stream@1.1.x:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
+
+readable-stream@^2.0.6:
+  version "2.3.7"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
+  integrity sha1-Hsoc9xGu+BTAT2IlKjamL2yyO1c=
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
+
+readdir-scoped-modules@^1.1.0:
+  version "1.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/readdir-scoped-modules/-/readdir-scoped-modules-1.1.0.tgz#8d45407b4f870a0dcaebc0e28670d18e74514309"
+  integrity sha1-jUVAe0+HCg3K68DihnDRjnRRQwk=
+  dependencies:
+    debuglog "^1.0.1"
+    dezalgo "^1.0.0"
+    graceful-fs "^4.1.2"
+    once "^1.3.0"
 
 readdirp@^2.2.1:
   version "2.2.1"
@@ -13979,7 +15562,7 @@ redux-saga@^0.16.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/redux-saga/-/redux-saga-0.16.2.tgz#993662e86bc945d8509ac2b8daba3a8c615cc971"
   integrity sha1-mTZi6GvJRdhQmsK42ro6jGFcyXE=
 
-redux@^4.0.0, redux@^4.0.1:
+redux@^4.0.0, redux@^4.0.1, redux@^4.0.4:
   version "4.0.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/redux/-/redux-4.0.5.tgz#4db5de5816e17891de8a80c424232d06f051d93f"
   integrity sha1-TbXeWBbheJHeioDEJCMtBvBR2T8=
@@ -14388,6 +15971,32 @@ request@^2.83.0, request@^2.87.0, request@^2.88.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
+request@^2.88.2:
+  version "2.88.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/request/-/request-2.88.2.tgz#d73c918731cb5a87da047e207234146f664d12b3"
+  integrity sha1-1zyRhzHLWofaBH4gcjQUb2ZNErM=
+  dependencies:
+    aws-sign2 "~0.7.0"
+    aws4 "^1.8.0"
+    caseless "~0.12.0"
+    combined-stream "~1.0.6"
+    extend "~3.0.2"
+    forever-agent "~0.6.1"
+    form-data "~2.3.2"
+    har-validator "~5.1.3"
+    http-signature "~1.2.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.19"
+    oauth-sign "~0.9.0"
+    performance-now "^2.1.0"
+    qs "~6.5.2"
+    safe-buffer "^5.1.2"
+    tough-cookie "~2.5.0"
+    tunnel-agent "^0.6.0"
+    uuid "^3.3.2"
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
@@ -14498,6 +16107,14 @@ resolve@^1.15.1:
   dependencies:
     path-parse "^1.0.6"
 
+resolve@^1.17.0:
+  version "1.20.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/resolve/-/resolve-1.20.0.tgz#629a013fb3f70755d6f0b7935cc1c2c5378b1975"
+  integrity sha1-YpoBP7P3B1XW8LeTXMHCxTeLGXU=
+  dependencies:
+    is-core-module "^2.2.0"
+    path-parse "^1.0.6"
+
 responselike@^1.0.2:
   version "1.0.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/responselike/-/responselike-1.0.2.tgz#918720ef3b631c5642be068f15ade5a46f4ba1e7"
@@ -14525,6 +16142,11 @@ ret@~0.1.10:
   version "0.1.15"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
+
+retry@^0.12.0:
+  version "0.12.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
+  integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
 
 reusify@^1.0.4:
   version "1.0.4"
@@ -14559,6 +16181,13 @@ rimraf@^2.2.8, rimraf@^2.4.4, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimra
   version "2.7.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha1-NXl/E6f9rcVmFCwp1PB8ytSD4+w=
+  dependencies:
+    glob "^7.1.3"
+
+rimraf@^3.0.2:
+  version "3.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
+  integrity sha1-8aVAK6YiCtUswSgrrBrjqkn9Bho=
   dependencies:
     glob "^7.1.3"
 
@@ -14799,7 +16428,7 @@ safe-regex@^2.0.1, safe-regex@^2.1.1:
   dependencies:
     regexp-tree "~0.1.1"
 
-"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
@@ -14861,6 +16490,13 @@ scoped-regex@^1.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
   integrity sha1-o0a7Gs1CB65wvXwMfKnlZra63bg=
 
+script-loader@^0.7.2:
+  version "0.7.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/script-loader/-/script-loader-0.7.2.tgz#2016db6f86f25f5cf56da38915d83378bb166ba7"
+  integrity sha1-IBbbb4byX1z1baOJFdgzeLsWa6c=
+  dependencies:
+    raw-loader "~0.5.1"
+
 seamless-immutable@^7.1.3:
   version "7.1.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/seamless-immutable/-/seamless-immutable-7.1.4.tgz#6e9536def083ddc4dea0207d722e0e80d0f372f8"
@@ -14919,6 +16555,13 @@ semver@7.0.0:
   version "7.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha1-XzyjV2HkfgWyBsba/yz4FPAxa44=
+
+semver@^7.0.0, semver@^7.1.1, semver@^7.3.4:
+  version "7.3.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/semver/-/semver-7.3.4.tgz#27aaa7d2e4ca76452f98d3add093a72c943edc97"
+  integrity sha1-J6qn0uTKdkUvmNOt0JOnLJQ+3Jc=
+  dependencies:
+    lru-cache "^6.0.0"
 
 semver@^7.1.3, semver@^7.2.1, semver@^7.3.2:
   version "7.3.2"
@@ -14982,7 +16625,7 @@ serve-static@1.14.1:
     parseurl "~1.3.3"
     send "0.17.1"
 
-set-blocking@^2.0.0:
+set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
   integrity sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
@@ -15132,6 +16775,11 @@ sisteransi@^1.0.3:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha1-OGcT8e9ojHwDBNxMBjKJiUHK0uM=
 
+size-sensor@^1.0.0:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/size-sensor/-/size-sensor-1.0.1.tgz#f84e46206d3e259faff1d548e4b3beca93219dbb"
+  integrity sha1-+E5GIG0+JZ+v8dVI5LO+ypMhnbs=
+
 slash2@2.0.0:
   version "2.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/slash2/-/slash2-2.0.0.tgz#f4e0a11708b8545b912695981cf7096f52c63487"
@@ -15165,6 +16813,11 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+smart-buffer@^4.1.0:
+  version "4.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/smart-buffer/-/smart-buffer-4.1.0.tgz#91605c25d91652f4661ea69ccf45f1b331ca21ba"
+  integrity sha1-kWBcJdkWUvRmHqacz0XxszHKIbo=
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -15208,6 +16861,18 @@ sockjs-client@1.3.0:
     json3 "^3.3.2"
     url-parse "^1.4.3"
 
+sockjs-client@^1.4.0:
+  version "1.5.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sockjs-client/-/sockjs-client-1.5.0.tgz#2f8ff5d4b659e0d092f7aba0b7c386bd2aa20add"
+  integrity sha1-L4/11LZZ4NCS96ugt8OGvSqiCt0=
+  dependencies:
+    debug "^3.2.6"
+    eventsource "^1.0.7"
+    faye-websocket "^0.11.3"
+    inherits "^2.0.4"
+    json3 "^3.3.3"
+    url-parse "^1.4.7"
+
 sockjs@0.3.19:
   version "0.3.19"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sockjs/-/sockjs-0.3.19.tgz#d976bbe800af7bd20ae08598d582393508993c0d"
@@ -15215,6 +16880,23 @@ sockjs@0.3.19:
   dependencies:
     faye-websocket "^0.10.0"
     uuid "^3.0.1"
+
+socks-proxy-agent@^5.0.0:
+  version "5.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/socks-proxy-agent/-/socks-proxy-agent-5.0.0.tgz#7c0f364e7b1cf4a7a437e71253bed72e9004be60"
+  integrity sha1-fA82Tnsc9KekN+cSU77XLpAEvmA=
+  dependencies:
+    agent-base "6"
+    debug "4"
+    socks "^2.3.3"
+
+socks@^2.3.3:
+  version "2.5.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/socks/-/socks-2.5.1.tgz#7720640b6b5ec9a07d556419203baa3f0596df5f"
+  integrity sha1-dyBkC2teyaB9VWQZIDuqPwWW318=
+  dependencies:
+    ip "^1.1.5"
+    smart-buffer "^4.1.0"
 
 sort-keys@^1.0.0:
   version "1.1.2"
@@ -15350,6 +17032,13 @@ sprintf-js@~1.0.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+ssf@~0.10.3:
+  version "0.10.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ssf/-/ssf-0.10.3.tgz#8eae1fc29c90a552e7921208f81892d6f77acb2b"
+  integrity sha1-jq4fwpyQpVLnkhII+BiS1vd6yys=
+  dependencies:
+    frac "~1.1.2"
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -15378,6 +17067,13 @@ ssri@^6.0.1:
   integrity sha1-KjxBso3UW2K2Nnbst0ABJlrp7dg=
   dependencies:
     figgy-pudding "^3.5.1"
+
+ssri@^8.0.0, ssri@^8.0.1:
+  version "8.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/ssri/-/ssri-8.0.1.tgz#638e4e439e2ffbd2cd289776d5ca457c4f51a2af"
+  integrity sha1-Y45OQ54v+9LNKJd21cpFfE9Roq8=
+  dependencies:
+    minipass "^3.1.1"
 
 stable@^0.1.8:
   version "0.1.8"
@@ -15428,6 +17124,18 @@ stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+stompjs@^2.3.3:
+  version "2.3.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/stompjs/-/stompjs-2.3.3.tgz#34178ac7bb8ee294cc5d554ad8b50f7f5459fd8e"
+  integrity sha1-NBeKx7uO4pTMXVVK2LUPf1RZ/Y4=
+  optionalDependencies:
+    websocket latest
+
+store2@^2.5.9:
+  version "2.12.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
+  integrity sha1-4fG34aWbYIOyWWqNBn9u6I/U088=
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -15503,7 +17211,7 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
-string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
+"string-width@^1.0.2 || 2", string-width@^2.0.0, string-width@^2.1.0, string-width@^2.1.1:
   version "2.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
   integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
@@ -15630,6 +17338,11 @@ stringify-object@3.3.0, stringify-object@^3.2.2, stringify-object@^3.3.0:
     get-own-enumerable-property-symbols "^3.0.0"
     is-obj "^1.0.1"
     is-regexp "^1.0.0"
+
+stringify-package@^1.0.1:
+  version "1.0.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/stringify-package/-/stringify-package-1.0.1.tgz#e5aa3643e7f74d0f28628b72f3dad5cecfc3ba85"
+  integrity sha1-5ao2Q+f3TQ8oYoty89rVzs/DuoU=
 
 strip-ansi@5.2.0, strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
@@ -16029,10 +17742,63 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suid@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/suid/download/suid-1.0.0.tgz#1cedafa218f839fbb7f384ffd9b89655a9301650"
-  integrity sha1-HO2vohj4Ofu384T/2biWVakwFlA=
+suid@^1.3.99:
+  version "1.3.99"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/suid/-/suid-1.3.99.tgz#9179a873188d6fbd40b010f68c0027dbb9a5ca45"
+  integrity sha512-YRu0Sye21iUnDVRtsjALs76gGqBsanWYny8XvSCQzcnv+E2Jer+OZREz7ccNg7b1t4fMTk1wW0ncJSkLpl+L7g==
+  dependencies:
+    "@ant-design/create-react-context" "^0.2.4"
+    "@ant-design/icons" "~2.1.1"
+    "@ant-design/icons-react" "~2.0.1"
+    antd "^3.19.6"
+    array-tree-filter "^2.1.0"
+    axios "^0.19.0"
+    babel-runtime "6.x"
+    braft-editor "^2.3.8"
+    braft-polyfill "^0.0.2"
+    classnames "~2.2.6"
+    cmn-utils "^1.0.9"
+    copy-to-clipboard "^3.2.0"
+    css-animation "^2.0.4"
+    css-element-queries "^1.2.1"
+    dom-closest "^0.2.0"
+    dva-model-extend "^0.1.2"
+    echarts "^4.4.0"
+    echarts-for-react "^2.0.15-beta.1"
+    enquire.js "^2.1.6"
+    install "^0.13.0"
+    jsbarcode "^3.11.0"
+    lodash "^4.17.13"
+    moment "^2.24.0"
+    npm "^7.5.6"
+    path-to-regexp "^3.0.0"
+    perfect-scrollbar "^1.4.0"
+    prop-types "^15.7.2"
+    qrcode.react "^1.0.0"
+    qs "^6.9.1"
+    raf "^3.4.1"
+    rc-notification "~3.3.1"
+    rc-util "^4.16.1"
+    react-beautiful-dnd "^12.2.0"
+    react-color "^2.17.3"
+    react-grid-layout "^0.17.1"
+    react-hotkeys "^2.0.0"
+    react-lazy-load "^3.0.13"
+    react-lifecycles-compat "^3.0.4"
+    react-perfect-scrollbar "^1.5.3"
+    react-resizable "^1.9.0"
+    react-scroll "^1.7.14"
+    react-slick "~0.25.2"
+    react-virtualized-auto-sizer "^1.0.2"
+    react-window "^1.8.5"
+    resize-observer-polyfill "^1.5.1"
+    script-loader "^0.7.2"
+    shallowequal "^1.1.0"
+    sockjs-client "^1.4.0"
+    stompjs "^2.3.3"
+    uuid "^3.3.3"
+    warning "~4.0.3"
+    xlsx "^0.15.1"
 
 superagent@^3.8.3:
   version "3.8.3"
@@ -16164,6 +17930,18 @@ tapable@^1.0.0, tapable@^1.1.3:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha1-ofzMBrWNth/XpF2i2kT186Pme6I=
 
+tar@^6.0.2, tar@^6.1.0:
+  version "6.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tar/-/tar-6.1.0.tgz#d1724e9bcc04b977b18d5c573b333a2207229a83"
+  integrity sha1-0XJOm8wEuXexjVxXOzM6IgcimoM=
+  dependencies:
+    chownr "^2.0.0"
+    fs-minipass "^2.0.0"
+    minipass "^3.0.0"
+    minizlib "^2.1.1"
+    mkdirp "^1.0.3"
+    yallist "^4.0.0"
+
 term-size@^1.2.0:
   version "1.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
@@ -16229,7 +18007,7 @@ test-exclude@^5.2.3:
     read-pkg-up "^4.0.0"
     require-main-filename "^2.0.0"
 
-text-table@0.2.0, text-table@^0.2.0:
+text-table@0.2.0, text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
@@ -16290,6 +18068,16 @@ tiny-invariant@^1.0.2:
   version "1.0.6"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tiny-invariant/-/tiny-invariant-1.0.6.tgz#b3f9b38835e36a41c843a3b0907a5a7b3755de73"
   integrity sha1-s/mziDXjakHIQ6OwkHpaezdV3nM=
+
+tiny-invariant@^1.0.6:
+  version "1.1.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
+  integrity sha1-Y0xfjv3CdxS384bDXmdgmR0jCHU=
+
+tiny-relative-date@^1.3.0:
+  version "1.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tiny-relative-date/-/tiny-relative-date-1.3.0.tgz#fa08aad501ed730f31cc043181d995c39a935e07"
+  integrity sha1-+giq1QHtcw8xzAQxgdmVw5qTXgc=
 
 tiny-warning@^1.0.0, tiny-warning@^1.0.2:
   version "1.0.3"
@@ -16382,7 +18170,7 @@ topo@2.x.x:
   dependencies:
     hoek "4.x.x"
 
-tough-cookie@^2.3.3, tough-cookie@^2.3.4:
+tough-cookie@^2.3.3, tough-cookie@^2.3.4, tough-cookie@~2.5.0:
   version "2.5.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2"
   integrity sha1-zZ+yoKodWhK0c72fuW+j3P9lreI=
@@ -16413,6 +18201,11 @@ tr46@^1.0.1:
   integrity sha1-qLE/1r/SSJUZZ0zN5VujaTtwbQk=
   dependencies:
     punycode "^2.1.0"
+
+treeverse@^1.0.4:
+  version "1.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/treeverse/-/treeverse-1.0.4.tgz#a6b0ebf98a1bca6846ddc7ecbc900df08cb9cd5f"
+  integrity sha1-prDr+YobymhG3cfsvJAN8Iy5zV8=
 
 trim-newlines@^2.0.0:
   version "2.0.0"
@@ -16582,6 +18375,16 @@ type-is@^1.6.4, type-is@~1.6.17, type-is@~1.6.18:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+type@^1.0.1:
+  version "1.2.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/type/-/type-1.2.0.tgz#848dd7698dafa3e54a6c479e759c4bc3f18847a0"
+  integrity sha1-hI3XaY2vo+VKbEeedZxLw/GIR6A=
+
+type@^2.0.0:
+  version "2.3.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/type/-/type-2.3.0.tgz#ada7c045f07ead08abf9e2edd29be1a0c0661132"
+  integrity sha1-rafARfB+rQir+eLt0pvhoMBmETI=
 
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
@@ -17376,6 +19179,14 @@ url-parse@^1.4.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+url-parse@^1.4.7:
+  version "1.5.1"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha1-1fqYkK+KXh8nSiyYN2UQ9kJfbjs=
+  dependencies:
+    querystringify "^2.1.1"
+    requires-port "^1.0.0"
+
 url-polyfill@1.1.3:
   version "1.1.3"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/url-polyfill/-/url-polyfill-1.1.3.tgz#ce0bdf2e923aa6f66bc198ab776323dfc5a91e62"
@@ -17394,6 +19205,11 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+use-memo-one@^1.1.1:
+  version "1.1.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/use-memo-one/-/use-memo-one-1.1.2.tgz#0c8203a329f76e040047a35a1197defe342fab20"
+  integrity sha1-DIIDoyn3bgQAR6NaEZfe/jQvqyA=
+
 use@^3.1.0:
   version "3.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -17405,6 +19221,13 @@ user-home@2.0.0, user-home@^2.0.0:
   integrity sha1-nHC/2Babwdy/SGBODwS4tJzenp8=
   dependencies:
     os-homedir "^1.0.0"
+
+utf-8-validate@^5.0.2:
+  version "5.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/utf-8-validate/-/utf-8-validate-5.0.4.tgz#72a1735983ddf7a05a43a9c6b67c5ce1c910f9b8"
+  integrity sha1-cqFzWYPd96BaQ6nGtnxc4ckQ+bg=
+  dependencies:
+    node-gyp-build "^4.2.0"
 
 util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
@@ -17443,6 +19266,11 @@ uuid@^3.0.1, uuid@^3.3.2:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha1-RWjwIW54dg7h2/Ok0s9T4iQRKGY=
 
+uuid@^3.3.3:
+  version "3.4.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
+  integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
+
 v8-compile-cache@^2.0.3:
   version "2.1.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/v8-compile-cache/-/v8-compile-cache-2.1.0.tgz#e14de37b31a6d194f5690d67efc4e7f6fc6ab30e"
@@ -17453,13 +19281,20 @@ v8-compile-cache@^2.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/v8-compile-cache/-/v8-compile-cache-2.1.1.tgz#54bc3cdd43317bca91e35dcaf305b1a7237de745"
   integrity sha1-VLw83UMxe8qR413K8wWxpyN950U=
 
-validate-npm-package-license@^3.0.1:
+validate-npm-package-license@^3.0.1, validate-npm-package-license@^3.0.4:
   version "3.0.4"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
   integrity sha1-/JH2uce6FchX9MssXe/uw51PQQo=
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+validate-npm-package-name@^3.0.0, validate-npm-package-name@~3.0.0:
+  version "3.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/validate-npm-package-name/-/validate-npm-package-name-3.0.0.tgz#5fa912d81eb7d0c74afc140de7317f0ca7df437e"
+  integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
+  dependencies:
+    builtins "^1.0.3"
 
 value-equal@^0.4.0:
   version "0.4.0"
@@ -17608,6 +19443,11 @@ w3c-xmlserializer@^1.1.2:
     webidl-conversions "^4.0.2"
     xml-name-validator "^3.0.0"
 
+walk-up-path@^1.0.0:
+  version "1.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/walk-up-path/-/walk-up-path-1.0.0.tgz#d4745e893dd5fd0dbb58dd0a4c6a33d9c9fec53e"
+  integrity sha1-1HReiT3V/Q27WN0KTGoz2cn+xT4=
+
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
@@ -17645,7 +19485,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-wcwidth@^1.0.1:
+wcwidth@^1.0.0, wcwidth@^1.0.1:
   version "1.0.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
@@ -17806,6 +19646,18 @@ websocket-extensions@>=0.1.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha1-XS/yKXcAPsaHpLhwc9+7rBRszyk=
 
+websocket@latest:
+  version "1.0.33"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/websocket/-/websocket-1.0.33.tgz#407f763fc58e74a3fa41ca3ae5d78d3f5e3b82a5"
+  integrity sha1-QH92P8WOdKP6Qco65deNP147gqU=
+  dependencies:
+    bufferutil "^4.0.1"
+    debug "^2.2.0"
+    es5-ext "^0.10.50"
+    typedarray-to-buffer "^3.1.5"
+    utf-8-validate "^5.0.2"
+    yaeti "^0.0.6"
+
 whatwg-encoding@^1.0.1, whatwg-encoding@^1.0.3, whatwg-encoding@^1.0.5:
   version "1.0.5"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-encoding/-/whatwg-encoding-1.0.5.tgz#5abacf777c32166a51d085d6b4f3e7d27113ddb0"
@@ -17817,6 +19669,11 @@ whatwg-fetch@3.0.0, whatwg-fetch@>=0.10.0:
   version "3.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
   integrity sha1-/IBORYzEYACbGiuWa8iBfSV4rvs=
+
+whatwg-fetch@^2.0.3:
+  version "2.0.4"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+  integrity sha1-3eal3zFfnTmZGqF2IYU9cguFVm8=
 
 whatwg-mimetype@^2.1.0, whatwg-mimetype@^2.2.0, whatwg-mimetype@^2.3.0:
   version "2.3.0"
@@ -17858,12 +19715,19 @@ which@^1.2.9, which@^1.3.0, which@^1.3.1:
   dependencies:
     isexe "^2.0.0"
 
-which@^2.0.1:
+which@^2.0.1, which@^2.0.2:
   version "2.0.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/which/-/which-2.0.2.tgz#7c6a8dd0a636a0327e10b59c9286eee93f3f51b1"
   integrity sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=
   dependencies:
     isexe "^2.0.0"
+
+wide-align@^1.1.0:
+  version "1.1.3"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/wide-align/-/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"
+  integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
+  dependencies:
+    string-width "^1.0.2 || 2"
 
 widest-line@^2.0.0:
   version "2.0.1"
@@ -17880,6 +19744,16 @@ with-open-file@^0.1.6:
     p-finally "^1.0.0"
     p-try "^2.1.0"
     pify "^4.0.1"
+
+wmf@~1.0.1:
+  version "1.0.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/wmf/-/wmf-1.0.2.tgz#7d19d621071a08c2bdc6b7e688a9c435298cc2da"
+  integrity sha1-fRnWIQcaCMK9xrfmiKnENSmMwto=
+
+wolfy87-eventemitter@^5.2.4:
+  version "5.2.9"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/wolfy87-eventemitter/-/wolfy87-eventemitter-5.2.9.tgz#e879f770b30fbb6512a8afbb330c388591099c2a"
+  integrity sha1-6Hn3cLMPu2USqK+7Mww4hZEJnCo=
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
@@ -18139,6 +20013,20 @@ xdg-basedir@^3.0.0:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
 
+xlsx@^0.15.1:
+  version "0.15.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xlsx/-/xlsx-0.15.6.tgz#461f841d6d9ea1a8375e2cd246bf23aece08a1d5"
+  integrity sha1-Rh+EHW2eoag3XizSRr8jrs4IodU=
+  dependencies:
+    adler-32 "~1.2.0"
+    cfb "^1.1.4"
+    codepage "~1.14.0"
+    commander "~2.17.1"
+    crc-32 "~1.2.0"
+    exit-on-epipe "~1.0.1"
+    ssf "~0.10.3"
+    wmf "~1.0.1"
+
 xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
@@ -18178,6 +20066,11 @@ xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
   integrity sha1-le+U+F7MgdAHwmThkKEg8KPIVms=
 
+yaeti@^0.0.6:
+  version "0.0.6"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/yaeti/-/yaeti-0.0.6.tgz#f26f484d72684cf42bedfb76970aa1608fbf9577"
+  integrity sha1-8m9ITXJoTPQr7ft2lwqhYI+/lXc=
+
 yallist@^2.1.2:
   version "2.1.2"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
@@ -18187,6 +20080,11 @@ yallist@^3.0.2:
   version "3.1.1"
   resolved "http://rcsgit.changhong.com:8081/repository/npm_group/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
   integrity sha1-27fa+b/YusmrRev2ArjLrQ1dCP0=
+
+yallist@^4.0.0:
+  version "4.0.0"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
+  integrity sha1-m7knkNnA7/7GO+c1GeEaNQGaOnI=
 
 yaml@^1.7.2:
   version "1.9.2"
@@ -18303,6 +20201,11 @@ yeoman-generator@4.0.1:
     text-table "^0.2.0"
     through2 "^3.0.1"
     yeoman-environment "^2.3.4"
+
+zrender@4.3.2:
+  version "4.3.2"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/zrender/-/zrender-4.3.2.tgz#ec7432f9415c82c73584b6b7b8c47e1b016209c6"
+  integrity sha1-7HQy+UFcgsc1hLa3uMR+GwFiCcY=
 
 zscroller@~0.4.0:
   version "0.4.8"
