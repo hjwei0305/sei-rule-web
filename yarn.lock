@@ -17742,10 +17742,10 @@ sugarss@^2.0.0:
   dependencies:
     postcss "^7.0.2"
 
-suid@^1.3.99:
-  version "1.3.99"
-  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/suid/-/suid-1.3.99.tgz#9179a873188d6fbd40b010f68c0027dbb9a5ca45"
-  integrity sha512-YRu0Sye21iUnDVRtsjALs76gGqBsanWYny8XvSCQzcnv+E2Jer+OZREz7ccNg7b1t4fMTk1wW0ncJSkLpl+L7g==
+suid@^1.3.100:
+  version "1.3.100"
+  resolved "http://rcsgit.changhong.com:8081/repository/npm_group/suid/-/suid-1.3.100.tgz#4bf1e70809e071844793ef74e03ef4b76749ee82"
+  integrity sha512-kM0GjoHj7DbrdFDcrWJceC3ZqCFtMbNYB1Ir/wzUvOvYGxMSO04/DVPIiwLJBofeQnYZx/BsyMtCAGu+OK1dJA==
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     "@ant-design/icons" "~2.1.1"
