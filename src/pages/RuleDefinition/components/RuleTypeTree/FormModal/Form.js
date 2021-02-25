@@ -6,6 +6,7 @@ import { Button, Form, Input } from 'antd';
 import { BannerTitle } from 'suid';
 import styles from './Form.less';
 
+const { TextArea } = Input;
 const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
@@ -77,7 +78,14 @@ class RoleGroupForm extends PureComponent {
             <FormItem label="业务描述">
               {getFieldDecorator('remark', {
                 initialValue: this.getInitValueByFields('remark'),
-              })(<Input autoComplete="off" placeholder="规则的使用场景" />)}
+              })(
+                <TextArea
+                  style={{ resize: 'none' }}
+                  maxLength={200}
+                  rows={6}
+                  placeholder="规则的使用场景"
+                />,
+              )}
             </FormItem>
             <FormItem wrapperCol={{ span: 4, offset: 4 }} className="btn-submit">
               <Button type="primary" loading={saving} onClick={this.handlerFormSubmit}>
