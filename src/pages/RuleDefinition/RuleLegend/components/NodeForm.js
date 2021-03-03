@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { get, cloneDeep, isEqual } from 'lodash';
+import { get, cloneDeep, isEqual, uniqBy } from 'lodash';
 import { Form, Input, Switch } from 'antd';
-import { MoneyInput, utils, ExtIcon } from 'suid';
+import { MoneyInput, utils, ExtIcon, message } from 'suid';
 import BlankTrigger from './BlankTrigger';
 import ExpressionForm from './ExpressionForm';
 import ReturnResultForm from './ReturnResultForm';
@@ -118,6 +118,12 @@ class NodeForm extends Component {
     if (!expressIsValid || !returnResultIsValid) {
       return;
     }
+    const uniqNodeReturnData = uniqBy(nodeReturnResults, 'ruleReturnTypeId');
+    if (uniqNodeReturnData.length !== nodeReturnResults.length) {
+      message.destroy();
+      message.error('不能存在多个相同的返回类型,请检查后再试!');
+      return;
+    }
     form.validateFields((err, formData) => {
       if (err) {
         return;
@@ -229,22 +235,24 @@ class NodeForm extends Component {
     const { ruleRoot } = this.props;
     const { nodeData: originNodeData } = this.state;
     const nodeData = cloneDeep(originNodeData);
-    const logicalExpressions = get(nodeData, 'logicalExpressions', []) || [];
-    let its = [...logicalExpressions];
-    its = this.rebuildIndex(its);
-    const itemId = getUUID();
-    its.push({
-      itemNumber: its.length,
-      id: null,
-      tmpId: itemId,
-      ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
-    });
-    Object.assign(nodeData, {
-      logicalExpressions: its,
-    });
-    this.setState({ nodeData }, () => {
-      this.handlerScroll('.node-form-scroll-bar', itemId);
-    });
+    const { formItems: logicalExpressions, isValid: expressIsValid } = this.getExpressItemsData();
+    if (expressIsValid) {
+      let its = [...logicalExpressions];
+      its = this.rebuildIndex(its);
+      const itemId = getUUID();
+      its.push({
+        itemNumber: its.length,
+        id: null,
+        tmpId: itemId,
+        ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
+      });
+      Object.assign(nodeData, {
+        logicalExpressions: its,
+      });
+      this.setState({ nodeData }, () => {
+        this.handlerScroll('.node-form-scroll-bar', itemId);
+      });
+    }
   };
 
   /** 收集逻辑表达式组件实例，以方便数据收集 */
@@ -283,22 +291,27 @@ class NodeForm extends Component {
     const { ruleRoot } = this.props;
     const { nodeData: originNodeData } = this.state;
     const nodeData = cloneDeep(originNodeData);
-    const nodeReturnResults = get(nodeData, 'nodeReturnResults', []) || [];
-    let its = [...nodeReturnResults];
-    its = this.rebuildIndex(its);
-    const itemId = getUUID();
-    its.push({
-      itemNumber: its.length,
-      id: null,
-      tmpId: itemId,
-      ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
-    });
-    Object.assign(nodeData, {
-      nodeReturnResults: its,
-    });
-    this.setState({ nodeData }, () => {
-      this.handlerScroll('.node-form-scroll-bar', itemId);
-    });
+    const {
+      formItems: nodeReturnResults,
+      isValid: returnResultIsValid,
+    } = this.getReturnResultItemsData();
+    if (returnResultIsValid) {
+      let its = [...nodeReturnResults];
+      its = this.rebuildIndex(its);
+      const itemId = getUUID();
+      its.push({
+        itemNumber: its.length,
+        id: null,
+        tmpId: itemId,
+        ruleTreeRootNodeId: get(ruleRoot, 'id', null) || null,
+      });
+      Object.assign(nodeData, {
+        nodeReturnResults: its,
+      });
+      this.setState({ nodeData }, () => {
+        this.handlerScroll('.node-form-scroll-bar', itemId);
+      });
+    }
   };
 
   handlerCollapsedExpression = () => {
@@ -394,10 +407,10 @@ class NodeForm extends Component {
                   onExpressItemFormRefs: this.onExpressItemFormRefs,
                 };
                 /** 使用表单独立作用域 */
-                const WrappedForm = Form.create({ name: itemKey })(props => (
+                const WrappedExpressionForm = Form.create({ name: itemKey })(props => (
                   <ExpressionForm {...props} {...expressionFormProps} />
                 ));
-                return <WrappedForm key={itemKey} />;
+                return <WrappedExpressionForm key={itemKey} />;
               })}
               <BlankTrigger
                 title="新增表达式"
@@ -450,10 +463,10 @@ class NodeForm extends Component {
                   onReturnResultItemFormRefs: this.onReturnResultItemFormRefs,
                 };
                 /** 使用表单独立作用域 */
-                const WrappedForm = Form.create({ name: itemKey })(props => (
+                const WrappedReturnResultForm = Form.create({ name: itemKey })(props => (
                   <ReturnResultForm {...props} {...returnResultFormProps} />
                 ));
-                return <WrappedForm key={itemKey} />;
+                return <WrappedReturnResultForm key={itemKey} />;
               })}
               <BlankTrigger
                 title="新增返回结果"

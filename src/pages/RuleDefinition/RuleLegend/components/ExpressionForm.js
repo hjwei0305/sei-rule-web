@@ -47,16 +47,19 @@ class ExpressionForm extends Component {
     let formData = null;
     form.validateFields((err, values) => {
       if (!err) {
-        formData = values;
+        formData = {};
+        const data = itemData ? { ...itemData } : {};
+        Object.assign(formData, data);
+        Object.assign(formData, values);
+        const uiComponent = get(formData, 'ruleAttributeUiComponent');
+        if (uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
+          Object.assign(formData, {
+            comparisonValue: moment(formData.comparisonValue).format(Ymd),
+          });
+        }
       }
     });
-    const data = itemData ? { ...itemData } : {};
-    Object.assign(data, formData);
-    const uiComponent = get(itemData, 'ruleAttributeUiComponent');
-    if (uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
-      Object.assign(data, { comparisonValue: moment(data.comparisonValue).format(Ymd) });
-    }
-    return { formData: data };
+    return { formData };
   };
 
   renderComparisonValue = () => {
@@ -198,9 +201,11 @@ class ExpressionForm extends Component {
       afterSelect: item => {
         const { itemData: originItemData } = this.state;
         const formData = { ...originItemData };
-        const ruleAttributeId = get(formData, 'ruleAttributeId');
+        const ruleAttributeId = get(originItemData, 'ruleAttributeId');
         if (ruleAttributeId !== item.id) {
           Object.assign(formData, {
+            ruleAttributeId: get(item, 'id'),
+            ruleAttributeName: get(item, 'name'),
             ruleAttributeFindDataUrl: get(item, 'findDataUrl'),
             ruleAttributeRuleAttributeType: get(item, 'ruleAttributeType'),
             ruleAttributeUiComponent: get(item, 'uiComponent'),
