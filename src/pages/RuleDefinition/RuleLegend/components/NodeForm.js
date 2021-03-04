@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { get, cloneDeep, isEqual, uniqBy } from 'lodash';
-import { Form, Input, Switch } from 'antd';
+import { Form, Input, Switch, Popconfirm } from 'antd';
 import { MoneyInput, utils, ExtIcon, message } from 'suid';
 import BlankTrigger from './BlankTrigger';
 import ExpressionForm from './ExpressionForm';
@@ -144,7 +144,8 @@ class NodeForm extends Component {
     });
   };
 
-  handlerTrueNodeChange = trueNode => {
+  handlerTrueNodeChange = isTrueNode => {
+    const trueNode = !isTrueNode;
     const { updateScroll } = this.props;
     const { nodeData: originNodeData } = this.state;
     const nodeData = { ...originNodeData };
@@ -152,6 +153,7 @@ class NodeForm extends Component {
       trueNode,
       logicalExpressions: [],
     });
+    this.expressItemFormRefs = {};
     const {
       formItems: nodeReturnResults,
       isValid: returnResultIsValid,
@@ -164,7 +166,8 @@ class NodeForm extends Component {
     this.setState({ nodeData }, updateScroll);
   };
 
-  handlerFinishedNodeChange = finished => {
+  handlerFinishedNodeChange = isFinished => {
+    const finished = !isFinished;
     const { updateScroll } = this.props;
     const { nodeData: originNodeData } = this.state;
     const nodeData = { ...originNodeData };
@@ -185,6 +188,7 @@ class NodeForm extends Component {
         asyncExecute: false,
         nodeReturnResults: [],
       });
+      this.returnResultItemFormRefs = {};
     }
     this.setState({ nodeData }, updateScroll);
   };
@@ -381,12 +385,21 @@ class NodeForm extends Component {
           ) : null}
         </Form>
         <FormItem label="是真节点" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
-          <Switch
-            size="small"
-            disabled={onlyView}
-            checked={isTrueNode}
-            onChange={this.handlerTrueNodeChange}
-          />
+          {isTrueNode ? (
+            <Switch
+              size="small"
+              disabled={onlyView}
+              checked={isTrueNode}
+              onChange={() => this.handlerTrueNodeChange(isTrueNode)}
+            />
+          ) : (
+            <Popconfirm
+              title="设置为真节点后，配置的逻辑表达式将会丢失"
+              onConfirm={() => this.handlerTrueNodeChange(isTrueNode)}
+            >
+              <Switch size="small" disabled={onlyView} checked={isTrueNode} />
+            </Popconfirm>
+          )}
         </FormItem>
         <p className="item-desc">表示此规则的返回结果始终为真</p>
         {isTrueNode ? null : (
@@ -431,12 +444,21 @@ class NodeForm extends Component {
           </>
         )}
         <FormItem label="规则结束" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
-          <Switch
-            size="small"
-            disabled={onlyView}
-            checked={isFinished}
-            onChange={this.handlerFinishedNodeChange}
-          />
+          {isFinished ? (
+            <Popconfirm
+              title="设置为规则结束后，配置的相关数据将会丢失"
+              onConfirm={() => this.handlerFinishedNodeChange(isFinished)}
+            >
+              <Switch size="small" disabled={onlyView} checked={isFinished} />
+            </Popconfirm>
+          ) : (
+            <Switch
+              size="small"
+              disabled={onlyView}
+              checked={isFinished}
+              onChange={() => this.handlerFinishedNodeChange(isFinished)}
+            />
+          )}
         </FormItem>
         <p className="item-desc">表示此规则执行结束，没有后续规则</p>
         {isFinished ? (
