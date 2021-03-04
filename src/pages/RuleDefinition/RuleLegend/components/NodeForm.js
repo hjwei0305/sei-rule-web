@@ -177,6 +177,15 @@ class NodeForm extends Component {
         logicalExpressions,
       });
     }
+    if (finished === false) {
+      Object.assign(nodeData, {
+        returnConstant: '',
+        ruleServiceMethodName: '',
+        ruleServiceMethodId: '',
+        asyncExecute: false,
+        nodeReturnResults: [],
+      });
+    }
     this.setState({ nodeData }, updateScroll);
   };
 
