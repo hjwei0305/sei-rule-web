@@ -184,7 +184,7 @@ class NodeForm extends Component {
       Object.assign(nodeData, {
         returnConstant: '',
         ruleServiceMethodName: '',
-        ruleServiceMethodId: '',
+        ruleServiceMethodId: null,
         asyncExecute: false,
         nodeReturnResults: [],
       });
