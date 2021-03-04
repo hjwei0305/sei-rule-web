@@ -106,6 +106,7 @@ export default G6 => {
               radius: 8,
               width: 16,
               height: 16,
+              lineWidth: 1,
               stroke: collapsed ? '#91d5ff' : 'rgba(0, 0, 0, 0.25)',
               cursor: 'pointer',
               fill: '#fff',
@@ -118,8 +119,8 @@ export default G6 => {
           group.addShape('text', {
             attrs: {
               x: rectConfig.width / 2,
-              y: 0,
-              fontSize: collapsed ? 14 : 18,
+              y: -0.5,
+              fontSize: 16,
               textAlign: 'center',
               textBaseline: 'middle',
               text: collapsed ? cfg.children.length : '-',
