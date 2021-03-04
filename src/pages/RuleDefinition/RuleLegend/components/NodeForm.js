@@ -446,7 +446,7 @@ class NodeForm extends Component {
         <FormItem label="规则结束" {...formItemInlineLayout} style={{ marginBottom: 0 }}>
           {isFinished ? (
             <Popconfirm
-              title="设置为规则结束后，配置的相关数据将会丢失"
+              title="取消规则结束，其相关的配置将会丢失"
               onConfirm={() => this.handlerFinishedNodeChange(isFinished)}
             >
               <Switch size="small" disabled={onlyView} checked={isFinished} />
