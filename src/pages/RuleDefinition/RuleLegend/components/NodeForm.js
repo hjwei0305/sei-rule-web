@@ -435,7 +435,7 @@ class NodeForm extends Component {
                 return <WrappedExpressionForm key={itemKey} />;
               })}
               <BlankTrigger
-                title="新增表达式"
+                title="新建表达式"
                 onlyView={onlyView}
                 items={expressionsData}
                 addItem={this.handlerAddExpress}
@@ -500,7 +500,7 @@ class NodeForm extends Component {
                 return <WrappedReturnResultForm key={itemKey} />;
               })}
               <BlankTrigger
-                title="新增返回结果"
+                title="新建返回结果"
                 items={returnResultData}
                 onlyView={onlyView}
                 addItem={this.handlerAddReturnResult}
