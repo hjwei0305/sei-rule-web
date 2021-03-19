@@ -4,18 +4,19 @@ import moment from 'moment';
 import { Card, Form, Popconfirm, Icon, Avatar, Input, DatePicker, Switch } from 'antd';
 import { ComboList, MoneyInput } from 'suid';
 import { constants } from '../../../../utils';
+import AttributeLabel from './AttributeLabel';
 import styles from './ExpressionForm.less';
 
 const FormItem = Form.Item;
-const { SERVER_PATH, ATTRIBUTE_UI_COMPONENT } = constants;
+const { SERVER_PATH, ATTRIBUTE_UI_COMPONENT, ATTRIBUTE_ACTION } = constants;
 const formItemStyle = { margin: '0 auto', padding: 0 };
 const Ymd = 'YYYY-MM-DD';
 const formItemLayout = {
   labelCol: {
-    span: 5,
+    span: 6,
   },
   wrapperCol: {
-    span: 19,
+    span: 18,
   },
 };
 
@@ -23,8 +24,10 @@ class ExpressionForm extends Component {
   constructor(props) {
     super(props);
     const { itemData } = props;
+    const actionKey = get(itemData, 'comparisonValueType') || ATTRIBUTE_ACTION.NORMAL.key;
     this.state = {
       itemData,
+      actionKey,
     };
   }
 
@@ -36,14 +39,15 @@ class ExpressionForm extends Component {
   componentDidUpdate(preProps) {
     const { itemData } = this.props;
     if (!isEqual(preProps.itemData, itemData)) {
-      this.setState({ itemData });
+      const actionKey = get(itemData, 'comparisonValueType') || ATTRIBUTE_ACTION.NORMAL.key;
+      this.setState({ itemData, actionKey });
     }
   }
 
   /** 获取表单数据 */
   getFormData = () => {
     const { form } = this.props;
-    const { itemData } = this.state;
+    const { itemData, actionKey } = this.state;
     let formData = null;
     form.validateFields((err, values) => {
       if (!err) {
@@ -51,6 +55,7 @@ class ExpressionForm extends Component {
         const data = itemData ? { ...itemData } : {};
         Object.assign(formData, data);
         Object.assign(formData, values);
+        Object.assign(formData, { comparisonValueType: actionKey });
         const uiComponent = get(formData, 'ruleAttributeUiComponent');
         if (uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
           Object.assign(formData, {
@@ -62,8 +67,20 @@ class ExpressionForm extends Component {
     return { formData };
   };
 
+  handlerAttributeLabelChange = e => {
+    const { form } = this.props;
+    const { itemData: originItemData } = this.state;
+    const formData = { ...originItemData };
+    Object.assign(formData, {
+      displayValue: '',
+      comparisonValue: '',
+    });
+    form.resetFields(['displayValue', 'comparisonValue']);
+    this.setState({ actionKey: e.key, itemData: formData });
+  };
+
   renderComparisonValue = () => {
-    const { itemData } = this.state;
+    const { itemData, actionKey } = this.state;
     const { form, ruleType, onlyView } = this.props;
     const { getFieldDecorator } = form;
     const comparisonOperator = get(itemData, 'comparisonOperator');
@@ -75,6 +92,45 @@ class ExpressionForm extends Component {
       },
     ];
     let listProps = {};
+    const attributeLabelProps = {
+      onAction: this.handlerAttributeLabelChange,
+      actionKey,
+    };
+    /**
+     * 其它属性选择优先级最高
+     * 其次是比较器
+     * 最后才是属性值
+     */
+    if (actionKey === ATTRIBUTE_ACTION.OTHER.key) {
+      listProps = {
+        form,
+        name: 'displayValue',
+        store: {
+          url: `${SERVER_PATH}/sei-rule/ruleAttribute/findByRuleAttributeId`,
+        },
+        cascadeParams: {
+          ruleAttributeId: form.getFieldValue('ruleAttributeId'),
+        },
+        field: ['comparisonValue'],
+        reader: {
+          name: 'name',
+          field: ['id'],
+        },
+      };
+      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
+      return (
+        <FormItem
+          label={<AttributeLabel {...attributeLabelProps} />}
+          {...formItemLayout}
+          style={formItemStyle}
+        >
+          {getFieldDecorator('displayValue', {
+            initialValue: get(itemData, 'displayValue') || '',
+            rules,
+          })(<ComboList {...listProps} />)}
+        </FormItem>
+      );
+    }
     if (comparisonOperator === 'COMPARER') {
       listProps = {
         form,
@@ -110,7 +166,11 @@ class ExpressionForm extends Component {
       switch (uiComponent) {
         case ATTRIBUTE_UI_COMPONENT.DATEPICKER.code:
           return (
-            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+            <FormItem
+              label={<AttributeLabel {...attributeLabelProps} />}
+              {...formItemLayout}
+              style={formItemStyle}
+            >
               {getFieldDecorator('comparisonValue', {
                 initialValue: v && moment(v).isValid() ? moment(v) : null,
                 rules,
@@ -119,7 +179,11 @@ class ExpressionForm extends Component {
           );
         case ATTRIBUTE_UI_COMPONENT.MONEYINPUT.code:
           return (
-            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+            <FormItem
+              label={<AttributeLabel {...attributeLabelProps} />}
+              {...formItemLayout}
+              style={formItemStyle}
+            >
               {getFieldDecorator('comparisonValue', {
                 initialValue: isNumber(Number(v)) ? v : 0,
                 rules,
@@ -128,7 +192,11 @@ class ExpressionForm extends Component {
           );
         case ATTRIBUTE_UI_COMPONENT.SWITCH.code:
           return (
-            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+            <FormItem
+              label={<AttributeLabel {...attributeLabelProps} />}
+              {...formItemLayout}
+              style={formItemStyle}
+            >
               {getFieldDecorator('comparisonValue', {
                 valuePropName: 'checked',
                 initialValue: v || false,
@@ -154,7 +222,11 @@ class ExpressionForm extends Component {
           }
           getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           return (
-            <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+            <FormItem
+              label={<AttributeLabel {...attributeLabelProps} />}
+              {...formItemLayout}
+              style={formItemStyle}
+            >
               {getFieldDecorator('displayValue', {
                 initialValue: get(itemData, 'displayValue') || '',
                 rules,
@@ -165,7 +237,11 @@ class ExpressionForm extends Component {
       }
     }
     return (
-      <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+      <FormItem
+        label={<AttributeLabel {...attributeLabelProps} />}
+        {...formItemLayout}
+        style={formItemStyle}
+      >
         {getFieldDecorator('comparisonValue', {
           initialValue: get(itemData, 'comparisonValue') || '',
           rules,
@@ -227,7 +303,6 @@ class ExpressionForm extends Component {
       },
       reader: {
         name: 'name',
-        description: 'path',
         field: ['id'],
       },
     };
@@ -242,16 +317,21 @@ class ExpressionForm extends Component {
         ruleAttributeId: form.getFieldValue('ruleAttributeId'),
       },
       afterSelect: item => {
-        const { itemData: originItemData } = this.state;
+        const { itemData: originItemData, actionKey: originAtionKey } = this.state;
         const formData = { ...originItemData };
+        const comparisonOperator = get(item, 'comparisonOperator');
         Object.assign(formData, {
           comparisonOperatorRemark: get(item, 'comparisonOperatorRemark'),
-          comparisonOperator: get(item, 'comparisonOperator'),
+          comparisonOperator,
           displayValue: '',
           comparisonValue: '',
         });
         form.resetFields(['displayValue', 'comparisonValue']);
-        this.setState({ itemData: formData });
+        let actionKey = originAtionKey;
+        if (comparisonOperator === 'COMPARER') {
+          actionKey = ATTRIBUTE_ACTION.NORMAL.key;
+        }
+        this.setState({ itemData: formData, actionKey });
       },
       reader: {
         name: 'comparisonOperatorRemark',
@@ -273,7 +353,7 @@ class ExpressionForm extends Component {
             </Avatar>
           </div>
           <div className="form-content">
-            <Form layout="horizontal">
+            <Form layout="horizontal" labelAlign="left">
               <FormItem label="属性名" {...formItemLayout} style={formItemStyle}>
                 {getFieldDecorator('ruleAttributeName', {
                   initialValue: get(itemData, 'ruleAttributeName'),

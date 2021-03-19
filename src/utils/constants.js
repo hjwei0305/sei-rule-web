@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-02-22 09:09:08
+ * @Last Modified time: 2021-03-19 11:23:26
  */
 import { base } from '../../public/app.config.json';
 
@@ -73,6 +73,11 @@ const RULE_LIST_ACTION = {
   COPY_CREATE: 'COPY_CREATE',
 };
 
+const ATTRIBUTE_ACTION = {
+  NORMAL: { key: 'NORMAL', name: '属性值' },
+  OTHER: { key: 'OTHER', name: '其它属性' },
+};
+
 export default {
   APP_BASE,
   LOCAL_PATH,
@@ -82,4 +87,5 @@ export default {
   ATTRIBUTE_UI_COMPONENT,
   RETURN_RESULT_UI_COMPONENT,
   RULE_LIST_ACTION,
+  ATTRIBUTE_ACTION,
 };

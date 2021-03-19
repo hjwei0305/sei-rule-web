@@ -154,3 +154,15 @@ li {
     align-items: flex-start;
   }
 }
+
+.ant-dropdown-trigger {
+  cursor: pointer;
+  i.anticon-down {
+    transition: transform ease 0.3s;
+  }
+  &.ant-dropdown-open {
+    i.anticon-down {
+      transform: rotate(-180deg);
+    }
+  }
+}
