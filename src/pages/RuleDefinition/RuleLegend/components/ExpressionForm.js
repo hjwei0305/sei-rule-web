@@ -111,13 +111,14 @@ class ExpressionForm extends Component {
         cascadeParams: {
           ruleAttributeId: form.getFieldValue('ruleAttributeId'),
         },
-        field: ['comparisonValue'],
+        afterSelect: item => {
+          getFieldDecorator('comparisonValue');
+          form.setFieldsValue({ comparisonValue: get(item, 'id') });
+        },
         reader: {
           name: 'name',
-          field: ['id'],
         },
       };
-      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
       return (
         <FormItem
           label={<AttributeLabel {...attributeLabelProps} />}
@@ -141,14 +142,15 @@ class ExpressionForm extends Component {
             ruleEntityTypeId: get(ruleType, 'ruleEntityTypeId'),
           },
         },
-        field: ['comparisonValue'],
+        afterSelect: item => {
+          getFieldDecorator('comparisonValue');
+          form.setFieldsValue({ comparisonValue: get(item, 'id') });
+        },
         reader: {
           name: 'name',
           description: 'path',
-          field: ['id'],
         },
       };
-      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
       return (
         <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
           {getFieldDecorator('displayValue', {
@@ -211,16 +213,17 @@ class ExpressionForm extends Component {
             store: {
               url: `${SERVER_PATH}/${findDataUrl}`,
             },
-            field: ['comparisonValue'],
+            afterSelect: item => {
+              getFieldDecorator('comparisonValue');
+              form.setFieldsValue({ comparisonValue: get(item, valueField) });
+            },
             reader: {
               name: displayField,
-              field: [valueField],
             },
           };
           if (uiComponent === ATTRIBUTE_UI_COMPONENT.COMBOLIST_REMOTE.code) {
             listProps.store.type = 'POST';
           }
-          getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
           return (
             <FormItem
               label={<AttributeLabel {...attributeLabelProps} />}
@@ -264,6 +267,10 @@ class ExpressionForm extends Component {
     const { getFieldDecorator } = form;
     getFieldDecorator('ruleAttributeId', { initialValue: get(itemData, 'ruleAttributeId') });
     getFieldDecorator('comparisonOperator', { initialValue: get(itemData, 'comparisonOperator') });
+    const checkData = form.getFieldsValue();
+    if (!checkData.hasOwnProperty('comparisonValue')) {
+      getFieldDecorator('comparisonValue', { initialValue: get(itemData, 'comparisonValue') });
+    }
     const ruleAttributeProps = {
       form,
       name: 'ruleAttributeName',
