@@ -261,6 +261,8 @@ class RuleTypeTree extends Component {
           switcherIcon={<ExtIcon type="dian" style={{ fontSize: 12 }} />}
           title={nodeTitle}
           key={item.id}
+          disabled={item.nodeLevel === 0}
+          selectable={item.nodeLevel !== 0}
         />
       );
     });

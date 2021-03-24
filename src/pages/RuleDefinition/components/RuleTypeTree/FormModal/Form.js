@@ -62,13 +62,7 @@ class RoleGroupForm extends PureComponent {
             <FormItem label="代码">
               {getFieldDecorator('code', {
                 initialValue: this.getInitValueByFields('code'),
-              })(
-                <Input
-                  autoComplete="off"
-                  disabled={!!nodeData}
-                  placeholder="实体类型代码-名称简称"
-                />,
-              )}
+              })(<Input autoComplete="off" disabled placeholder="自动生成" />)}
             </FormItem>
             <FormItem label="名称">
               {getFieldDecorator('name', {
