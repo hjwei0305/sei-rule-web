@@ -6,6 +6,7 @@ import {
   saveRuleNode,
   delRuleNode,
   getNodeSynthesisExpressions,
+  moveRuleNode,
 } from '../services/ruleLegend';
 
 const { dvaModel } = utils;
@@ -120,6 +121,18 @@ export default modelExtend(model, {
             needReload,
           },
         });
+      } else {
+        message.error(re.message);
+      }
+      if (callback && callback instanceof Function) {
+        callback(re);
+      }
+    },
+    *moveRuleNode({ payload, callback }, { call }) {
+      const re = yield call(moveRuleNode, payload);
+      message.destroy();
+      if (re.success) {
+        message.success('移动成功');
       } else {
         message.error(re.message);
       }

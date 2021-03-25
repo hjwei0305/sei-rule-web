@@ -8,6 +8,7 @@ import { Modal, Divider, Empty, Button } from 'antd';
 import { utils, ExtIcon, BannerTitle, PageLoader } from 'suid';
 import empty_data from '@/assets/empty_data_02.svg';
 import registerNode from './shape/mindNode';
+import dragNode from './shape/dragNode';
 import NodeFormDrawer from './components/NodeFormDrawer';
 import styles from './index.less';
 
@@ -58,7 +59,6 @@ const getContextMenuData = () => [
 ];
 const { getUUID } = utils;
 const DELTA = 0.05;
-
 @connect(({ ruleLegend, loading }) => ({
   ruleLegend,
   loading,
@@ -85,6 +85,7 @@ class RuleLegend extends Component {
 
   componentDidMount() {
     registerNode(G6);
+    dragNode(G6, this.moveConfirm);
     this.onResizeStrategy();
     window.addEventListener('resize', this.onResizeStrategy);
     this.getRuleTypeNodes();
@@ -129,6 +130,51 @@ class RuleLegend extends Component {
       },
     });
   }
+
+  moveConfirm = (node, target, callback) => {
+    const { dispatch } = this.props;
+    this.confirmModal = Modal.confirm({
+      title: `移动规则节点`,
+      content: `确定要将规则节点【${get(node, 'name')}】移动到【${get(target, 'name')}】下吗?`,
+      okButtonProps: { type: 'primary' },
+      style: { top: '20%' },
+      okText: '确定',
+      onOk: () => {
+        return new Promise(resolve => {
+          this.confirmModal.update({
+            okButtonProps: { type: 'primary', loading: true },
+            cancelButtonProps: { disabled: true },
+          });
+          dispatch({
+            type: 'ruleLegend/moveRuleNode',
+            payload: {
+              nodeId: get(node, 'id'),
+              targetParentId: get(target, 'id'),
+            },
+            callback: res => {
+              if (res.success) {
+                resolve();
+                if (callback && callback instanceof Function) {
+                  callback();
+                }
+                this.getRuleTypeNodes();
+              } else {
+                this.confirmModal.update({
+                  okButtonProps: { loading: false },
+                  cancelButtonProps: { disabled: false },
+                });
+              }
+            },
+          });
+        });
+      },
+      cancelText: '取消',
+      onCancel: () => {
+        this.confirmModal.destroy();
+        this.confirmModal = null;
+      },
+    });
+  };
 
   getRuleTypeNodes = () => {
     const { ruleType, ruleRoot, dispatch } = this.props;
@@ -350,7 +396,7 @@ class RuleLegend extends Component {
       width: this.container.scrollWidth,
       height: this.container.scrollHeight,
       modes: {
-        default: ['drag-canvas', 'click-select', 'zoom-canvas'],
+        default: ['drag-canvas', 'click-select', 'zoom-canvas', 'dragNode'],
       },
       fitCenter: true,
       fitView: false,
@@ -413,7 +459,6 @@ class RuleLegend extends Component {
       graph.setItemState(item, 'active', true);
       this.showNodePath(item, 'active');
     });
-
     graph.on('node:mouseleave', e => {
       graph.setItemState(e.item, 'active', false);
       this.hideNodePath('active');

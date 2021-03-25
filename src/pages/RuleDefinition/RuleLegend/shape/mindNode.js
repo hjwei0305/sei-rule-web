@@ -175,6 +175,66 @@ export default G6 => {
             }
           }
         }
+        if (name === 'dragEnter') {
+          const wrapperShape = group.findByClassName(WRAPPER_CLASS_NAME);
+          const collapseBack = group.find(e => e.get('name') === 'collapse-back');
+          if (value) {
+            wrapperShape.attr({
+              stroke: '#52c41a',
+              shadowBlur: 10,
+              shadowColor: '#3e9a11',
+            });
+            if (collapseBack) {
+              collapseBack.attr({
+                stroke: '#52c41a',
+                shadowBlur: 10,
+                shadowColor: '#3e9a11',
+              });
+            }
+          } else {
+            wrapperShape.attr({
+              stroke: WRAPPER_STROKE,
+              shadowBlur: 0,
+            });
+            if (collapseBack) {
+              collapseBack.attr({
+                fill: '#fff',
+                stroke: 'rgba(0, 0, 0, 0.25)',
+                shadowBlur: 0,
+              });
+            }
+          }
+        }
+        if (name === 'noDrag') {
+          const wrapperShape = group.findByClassName(WRAPPER_CLASS_NAME);
+          const collapseBack = group.find(e => e.get('name') === 'collapse-back');
+          if (value) {
+            wrapperShape.attr({
+              stroke: '#f5222d',
+              shadowBlur: 10,
+              shadowColor: '#b71a22',
+            });
+            if (collapseBack) {
+              collapseBack.attr({
+                stroke: '#f5222d',
+                shadowBlur: 10,
+                shadowColor: '#b71a22',
+              });
+            }
+          } else {
+            wrapperShape.attr({
+              stroke: WRAPPER_STROKE,
+              shadowBlur: 0,
+            });
+            if (collapseBack) {
+              collapseBack.attr({
+                fill: '#fff',
+                stroke: 'rgba(0, 0, 0, 0.25)',
+                shadowBlur: 0,
+              });
+            }
+          }
+        }
         if (name === 'active' && states.indexOf('selected') === -1) {
           const wrapperShape = group.findByClassName(WRAPPER_CLASS_NAME);
           if (value) {

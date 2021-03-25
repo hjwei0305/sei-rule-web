@@ -47,3 +47,16 @@ export async function delRuleNode(data) {
     method: 'DELETE',
   });
 }
+
+/** 移动规则节点信息
+ * @nodeId string
+ * @targetParentId string
+ */
+export async function moveRuleNode(data) {
+  const url = `${SERVER_PATH}/sei-rule/ruleTreeNode/move`;
+  return request({
+    url,
+    method: 'POST',
+    data,
+  });
+}
