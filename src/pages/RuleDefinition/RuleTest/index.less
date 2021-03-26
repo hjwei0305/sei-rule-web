@@ -83,19 +83,27 @@
         overflow-x: hidden;
       }
     }
-    .check-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      .label {
-        color: fade(@black, 65%);
-        &::after {
-          padding: 0 4px;
-          content: ':';
+    .ant-result-subtitle {
+      width: 220px;
+      margin: 0 auto;
+      text-align: left;
+
+      .check-btn {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        .label {
+          width: 110px;
+          color: fade(@black, 65%);
+          text-align: right;
+          &::after {
+            padding: 0 4px;
+            content: ':';
+          }
         }
       }
     }
+
     .start-btn-box {
       display: flex;
       align-items: center;

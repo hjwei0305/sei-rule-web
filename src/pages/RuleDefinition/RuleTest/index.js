@@ -38,6 +38,7 @@ class RuleTest extends PureComponent {
     this.state = {
       ruleEntityJson: '',
       executeMethod: false,
+      allChains: false,
     };
   }
 
@@ -85,9 +86,13 @@ class RuleTest extends PureComponent {
     this.setState({ executeMethod });
   };
 
+  handlerAllChainsChange = allChains => {
+    this.setState({ allChains });
+  };
+
   handlerStart = () => {
     const { dispatch, ruleType } = this.props;
-    const { executeMethod, ruleEntityJson } = this.state;
+    const { executeMethod, allChains, ruleEntityJson } = this.state;
     let jsonData = '';
     try {
       jsonData = JSON.stringify(JSON.parse(ruleEntityJson));
@@ -100,6 +105,7 @@ class RuleTest extends PureComponent {
         type: 'ruleTestRun/ruleTestStartRun',
         payload: {
           executeMethod,
+          allChains,
           ruleEntityJson: jsonData,
           ruleTypeCode: get(ruleType, 'code'),
         },
@@ -245,6 +251,7 @@ class RuleTest extends PureComponent {
       loading,
     } = this.props;
     if (ruleTestResult) {
+      const { allChains } = this.state;
       const { matched, returnConstant, ruleTreeRoot, returnEntityMap } = ruleTestResult;
       return (
         <>
@@ -255,6 +262,7 @@ class RuleTest extends PureComponent {
             <Descriptions.Item label="执行服务方法">
               {this.renderExecuteMethodDesc()}
             </Descriptions.Item>
+            <Descriptions.Item label="执行所有规则链">{allChains ? '是' : '否'}</Descriptions.Item>
             <Descriptions.Item label="返回常量">{returnConstant || '-'}</Descriptions.Item>
             <Descriptions.Item label="命中的规则名称">
               {get(ruleTreeRoot, 'name') || '-'}
@@ -278,13 +286,17 @@ class RuleTest extends PureComponent {
     }
     const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
     return (
-      <>
+      <div className="form-box">
         <div className="check-btn">
           <span className="label">执行服务方法</span>
           <Switch size="small" disabled={startLoading} onChange={this.handlerServiceMethodChange} />
         </div>
+        <div className="check-btn">
+          <span className="label">执行所有规则链</span>
+          <Switch size="small" disabled={startLoading} onChange={this.handlerAllChainsChange} />
+        </div>
         <div>请输入JSON后开始</div>
-      </>
+      </div>
     );
   };
 
