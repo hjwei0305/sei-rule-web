@@ -1,10 +1,12 @@
 const nodeDelegationStyle = {
   stroke: '#1890FF',
-  fill: '#fff',
+  fill: '#ffffff',
   fillOpacity: 0.8,
   lineDash: [4, 4],
   radius: 4,
   lineWidth: 2,
+  shadowBlur: 30,
+  shadowColor: '#1890FF',
   cursor: 'move',
 };
 
@@ -32,10 +34,12 @@ export default function(G6, moveConfirm) {
       if (!this.shouldBegin.call(this, e)) {
         return;
       }
-      this.target = e.item;
+      const { item } = e;
+      this.target = item;
       this.origin = {
         x: e.x,
         y: e.y,
+        allowLink: null,
       };
     },
     onDrag(e) {
@@ -70,7 +74,8 @@ export default function(G6, moveConfirm) {
       } else {
         const x = e.x - origin.x + this.point.x;
         const y = e.y - origin.y + this.point.y;
-        this.origin = { x: e.x, y: e.y };
+        Object.assign(this.origin, { x: e.x, y: e.y });
+        // this.origin = { x: e.x, y: e.y };
         this.point = { x, y };
         if (this.delegate) {
           this._updateDelegate(this.target, x, y);
@@ -81,25 +86,23 @@ export default function(G6, moveConfirm) {
       const { item } = e;
       const enterModel = item.getModel();
       const targetModel = this.target.getModel();
-      if (
-        enterModel.id !== targetModel.parentId &&
-        enterModel.id !== targetModel.id &&
-        !enterModel.finished
-      ) {
-        this.graph.setItemState(item, 'dragEnter', true);
-      } else {
-        this.graph.setItemState(item, 'noDrag', true);
+      if (enterModel.id !== targetModel.id) {
+        if (enterModel.id !== targetModel.parentId && !enterModel.finished) {
+          this.graph.setItemState(item, 'dragEnter', true);
+          this.origin.allowLink = true;
+        } else {
+          this.origin.allowLink = false;
+          this.graph.setItemState(item, 'dragEnter', false);
+        }
       }
     },
     onDragLeave(e) {
       const { item } = e;
+      this.origin.allowLink = null;
       this.graph.setItemState(item, 'dragEnter', false);
-      this.graph.setItemState(item, 'noDrag', false);
     },
     onDrop(e) {
       const { item } = e;
-      this.graph.setItemState(item, 'dragEnter', false);
-      this.graph.setItemState(item, 'noDrag', false);
       const enterModel = item.getModel();
       const targetModel = this.target.getModel();
       if (
@@ -109,6 +112,8 @@ export default function(G6, moveConfirm) {
       ) {
         moveConfirm(targetModel, enterModel);
       }
+      this.origin.allowLink = null;
+      this.graph.setItemState(item, 'dragEnter', false);
     },
     onDragEnd(e) {
       if (!this.shouldEnd.call(this, e)) {
@@ -119,6 +124,8 @@ export default function(G6, moveConfirm) {
       }
       const delegateShape = e.item.get('delegateShape');
       const delegateShapeLabel = e.item.get('delegateShapeLabel');
+      const shapeStatus = e.item.get('delegateShapeStatus');
+      const statusWrap = e.item.get('delegateShapeStatusWrap');
       const groupId = this.target.get('groupId');
       if (groupId) {
         if (delegateShape) {
@@ -129,8 +136,12 @@ export default function(G6, moveConfirm) {
           // const y = bbox.y + bbox.height / 2 - subProcessBBox.y - subProcessBBox.height / 2;
           delegateShape.remove();
           delegateShapeLabel.remove();
+          shapeStatus.remove();
+          statusWrap.remove();
           this.target.set('delegateShape', null);
           this.target.set('delegateShapeLabel', null);
+          this.target.set('delegateShapeStatus', null);
+          this.target.set('delegateShapeStatusWrap', null);
           // const group = subProcessNode.getContainer();
           // const id = this.target.get('id');
           // const resultModel = group.updateNodeModel(subProcessNode, id, { x, y });
@@ -142,8 +153,12 @@ export default function(G6, moveConfirm) {
         // const y = bbox.y + bbox.height / 2;
         delegateShape.remove();
         delegateShapeLabel.remove();
+        shapeStatus.remove();
+        statusWrap.remove();
         this.target.set('delegateShape', null);
         this.target.set('delegateShapeLabel', null);
+        this.target.set('delegateShapeStatus', null);
+        this.target.set('delegateShapeStatusWrap', null);
         // this._updateItem(this.target, { x, y });
       }
       this.point = null;
@@ -167,8 +182,51 @@ export default function(G6, moveConfirm) {
       const self = this;
       const { name } = item.getModel();
       let shapeLabel = item.get('delegateShapeLabel');
+      let shapeStatus = item.get('delegateShapeStatus');
       let shape = item.get('delegateShape');
+      let statusWrap = item.get('delegateShapeStatusWrap');
       const bbox = item.get('keyShape').getBBox();
+      let shapeAttr = { ...nodeDelegationStyle };
+      let labelAttr = { fill: '#1890FF' };
+      let statusAttr = { text: '' };
+      let statusWrapAttr = { opacity: 0 };
+      if (this.origin.allowLink === true) {
+        shapeAttr = {
+          stroke: '#0ba679',
+          fill: '#f6ffed',
+          shadowColor: '#0ba679',
+        };
+        labelAttr = { fill: '#0ba679' };
+        statusAttr = {
+          fill: '#0ba679',
+          text: '✓',
+          x: -6 + x - bbox.width / 2,
+        };
+        statusWrapAttr = {
+          stroke: '#0ba679',
+          fill: '#f6ffed',
+          opacity: 1,
+          shadowColor: '#0ba679',
+        };
+      }
+      if (this.origin.allowLink === false) {
+        labelAttr = { fill: '#f5222d' };
+        shapeAttr = {
+          stroke: '#f5222d',
+          fill: '#fff1f0',
+          shadowColor: '#f5222d',
+        };
+        statusAttr = {
+          fill: '#f5222d',
+          text: '✖',
+        };
+        statusWrapAttr = {
+          stroke: '#f5222d',
+          fill: '#fff1f0',
+          opacity: 1,
+          shadowColor: '#f5222d',
+        };
+      }
       if (!shape) {
         const parent = self.graph.get('group');
         const attrs = nodeDelegationStyle;
@@ -181,6 +239,7 @@ export default function(G6, moveConfirm) {
             y: y - bbox.height / 2,
             nodeId: item.get('id'),
             name: 'drag-ghost-shape',
+            cursor: 'move',
             ...attrs,
           },
         });
@@ -189,21 +248,53 @@ export default function(G6, moveConfirm) {
             width: bbox.width,
             height: bbox.height,
             x: 12 + x - bbox.width / 2,
-            y: 20 + y - bbox.height / 2,
+            y: 37 + y - bbox.height / 2,
             text: name.length > 20 ? `${name.substr(0, 20)}...` : name,
             fontSize: 14,
-            opacity: 0.85,
-            fill: '#000',
+            opacity: 1,
           },
           name: 'drag-name-shape',
         });
+        statusWrap = parent.addShape('rect', {
+          attrs: {
+            x: -8 + x - bbox.width / 2,
+            y: 22 + y - bbox.height / 2,
+            radius: 8,
+            width: 16,
+            height: 16,
+            lineWidth: 1,
+            shadowBlur: 10,
+          },
+          name: 'status-wrap',
+        });
+        shapeStatus = parent.addShape('text', {
+          attrs: {
+            x: -5 + x - bbox.width / 2,
+            y: 37 + y - bbox.height / 2,
+            fontSize: 14,
+            fontWeight: 700,
+            name: 'drag-status-shape',
+            opacity: 1,
+            text: '',
+          },
+        });
+        statusWrap.set('capture', false);
+        shapeStatus.set('capture', false);
         shapeLabel.set('capture', false);
-        item.set('delegateShapeLabel', shapeLabel);
         shape.set('capture', false);
+        item.set('delegateShapeStatusWrap', statusWrap);
+        item.set('delegateShapeLabel', shapeLabel);
+        item.set('delegateShapeStatus', shapeStatus);
         item.set('delegateShape', shape);
       }
-      shape.attr({ x: x - bbox.width / 2, y: y - bbox.height / 2 });
-      shapeLabel.attr({ x: 12 + x - bbox.width / 2, y: 20 + y - bbox.height / 2 });
+      shape.attr({ x: x - bbox.width / 2, y: y - bbox.height / 2, ...shapeAttr });
+      shapeLabel.attr({ x: 12 + x - bbox.width / 2, y: 37 + y - bbox.height / 2, ...labelAttr });
+      shapeStatus.attr({ x: -5 + x - bbox.width / 2, y: 37 + y - bbox.height / 2, ...statusAttr });
+      statusWrap.attr({
+        x: -8 + x - bbox.width / 2,
+        y: 22 + y - bbox.height / 2,
+        ...statusWrapAttr,
+      });
       this.graph.paint();
       this.graph.emit('afternodedrag', shape);
     },

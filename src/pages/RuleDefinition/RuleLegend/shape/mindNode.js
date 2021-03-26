@@ -32,6 +32,7 @@ export default G6 => {
 
         const rect = group.addShape('rect', {
           className: WRAPPER_CLASS_NAME,
+          draggable: true,
           attrs: {
             x: nodeOrigin.x,
             y: nodeOrigin.y,
@@ -52,6 +53,7 @@ export default G6 => {
             opacity: 0.85,
             fill: '#000',
           },
+          draggable: true,
           name: 'name-shape',
         });
 
@@ -67,6 +69,7 @@ export default G6 => {
             fill: '#f5222d',
             opacity: 1,
           },
+          draggable: true,
         });
 
         // 是否为真节点
@@ -82,6 +85,7 @@ export default G6 => {
             fill: '#0ba679',
             opacity: 1,
           },
+          draggable: true,
         });
 
         // priority
@@ -181,7 +185,7 @@ export default G6 => {
           if (value) {
             wrapperShape.attr({
               stroke: '#52c41a',
-              shadowBlur: 10,
+              shadowBlur: 30,
               shadowColor: '#3e9a11',
             });
             if (collapseBack) {
@@ -189,36 +193,6 @@ export default G6 => {
                 stroke: '#52c41a',
                 shadowBlur: 10,
                 shadowColor: '#3e9a11',
-              });
-            }
-          } else {
-            wrapperShape.attr({
-              stroke: WRAPPER_STROKE,
-              shadowBlur: 0,
-            });
-            if (collapseBack) {
-              collapseBack.attr({
-                fill: '#fff',
-                stroke: 'rgba(0, 0, 0, 0.25)',
-                shadowBlur: 0,
-              });
-            }
-          }
-        }
-        if (name === 'noDrag') {
-          const wrapperShape = group.findByClassName(WRAPPER_CLASS_NAME);
-          const collapseBack = group.find(e => e.get('name') === 'collapse-back');
-          if (value) {
-            wrapperShape.attr({
-              stroke: '#f5222d',
-              shadowBlur: 10,
-              shadowColor: '#b71a22',
-            });
-            if (collapseBack) {
-              collapseBack.attr({
-                stroke: '#f5222d',
-                shadowBlur: 10,
-                shadowColor: '#b71a22',
               });
             }
           } else {

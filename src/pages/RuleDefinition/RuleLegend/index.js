@@ -463,6 +463,10 @@ class RuleLegend extends Component {
       graph.setItemState(e.item, 'active', false);
       this.hideNodePath('active');
     });
+    graph.on('node:mouseleave', e => {
+      graph.setItemState(e.item, 'active', false);
+      this.hideNodePath('active');
+    });
     graph.on('nodeselectchange', e => {
       const {
         selectedItems: { nodes },
