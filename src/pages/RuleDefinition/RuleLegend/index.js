@@ -135,7 +135,7 @@ class RuleLegend extends Component {
     const { dispatch } = this.props;
     this.confirmModal = Modal.confirm({
       title: `移动规则节点`,
-      content: `确定要将规则节点【${get(node, 'name')}】移动到【${get(target, 'name')}】下吗?`,
+      content: `规则节点【${get(node, 'name')}】即将移动到【${get(target, 'name')}】下`,
       okButtonProps: { type: 'primary' },
       style: { top: '20%' },
       okText: '确定',
