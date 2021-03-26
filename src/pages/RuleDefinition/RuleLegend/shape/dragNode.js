@@ -82,12 +82,35 @@ export default function(G6, moveConfirm) {
         }
       }
     },
+    getCurrentNodeAllParentIds(id) {
+      const treeData = [this.graph.get('data')];
+      const temp = [];
+      const forFn = (arr, tempId) => {
+        for (let i = 0; i < arr.length; i += 1) {
+          const item = arr[i];
+          if (item.id === tempId) {
+            temp.push(item.id);
+            forFn(treeData, item.parentId);
+            break;
+          } else if (item.children && item.children.length > 0) {
+            forFn(item.children, tempId);
+          }
+        }
+      };
+      forFn(treeData, id);
+      return temp;
+    },
     onDragEnter(e) {
       const { item } = e;
       const enterModel = item.getModel();
       const targetModel = this.target.getModel();
+      const endterParentIds = this.getCurrentNodeAllParentIds(enterModel.id);
       if (enterModel.id !== targetModel.id) {
-        if (enterModel.id !== targetModel.parentId && !enterModel.finished) {
+        if (
+          enterModel.id !== targetModel.parentId &&
+          !enterModel.finished &&
+          endterParentIds.indexOf(targetModel.id) === -1
+        ) {
           this.graph.setItemState(item, 'dragEnter', true);
           this.origin.allowLink = true;
         } else {
@@ -105,10 +128,13 @@ export default function(G6, moveConfirm) {
       const { item } = e;
       const enterModel = item.getModel();
       const targetModel = this.target.getModel();
+      const endterParentIds = this.getCurrentNodeAllParentIds(enterModel.id);
       if (
         enterModel.id !== targetModel.parentId &&
         enterModel.id !== targetModel.id &&
-        !enterModel.finished
+        !enterModel.finished &&
+        !enterModel.finished &&
+        endterParentIds.indexOf(targetModel.id) === -1
       ) {
         moveConfirm(targetModel, enterModel);
       }
