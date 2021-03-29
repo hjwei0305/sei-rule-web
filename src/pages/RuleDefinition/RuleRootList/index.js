@@ -180,13 +180,13 @@ class RuleRootList extends Component {
     });
   };
 
-  showRuleLegend = (currentRuleRoot, matchedNodeId) => {
+  showRuleLegend = (currentRuleRoot, matchedNodeIds) => {
     const { dispatch } = this.props;
     dispatch({
       type: 'ruleRootNode/updateState',
       payload: {
         showRuleLegend: true,
-        matchedNodeId,
+        matchedNodeIds,
         currentRuleRoot,
       },
     });
@@ -200,7 +200,7 @@ class RuleRootList extends Component {
         showModal: false,
         showCopyModal: false,
         currentRuleRoot: null,
-        matchedNodeId: null,
+        matchedNodeIds: null,
         showRuleLegend: false,
       },
     });
@@ -258,7 +258,7 @@ class RuleRootList extends Component {
       showRuleLegend,
       showRuleTest,
       currentRuleType,
-      matchedNodeId,
+      matchedNodeIds,
     } = ruleRootNode;
     const columns = [
       {
@@ -350,7 +350,7 @@ class RuleRootList extends Component {
     const ruleLegendProps = {
       ruleRoot: currentRuleRoot,
       ruleType: currentRuleType,
-      matchedNodeId,
+      matchedNodeIds,
       closeRuleModal: this.closeModal,
     };
     const ruleTestProps = {

@@ -4,15 +4,29 @@ import { connect } from 'dva';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import copy from 'copy-to-clipboard';
-import { Drawer, Layout, Button, Result, Descriptions, Switch, Tag, message, Popover } from 'antd';
+import {
+  Drawer,
+  Layout,
+  Button,
+  Result,
+  Descriptions,
+  Switch,
+  Skeleton,
+  Card,
+  Tag,
+  message,
+  Popover,
+  Collapse,
+} from 'antd';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
 import 'ace-builds/src-noconflict/theme-tomorrow';
 import 'ace-builds/src-noconflict/theme-github';
 import { utils, BannerTitle, ExtIcon, ScrollBar } from 'suid';
-import empty from '@/assets/tip.svg';
 import styles from './index.less';
 
+const { Meta } = Card;
+const { Panel } = Collapse;
 const { getUUID } = utils;
 const { Sider, Content } = Layout;
 
@@ -113,16 +127,6 @@ class RuleTest extends PureComponent {
     }
   };
 
-  goback = () => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'ruleTestRun/updateState',
-      payload: {
-        ruleTestResult: null,
-      },
-    });
-  };
-
   backAndStart = () => {
     this.handlerStart();
   };
@@ -132,17 +136,14 @@ class RuleTest extends PureComponent {
       ruleTestRun: { ruleTestResult },
       showRuleLegend,
     } = this.props;
-    const { matched, ruleTreeRoot, matchedNodeId } = ruleTestResult;
-    if (matched && ruleTreeRoot && showRuleLegend && showRuleLegend instanceof Function) {
-      showRuleLegend(ruleTreeRoot, matchedNodeId);
+    const { ruleTreeRoot, responses } = ruleTestResult;
+    if (ruleTreeRoot && showRuleLegend && showRuleLegend instanceof Function) {
+      const ids = responses.map(r => r.matchedNodeId);
+      showRuleLegend(ruleTreeRoot, ids);
     }
   };
 
-  handlerCopy = () => {
-    const {
-      ruleTestRun: { ruleTestResult },
-    } = this.props;
-    const { returnEntityMap } = ruleTestResult || {};
+  handlerCopy = returnEntityMap => {
     if (returnEntityMap) {
       copy(JSON.stringify(returnEntityMap));
       message.success(`已复制到粘贴板`);
@@ -198,24 +199,9 @@ class RuleTest extends PureComponent {
       ruleTestRun: { ruleTestResult },
     } = this.props;
     if (ruleTestResult) {
-      const { matched } = ruleTestResult;
-      if (matched) {
-        return <ExtIcon type="check-circle" antd style={{ color: '#25a77e' }} />;
-      }
-      return <ExtIcon type="close-circle" antd style={{ color: '#ff4d4f' }} />;
+      return <ExtIcon type="check-circle" antd style={{ color: '#25a77e' }} />;
     }
-    return <img src={empty} alt="" />;
-  };
-
-  renderExecuteMethodDesc = executed => {
-    const { executeMethod } = this.state;
-    if (executed) {
-      return <Tag color="blue">执行了服务方法成功</Tag>;
-    }
-    if (executeMethod) {
-      return <Tag color="red">执行了服务方法失败</Tag>;
-    }
-    return <Tag color="blue">未执行服务方法</Tag>;
+    return null;
   };
 
   renderReturnEntityMap = data => {
@@ -245,58 +231,126 @@ class RuleTest extends PureComponent {
     );
   };
 
+  renderRuleTestResult = () => {
+    const {
+      loading,
+      ruleTestRun: { ruleTestResult },
+    } = this.props;
+    const { ruleTreeRoot, responses } = ruleTestResult;
+    const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
+    const expKeys = responses.map(r => r.matchedNodeId);
+    return (
+      <>
+        <Card
+          bordered={false}
+          className="result-detail-box"
+          title="命中规则"
+          extra={
+            <>
+              <Button type="primary" loading={startLoading} onClick={this.backAndStart}>
+                继续测试
+              </Button>
+              <Button
+                onClick={this.showRuleLegend}
+                disabled={responses.length === 0 || startLoading}
+              >
+                查看规则树
+              </Button>
+            </>
+          }
+        >
+          <Skeleton loading={startLoading} avatar active>
+            <Meta
+              title={get(ruleTreeRoot, 'name')}
+              description={
+                <span>
+                  优先级：<em className="count">{get(ruleTreeRoot, 'rank') || '-'}</em> ，共命中{' '}
+                  <em className="count">{responses.length}</em> 条规则链
+                </span>
+              }
+            />
+          </Skeleton>
+        </Card>
+        {startLoading === false && responses.length > 0 ? (
+          <>
+            <div className="detail-header">规则链返回结果</div>
+            <Collapse defaultActiveKey={expKeys} bordered={false}>
+              {responses.map((res, idx) => {
+                const { returnConstant, returnEntityMap, matchedNodeId, matchedNodeName } = res;
+                return (
+                  <Panel
+                    key={matchedNodeId}
+                    header={
+                      <>
+                        <Tag style={{ marginRight: 4 }}>{idx + 1}</Tag>
+                        {matchedNodeName}
+                      </>
+                    }
+                  >
+                    <Descriptions column={1} className="result-detail">
+                      <Descriptions.Item label="返回常量">
+                        {returnConstant || '-'}
+                      </Descriptions.Item>
+                      <Descriptions.Item label="返回的实体" className="message-text">
+                        {returnEntityMap ? (
+                          <>
+                            <ExtIcon
+                              type="copy"
+                              className="copy-btn"
+                              antd
+                              tooltip={{ title: '复制内容到粘贴板' }}
+                              onClick={() => this.handlerCopy(returnEntityMap)}
+                            />
+                            {this.renderReturnEntityMap(returnEntityMap)}
+                          </>
+                        ) : (
+                          '无'
+                        )}
+                      </Descriptions.Item>
+                    </Descriptions>
+                  </Panel>
+                );
+              })}
+            </Collapse>
+          </>
+        ) : null}
+      </>
+    );
+  };
+
   renderResultContent = () => {
     const {
       ruleTestRun: { ruleTestResult },
       loading,
     } = this.props;
-    if (ruleTestResult) {
-      const { allChains } = this.state;
-      const { matched, returnConstant, ruleTreeRoot, returnEntityMap } = ruleTestResult;
-      return (
-        <>
-          <Descriptions title="测试结果" column={1} className="result-detail">
-            <Descriptions.Item label="规则匹配">
-              {matched ? <Tag color="green">成功</Tag> : <Tag color="red">失败</Tag>}
-            </Descriptions.Item>
-            <Descriptions.Item label="执行服务方法">
-              {this.renderExecuteMethodDesc()}
-            </Descriptions.Item>
-            <Descriptions.Item label="执行所有规则链">{allChains ? '是' : '否'}</Descriptions.Item>
-            <Descriptions.Item label="返回常量">{returnConstant || '-'}</Descriptions.Item>
-            <Descriptions.Item label="命中的规则名称">
-              {get(ruleTreeRoot, 'name') || '-'}
-            </Descriptions.Item>
-            <Descriptions.Item label="命中的规则优先级">
-              {get(ruleTreeRoot, 'rank') || '-'}
-            </Descriptions.Item>
-            <Descriptions.Item label="返回的实体" className="message-text">
-              <ExtIcon
-                type="copy"
-                className="copy-btn"
-                antd
-                tooltip={{ title: '复制内容到粘贴板' }}
-                onClick={() => this.handlerCopy('url')}
-              />
-              {this.renderReturnEntityMap(returnEntityMap)}
-            </Descriptions.Item>
-          </Descriptions>
-        </>
-      );
-    }
     const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
+    const { allChains, executeMethod } = this.state;
     return (
-      <div className="form-box">
-        <div className="check-btn">
-          <span className="label">执行服务方法</span>
-          <Switch size="small" disabled={startLoading} onChange={this.handlerServiceMethodChange} />
-        </div>
-        <div className="check-btn">
-          <span className="label">执行所有规则链</span>
-          <Switch size="small" disabled={startLoading} onChange={this.handlerAllChainsChange} />
-        </div>
-        <div>请输入JSON后开始</div>
-      </div>
+      <>
+        <Card size="small" title="测试选项" bordered={false}>
+          <div className="form-box">
+            <div className="check-btn">
+              <span className="label">执行服务方法</span>
+              <Switch
+                size="small"
+                checked={executeMethod}
+                disabled={startLoading}
+                onChange={this.handlerServiceMethodChange}
+              />
+            </div>
+            <div className="check-btn">
+              <span className="label">执行所有规则链</span>
+              <Switch
+                size="small"
+                checked={allChains}
+                disabled={startLoading}
+                onChange={this.handlerAllChainsChange}
+              />
+            </div>
+          </div>
+        </Card>
+        {ruleTestResult ? this.renderRuleTestResult() : null}
+      </>
     );
   };
 
@@ -309,30 +363,16 @@ class RuleTest extends PureComponent {
     } = this.props;
     const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
     if (ruleTestResult) {
-      const { matched } = ruleTestResult;
-      return (
-        <>
-          <Button type="primary" loading={startLoading} onClick={this.backAndStart}>
-            再次执行
-          </Button>
-          <Button disabled={startLoading} onClick={this.goback}>
-            返回测试
-          </Button>
-          <Button onClick={this.showRuleLegend} disabled={!matched || startLoading}>
-            查看规则树
-          </Button>
-        </>
-      );
+      return null;
     }
     return (
       <div className="start-btn-box">
         {startLoading ? <div className="loading" /> : null}
         <Button
           onClick={this.handlerStart}
-          className="start-btn"
+          className={cls('start-btn', { enabled: !startLoading && !startDisabled })}
           shape="circle"
           style={{ width: 100, height: 100 }}
-          type="primary"
           disabled={startLoading || startDisabled}
         >
           开始测试
@@ -342,7 +382,10 @@ class RuleTest extends PureComponent {
   };
 
   render() {
-    const { showTest } = this.props;
+    const {
+      showTest,
+      ruleTestRun: { ruleTestResult },
+    } = this.props;
     const { ruleEntityJson } = this.state;
     return (
       <Drawer
@@ -383,6 +426,7 @@ class RuleTest extends PureComponent {
             <ScrollBar>
               <Result
                 icon={this.renderResultIcon()}
+                title={ruleTestResult ? '测试结果' : ''}
                 subTitle={this.renderResultContent()}
                 extra={this.renderResultButton()}
               />

@@ -40,11 +40,9 @@
         text-align: left;
       }
       .ant-descriptions-item-label {
-        width: 136px;
+        width: 80px;
         padding-right: 0;
-        color: fade(@black, 65%);
-        font-weight: 700;
-        text-align-last: justify;
+        color: fade(@black, 85%);
       }
       .ant-descriptions-item-content {
         word-break: break-word;
@@ -84,10 +82,8 @@
       }
     }
     .ant-result-subtitle {
-      width: 220px;
       margin: 0 auto;
       text-align: left;
-
       .check-btn {
         display: flex;
         align-items: center;
@@ -95,11 +91,53 @@
         .label {
           width: 110px;
           color: fade(@black, 65%);
-          text-align: right;
           &::after {
             padding: 0 4px;
             content: ':';
           }
+        }
+      }
+      .form-box {
+        width: 150px;
+      }
+      .ant-card-head {
+        border-bottom-color: transparent;
+      }
+      .ant-card-extra {
+        button {
+          margin-left: 8px;
+        }
+      }
+      .detail-header {
+        height: 60px;
+        padding: 0 8px;
+        color: rgba(0, 0, 0, 0.85);
+        font-weight: 700;
+        line-height: 60px;
+      }
+      .result-detail-box {
+        .ant-card-head {
+          padding-left: 8px;
+        }
+        .ant-card-body {
+          padding: 24px 8px;
+          .ant-card-meta-title {
+            color: fade(@black, 65%);
+            font-style: italic;
+          }
+        }
+        .count {
+          color: @primary-color;
+        }
+      }
+      .ant-collapse-header {
+        .ant-collapse-arrow {
+          color: fade(@black, 45%);
+        }
+      }
+      .ant-collapse-item {
+        &:last-child {
+          border-bottom-color: transparent;
         }
       }
     }
@@ -111,7 +149,23 @@
       height: 120px;
       .start-btn {
         position: absolute;
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.16);
+        &.enabled {
+          color: #fff;
+          font-weight: 700;
+          font-size: 16px;
+          background-color: #25b864;
+          border-color: #25b864;
+          box-shadow: 0 0 0 2px rgba(35, 184, 100, 0.2);
+          &:hover,
+          &:focus {
+            background-color: #47c479;
+            border-color: #47c479;
+          }
+          &:active {
+            background-color: #16914f;
+            border-color: #16914f;
+          }
+        }
       }
     }
     .loading {
