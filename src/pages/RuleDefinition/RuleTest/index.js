@@ -17,6 +17,7 @@ import {
   message,
   Popover,
   Collapse,
+  Alert,
 } from 'antd';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-json';
@@ -67,6 +68,7 @@ class RuleTest extends PureComponent {
       type: 'ruleTestRun/updateState',
       payload: {
         ruleTestResult: null,
+        error: null,
       },
     });
   }
@@ -196,10 +198,13 @@ class RuleTest extends PureComponent {
 
   renderResultIcon = () => {
     const {
-      ruleTestRun: { ruleTestResult },
+      ruleTestRun: { ruleTestResult, error },
     } = this.props;
     if (ruleTestResult) {
       return <ExtIcon type="check-circle" antd style={{ color: '#25a77e' }} />;
+    }
+    if (error) {
+      return <ExtIcon type="close-circle" antd style={{ color: '#f5222d' }} />;
     }
     return null;
   };
@@ -323,7 +328,7 @@ class RuleTest extends PureComponent {
 
   renderResultContent = () => {
     const {
-      ruleTestRun: { ruleTestResult },
+      ruleTestRun: { ruleTestResult, error },
       loading,
     } = this.props;
     const startLoading = loading.effects['ruleTestRun/ruleTestStartRun'];
@@ -352,6 +357,7 @@ class RuleTest extends PureComponent {
             </div>
           </div>
         </Card>
+        {error ? <Alert message={error} type="error" /> : null}
         {ruleTestResult ? this.renderRuleTestResult() : null}
       </>
     );
@@ -387,9 +393,10 @@ class RuleTest extends PureComponent {
   render() {
     const {
       showTest,
-      ruleTestRun: { ruleTestResult },
+      ruleTestRun: { ruleTestResult, error },
     } = this.props;
     const { ruleEntityJson } = this.state;
+
     return (
       <Drawer
         width="100%"
@@ -429,7 +436,7 @@ class RuleTest extends PureComponent {
             <ScrollBar>
               <Result
                 icon={this.renderResultIcon()}
-                title={ruleTestResult ? '测试结果' : '请在左侧输入测试Json'}
+                title={ruleTestResult || error ? '测试结果' : '请在左侧输入测试Json'}
                 subTitle={this.renderResultContent()}
                 extra={this.renderResultButton()}
               />
