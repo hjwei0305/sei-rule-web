@@ -291,7 +291,10 @@ class RuleTest extends PureComponent {
                       <Descriptions.Item label="返回常量">
                         {returnConstant || '-'}
                       </Descriptions.Item>
-                      <Descriptions.Item label="返回的实体" className="message-text">
+                      <Descriptions.Item
+                        label="返回的实体"
+                        className={cls({ 'message-text': !!returnEntityMap })}
+                      >
                         {returnEntityMap ? (
                           <>
                             <ExtIcon
