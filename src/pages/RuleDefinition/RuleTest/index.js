@@ -426,7 +426,7 @@ class RuleTest extends PureComponent {
             <ScrollBar>
               <Result
                 icon={this.renderResultIcon()}
-                title={ruleTestResult ? '测试结果' : ''}
+                title={ruleTestResult ? '测试结果' : '请在左侧输入测试Json'}
                 subTitle={this.renderResultContent()}
                 extra={this.renderResultButton()}
               />
