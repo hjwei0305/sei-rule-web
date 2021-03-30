@@ -160,6 +160,34 @@ class ExpressionForm extends Component {
         </FormItem>
       );
     }
+    if (comparisonOperator === 'FUNCTION') {
+      listProps = {
+        form,
+        name: 'displayValue',
+        store: {
+          url: `${SERVER_PATH}/sei-rule/ruleAttribute/getCanUseFunctions`,
+        },
+        cascadeParams: {
+          ruleAttributeId: get(itemData, 'ruleAttributeId'),
+        },
+        afterSelect: item => {
+          getFieldDecorator('comparisonValue');
+          form.setFieldsValue({ comparisonValue: get(item, 'code') });
+        },
+        reader: {
+          name: 'name',
+          description: 'code',
+        },
+      };
+      return (
+        <FormItem label="属性值" {...formItemLayout} style={formItemStyle}>
+          {getFieldDecorator('displayValue', {
+            initialValue: get(itemData, 'displayValue') || '',
+            rules,
+          })(<ComboList {...listProps} />)}
+        </FormItem>
+      );
+    }
     if (uiComponent) {
       const findDataUrl = get(itemData, 'ruleAttributeFindDataUrl');
       const displayField = get(itemData, 'ruleAttributeDisplayField');
@@ -335,7 +363,7 @@ class ExpressionForm extends Component {
         });
         form.resetFields(['displayValue', 'comparisonValue']);
         let actionKey = originAtionKey;
-        if (comparisonOperator === 'COMPARER') {
+        if (comparisonOperator === 'COMPARER' || comparisonOperator === 'FUNCTION') {
           actionKey = ATTRIBUTE_ACTION.NORMAL.key;
         }
         this.setState({ itemData: formData, actionKey });
