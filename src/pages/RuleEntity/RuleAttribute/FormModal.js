@@ -70,7 +70,7 @@ class FormModal extends PureComponent {
         wrapClassName={styles['form-modal-box']}
         bodyStyle={{ padding: 0 }}
         confirmLoading={saving}
-        title={<BannerTitle title={title} subTitle="属性" />}
+        title={<BannerTitle title={title} subTitle="规则属性" />}
         onOk={this.handlerFormSubmit}
       >
         <Form {...formItemLayout} layout="horizontal" style={{ margin: 24 }}>
