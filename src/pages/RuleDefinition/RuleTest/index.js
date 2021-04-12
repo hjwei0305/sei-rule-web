@@ -250,6 +250,7 @@ class RuleTest extends PureComponent {
           bordered={false}
           className="result-detail-box"
           title="命中规则"
+          size="small"
           extra={
             <>
               <Button type="primary" loading={startLoading} onClick={this.backAndStart}>
