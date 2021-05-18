@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { get } from 'lodash';
+import { get, isEqual } from 'lodash';
 import { Card, Form, Popconfirm, Icon, Avatar, Input } from 'antd';
 import { ComboList } from 'suid';
 import { constants } from '../../../../utils';
@@ -21,16 +21,9 @@ class ReturnResultForm extends Component {
   constructor(props) {
     super(props);
     const { itemData } = props;
-    let ruleReturnType = null;
-    if (itemData) {
-      ruleReturnType = {
-        ruleReturnTypeId: get(itemData, 'ruleReturnTypeId'),
-        ruleReturnTypeName: get(itemData, 'ruleReturnTypeName'),
-        findDataUrl: get(itemData, 'ruleReturnTypeFindDataUrl'),
-        uiComponent: get(itemData, 'ruleReturnTypeUiComponent'),
-      };
-    }
+    const ruleReturnType = this.getRuleReturnType(itemData);
     this.state = {
+      itemData,
       ruleReturnType,
     };
   }
@@ -40,9 +33,31 @@ class ReturnResultForm extends Component {
     onReturnResultItemFormRefs(itemData.id || itemData.tmpId, this);
   }
 
+  componentDidUpdate(preProps) {
+    const { itemData } = this.props;
+    if (!isEqual(preProps.itemData, itemData)) {
+      const ruleReturnType = this.getRuleReturnType(itemData);
+      this.setState({ itemData, ruleReturnType });
+    }
+  }
+
+  getRuleReturnType = itemData => {
+    let ruleReturnType = null;
+    if (itemData) {
+      ruleReturnType = {
+        ruleReturnTypeId: get(itemData, 'ruleReturnTypeId'),
+        ruleReturnTypeName: get(itemData, 'ruleReturnTypeName'),
+        findDataUrl: get(itemData, 'ruleReturnTypeFindDataUrl'),
+        uiComponent: get(itemData, 'ruleReturnTypeUiComponent'),
+      };
+    }
+    return ruleReturnType;
+  };
+
   /** 获取表单数据 */
   getFormData = () => {
-    const { form, itemData } = this.props;
+    const { form } = this.props;
+    const { itemData } = this.state;
     let formData = null;
     form.validateFields((err, values) => {
       if (!err) {
@@ -58,7 +73,8 @@ class ReturnResultForm extends Component {
   };
 
   renderReturnValue = () => {
-    const { form, itemData, onlyView } = this.props;
+    const { itemData } = this.state;
+    const { form, onlyView } = this.props;
     const { getFieldDecorator } = form;
     getFieldDecorator('returnValueId', { initialValue: get(itemData, 'returnValueId') });
     const { ruleReturnType } = this.state;
@@ -84,6 +100,7 @@ class ReturnResultForm extends Component {
             store: {
               url: `${SERVER_PATH}/${findDataUrl}`,
             },
+            cascadeParams: {},
             field: ['returnValueId'],
             reader: {
               name: 'name',
@@ -114,14 +131,16 @@ class ReturnResultForm extends Component {
 
   deleteFormItem = e => {
     e.stopPropagation();
-    const { itemData, deleteItem } = this.props;
+    const { itemData } = this.state;
+    const { deleteItem } = this.props;
     if (deleteItem && deleteItem instanceof Function) {
       deleteItem(itemData.id || itemData.tmpId);
     }
   };
 
   render() {
-    const { form, itemData, onlyView, ruleType } = this.props;
+    const { itemData } = this.state;
+    const { form, onlyView, ruleType } = this.props;
     const { getFieldDecorator } = form;
     getFieldDecorator('ruleReturnTypeId', { initialValue: get(itemData, 'ruleReturnTypeId') });
     const ruleReturnTypeProps = {
@@ -135,11 +154,17 @@ class ReturnResultForm extends Component {
       },
       field: ['ruleReturnTypeId'],
       afterSelect: item => {
+        const { itemData: originItemData } = this.state;
+        const formData = { ...originItemData };
         const { ruleReturnType } = this.state;
         if (get(ruleReturnType, 'id') !== item.id) {
+          Object.assign(formData, {
+            returnValueName: '',
+            returnValueId: '',
+          });
           form.resetFields(['returnValueName', 'returnValueId']);
+          this.setState({ ruleReturnType: item, itemData: formData });
         }
-        this.setState({ ruleReturnType: item });
       },
       reader: {
         name: 'name',

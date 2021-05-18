@@ -283,7 +283,8 @@ class ExpressionForm extends Component {
 
   deleteFormItem = e => {
     e.stopPropagation();
-    const { itemData, deleteItem } = this.props;
+    const { itemData } = this.state;
+    const { deleteItem } = this.props;
     if (deleteItem && deleteItem instanceof Function) {
       deleteItem(itemData.id || itemData.tmpId);
     }
