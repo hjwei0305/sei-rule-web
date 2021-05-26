@@ -142,6 +142,7 @@ class ExpressionForm extends Component {
             ruleEntityTypeId: get(ruleType, 'ruleEntityTypeId'),
           },
         },
+        cascadeParams: {},
         afterSelect: item => {
           getFieldDecorator('comparisonValue');
           form.setFieldsValue({ comparisonValue: get(item, 'id') });
@@ -241,6 +242,7 @@ class ExpressionForm extends Component {
             store: {
               url: `${SERVER_PATH}/${findDataUrl}`,
             },
+            cascadeParams: {},
             afterSelect: item => {
               getFieldDecorator('comparisonValue');
               form.setFieldsValue({ comparisonValue: get(item, valueField) });
