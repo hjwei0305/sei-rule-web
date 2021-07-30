@@ -428,11 +428,7 @@ class NodeForm extends Component {
                   deleteItem: this.onDeleteExpressItem,
                   onExpressItemFormRefs: this.onExpressItemFormRefs,
                 };
-                /** 使用表单独立作用域 */
-                const WrappedExpressionForm = Form.create({ name: itemKey })(props => (
-                  <ExpressionForm {...props} {...expressionFormProps} />
-                ));
-                return <WrappedExpressionForm key={itemKey} />;
+                return <ExpressionForm key={itemKey} {...expressionFormProps} />;
               })}
               <BlankTrigger
                 title="新建表达式"
@@ -493,11 +489,7 @@ class NodeForm extends Component {
                   deleteItem: this.onDeleteReturnResultItem,
                   onReturnResultItemFormRefs: this.onReturnResultItemFormRefs,
                 };
-                /** 使用表单独立作用域 */
-                const WrappedReturnResultForm = Form.create({ name: itemKey })(props => (
-                  <ReturnResultForm {...props} {...returnResultFormProps} />
-                ));
-                return <WrappedReturnResultForm key={itemKey} />;
+                return <ReturnResultForm key={itemKey} {...returnResultFormProps} />;
               })}
               <BlankTrigger
                 title="新建返回结果"

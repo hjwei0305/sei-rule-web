@@ -20,6 +20,7 @@ const formItemLayout = {
   },
 };
 
+@Form.create()
 class ExpressionForm extends Component {
   constructor(props) {
     super(props);

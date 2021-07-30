@@ -17,6 +17,7 @@ const formItemLayout = {
   },
 };
 
+@Form.create()
 class ReturnResultForm extends Component {
   constructor(props) {
     super(props);
