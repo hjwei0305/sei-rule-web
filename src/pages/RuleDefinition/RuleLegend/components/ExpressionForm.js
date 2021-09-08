@@ -58,7 +58,12 @@ class ExpressionForm extends Component {
         Object.assign(formData, values);
         Object.assign(formData, { comparisonValueType: actionKey });
         const uiComponent = get(formData, 'ruleAttributeUiComponent');
-        if (uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code) {
+        const comparisonOperator = get(formData, 'comparisonOperator');
+        if (
+          uiComponent === ATTRIBUTE_UI_COMPONENT.DATEPICKER.code &&
+          comparisonOperator !== 'COMPARER' &&
+          comparisonOperator !== 'FUNCTION'
+        ) {
           Object.assign(formData, {
             comparisonValue: moment(formData.comparisonValue).format(Ymd),
           });
@@ -96,6 +101,7 @@ class ExpressionForm extends Component {
     const attributeLabelProps = {
       onAction: this.handlerAttributeLabelChange,
       actionKey,
+      disabled: onlyView,
     };
     /**
      * 其它属性选择优先级最高
@@ -129,7 +135,7 @@ class ExpressionForm extends Component {
           {getFieldDecorator('displayValue', {
             initialValue: get(itemData, 'displayValue') || '',
             rules,
-          })(<ComboList {...listProps} />)}
+          })(<ComboList {...listProps} disabled={onlyView} />)}
         </FormItem>
       );
     }
@@ -158,7 +164,7 @@ class ExpressionForm extends Component {
           {getFieldDecorator('displayValue', {
             initialValue: get(itemData, 'displayValue') || '',
             rules,
-          })(<ComboList {...listProps} />)}
+          })(<ComboList {...listProps} disabled={onlyView} />)}
         </FormItem>
       );
     }
@@ -186,7 +192,7 @@ class ExpressionForm extends Component {
           {getFieldDecorator('displayValue', {
             initialValue: get(itemData, 'displayValue') || '',
             rules,
-          })(<ComboList {...listProps} />)}
+          })(<ComboList {...listProps} disabled={onlyView} />)}
         </FormItem>
       );
     }

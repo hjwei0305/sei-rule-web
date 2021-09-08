@@ -6,7 +6,7 @@ import styles from './index.less';
 
 const { ATTRIBUTE_ACTION } = constants;
 const { Item } = Menu;
-const AttributeLabel = ({ onAction, actionKey }) => {
+const AttributeLabel = ({ onAction, actionKey, disabled }) => {
   const getTitle = () => {
     let title = ATTRIBUTE_ACTION.NORMAL.name;
     if (actionKey && ATTRIBUTE_ACTION[actionKey]) {
@@ -29,7 +29,7 @@ const AttributeLabel = ({ onAction, actionKey }) => {
   };
 
   return (
-    <Dropdown overlay={renderMenuAction()} trigger={['click']}>
+    <Dropdown disabled={disabled} overlay={renderMenuAction()} trigger={['click']}>
       <span className={styles['attr-box']}>
         <span className="label">{getTitle()}</span>
         <ExtIcon type="down" style={{ marginLeft: 2 }} antd tooltip={{ title: '切换数据' }} />
