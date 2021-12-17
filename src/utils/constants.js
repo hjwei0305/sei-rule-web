@@ -2,7 +2,7 @@
  * @Author: Eason
  * @Date: 2020-02-21 18:03:16
  * @Last Modified by: Eason
- * @Last Modified time: 2021-03-19 11:23:26
+ * @Last Modified time: 2021-12-17 11:15:32
  */
 import { base } from '../../public/app.config.json';
 
@@ -67,6 +67,7 @@ const RETURN_RESULT_UI_COMPONENT = {
 };
 
 const RULE_LIST_ACTION = {
+  VIEW: 'VIEW',
   EDIT: 'EDIT',
   DELETE: 'DELETE',
   SETTING: 'SETTING',

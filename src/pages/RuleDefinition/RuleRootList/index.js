@@ -84,6 +84,29 @@ class RuleRootList extends Component {
         currentRuleRoot,
       },
     });
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        onlyView: false,
+      },
+    });
+  };
+
+  view = currentRuleRoot => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleRootNode/updateState',
+      payload: {
+        showRuleLegend: true,
+        currentRuleRoot,
+      },
+    });
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        onlyView: true,
+      },
+    });
   };
 
   set = currentRuleRoot => {
@@ -235,6 +258,9 @@ class RuleRootList extends Component {
     switch (key) {
       case RULE_LIST_ACTION.EDIT:
         this.edit(rowData);
+        break;
+      case RULE_LIST_ACTION.VIEW:
+        this.view(rowData);
         break;
       case RULE_LIST_ACTION.DELETE:
         this.delConfirm(rowData);

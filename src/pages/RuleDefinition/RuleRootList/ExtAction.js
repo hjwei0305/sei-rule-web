@@ -18,6 +18,11 @@ const menuData = () => [
     disabled: false,
   },
   {
+    title: '显示规则',
+    key: RULE_LIST_ACTION.VIEW,
+    disabled: false,
+  },
+  {
     title: '设置规则',
     key: RULE_LIST_ACTION.SETTING,
     disabled: false,

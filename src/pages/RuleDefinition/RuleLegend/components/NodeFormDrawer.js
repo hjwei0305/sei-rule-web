@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cls from 'classnames';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
-import { Button, Drawer } from 'antd';
+import { Button, Card } from 'antd';
 import { ScrollBar } from 'suid';
 import NodeForm from './NodeForm';
 import styles from './NodeFormDrawer.less';
@@ -57,7 +57,7 @@ class NodeFormDrawer extends Component {
   };
 
   render() {
-    const { showNodeFormDrawer, onlyView, nodeData, save, ruleType } = this.props;
+    const { onlyView, nodeData, save, ruleType } = this.props;
     const title = get(nodeData, 'id') ? '修改规则' : '新建规则';
     const nodeFormProps = {
       ruleType,
@@ -68,16 +68,10 @@ class NodeFormDrawer extends Component {
       onFormRef: this.handlerFormRef,
     };
     return (
-      <Drawer
-        width={460}
-        destroyOnClose
-        getContainer={false}
-        placement="right"
-        visible={showNodeFormDrawer}
+      <Card
+        bordered={false}
         title={onlyView ? '规则详情' : title}
         className={cls(styles['node-form-drawer-box'])}
-        onClose={this.handlerClose}
-        style={{ position: 'absolute' }}
       >
         <div className={cls('box', { 'only-view': onlyView })}>
           <div className="box-body">
@@ -87,7 +81,7 @@ class NodeFormDrawer extends Component {
           </div>
           <div className="box-foot">{this.renderFooterBtn()}</div>
         </div>
-      </Drawer>
+      </Card>
     );
   }
 }

@@ -1,14 +1,27 @@
 const WRAPPER_CLASS_NAME = 'node-wrapper';
 const WRAPPER_STROKE = 'rgba(0, 0, 0, 0.1)';
 
+const nameText = text => {
+  if (text.length <= 12) {
+    return { rowCount: 1, nameTitle: text };
+  }
+  const row1 = text.substr(0, 12);
+  const row2 = text.substr(12, text.length);
+  return {
+    rowCount: 2,
+    nameTitle: `${row1}\r\n${row2.length > 12 ? `${row2.substr(0, 12)}...` : row2}`,
+  };
+};
+
 export default G6 => {
   G6.registerNode(
     'mind-node',
     {
       draw(cfg, group) {
         const { name = '', rank, collapsed, parentId, trueNode, finished } = cfg;
+        const { rowCount, nameTitle } = nameText(name);
         const rectConfig = {
-          width: 160,
+          width: 202,
           height: 60,
           lineWidth: 1,
           fontSize: 14,
@@ -47,9 +60,9 @@ export default G6 => {
           attrs: {
             ...textConfig,
             x: 12 + nodeOrigin.x,
-            y: 20 + nodeOrigin.y,
-            text: name.length > 20 ? `${name.substr(0, 20)}...` : name,
-            fontSize: 14,
+            y: rowCount === 1 ? 26 + nodeOrigin.y : 32 + nodeOrigin.y,
+            text: nameTitle,
+            fontSize: 12,
             opacity: 0.85,
             fill: '#000',
           },

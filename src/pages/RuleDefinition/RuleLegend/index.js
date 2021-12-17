@@ -4,7 +4,7 @@ import { connect } from 'dva';
 import G6 from '@antv/g6';
 import cls from 'classnames';
 import insertCss from 'insert-css';
-import { Modal, Divider, Empty, Button } from 'antd';
+import { Modal, Divider, Empty, Button, Layout } from 'antd';
 import { utils, ExtIcon, BannerTitle, PageLoader } from 'suid';
 import empty_data from '@/assets/empty_data_02.svg';
 import registerNode from './shape/mindNode';
@@ -37,18 +37,8 @@ const getContextMenuData = () => [
     disabled: false,
   },
   {
-    name: '修改规则',
-    code: 'edit',
-    disabled: false,
-  },
-  {
     name: '删除规则',
     code: 'delete',
-    disabled: false,
-  },
-  {
-    name: '规则详情',
-    code: 'view',
     disabled: false,
   },
   {
@@ -57,6 +47,7 @@ const getContextMenuData = () => [
     disabled: false,
   },
 ];
+const { Sider, Content } = Layout;
 const { getUUID } = utils;
 const DELTA = 0.05;
 @connect(({ ruleLegend, loading }) => ({
@@ -126,7 +117,6 @@ class RuleLegend extends Component {
         nodeData: null,
         onlyView: false,
         needReload: false,
-        showNodeFormDrawer: false,
         showNodeExpression: false,
         nodeExpressions: [],
       },
@@ -375,12 +365,6 @@ class RuleLegend extends Component {
           case 'addSubRule':
             this.handlerAddNode(nodeData);
             break;
-          case 'view':
-            this.handlerViewNode(nodeData);
-            break;
-          case 'edit':
-            this.handlerEditNode(nodeData);
-            break;
           case 'delete':
             this.handlerDeleteNode(nodeData);
             break;
@@ -479,6 +463,10 @@ class RuleLegend extends Component {
         const item = nodes[0];
         graph.setItemState(item, 'selected', true);
         this.showNodePath(item, 'selected');
+        const nodeData = item.getModel();
+        this.handlerEditNode(nodeData);
+      } else {
+        this.closeNodeForm();
       }
     });
     this.graph = graph;
@@ -541,7 +529,6 @@ class RuleLegend extends Component {
     dispatch({
       type: 'ruleLegend/updateState',
       payload: {
-        showNodeFormDrawer: true,
         nodeData: newChildNode,
       },
     });
@@ -552,19 +539,6 @@ class RuleLegend extends Component {
     dispatch({
       type: 'ruleLegend/updateState',
       payload: {
-        showNodeFormDrawer: true,
-        nodeData,
-      },
-    });
-  };
-
-  handlerViewNode = nodeData => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'ruleLegend/updateState',
-      payload: {
-        onlyView: true,
-        showNodeFormDrawer: true,
         nodeData,
       },
     });
@@ -639,8 +613,18 @@ class RuleLegend extends Component {
       payload: {
         onlyView: false,
         showNodeExpression: false,
-        showNodeFormDrawer: false,
         nodeData: null,
+        nodeExpressions: [],
+      },
+    });
+  };
+
+  closeNodeExpressionForm = () => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'ruleLegend/updateState',
+      payload: {
+        showNodeExpression: false,
         nodeExpressions: [],
       },
     });
@@ -655,7 +639,6 @@ class RuleLegend extends Component {
       },
       callback: res => {
         if (res.success) {
-          this.closeNodeForm();
           this.getRuleTypeNodes();
         }
       },
@@ -671,7 +654,6 @@ class RuleLegend extends Component {
       },
       callback: res => {
         if (res.success) {
-          this.closeNodeForm();
           this.getRuleTypeNodes();
         }
       },
@@ -701,17 +683,9 @@ class RuleLegend extends Component {
 
   render() {
     const { ruleRoot, loading, ruleLegend } = this.props;
-    const {
-      showNodeFormDrawer,
-      showNodeExpression,
-      nodeExpressions,
-      nodeData,
-      onlyView,
-      ruleType,
-    } = ruleLegend;
+    const { showNodeExpression, nodeExpressions, nodeData, onlyView, ruleType } = ruleLegend;
     const nodeLoading = loading.effects['ruleLegend/getRuleTypeNodes'];
     const nodeFormDrawerProps = {
-      showNodeFormDrawer,
       nodeData,
       ruleRoot,
       ruleType,
@@ -724,7 +698,7 @@ class RuleLegend extends Component {
       showNodeExpression,
       nodeExpressions,
       nodeData,
-      closeNodeForm: this.closeNodeForm,
+      closeNodeForm: this.closeNodeExpressionForm,
       loading: loading.effects['ruleLegend/getNodeSynthesisExpressions'],
     };
     return (
@@ -791,14 +765,25 @@ class RuleLegend extends Component {
             </div>
           ) : null}
           {ruleRoot ? (
-            <>
-              <div
-                className="mind-box"
-                ref={node => (this.container = node)}
-                id={this.containerId}
-              />
-              <div className="minimap" id={this.minimapId} />
-            </>
+            <Layout className="auto-height">
+              <Content className={cls('main-content', 'auto-height')}>
+                <div
+                  className="mind-box"
+                  ref={node => (this.container = node)}
+                  id={this.containerId}
+                />
+                <div className="minimap" id={this.minimapId} />
+              </Content>
+              <Sider
+                collapsedWidth={0}
+                collapsed={!nodeData}
+                width={nodeData ? 460 : 0}
+                className="auto-height"
+                theme="light"
+              >
+                <NodeFormDrawer {...nodeFormDrawerProps} />
+              </Sider>
+            </Layout>
           ) : (
             <Empty image={empty_data} imageStyle={{ height: 220 }} description="暂无规则">
               <Button type="primary" onClick={this.handlerAddNode}>
@@ -807,12 +792,9 @@ class RuleLegend extends Component {
             </Empty>
           )}
         </div>
-        <NodeFormDrawer {...nodeFormDrawerProps} />
-        {showNodeExpression ? (
-          <Suspense fallback={<PageLoader />}>
-            <NodeExpression {...nodeExpressionProps} />
-          </Suspense>
-        ) : null}
+        <Suspense fallback={<PageLoader />}>
+          <NodeExpression {...nodeExpressionProps} />
+        </Suspense>
       </Modal>
     );
   }
