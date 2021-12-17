@@ -292,17 +292,23 @@ class RuleLegend extends Component {
   };
 
   renderContextMenu = nodeData => {
+    const { ruleLegend } = this.props;
+    const { onlyView } = ruleLegend;
     const contextMenuData = getContextMenuData();
+    let menuData = [...contextMenuData];
+    if (onlyView) {
+      menuData = menuData.filter(it => it.code === 'expression');
+    }
     const finished = get(nodeData, 'finished') || false;
     if (finished) {
-      contextMenuData.forEach(m => {
+      menuData.forEach(m => {
         if (m.code === 'addSubRule') {
           Object.assign(m, { disabled: true });
         }
       });
     }
-    const menuData = contextMenuData.filter(m => m.disabled === false);
     return menuData
+      .filter(m => m.disabled === false)
       .map(m => {
         return `<li class="ant-menu-item" code="${m.code}">${m.name}</li>`;
       })
