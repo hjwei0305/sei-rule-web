@@ -28,22 +28,7 @@ const formItemInlineLayout = {
   },
 };
 
-@Form.create({
-  mapPropsToFields(props) {
-    const { nodeData } = props;
-    return {
-      name: Form.createFormField({
-        value: get(nodeData, 'name'),
-      }),
-      rank: Form.createFormField({
-        value: get(nodeData, 'rank') || 0,
-      }),
-      enabled: Form.createFormField({
-        value: get(nodeData, 'enabled') || true,
-      }),
-    };
-  },
-})
+@Form.create()
 class NodeForm extends Component {
   static finishedConfigFormRef;
 
@@ -71,10 +56,11 @@ class NodeForm extends Component {
   }
 
   componentDidUpdate(preProps) {
-    const { nodeData } = this.props;
+    const { nodeData, form } = this.props;
     if (!isEqual(preProps.nodeData, nodeData)) {
       this.expressItemFormRefs = null;
       this.returnResultItemFormRefs = null;
+      form.resetFields();
       this.setState({ nodeData });
     }
   }
@@ -156,8 +142,9 @@ class NodeForm extends Component {
         nodeReturnResults,
       });
       Object.assign(params, formData);
-      this.setState({ nodeData: params });
-      save(params);
+      this.setState({ nodeData: params }, () => {
+        save(params);
+      });
     });
   };
 
