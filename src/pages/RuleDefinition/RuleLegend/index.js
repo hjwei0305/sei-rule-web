@@ -770,33 +770,35 @@ class RuleLegend extends Component {
               <PageLoader />
             </div>
           ) : null}
-          {ruleRoot ? (
-            <Layout className="auto-height">
-              <Content className={cls('main-content', 'auto-height')}>
-                <div
-                  className="mind-box"
-                  ref={node => (this.container = node)}
-                  id={this.containerId}
-                />
-                <div className="minimap" id={this.minimapId} />
-              </Content>
-              <Sider
-                collapsedWidth={0}
-                collapsed={!nodeData}
-                width={nodeData ? 460 : 0}
-                className="auto-height"
-                theme="light"
-              >
-                <NodeFormDrawer {...nodeFormDrawerProps} />
-              </Sider>
-            </Layout>
-          ) : (
-            <Empty image={empty_data} imageStyle={{ height: 220 }} description="暂无规则">
-              <Button type="primary" onClick={this.handlerAddNode}>
-                新建规则
-              </Button>
-            </Empty>
-          )}
+          <Layout className="auto-height">
+            <Content className={cls('main-content', 'auto-height')}>
+              {ruleRoot ? (
+                <>
+                  <div
+                    className="mind-box"
+                    ref={node => (this.container = node)}
+                    id={this.containerId}
+                  />
+                  <div className="minimap" id={this.minimapId} />
+                </>
+              ) : (
+                <Empty image={empty_data} imageStyle={{ height: 220 }} description="暂无规则">
+                  <Button type="primary" onClick={() => this.handlerAddNode()}>
+                    新建规则
+                  </Button>
+                </Empty>
+              )}
+            </Content>
+            <Sider
+              collapsedWidth={0}
+              collapsed={!nodeData}
+              width={nodeData ? 460 : 0}
+              className="auto-height"
+              theme="light"
+            >
+              <NodeFormDrawer {...nodeFormDrawerProps} />
+            </Sider>
+          </Layout>
         </div>
         <Suspense fallback={<PageLoader />}>
           <NodeExpression {...nodeExpressionProps} />
