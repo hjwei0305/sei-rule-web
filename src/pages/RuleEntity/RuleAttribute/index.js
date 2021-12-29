@@ -219,6 +219,8 @@ class RuleAttribute extends Component {
       toolBar: toolBarProps,
       columns,
       searchWidth: 260,
+      lineNumber: false,
+      allowCustomColumns: false,
       searchPlaceHolder: '输入属性名、属性描述',
       searchProperties: ['attribute', 'name'],
       onTableRef: ref => (this.tablRef = ref),

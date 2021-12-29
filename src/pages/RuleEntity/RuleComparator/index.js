@@ -194,6 +194,8 @@ class RuleComparator extends Component {
       toolBar: toolBarProps,
       columns,
       searchWidth: 260,
+      lineNumber: false,
+      allowCustomColumns: false,
       searchPlaceHolder: '输入方法名、名称关键字',
       searchProperties: ['method', 'name'],
       onTableRef: ref => (this.tablRef = ref),

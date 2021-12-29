@@ -154,7 +154,7 @@ class RuleReturnType extends Component {
       {
         title: '代码',
         dataIndex: 'code',
-        width: 180,
+        width: 380,
         required: true,
       },
       {
@@ -200,6 +200,8 @@ class RuleReturnType extends Component {
       toolBar: toolBarProps,
       columns,
       searchWidth: 260,
+      lineNumber: false,
+      allowCustomColumns: false,
       searchPlaceHolder: '输入代码、名称关键字',
       searchProperties: ['code', 'name'],
       onTableRef: ref => (this.tablRef = ref),
