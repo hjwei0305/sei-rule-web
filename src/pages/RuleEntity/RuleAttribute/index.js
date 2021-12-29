@@ -154,7 +154,7 @@ class RuleAttribute extends Component {
       {
         title: '属性名',
         dataIndex: 'attribute',
-        width: 180,
+        width: 320,
         required: true,
       },
       {
