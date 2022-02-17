@@ -3,7 +3,7 @@ import cls from 'classnames';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import { Button, Card } from 'antd';
-import { ScrollBar } from 'suid';
+import { ExtIcon, ScrollBar } from 'suid';
 import NodeForm from './NodeForm';
 import styles from './NodeFormDrawer.less';
 
@@ -72,6 +72,7 @@ class NodeFormDrawer extends Component {
         bordered={false}
         title={onlyView ? '规则详情' : title}
         className={cls(styles['node-form-drawer-box'])}
+        extra={<ExtIcon className="btn-close" type="close" onClick={this.handlerClose} antd />}
       >
         <div className={cls('box', { 'only-view': onlyView })}>
           <div className="box-body">

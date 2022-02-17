@@ -115,7 +115,6 @@ class RuleLegend extends Component {
         ruleType: null,
         ruleTypeNodes: {},
         nodeData: null,
-        onlyView: false,
         needReload: false,
         showNodeExpression: false,
         nodeExpressions: [],
@@ -619,7 +618,6 @@ class RuleLegend extends Component {
     dispatch({
       type: 'ruleLegend/updateState',
       payload: {
-        onlyView: false,
         showNodeExpression: false,
         nodeData: null,
         nodeExpressions: [],
