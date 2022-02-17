@@ -319,6 +319,8 @@ class RuleLegend extends Component {
     if (!data) {
       return;
     }
+    const { ruleLegend } = this.props;
+    const { onlyView } = ruleLegend;
     const grid = new G6.Grid();
     const tooltip = new G6.Tooltip({
       offsetX: 20,
@@ -471,7 +473,7 @@ class RuleLegend extends Component {
         this.showNodePath(item, 'selected');
         const nodeData = item.getModel();
         this.handlerEditNode(nodeData);
-      } else {
+      } else if (onlyView) {
         this.closeNodeForm();
       }
     });
