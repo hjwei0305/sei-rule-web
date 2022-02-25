@@ -1,0 +1,35 @@
+@import '../../themes/vars.less';
+
+.container-box {
+  position: relative;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-color: @page-background-color;
+
+  :global {
+    .tasks-wrapper {
+      max-width: 800px;
+      min-width: 580px;
+      height: 100%;
+      margin: 0 auto;
+
+      .ant-page-header {
+        height: 100%;
+
+        .ant-page-header-content {
+          height: ~'calc(100% - 32px)';
+        }
+
+        .ant-card {
+          margin: 8px 0;
+          border-radius: 4px;
+
+          .ant-card-meta-description {
+            color: rgba(0, 0, 0, 0.65);
+          }
+        }
+      }
+    }
+  }
+}

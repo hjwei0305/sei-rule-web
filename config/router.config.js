@@ -19,6 +19,7 @@ export default [
         routes: [
           { path: '/rule/entityConfig', name: '规则主体', component: './RuleEntity' },
           { path: '/rule/definition', name: '规则定义', component: './RuleDefinition' },
+          { path: '/rule/initialization', name: '应用初始化', component: './Initialization' },
         ],
       },
     ],
