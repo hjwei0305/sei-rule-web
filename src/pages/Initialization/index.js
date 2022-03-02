@@ -29,7 +29,9 @@ class Initialization extends Component {
           if (res.success) {
             if (this.doTaskIndex < taskIds.length - 1) {
               this.doTaskIndex += 1;
-              this.doTask(taskIds[this.doTaskIndex], taskIds);
+              setTimeout(() => {
+                this.doTask(taskIds[this.doTaskIndex], taskIds);
+              }, 1000);
             } else {
               this.setState({performTaskLoading: false});
             }
